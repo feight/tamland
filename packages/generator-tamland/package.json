@@ -1,5 +1,5 @@
 {
-  "name": "generator-tamland",
+  "name": "@tamland/generator-tamland",
   "version": "0.0.1",
   "description": "Yeoman generator for the Tamland framework",
   "main": "lib",

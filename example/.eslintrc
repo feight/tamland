@@ -1,7 +1,0 @@
-{
-  "extends": "@tamland",
-  "rules": {
-    "react-native/no-raw-text": "off",
-    "lean-imports/import": "off"
-  }
-}
