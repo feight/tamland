@@ -30,9 +30,9 @@ class AppGenerator extends Generator{
     writing(){
 
         const project = String(this.answers.project)
-        .toLowerCase()
         .replace(/\s\s+/gu, " ")
-        .replace(/[^a-zA-Z0-9]/gu, "-")
+        .replace(/\s/gu, "-")
+        .replace(/[^a-zA-Z0-9.-_]/gu, "-")
         .replace(/--+/gu, "-");
 
         this.destinationRoot(project);

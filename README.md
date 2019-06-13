@@ -1,7 +1,20 @@
 # tamland
 
-A framework for creating Progressive Web Apps and deploying them to
-Google App Engine.
+<h1 align="center">
+  <img
+    src="https://raw.githubusercontent.com/smooth-code/loadable-components/master/resources/brick.jpeg"
+    alt="tamland"
+    title="tamland"
+    width="300"
+  >
+</h1>
+
+<p align="center" style="font-size: 1.2rem;">
+  A framework for creating Progressive Web Apps and deploying them to
+  Google App Engine.
+</p>
+
+[![License](https://img.shields.io/npm/l/@loadable/component.svg)](https://github.com/feight/tamland/blob/master/LICENSE)
 
 ## Features
 
@@ -35,6 +48,18 @@ You'll be prompted for a project name. This name will be used to create a new fo
 The project will be installed in this folder.
 
 ## Usage
+
+After installation, cd into the new folder
+
+  ```sh
+  cd new-project-name
+  ```
+
+Run the setup to install all the dependencies for working with Google App Engine
+
+  ```sh
+  npm run setup
+  ```
 
 ## Local development
 

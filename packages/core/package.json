@@ -1,6 +1,6 @@
 {
   "name": "@tamland/core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Node.js SSR application framework",
   "main": "lib",
   "types": "lib",
@@ -49,6 +49,7 @@
     "@loadable/component": "^5.10.1",
     "@loadable/server": "^5.9.0",
     "@types/react-helmet": "^5.0.8",
+    "@types/webpack-env": "^1.13.9",
     "apollo-client": "^2.6.2",
     "body-parser": "^1.19.0",
     "common-tags": "^1.8.0",
@@ -108,7 +109,6 @@
     "@types/react-router-dom": "^4.3.3",
     "@types/react-test-renderer": "^16.8.1",
     "@types/webpack-dev-middleware": "^2.0.2",
-    "@types/webpack-env": "^1.13.9",
     "@types/webpack-hot-middleware": "^2.16.5",
     "babel-tape-runner": "^3.0.0",
     "renamer": "^1.1.2",

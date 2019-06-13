@@ -3,7 +3,7 @@
   "name": "generator-tamland-template-web",
   "version": "1.0.0",
   "dependencies": {
-    "@tamland/core": "0.0.2",
+    "@tamland/core": "0.0.3",
     "react": "^16.8.6"
   }
 }
