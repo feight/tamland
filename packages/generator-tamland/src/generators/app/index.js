@@ -5,41 +5,46 @@ import Generator from "yeoman-generator";
 
 class AppGenerator extends Generator{
 
-    constructor(args, options){
-
-        super(args, options);
-
-        this.argument("project", {
-            required: true,
-            type: String
-        });
-
-    }
-
     install(){
 
-        this.yarnInstall();
+        this.npmInstall();
 
-        this.spawnCommand("yarn", ["install"], {
+        this.spawnCommand("npm", ["install"], {
             cwd: "src/web"
         });
 
     }
 
+    async prompting(){
+
+        this.answers = await this.prompt([
+            {
+                message: "Your project name",
+                name: "project",
+                type: "input"
+            }
+        ]);
+
+    }
+
     writing(){
 
+        const project = String(this.answers.project)
+        .toLowerCase()
+        .replace(/\s\s+/gu, " ")
+        .replace(/[^a-zA-Z0-9]/gu, "-")
+        .replace(/--+/gu, "-");
+
+        this.destinationRoot(project);
+
         const params = {
-            project: this.options.project
+            project
         };
 
         [
             [
                 "./src",
                 "./src"
-            ],
-            [
-                "./setup",
-                "./setup"
             ],
             [
                 "./vscode",

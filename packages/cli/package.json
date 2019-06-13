@@ -1,6 +1,6 @@
 {
   "name": "@tamland/cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Collection of tools, presets and shared configs for @tamland's projects",
   "main": "lib/index",
   "sideEffects": false,
@@ -12,7 +12,9 @@
     "build:script:module": "BUILD_MJS=1 npm run build:script:common && renamer --find js --replace mjs \"lib/**\"",
     "lint": "eslint src --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts",
     "prelint": "npm run build",
-    "prepublishOnly": "npm run lint"
+    "prepublishOnly": "npm run test",
+    "pretest": "npm run lint",
+    "test": "echo 'no tests found'"
   },
   "browserslist": "node 8",
   "engines": {
@@ -40,7 +42,7 @@
     "@tamland/logger": "^0.0.2",
     "@tamland/postcss-config": "0.0.1",
     "@tamland/stylelint": "^0.0.1",
-    "@tamland/webpack-config": "^0.0.1",
+    "@tamland/webpack-config": "^0.0.2",
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
     "filesize": "^4.1.2",
@@ -67,7 +69,7 @@
     "through2": "^3.0.1",
     "touch": "^3.1.0",
     "typescript": "^3.5.1",
-    "webpack": "^4.33.0",
+    "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4",
     "webpack-dev-server": "^3.7.1"
   },

@@ -46,7 +46,7 @@ const optimize = async function(globalConfig){
 
     if(savings.length > 0){
 
-        const saved = filesize(savings.reduce((acc, cur) => cur + acc));
+        const saved = filesize(savings.reduce((acc, cur) => Number(cur) + Number(acc)));
 
         logger.log(`Saved a total of ${ chalk.hex("#00ff00")(saved) }`, { label });
 

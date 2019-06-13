@@ -21,7 +21,7 @@ const config = {
                     errors: errorFile.warnings.map((error) => ({
                         column: error.column,
                         file: errorFile.source,
-                        line: error.line + 1,
+                        line: Number(error.line) + 1,
                         message: error.text
                     })),
                     filePath: errorFile.source

@@ -46,7 +46,7 @@ const lintJs = gulpUtils.task((paths, watching) => {
                 errors: errorFile.messages.map((error) => ({
                     column: error.column,
                     file: errorFile.filePath,
-                    line: error.line + 1,
+                    line: Number(error.line) + 1,
                     message: `${ error.message } (${ error.ruleId })`
                 })),
                 filePath: errorFile.filePath

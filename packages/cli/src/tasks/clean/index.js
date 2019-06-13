@@ -39,7 +39,7 @@ const clean = task(label, (config, options) => {
         path.join(config.cwd, `src/${ platform }/dist`)
     ];
 
-    paths.sort();
+    paths.sort((pathA, pathB) => pathA.localeCompare(pathB));
 
     return Promise.all(paths.map((pth) => remove(pth)));
 

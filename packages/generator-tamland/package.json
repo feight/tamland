@@ -41,7 +41,7 @@
   ],
   "homepage": "https://github.com/feight/tamland/tree/master/packages/generator-tamland#readme",
   "files": [
-    "app"
+    "generators"
   ],
   "devDependencies": {
     "@tamland/babel": "^0.0.3",

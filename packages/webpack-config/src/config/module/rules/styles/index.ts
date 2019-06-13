@@ -46,8 +46,9 @@ export default function configuration(
                         {
                             loader: "css-loader",
                             options: {
-                                localIdentName: `[hash:base64:${ options.hashLength }]`,
-                                modules: true,
+                                modules: {
+                                    localIdentName: `[hash:base64:${ options.hashLength }]`
+                                },
                                 sourceMap: true
                             }
                         },
