@@ -15,7 +15,11 @@
   Google App Engine.
 </p>
 
-[![License](https://img.shields.io/npm/l/@loadable/component.svg)](https://github.com/feight/tamland/blob/master/LICENSE)
+<div align="center">
+
+  [![License](https://img.shields.io/npm/l/@loadable/component.svg)](https://github.com/feight/tamland/blob/master/LICENSE)
+
+</div>
 
 <br>
 
