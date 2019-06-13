@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <img
-    src="https://raw.githubusercontent.com/smooth-code/loadable-components/master/resources/brick.jpeg"
+    src="https://raw.githubusercontent.com/feight/tamland/master/resources/brick.jpeg"
     alt="tamland"
     title="tamland"
     width="300"
