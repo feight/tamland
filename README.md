@@ -1,4 +1,5 @@
-# tamland
+
+<h1 align="center">tamland</h1>
 
 <h1 align="center">
   <img
@@ -15,6 +16,8 @@
 </p>
 
 [![License](https://img.shields.io/npm/l/@loadable/component.svg)](https://github.com/feight/tamland/blob/master/LICENSE)
+
+<br>
 
 ## Features
 
