@@ -1,6 +1,10 @@
 # @tamland/imagemin
 
-[![npm version](https://badge.fury.io/js/%40tamland%2Fimagemin.svg)](https://badge.fury.io/js/%40tamland%2Fimagemin)
+[![License](https://img.shields.io/npm/l/@tamland/imagemin.svg)](https://github.com/feight/tamland/blob/master/LICENSE)
+[![npm package](https://img.shields.io/npm/v/@tamland/imagemin/latest.svg)](https://www.npmjs.com/package/@tamland/imagemin)
+[![npm downloads](https://img.shields.io/npm/dm/@tamland/imagemin.svg)](https://www.npmjs.com/package/@tamland/imagemin)
+[![Dependencies](https://img.shields.io/david/feight/tamland.svg?path=packages%2Fimagemin)](https://david-dm.org/feight/tamland?path=packages/imagemin)
+[![DevDependencies](https://img.shields.io/david/feight/tamland.svg?path=packages%2Fimagemin)](https://david-dm.org/feight/tamland?type=dev&path=packages/imagemin)
 
 This package provides a shared config for imagemin and several of its plugins.
 

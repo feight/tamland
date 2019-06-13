@@ -1,6 +1,10 @@
 # @tamland/eslint-config
 
-[![npm version](https://badge.fury.io/js/%40tamland%2Feslint-config.svg)](https://badge.fury.io/js/%40tamland%2Feslint-config)
+[![License](https://img.shields.io/npm/l/@tamland/eslint-config.svg)](https://github.com/feight/tamland/blob/master/LICENSE)
+[![npm package](https://img.shields.io/npm/v/@tamland/eslint-config/latest.svg)](https://www.npmjs.com/package/@tamland/eslint-config)
+[![npm downloads](https://img.shields.io/npm/dm/@tamland/eslint-config.svg)](https://www.npmjs.com/package/@tamland/eslint-config)
+[![Dependencies](https://img.shields.io/david/feight/tamland.svg?path=packages%2Feslint-config)](https://david-dm.org/feight/tamland?path=packages/eslint-config)
+[![DevDependencies](https://img.shields.io/david/feight/tamland.svg?path=packages%2Feslint-config)](https://david-dm.org/feight/tamland?type=dev&path=packages/eslint-config)
 
 This package provides a shared config for eslint and several of its plugins.
 

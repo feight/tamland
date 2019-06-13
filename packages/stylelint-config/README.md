@@ -1,6 +1,10 @@
 # @tamland/stylelint-config
 
-[![npm version](https://badge.fury.io/js/%40tamland%2Fstylelint-config.svg)](https://badge.fury.io/js/%40tamland%2Fstylelint-config)
+[![License](https://img.shields.io/npm/l/@tamland/stylelint-config.svg)](https://github.com/feight/tamland/blob/master/LICENSE)
+[![npm package](https://img.shields.io/npm/v/@tamland/stylelint-config/latest.svg)](https://www.npmjs.com/package/@tamland/stylelint-config)
+[![npm downloads](https://img.shields.io/npm/dm/@tamland/stylelint-config.svg)](https://www.npmjs.com/package/@tamland/stylelint-config)
+[![Dependencies](https://img.shields.io/david/feight/tamland.svg?path=packages%2Fstylelint-config)](https://david-dm.org/feight/tamland?path=packages/stylelint-config)
+[![DevDependencies](https://img.shields.io/david/feight/tamland.svg?path=packages%2Fstylelint-config)](https://david-dm.org/feight/tamland?type=dev&path=packages/stylelint-config)
 
 This package provides a shared config for stylelint and several of its plugins.
 
