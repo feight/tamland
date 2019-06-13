@@ -28,6 +28,9 @@
     }
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/feight/tamland/issues"
   },
@@ -39,6 +42,10 @@
     "@tamland"
   ],
   "homepage": "https://github.com/feight/tamland/tree/master/packages/stylelint-config#readme",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {},
   "devDependencies": {
     "@tamland/babel": "^0.0.3",
     "@tamland/eslint": "^0.0.1",
@@ -67,6 +74,5 @@
     "stylelint-scss": "^3.8.0",
     "stylelint-selector-tag-no-without-class": "^2.0.0",
     "stylelint-use-nesting": "^1.2.1"
-  },
-  "dependencies": {}
+  }
 }

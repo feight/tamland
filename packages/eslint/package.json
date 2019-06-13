@@ -18,6 +18,9 @@
     }
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/feight/tamland/issues"
   },
@@ -26,6 +29,7 @@
     "@tamland"
   ],
   "homepage": "https://github.com/feight/tamland/tree/master/packages/eslint#readme",
+  "files": [],
   "dependencies": {
     "@tamland/eslint-config": "^0.0.1",
     "@typescript-eslint/eslint-plugin": "^1.10.2",

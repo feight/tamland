@@ -18,6 +18,9 @@
     }
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/feight/tamland/issues"
   },
@@ -26,6 +29,7 @@
     "@tamland"
   ],
   "homepage": "https://github.com/feight/tamland/tree/master/packages/stylelint#readme",
+  "files": [],
   "dependencies": {
     "@tamland/stylelint-config": "0.0.1",
     "stylelint": "^10.1.0",

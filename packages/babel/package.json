@@ -18,6 +18,9 @@
     }
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/feight/tamland/issues"
   },
@@ -26,6 +29,7 @@
     "@tamland"
   ],
   "homepage": "https://github.com/feight/tamland/tree/master/packages/babel#readme",
+  "files": [],
   "dependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",

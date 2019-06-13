@@ -31,10 +31,16 @@
     }
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/feight/tamland/issues"
   },
   "homepage": "https://github.com/feight/tamland/tree/master/packages/webpack-config#readme",
+  "files": [
+    "lib"
+  ],
   "dependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@loadable/babel-plugin": "^5.10.0",

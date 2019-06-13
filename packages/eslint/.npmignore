@@ -1,8 +1,0 @@
-.DS_Store
-.eslintignore
-.huskyrc
-README.md
-tsconfig.tsbuildinfo
-yarn.lock
-yarn-error.log
-package-lock.json

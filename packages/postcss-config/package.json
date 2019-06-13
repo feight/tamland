@@ -27,6 +27,9 @@
     }
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/feight/tamland/issues"
   },
@@ -37,12 +40,9 @@
     "@tamland"
   ],
   "homepage": "https://github.com/feight/tamland/tree/master/packages/postcss-config#readme",
-  "devDependencies": {
-    "@tamland/babel": "^0.0.3",
-    "@tamland/eslint": "^0.0.1",
-    "babel-tape-runner": "^3.0.0",
-    "tape": "^4.10.2"
-  },
+  "files": [
+    "lib"
+  ],
   "dependencies": {
     "autoprefixer": "^9.6.0",
     "postcss-calc": "^7.0.1",
@@ -67,5 +67,11 @@
     "postcss-preset-env": "^6.6.0",
     "postcss-reduce-initial": "^4.0.3",
     "postcss-reduce-transforms": "^4.0.2"
+  },
+  "devDependencies": {
+    "@tamland/babel": "^0.0.3",
+    "@tamland/eslint": "^0.0.1",
+    "babel-tape-runner": "^3.0.0",
+    "tape": "^4.10.2"
   }
 }

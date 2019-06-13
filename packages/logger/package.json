@@ -26,6 +26,9 @@
     }
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/feight/tamland/issues"
   },
@@ -34,12 +37,9 @@
     "@tamland"
   ],
   "homepage": "https://github.com/feight/tamland/tree/master/packages/logger#readme",
-  "devDependencies": {
-    "@tamland/babel": "^0.0.3",
-    "@tamland/eslint": "^0.0.1",
-    "babel-tape-runner": "^3.0.0",
-    "tape": "^4.10.2"
-  },
+  "files": [
+    "lib"
+  ],
   "dependencies": {
     "chalk": "^2.4.2",
     "codeframe": "^0.0.1",
@@ -50,5 +50,11 @@
     "strip-color": "^0.1.0",
     "text-table": "^0.2.0",
     "through2": "^3.0.1"
+  },
+  "devDependencies": {
+    "@tamland/babel": "^0.0.3",
+    "@tamland/eslint": "^0.0.1",
+    "babel-tape-runner": "^3.0.0",
+    "tape": "^4.10.2"
   }
 }

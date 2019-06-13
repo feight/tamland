@@ -25,6 +25,9 @@
     }
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/feight/tamland/issues"
   },
@@ -33,6 +36,9 @@
     "@tamland"
   ],
   "homepage": "https://github.com/feight/tamland/tree/master/packages/babel-preset#readme",
+  "files": [
+    "lib"
+  ],
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.4.4",

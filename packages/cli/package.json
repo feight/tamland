@@ -29,10 +29,16 @@
   },
   "author": "News Team (https://www.newsteam.co.za)",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/feight/tamland/issues"
   },
   "homepage": "https://github.com/feight/tamland/tree/master#readme",
+  "files": [
+    "lib"
+  ],
   "dependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/polyfill": "^7.4.4",
