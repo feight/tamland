@@ -1,0 +1,9 @@
+{
+  "license": "UNLICENSED",
+  "name": "generator-tamland-template-web",
+  "version": "1.0.0",
+  "dependencies": {
+    "@tamland/core": "0.0.2",
+    "react": "^16.8.6"
+  }
+}

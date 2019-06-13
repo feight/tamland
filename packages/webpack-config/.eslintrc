@@ -1,0 +1,6 @@
+{
+  "extends": "@tamland",
+  "rules": {
+    "no-process-env": "off"
+  }
+}

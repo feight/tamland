@@ -1,0 +1,54 @@
+{
+  "name": "@tamland/logger",
+  "version": "0.0.2",
+  "description": "Logger for tamland tasks",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rm -rf lib && babel src --config-file --out-dir lib",
+    "lint": "eslint src test --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts",
+    "prelint": "npm run build",
+    "prepublishOnly": "npm run test",
+    "pretest": "npm run lint",
+    "test": "babel-tape-runner ./test/*.js"
+  },
+  "engines": {
+    "node": ">= 8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feight/tamland"
+  },
+  "author": "News Team (https://www.newsteam.co.za)",
+  "contributors": [
+    {
+      "name": "Peter Bodechtel",
+      "url": "https://www.sweetlikepete.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/feight/tamland/issues"
+  },
+  "keywords": [
+    "tamland",
+    "@tamland"
+  ],
+  "homepage": "https://github.com/feight/tamland/tree/master/packages/logger#readme",
+  "devDependencies": {
+    "@tamland/babel": "^0.0.3",
+    "@tamland/eslint": "^0.0.1",
+    "babel-tape-runner": "^3.0.0",
+    "tape": "^4.10.2"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "codeframe": "^0.0.1",
+    "get-cursor-position": "^1.0.5",
+    "justify-text": "^1.0.1",
+    "node-pty": "^0.8.1",
+    "strip-ansi": "^5.2.0",
+    "strip-color": "^0.1.0",
+    "text-table": "^0.2.0",
+    "through2": "^3.0.1"
+  }
+}

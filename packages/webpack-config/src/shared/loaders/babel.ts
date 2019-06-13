@@ -1,0 +1,46 @@
+
+
+import {
+    Configuration,
+    NewLoader
+} from "webpack";
+
+import { Options } from "../..";
+
+
+export default function loader(
+    config: Configuration,
+    options: Options
+): NewLoader{
+
+    /*
+     * This loader transpiles JavaScript files using Babel.
+     *
+     * https://github.com/babel/babel-loader
+     */
+    return {
+        loader: "babel-loader",
+        options: {
+            babelrc: false,
+
+            /*
+             * Leave comments in the transpiled code. This is important because
+             * webpack uses comment to resolve dynamic imports.
+             */
+            comments: true,
+            presets: [
+                [
+                    "@tamland/babel-preset",
+                    {
+                        development: options.mode === "development",
+                        modules: options.target === "client" ? false : "auto",
+                        targets: {
+                            esmodules: true
+                        }
+                    }
+                ]
+            ]
+        }
+    };
+
+}

@@ -1,0 +1,77 @@
+{
+  "name": "@tamland/cli",
+  "version": "0.0.1",
+  "description": "Collection of tools, presets and shared configs for @tamland's projects",
+  "main": "lib/index",
+  "sideEffects": false,
+  "scripts": {
+    "build": "rm -rf lib && npm run build:script",
+    "build:script": "npm run build:script:module && npm run build:script:common && npm run build:script:cli",
+    "build:script:cli": "BUILD_SHEBANG=1 babel src/cli --out-dir lib/cli --extensions '.js,.ts'",
+    "build:script:common": "babel src --ignore src/cli --out-dir lib --extensions '.js,.ts'",
+    "build:script:module": "BUILD_MJS=1 npm run build:script:common && renamer --find js --replace mjs \"lib/**\"",
+    "lint": "eslint src --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts",
+    "prelint": "npm run build",
+    "prepublishOnly": "npm run lint"
+  },
+  "browserslist": "node 8",
+  "engines": {
+    "node": ">= 8"
+  },
+  "bin": {
+    "tamland": "./lib/cli/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feight/tamland.git"
+  },
+  "author": "News Team (https://www.newsteam.co.za)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/feight/tamland/issues"
+  },
+  "homepage": "https://github.com/feight/tamland/tree/master#readme",
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/polyfill": "^7.4.4",
+    "@tamland/babel": "^0.0.3",
+    "@tamland/eslint": "^0.0.1",
+    "@tamland/imagemin": "^0.0.1",
+    "@tamland/logger": "^0.0.2",
+    "@tamland/postcss-config": "0.0.1",
+    "@tamland/stylelint": "^0.0.1",
+    "@tamland/webpack-config": "^0.0.1",
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "filesize": "^4.1.2",
+    "folder-hash": "^3.0.0",
+    "fs-extra": "^8.0.1",
+    "globby": "^9.2.0",
+    "gulp": "^4.0.2",
+    "gulp-cache": "^1.1.2",
+    "gulp-eslint": "^5.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-print": "^5.0.2",
+    "gulp-stylelint": "^9.0.0",
+    "gulp-watch": "^5.0.1",
+    "husky": "^2.4.1",
+    "inquirer": "^6.3.1",
+    "merge": "^1.2.1",
+    "node-pty": "^0.8.1",
+    "nodemon": "^1.19.1",
+    "open-browsers": "^1.1.1",
+    "promise-sequential": "^1.1.1",
+    "rc-config-loader": "^2.0.3",
+    "react-dev-utils": "^9.0.1",
+    "request": "^2.88.0",
+    "through2": "^3.0.1",
+    "touch": "^3.1.0",
+    "typescript": "^3.5.1",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-server": "^3.7.1"
+  },
+  "devDependencies": {
+    "renamer": "^1.1.2"
+  }
+}

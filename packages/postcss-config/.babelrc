@@ -1,0 +1,12 @@
+
+{
+  "presets": [
+    [
+      "@tamland/babel-preset",
+      {
+        "addModuleExports": true
+      }
+    ]
+  ]
+}
+
