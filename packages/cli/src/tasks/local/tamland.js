@@ -14,7 +14,6 @@ import {
 
 
 const scope = "@tamland";
-const rootPackage = "core";
 const label = "tamland";
 
 
@@ -135,7 +134,7 @@ const npmInstallPackage = async function(config){
 
 const installPackage = async function(pack, location, directory){
 
-    const installDirectory = path.join(directory, pack === rootPackage ? ".." : "packages", pack);
+    const installDirectory = path.join(directory, "packages", pack);
     const cacheDirectory = path.join(process.cwd(), "node_modules/.cache");
     const locationPackageJSONRaw = await fs.readFileSync(path.join(location, "package.json"));
     const locationPackageJSON = JSON.parse(locationPackageJSONRaw);

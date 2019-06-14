@@ -1,6 +1,6 @@
 {
   "license": "UNLICENSED",
-  "name": "generator-tamland-template",
+  "name": "example",
   "scripts": {
     "build": "tamland build",
     "clean": "tamland clean",
@@ -14,6 +14,6 @@
   },
   "version": "1.0.0",
   "devDependencies": {
-    "@tamland/cli": "^0.0.3"
+    "@tamland/cli": "file:node_modules/.cache/tamland-cli-0.0.3.tgz"
   }
 }

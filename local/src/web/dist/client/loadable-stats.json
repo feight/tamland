@@ -1,0 +1,429 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.34.0",
+  "hash": "7a91641b49a65da32293",
+  "publicPath": "/static/",
+  "outputPath": "/Users/sweetlikepete/code/newsteam/tamland/example/src/web/dist/client",
+  "assetsByChunkName": {
+    "index": [
+      "index.css",
+      "index.js",
+      "index.css.map",
+      "index.js.map"
+    ],
+    "routes-home-page": [
+      "routes-home-page.css",
+      "routes-home-page.js",
+      "routes-home-page.css.map",
+      "routes-home-page.js.map"
+    ],
+    "routes-pageNotFound-page": [
+      "routes-pageNotFound-page.js",
+      "routes-pageNotFound-page.js.map"
+    ],
+    "routes-x-page": [
+      "routes-x-page.css",
+      "routes-x-page.js",
+      "routes-x-page.css.map",
+      "routes-x-page.js.map"
+    ],
+    "shell": [
+      "shell.js",
+      "shell.js.map"
+    ],
+    "vendor": [
+      "vendor.js",
+      "vendor.js.map"
+    ]
+  },
+  "assets": [
+    {
+      "name": "index.css",
+      "size": 111,
+      "chunks": [
+        "index"
+      ],
+      "chunkNames": [
+        "index"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "index.css.map",
+      "size": 198,
+      "chunks": [
+        "index"
+      ],
+      "chunkNames": [
+        "index"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "index.js",
+      "size": 419374,
+      "chunks": [
+        "index"
+      ],
+      "chunkNames": [
+        "index"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "index.js.map",
+      "size": 463365,
+      "chunks": [
+        "index"
+      ],
+      "chunkNames": [
+        "index"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "routes-home-page.css",
+      "size": 76,
+      "chunks": [
+        "routes-home-page"
+      ],
+      "chunkNames": [
+        "routes-home-page"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "routes-home-page.css.map",
+      "size": 157,
+      "chunks": [
+        "routes-home-page"
+      ],
+      "chunkNames": [
+        "routes-home-page"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "routes-home-page.js",
+      "size": 3540,
+      "chunks": [
+        "routes-home-page"
+      ],
+      "chunkNames": [
+        "routes-home-page"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "routes-home-page.js.map",
+      "size": 1451,
+      "chunks": [
+        "routes-home-page"
+      ],
+      "chunkNames": [
+        "routes-home-page"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "routes-pageNotFound-page.js",
+      "size": 1608,
+      "chunks": [
+        "routes-pageNotFound-page"
+      ],
+      "chunkNames": [
+        "routes-pageNotFound-page"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "routes-pageNotFound-page.js.map",
+      "size": 515,
+      "chunks": [
+        "routes-pageNotFound-page"
+      ],
+      "chunkNames": [
+        "routes-pageNotFound-page"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "routes-x-page.css",
+      "size": 72,
+      "chunks": [
+        "routes-x-page"
+      ],
+      "chunkNames": [
+        "routes-x-page"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "routes-x-page.css.map",
+      "size": 154,
+      "chunks": [
+        "routes-x-page"
+      ],
+      "chunkNames": [
+        "routes-x-page"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "routes-x-page.js",
+      "size": 2698,
+      "chunks": [
+        "routes-x-page"
+      ],
+      "chunkNames": [
+        "routes-x-page"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "routes-x-page.js.map",
+      "size": 1074,
+      "chunks": [
+        "routes-x-page"
+      ],
+      "chunkNames": [
+        "routes-x-page"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "shell.js",
+      "size": 8421,
+      "chunks": [
+        "shell"
+      ],
+      "chunkNames": [
+        "shell"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "shell.js.map",
+      "size": 6491,
+      "chunks": [
+        "shell"
+      ],
+      "chunkNames": [
+        "shell"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "vendor.js",
+      "size": 482917,
+      "chunks": [
+        "vendor"
+      ],
+      "chunkNames": [
+        "vendor"
+      ],
+      "emitted": false
+    },
+    {
+      "name": "vendor.js.map",
+      "size": 492266,
+      "chunks": [
+        "vendor"
+      ],
+      "chunkNames": [
+        "vendor"
+      ],
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "index": {
+      "chunks": [
+        "index"
+      ],
+      "assets": [
+        "index.css",
+        "index.js",
+        "index.css.map",
+        "index.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "index": {
+      "chunks": [
+        "index"
+      ],
+      "assets": [
+        "index.css",
+        "index.js",
+        "index.css.map",
+        "index.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "shell": {
+      "chunks": [
+        "vendor",
+        "shell"
+      ],
+      "assets": [
+        "vendor.js",
+        "vendor.js.map",
+        "shell.js",
+        "shell.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "routes-home-page": {
+      "chunks": [
+        "routes-home-page"
+      ],
+      "assets": [
+        "routes-home-page.css",
+        "routes-home-page.js",
+        "routes-home-page.css.map",
+        "routes-home-page.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "routes-pageNotFound-page": {
+      "chunks": [
+        "routes-pageNotFound-page"
+      ],
+      "assets": [
+        "routes-pageNotFound-page.js",
+        "routes-pageNotFound-page.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "routes-x-page": {
+      "chunks": [
+        "routes-x-page"
+      ],
+      "assets": [
+        "routes-x-page.css",
+        "routes-x-page.js",
+        "routes-x-page.css.map",
+        "routes-x-page.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "children": [
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/static/",
+      "outputPath": "/Users/sweetlikepete/code/newsteam/tamland/example/src/web/dist/client",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            "mini-css-extract-plugin"
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            "mini-css-extract-plugin"
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin ../../node_modules/css-loader/dist/cjs.js??ref--13-1!../../node_modules/clean-css-loader/lib/index.js??ref--13-2!../../node_modules/postcss-loader/src/index.js!../../node_modules/sass-loader/lib/loader.js??ref--13-4!client/index.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/static/",
+      "outputPath": "/Users/sweetlikepete/code/newsteam/tamland/example/src/web/dist/client",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            "mini-css-extract-plugin"
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            "mini-css-extract-plugin"
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin ../../node_modules/css-loader/dist/cjs.js??ref--13-1!../../node_modules/clean-css-loader/lib/index.js??ref--13-2!../../node_modules/postcss-loader/src/index.js!../../node_modules/sass-loader/lib/loader.js??ref--13-4!routes/home/page.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/static/",
+      "outputPath": "/Users/sweetlikepete/code/newsteam/tamland/example/src/web/dist/client",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            "mini-css-extract-plugin"
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            "mini-css-extract-plugin"
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin ../../node_modules/css-loader/dist/cjs.js??ref--13-1!../../node_modules/clean-css-loader/lib/index.js??ref--13-2!../../node_modules/postcss-loader/src/index.js!../../node_modules/sass-loader/lib/loader.js??ref--13-4!routes/x/page.scss"
+    }
+  ]
+}

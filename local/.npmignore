@@ -1,7 +1,7 @@
-lib
+dist
 node_modules
 
 .DS_Store
-yarn.lock
+# Only apps should have lockfiles
 yarn-error.log
 package-lock.json
