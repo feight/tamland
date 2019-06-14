@@ -68,7 +68,7 @@ const webpackTask = task("webpack", async (config, options) => {
         const webpackConfigFile = path.join(process.cwd(), "webpack.config.js");
 
         // This doesn't present any danger and is necessary in this case.
-        // eslint-disable-next-line import/no-dynamic-require, security/detect-non-literal-require, global-require, @typescript-eslint/no-require-imports
+        // eslint-disable-next-line import/no-dynamic-require, security/detect-non-literal-require, global-require
         const webpackConfig = require(webpackConfigFile)({
             mode,
             platform,

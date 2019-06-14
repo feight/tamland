@@ -61,7 +61,6 @@ program
 program
 .command("local")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
-.option("-m, --mode [mode]", "development or production mode (defaults to 'production')")
 .option("--production", "run the local server as close to production as possible (defaults to false)")
 .action((options) => local(config, {
     mode: options.production ? "production" : "development",

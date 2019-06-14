@@ -6,7 +6,7 @@ import through from "through2";
 import logger from "@tamland/logger";
 
 // Doesn't work without require and it's safe to do it here since it's just a test
-// eslint-disable-next-line import/no-commonjs, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
+// eslint-disable-next-line import/no-commonjs
 const pty = require("node-pty");
 
 

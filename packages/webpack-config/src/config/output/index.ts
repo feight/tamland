@@ -13,13 +13,14 @@ export default function configuration(
 ): Configuration{
 
     const hash =
-        options.mode !== "development" ||
-        options.watch !== true;
+        options.target === "client" &&
+        options.mode === "production" &&
+        options.watch === false;
 
     return {
         output: {
-            chunkFilename: hash ? `[hash:${ options.hashLength }].js` : "[id].js",
-            filename: hash ? `[hash:${ options.hashLength }].js` : "[name].js",
+            chunkFilename: hash ? `[chunkhash:${ options.hashLength }].js` : "[id].js",
+            filename: hash ? `[chunkhash:${ options.hashLength }].js` : "[name].js",
             path: path.join(process.cwd(), `dist/${ options.target }`),
             publicPath: `/${ options.staticFolder }/`
         }
