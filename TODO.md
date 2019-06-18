@@ -10,6 +10,8 @@ Update the packages/generator-tamland/src/generators/app/templates/README.md
             - npm run deploy
 Automate gcloud project and GAE project init
 Automate github init
+Add a notification to deploy complete
+Run gcloud app browse --project=newsteam-site-production after deploy
 
 
 Implemented https local testing option

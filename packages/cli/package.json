@@ -1,6 +1,6 @@
 {
   "name": "@tamland/cli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Collection of tools, presets and shared configs for @tamland's projects",
   "main": "lib/index",
   "sideEffects": false,
@@ -48,7 +48,7 @@
     "@tamland/logger": "^0.0.2",
     "@tamland/postcss-config": "0.0.1",
     "@tamland/stylelint": "^0.0.1",
-    "@tamland/webpack-config": "^0.0.2",
+    "@tamland/webpack-config": "^0.0.3",
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
     "filesize": "^4.1.2",
