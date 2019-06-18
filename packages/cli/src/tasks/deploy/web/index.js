@@ -1,7 +1,9 @@
 
 
+import path from "path";
+
 import build from "../../build";
-import { spawn } from "../../../utils/subprocess";
+import { exec } from "../../../utils/subprocess";
 import prompts from "../../../prompts";
 
 
@@ -9,15 +11,17 @@ const deployWeb = async function(config, options){
 
     const projectId = await prompts.environments.web();
     const version = options.version ? `--version=${ options.version }` : "";
-    const project = `--project ${ projectId }`;
+    const project = `--project=${ projectId }`;
     const verbosity = `--verbosity=${ options.verbosity || "error" }`;
 
     await build(config, options);
 
-    await spawn({
+    process.chdir(config.cwd);
+
+    await exec({
         command: `
             gcloud app deploy
-            app.yaml
+            src/web/app.yaml
             ${ version }
             ${ project }
             ${ verbosity }

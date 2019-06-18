@@ -13,8 +13,6 @@ const label = "server";
 
 const awaitServerScript = function(config){
 
-    process.chdir(path.join(config.cwd, "src/web"));
-
     const intervalTime = 100;
     const maxWaitTime = 10000;
     const serverScript = "dist/server/index.js";
@@ -28,6 +26,8 @@ const awaitServerScript = function(config){
     return new Promise((resolve, reject) => {
 
         const interval = setInterval(async () => {
+
+            process.chdir(path.join(config.cwd, "src/web"));
 
             const existsArray = await Promise.all(awaitFiles.map(fs.exists));
             const exists = existsArray.filter((item) => item !== true).length === 0;

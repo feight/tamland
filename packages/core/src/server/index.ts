@@ -202,7 +202,7 @@ export class Server{
 
         this.app = app;
 
-        this.port = Number(process.env.PORT) || defaultPort;
+        this.port = process.env.PORT ? Number(process.env.PORT) : defaultPort;
 
     }
 
@@ -212,8 +212,8 @@ export class Server{
 
             this.app.listen(this.port, (): void => {
 
-                logger.debug(`App listening on port ${ this.port }`);
-                logger.debug("Press Ctrl+ C to quit.");
+                logger.info(`App listening on port ${ this.port }`);
+                logger.info("Press Ctrl+ C to quit.");
 
             });
 

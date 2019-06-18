@@ -1,6 +1,6 @@
 {
   "name": "@tamland/cli",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Collection of tools, presets and shared configs for @tamland's projects",
   "main": "lib/index",
   "sideEffects": false,

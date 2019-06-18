@@ -15,7 +15,7 @@ const web = function(){
     }
 
     return prompt("Web Environment", environments.map((environment) => ({
-        name: environment.name,
+        name: `${ environment.name } (${ environment.project })`,
         value: environment.project
     })));
 

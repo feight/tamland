@@ -5,8 +5,12 @@ module.exports = {
         web: {
             environments: [
                 {
+                    name: "staging",
+                    project: "sweetlikepete777"
+                },
+                {
                     name: "production",
-                    project: "example"
+                    project: "newsteam-site-production"
                 }
             ]
         }

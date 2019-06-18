@@ -59,7 +59,7 @@ export const appRouter = (config: AppRouterConfiguration): express.Router => {
 
     router.get("*/", async (request, response): Promise<void> => {
 
-        const statsFile = path.resolve("../web/dist/client/loadable-stats.json");
+        const statsFile = path.join(process.cwd(), "dist/client/loadable-stats.json");
 
         const {
             history,

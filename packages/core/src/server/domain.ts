@@ -54,6 +54,8 @@ export const domain = function(
         if(
             !local &&
             hostname &&
+            request.hostname !== "127.0.0.1" &&
+            request.hostname !== "localhost" &&
             (
                 request.protocol !== "https" ||
                 request.hostname !== hostname
