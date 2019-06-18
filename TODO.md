@@ -1,4 +1,17 @@
 
+Update the packages/generator-tamland/src/generators/app/templates/README.md
+    - include all the details on how to use
+        - local development
+            - npm run setup
+            - npm run local
+            - npm run production
+        - deploying
+            - configuring your environments
+            - npm run deploy
+Automate gcloud project and GAE project init
+Automate github init
+
+
 Implemented https local testing option
     - use spdy
     - https://webapplog.com/http2-node/

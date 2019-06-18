@@ -73,6 +73,25 @@ class AppGenerator extends Generator{
 
         });
 
+        [
+            [
+                "./gitignore",
+                "./.gitignore"
+            ]
+        ].forEach((cp) => {
+
+            const [
+                from,
+                to
+            ] = cp;
+
+            this.fs.copy(
+                this.templatePath(from),
+                this.destinationPath(to)
+            );
+
+        });
+
         const packageJSON = {
             name: params.project
         };
