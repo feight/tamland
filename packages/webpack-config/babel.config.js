@@ -1,6 +1,24 @@
 
+/*
+ * These lints are off because babel references this configuration without
+ * transpilation and the filename isn't optional.
+ */
 
-module.exports = function(api){
+/*
+
+    eslint
+
+    filenames/match-regex: "off",
+    import/no-commonjs: "off",
+    import/unambiguous: "off",
+
+*/
+
+
+const baseNodeVersion = 4;
+
+
+module.exports = function babelConfiguration(api){
 
     api.cache(false);
 
@@ -16,7 +34,7 @@ module.exports = function(api){
                     modules: !mjs,
                     shebang,
                     targets: {
-                        node: mjs ? true : 4
+                        node: mjs ? true : baseNodeVersion
                     }
                 }
             ]

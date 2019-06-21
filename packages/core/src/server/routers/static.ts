@@ -18,6 +18,7 @@ import proxy from "express-http-proxy";
 
 
 export interface StaticFile {
+    cacheExpiration?: string | number;
     path: string;
     source: string;
 }
@@ -35,7 +36,8 @@ const getStaticFileMap = function(
     staticFiles: StaticFile[],
     staticFolder: string,
     cwd: string,
-    watch: boolean
+    watch: boolean,
+    cacheExpiration: string | number
 ): StaticFile[]{
 
     // Static public url base and source
@@ -43,16 +45,27 @@ const getStaticFileMap = function(
     const encodedStaticFolder = staticFolder.split("/").map((sub): string => encodeURIComponent(sub)).join("/");
 
     const customStaticFiles: StaticFile[] = staticFiles.map((file): StaticFile => ({
+        cacheExpiration,
         path: file.path,
         source: file.source.replace(`/${ staticFolder }`, source)
     }));
 
+    const defaultStaticFolders: StaticFile[] = watch ? [] : [
+        {
+            cacheExpiration: "1y",
+            path: `/${ encodedStaticFolder }`,
+            source
+        }
+    ];
+
     const defaultStaticFiles: StaticFile[] = [
         {
+            cacheExpiration: "1h",
             path: "/robots.txt",
             source: "robots.txt"
         },
         {
+            cacheExpiration: "1h",
             path: "/favicon.ico",
             source: "favicon.ico"
         }
@@ -94,19 +107,15 @@ const getStaticFileMap = function(
 
     });
 
-    return (watch ? [] : [
-        {
-            path: `/${ encodedStaticFolder }`,
-            source
-        }
-    ])
+
+    return defaultStaticFolders
     .concat(defaultStaticFiles)
     .concat(customStaticFiles);
 
 };
 
 export const staticRouter = ({
-    cacheExpiration = "1y",
+    cacheExpiration = "1h",
     cwd = process.cwd(),
     local = false,
     staticFiles = [],
@@ -122,11 +131,11 @@ export const staticRouter = ({
         strict: true
     });
 
-    getStaticFileMap(staticFiles, staticFolder, cwd, watch).forEach((file): void => {
+    getStaticFileMap(staticFiles, staticFolder, cwd, watch, cacheExpiration).forEach((file): void => {
 
         router.use(file.path, express.static(path.join(cwd, file.source), {
             etag: true,
-            maxAge: cacheExpiration
+            maxAge: file.cacheExpiration
         }));
 
     });

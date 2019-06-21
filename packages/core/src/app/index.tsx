@@ -9,10 +9,7 @@ import {
 import { History } from "history";
 import { Store } from "redux";
 import { Provider } from "react-redux";
-import {
-    Link,
-    Router
-} from "react-router-dom";
+import { Router } from "react-router-dom";
 
 
 export class Tamland extends React.PureComponent<{
@@ -47,12 +44,6 @@ export class Tamland extends React.PureComponent<{
                         </title>
                     </Helmet>
                     <Router history={ this.props.history }>
-                        <Link to="/">
-                            { "Home" }
-                        </Link>
-                        <Link to="/x/">
-                            { "X" }
-                        </Link>
                         { this.props.children }
                     </Router>
                 </HelmetProvider>

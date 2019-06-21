@@ -1,5 +1,7 @@
 
 
+import path from "path";
+
 import { Configuration } from "webpack";
 
 
@@ -7,6 +9,9 @@ export default function configuration(): Configuration{
 
     return {
         resolve: {
+            alias: {
+                modernizr$: path.resolve(path.join(process.cwd(), ".modernizrrc"))
+            },
 
             /*
              * The order of these is significant. It determinds which extension

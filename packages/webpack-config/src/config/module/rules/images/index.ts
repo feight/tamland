@@ -15,14 +15,9 @@ export default function configuration(
     return merge(config, {
         module: {
             rules: [
-                // .ico favicon extension
+                // .svg .png .jpg .jpeg .gif .webp and .ico image extensions
                 {
-                    test: /\.ico$/u,
-                    use: [fileLoader(config, options)]
-                },
-                // .svg .png .jpg .jpeg .gif and .webp image extensions
-                {
-                    test: /\.(?:svg|png|jpg|jpeg|gif|webp)$/u,
+                    test: /\.(?:svg|png|jpg|jpeg|gif|webp|ico)$/u,
 
                     /*
                      * We don't use an optimizer like image-webpack-loader because

@@ -29,8 +29,13 @@ export default {
             "error",
             "never",
             {
+                ".ico": "always",
+                ".jpeg": "always",
+                ".jpg": "always",
                 ".json": "always",
+                ".png": "always",
                 ".scss": "always",
+                ".svg": "always",
                 tryExtensions: [
                     ".js",
                     ".jsx",

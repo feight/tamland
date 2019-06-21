@@ -19,13 +19,10 @@ export default function configuration(
     return merge(config, {
         module: {
             rules: [
-                // Modernizr.js
+                // Modernizr integration
                 {
-                    test: /modernizr.js$/u,
-                    use: [
-                        "modernizr-loader",
-                        loader
-                    ]
+                    loader: "modernizr-loader",
+                    test: /\.modernizrrc.js$/gu
                 },
                 // .mjs script extension
                 {

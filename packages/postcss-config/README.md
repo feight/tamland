@@ -19,7 +19,7 @@ Our default export contains all of our postcss plugins.
 1. Install the shared configuration:
 
   ```sh
-  yarn add --dev @tamland/postcss-config
+  npm install --save-dev @tamland/postcss-config
   ```
 
 2. Add to your postcss.config.js.

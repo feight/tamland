@@ -324,9 +324,11 @@ export default {
         /*
          * Enforce component methods order (fixable)
          *
+         * Off for now because it conflicts with @typescript-eslint/member-ordering
+         *
          * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
          */
-        "react/sort-comp": "error",
+        "react/sort-comp": "off",
 
         /*
          * Enforce propTypes declarations alphabetical sorting

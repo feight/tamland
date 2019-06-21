@@ -16,6 +16,6 @@ install @tamland/eslint-config directly.
 1. Install the package:
 
   ```sh
-  yarn add --dev @tamland/eslint
+  npm install --save-dev @tamland/eslint
   ```
 2. Add `"extends": "@tamland"` to your .eslintrc.

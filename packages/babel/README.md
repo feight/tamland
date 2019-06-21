@@ -16,5 +16,5 @@ install @tamland/babel-preset directly.
 1. Install the package:
 
   ```sh
-  yarn add --dev @tamland/babel
+  npm install --save-dev @tamland/babel
   ```

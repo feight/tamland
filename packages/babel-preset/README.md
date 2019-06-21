@@ -23,7 +23,7 @@ Our default export contains all of our babel plugins and presets. It requires th
 1. Install the shared configuration:
 
   ```sh
-  yarn add --dev @tamland/babel-preset
+  npm install --save-dev @tamland/babel-preset
   ```
 
 2. Install the shared configuration peer dependencies (npm 5+):

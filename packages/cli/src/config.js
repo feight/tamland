@@ -1,13 +1,15 @@
 
 
 import merge from "merge";
-import rcfile from "rc-config-loader";
+import userConfig from "@tamland/rc-config";
 
 
-const userConfig = rcfile("tamland").config || {};
 // This is fine for explicit no operation functions
 // eslint-disable-next-line no-empty-function
 const noop = () => {};
+
+console.log(["1xxxxxxxxxxx"]);
+console.log(userConfig);
 
 
 const base = {

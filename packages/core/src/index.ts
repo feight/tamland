@@ -18,10 +18,15 @@ const { Server } = isServer ? eval("require")("./server") : {
     Server: null
 };
 
+// Needed so that webpack won't require this on the client
+// eslint-disable-next-line node/no-missing-require, @typescript-eslint/no-require-imports
+const Modernizr = isServer ? null : require("modernizr");
+
 
 export {
     Client,
     Helmet,
+    Modernizr,
     Route,
     Router,
     Server

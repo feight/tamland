@@ -60,7 +60,7 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
 1. Install the shared configuration:
 
   ```sh
-  yarn add --dev @tamland/eslint-config
+  npm install --save-dev @tamland/eslint-config
   ```
 
 2. Install the shared configuration peer dependencies (npm 5+):

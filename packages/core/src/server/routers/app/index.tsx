@@ -31,6 +31,9 @@ const minifyHTML = function(html: string): string{
     .replace(/\s*></gu, "><")
     // You can't escape that character, it causes a parsing error
     // eslint-disable-next-line no-div-regex
+    .replace(/="(.[^\s]*?)"\/>/gu, "=$1 />")
+    // You can't escape that character, it causes a parsing error
+    // eslint-disable-next-line no-div-regex
     .replace(/="(.[^\s]*?)"/gu, "=$1");
 
 };

@@ -16,6 +16,6 @@ install @tamland/stylelint-config directly.
 1. Install the package:
 
   ```sh
-  yarn add --dev @tamland/stylelint
+  npm install --save-dev @tamland/stylelint
   ```
 2. Add `"extends": "@tamland/stylelint"` to your .stylelintrc.

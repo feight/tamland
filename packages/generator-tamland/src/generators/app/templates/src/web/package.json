@@ -6,7 +6,7 @@
     "start": "node dist/server/index.js"
   },
   "dependencies": {
-    "@tamland/core": "0.0.6",
+    "@tamland/core": "0.0.13",
     "react": "^16.8.6"
   }
 }
