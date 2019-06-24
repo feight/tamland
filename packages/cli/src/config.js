@@ -8,10 +8,6 @@ import userConfig from "@tamland/rc-config";
 // eslint-disable-next-line no-empty-function
 const noop = () => {};
 
-console.log(["1xxxxxxxxxxx"]);
-console.log(userConfig);
-
-
 const base = {
     exclude: "!**/{dist,node_modules}/**/*",
     include: "**/*"

@@ -5,9 +5,14 @@ Add a base meta description
 Add start_url to the manifest
 Hook up sample image icons for the manifest and link them in the html
 Add a default <meta name="theme-color">
+Get rid of stupid logging
 
 figure out a way to reference things in src/shared in src/web
 
+try out the performance of not pushing http2 pushing js code
+try out performance of no script at all
+
+fix the newsteam nav so reload doesn't flash hide it
 
 Update the packages/generator-tamland/src/generators/app/templates/README.md
     - include all the details on how to use

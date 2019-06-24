@@ -25,6 +25,9 @@ export default function configuration(): Configuration{
                 ".js",
                 ".jsx"
             ],
+            mainFields: [
+                "main"
+            ],
             modules: [
                 "node_modules"
             ],
