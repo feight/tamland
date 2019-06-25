@@ -1,4 +1,22 @@
 
+fix
+npm WARN deprecated @babel/polyfill@7.4.4: 🚨 As of Babel 7.4.0, this
+npm WARN deprecated package has been deprecated in favor of directly
+npm WARN deprecated including core-js/stable (to polyfill ECMAScript
+npm WARN deprecated features) and regenerator-runtime/runtime
+npm WARN deprecated (needed to use transpiled generator functions):
+npm WARN deprecated
+npm WARN deprecated   > import "core-js/stable";
+npm WARN deprecated   > import "regenerator-runtime/runtime";
+npm WARN connected-react-router@6.4.0 requires a peer of react-redux@^6.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN type-graphql@0.17.4 requires a peer of @types/graphql@^14.0.7 but none is installed. You must install peer dependencies yourself.
+npm WARN generator-tamland-template-web@1.0.0 No description
+npm WARN generator-tamland-template-web@1.0.0 No repository field.
+
+
+Change scss modules to localsConvention camelCase
+Differentiate scss files and scss modules
+Make a base scss in core
 Finish off moving the defaults from packages/cli/src/config to packages/rc-config
 Add a lang attribute to html - source the value from tamlandrc
 Add a base meta description

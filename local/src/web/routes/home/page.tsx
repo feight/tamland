@@ -3,7 +3,7 @@
 import React from "react";
 import { Helmet } from "@tamland/core";
 
-import style from "./page.scss";
+import style from "./page.module.scss";
 
 import logo from "../../app/images/logo/newsteam.svg";
 
