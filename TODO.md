@@ -1,4 +1,9 @@
 
+figure out module resolution with
+https://www.npmjs.com/package/eslint-import-resolver-alias
+and link-module-alias
+- requires tweak in webpack resolve (symlinks: true) and externals (add /src/ to ignore regex)
+
 fix
 npm WARN deprecated @babel/polyfill@7.4.4: 🚨 As of Babel 7.4.0, this
 npm WARN deprecated package has been deprecated in favor of directly

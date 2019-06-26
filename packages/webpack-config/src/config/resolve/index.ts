@@ -31,7 +31,7 @@ export default function configuration(): Configuration{
             modules: [
                 "node_modules"
             ],
-            symlinks: false
+            symlinks: true
         }
     };
 
