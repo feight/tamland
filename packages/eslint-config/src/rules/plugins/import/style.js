@@ -150,6 +150,8 @@ export default {
                 allow: [
                     "@babel/polyfill",
                     "@babel/register",
+                    "core-js/stable",
+                    "regenerator-runtime/runtime",
                     "**/*.scss",
                     "**/*.css"
                 ]

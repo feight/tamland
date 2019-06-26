@@ -1,7 +1,7 @@
 
 
-import "@babel/polyfill";
-
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
 import express from "express";
 import helmet from "helmet";

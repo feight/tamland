@@ -1,6 +1,6 @@
 {
   "name": "@tamland/stylelint",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Collection of stylelint dependencies",
   "browserslist": "node 8",
   "engines": {
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/feight/tamland/tree/master/packages/stylelint#readme",
   "files": [],
   "dependencies": {
-    "@tamland/stylelint-config": "0.0.1",
+    "@tamland/stylelint-config": "0.0.3",
     "stylelint": "^10.1.0",
     "stylelint-a11y": "^1.2.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",

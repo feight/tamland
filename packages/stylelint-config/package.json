@@ -1,6 +1,6 @@
 {
   "name": "@tamland/stylelint-config",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Shared config for stylelint",
   "main": "lib/index.js",
   "scripts": {
@@ -48,7 +48,7 @@
   "dependencies": {},
   "devDependencies": {
     "@tamland/babel": "^0.0.3",
-    "@tamland/eslint": "^0.0.8",
+    "@tamland/eslint": "^0.0.9",
     "babel-tape-runner": "^3.0.0",
     "stylelint": "^10.1.0",
     "stylelint-a11y": "^1.2.0",
