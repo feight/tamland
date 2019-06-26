@@ -18,7 +18,15 @@ export default {
          *
          * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules//README.md
          */
-        "scss/at-function-named-arguments": "always",
+        "scss/at-function-named-arguments": [
+            "always",
+            {
+                ignoreFunctions: [
+                    "constant",
+                    "env"
+                ]
+            }
+        ],
 
         /*
          * Require or disallow a space before @function parentheses (Autofixable).
