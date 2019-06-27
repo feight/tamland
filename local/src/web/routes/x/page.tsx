@@ -1,11 +1,12 @@
 
 
 import React from "react";
+import { Page } from "@tamland/core";
 
 import style from "./page.scss";
 
 
-export default class Page extends React.PureComponent{
+export default class XPage extends Page{
 
     public render(): JSX.Element{
 

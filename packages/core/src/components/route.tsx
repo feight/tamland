@@ -73,7 +73,7 @@ export class Route{
 
                     return (
                         <div>
-                            {" blank "}
+                            { "blank" }
                         </div>
                     );
 

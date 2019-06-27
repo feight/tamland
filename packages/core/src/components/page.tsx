@@ -3,13 +3,19 @@
 import React from "react";
 
 
-export default class Page extends React.PureComponent{
+export class Page extends React.PureComponent{
+
+    public componentDidMount(): void{
+
+        window.scrollTo(0, 0);
+
+    }
 
     public render(): JSX.Element{
 
         return (
             <div>
-                { "DEFAULT PAGE | BABOOOM BITCH TITS" }
+                { "" }
             </div>
         );
 

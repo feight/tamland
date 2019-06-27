@@ -46,13 +46,16 @@ const cssLoader = (
         sourceMap: true
     };
 
+    const developmentLocalIdentName = "/[path][name].[ext]::.[local]";
+    const productionLocalIdentName = `[hash:base64:${ options.hashLength }]`;
+
     return {
         loader: "css-loader",
         options: modules ? {
             ...baseOptions,
             localsConvention: "camelCaseOnly",
             modules: {
-                localIdentName: `[hash:base64:${ options.hashLength }]`
+                localIdentName: options.mode === "development" ? developmentLocalIdentName : productionLocalIdentName
             }
         } : {
             ...baseOptions

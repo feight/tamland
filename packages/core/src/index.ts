@@ -1,7 +1,10 @@
 
 
+import { Link } from "react-router-dom";
+
 import { Client } from "./client";
 import { Helmet } from "./components/helmet";
+import { Page } from "./components/page";
 import { Route } from "./components/route";
 import { Router } from "./components/router";
 
@@ -26,7 +29,9 @@ const Modernizr = isServer ? null : require("modernizr");
 export {
     Client,
     Helmet,
+    Link,
     Modernizr,
+    Page,
     Route,
     Router,
     Server

@@ -1,14 +1,17 @@
 
 
 import React from "react";
-import { Helmet } from "@tamland/core";
+import {
+    Helmet,
+    Page
+} from "@tamland/core";
 
 import style from "./page.module.scss";
 
 import logo from "../../app/images/logo/newsteam.svg";
 
 
-export default class Page extends React.PureComponent{
+export default class HomePage extends Page{
 
     public render(): JSX.Element{
 

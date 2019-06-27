@@ -1,9 +1,10 @@
 
 
 import React from "react";
+import { Page } from "@tamland/core";
 
 
-export default class Page extends React.PureComponent{
+export default class PageNotFoundPage extends Page{
 
     public render(): JSX.Element{
 
