@@ -6,8 +6,9 @@
     "start": "node dist/server/index.js"
   },
   "dependencies": {
-    "@tamland/core": "file:../../node_modules/.cache/tamland-core-0.0.18.tgz",
+    "@tamland/core": "file:../../node_modules/.cache/tamland-core-0.0.19.tgz",
     "@types/modernizr": "^3.5.3",
+    "p-min-delay": "^3.1.0",
     "react": "^16.8.6"
   }
 }

@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import loadable from "@loadable/component";
 
+import { ScrollTop } from "./scroll-top";
+
 
 export interface RouteComponentProperties<T> extends RouteComponentProps{
     data?: T;
@@ -36,11 +38,22 @@ export class Route{
 
     }
 
-    public loadable(): (() => Promise<{ default: React.ComponentType }>) | undefined{
+    public loadable(id: string): (() => Promise<{ default: React.ComponentType }>) | undefined{
 
-        // We'll let this slide here
+        console.log(`public loadable(id: string): () => Promise<{ default: React.ComponentType }> not implmented on Route ${ id }`);
+
         // eslint-disable-next-line no-undefined
         return undefined;
+
+    }
+
+    public loading(): JSX.Element{
+
+        return (
+            <div>
+                { "loading" }
+            </div>
+        );
 
     }
 
@@ -59,14 +72,23 @@ export class Route{
                 // eslint-disable-next-line react/jsx-no-bind, react-perf/jsx-no-new-function-as-prop
                 render={ (): JSX.Element => {
 
-                    const loadableComponent = this.loadable();
+                    const loadableComponent = this.loadable(this.id);
 
                     if(loadableComponent){
 
-                        const Page = loadable(loadableComponent);
+                        const Page = loadable(loadableComponent, {
+                            fallback: (
+                                <ScrollTop>
+                                    { this.loading() }
+                                </ScrollTop>
+                            ),
+                            ssr: true
+                        });
 
                         return (
-                            <Page />
+                            <ScrollTop>
+                                <Page />
+                            </ScrollTop>
                         );
 
                     }

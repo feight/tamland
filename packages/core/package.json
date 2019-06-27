@@ -1,9 +1,10 @@
 {
   "name": "@tamland/core",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Node.js SSR application framework",
   "main": "lib",
   "types": "lib",
+  "sideEffects": false,
   "scripts": {
     "build": "rm -rf lib && npm run build:script && npm run build:static && npm run build:types",
     "build:script": "npm run build:script:module && npm run build:script:common",
@@ -44,7 +45,7 @@
     "lib"
   ],
   "dependencies": {
-    "@google-cloud/logging-winston": "^1.1.0",
+    "@google-cloud/logging-winston": "^1.1.1",
     "@loadable/component": "^5.10.1",
     "@loadable/server": "^5.9.0",
     "@types/modernizr": "^3.5.3",
@@ -63,7 +64,7 @@
     "express-http-proxy": "^1.5.1",
     "express-jwt": "^5.3.1",
     "express-slash": "^2.0.1",
-    "graphql": "^14.3.1",
+    "graphql": "^14.4.0",
     "helmet": "^3.18.0",
     "history": "^4.9.0",
     "js-cookie": "^2.2.0",
@@ -73,7 +74,6 @@
     "react-frontload": "^1.1.0",
     "react-helmet": "^5.2.1",
     "react-helmet-async": "^1.0.2",
-    "react-loadable": "^5.5.0",
     "react-redux": "^7.1.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
@@ -106,7 +106,6 @@
     "@types/react": "16.8.22",
     "@types/react-dom": "^16.8.4",
     "@types/react-frontload": "^1.0.0",
-    "@types/react-loadable": "^5.5.1",
     "@types/react-redux": "7.1.0",
     "@types/react-router-dom": "^4.3.4",
     "@types/webpack-dev-middleware": "^2.0.3",
