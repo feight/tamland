@@ -27,9 +27,7 @@ export default function configuration(
             new AssetsPlugin({
                 filename: "webpack-assets.json",
                 path: folder
-            })
-        ].concat(options.watch ? [
-            new webpack.NoEmitOnErrorsPlugin(),
+            }),
             new BundleAnalyzerPlugin({
                 analyzerHost: "127.0.0.1",
                 analyzerMode: "server",
@@ -42,6 +40,8 @@ export default function configuration(
                 statsFilename: "stats.json",
                 statsOptions: null
             })
+        ].concat(options.watch ? [
+            new webpack.NoEmitOnErrorsPlugin()
         ] : [])
     };
 
