@@ -1,18 +1,15 @@
 
+go through https://medium.com/better-programming/demystifying-reacts-server-side-render-de335d408fe4
+
 figure out module resolution with
 https://www.npmjs.com/package/eslint-import-resolver-alias
 and link-module-alias
 - requires tweak in webpack resolve (symlinks: true) and externals (add /src/ to ignore regex)
 
 fix
-npm WARN connected-react-router@6.4.0 requires a peer of react-redux@^6.0.0 but none is installed. You must install peer dependencies yourself.
-npm WARN type-graphql@0.17.4 requires a peer of @types/graphql@^14.0.7 but none is installed. You must install peer dependencies yourself.
-npm WARN generator-tamland-template-web@1.0.0 No description
 npm WARN generator-tamland-template-web@1.0.0 No repository field.
 
 
-Change scss modules to localsConvention camelCase
-Differentiate scss files and scss modules
 Make a base scss in core
 Finish off moving the defaults from packages/cli/src/config to packages/rc-config
 Add a lang attribute to html - source the value from tamlandrc

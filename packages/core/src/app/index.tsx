@@ -1,22 +1,35 @@
 
 
 import * as React from "react";
+import express from "express";
+import parseurl from "parseurl";
 import PropTypes from "prop-types";
 import {
     Helmet,
     HelmetProvider
 } from "react-helmet-async";
-import { History } from "history";
+import {
+    History,
+    Location
+} from "history";
 import { Store } from "redux";
 import { Provider } from "react-redux";
-import { Router } from "react-router-dom";
+
+import { Router } from "./router";
 
 
-export class Tamland extends React.PureComponent<{
+export interface TamlandProps{
     helmetContext?: {} | undefined;
     history: History;
+    request?: express.Request;
     store: Store;
-}>{
+}
+
+
+const context = {};
+
+
+export class Tamland extends React.PureComponent<TamlandProps>{
 
     public static propTypes = {
         children: PropTypes.oneOfType([
@@ -24,6 +37,23 @@ export class Tamland extends React.PureComponent<{
             PropTypes.node
         ]).isRequired
     };
+
+    public location: Location;
+
+    public constructor(props: TamlandProps){
+
+        super(props);
+
+        const loc = (this.props.request ? parseurl(this.props.request) : window.location) || {};
+
+        this.location = {
+            hash: loc.hash || "",
+            pathname: loc.pathname || "",
+            search: loc.search || "",
+            state: {}
+        };
+
+    }
 
     public render(): JSX.Element{
 
@@ -43,7 +73,11 @@ export class Tamland extends React.PureComponent<{
                             { " " }
                         </title>
                     </Helmet>
-                    <Router history={ this.props.history }>
+                    <Router
+                        context={ context }
+                        history={ this.props.history }
+                        location={ this.location }
+                    >
                         { this.props.children }
                     </Router>
                 </HelmetProvider>

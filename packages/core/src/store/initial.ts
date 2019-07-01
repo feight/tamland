@@ -1,13 +1,7 @@
 
 
 import logger from "../logger";
-
-
-export const isServer = !(
-    typeof window !== "undefined" &&
-    window.document &&
-    window.document.createElement
-);
+import { isServer } from "../context";
 
 
 let initialStateCache: object | undefined;

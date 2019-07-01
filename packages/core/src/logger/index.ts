@@ -1,10 +1,6 @@
 
 
-const isServer = !(
-    typeof window !== "undefined" &&
-    window.document &&
-    window.document.createElement
-);
+import { isServer } from "../context";
 
 
 // Needed so that webpack won't require this on the server

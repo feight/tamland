@@ -1,6 +1,7 @@
 {
   "license": "UNLICENSED",
   "name": "generator-tamland-template-web",
+  "description": "<%= project %> web",
   "version": "1.0.0",
   "scripts": {
     "start": "node dist/server/index.js"

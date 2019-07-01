@@ -6,12 +6,7 @@ import {
     History
 } from "history";
 
-
-export const isServer = !(
-    typeof window !== "undefined" &&
-    window.document &&
-    window.document.createElement
-);
+import { isServer } from "../context";
 
 
 export const createBrowserHistory = function(url = "/"): History{

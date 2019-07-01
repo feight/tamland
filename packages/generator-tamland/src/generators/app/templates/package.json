@@ -1,6 +1,7 @@
 {
   "license": "UNLICENSED",
   "name": "generator-tamland-template",
+  "description": "<%= project %> base",
   "scripts": {
     "build": "tamland build",
     "clean": "tamland clean",

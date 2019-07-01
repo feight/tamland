@@ -102,6 +102,7 @@ export const appRouter = (config: AppRouterConfiguration): express.Router => {
             <Tamland
                 helmetContext={ helmetContext }
                 history={ history }
+                request={ request }
                 store={ store }
             >
                 <Component />
