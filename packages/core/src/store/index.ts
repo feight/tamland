@@ -3,41 +3,28 @@
 import {
     applyMiddleware,
     compose,
-    createStore,
+    createStore as createReduxStore,
     Store
 } from "redux";
 import { routerMiddleware } from "connected-react-router";
 import { History } from "history";
+import thunk from "redux-thunk";
 
 import { createRootReducer } from "./reducers";
-
-import { createBrowserHistory } from "../history";
-
-
-export interface ConfigureStoreResponse{
-    history: History;
-    store: Store;
-}
+import { getInitialState } from "./initial";
 
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function configureStore(path: string, preloadedState?: any): ConfigureStoreResponse{
+export const createStore = function(history: History): Store{
 
-    const history = createBrowserHistory(path);
+    const initialState = getInitialState();
 
-    const store = createStore(
+    return createReduxStore(
         createRootReducer(history),
-        preloadedState,
+        initialState,
         compose(
-            applyMiddleware(
-                routerMiddleware(history)
-            )
+            applyMiddleware(routerMiddleware(history)),
+            applyMiddleware(thunk)
         )
     );
 
-    return {
-        history,
-        store
-    };
-
-}
+};

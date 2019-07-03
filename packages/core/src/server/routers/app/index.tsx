@@ -8,11 +8,13 @@ import compression from "compression";
 import { renderToString } from "react-dom/server";
 import { matchPath } from "react-router-dom";
 import { HelmetData } from "react-helmet";
+import { Store } from "redux";
 import { ChunkExtractor } from "@loadable/server";
 
 import { Route as PageRoute } from "../../../components/route";
-import createStore from "../../../store";
+import { createStore } from "../../../store";
 import { Tamland } from "../../../app";
+import { createHistory } from "../../../history";
 
 
 export interface AppRouterConfiguration {
@@ -38,13 +40,70 @@ const minifyHTML = function(html: string): string{
 
 };
 
+const getRouteData = async function(routes: PageRoute[], store: Store, request: express.Request): Promise<void>{
+
+    const actions: (() => Promise<object>) = (): Promise<object> => new Promise((resolve): void => {
+        resolve({});
+    });
+
+    let match = null;
+
+    routes.some((route: PageRoute): boolean => {
+
+        // Use `matchPath` here
+        match = matchPath(request.path, {
+            exact: route.exact,
+            path: route.path,
+            strict: route.strict
+        });
+
+        if(match){
+
+            console.log(route);
+
+        }
+
+        return Boolean(match);
+
+    });
+
+    await actions();
+
+};
+
+const createChunkExtractor = function(): ChunkExtractor{
+
+    const statsFile = path.join(process.cwd(), "dist/client/loadable-stats.json");
+
+    return new ChunkExtractor({
+        entrypoints: ["index"],
+        statsFile
+    });
+
+};
+
+const getLinkHeader = function(extractor: ChunkExtractor): string{
+
+    return extractor.getLinkElements().map((element): string => {
+
+        const link = element.props as {
+            as: string;
+            href: string;
+            rel: string;
+        };
+
+        return `<${ link.href }>;rel=${ link.rel };as=${ link.as }`;
+
+    }).join(",");
+
+};
+
 
 const helmetContext: {
     helmet?: HelmetData;
 } = {};
 
 
-// eslint-disable-next-line max-lines-per-function
 export const appRouter = (config: AppRouterConfiguration): express.Router => {
 
     const {
@@ -62,43 +121,15 @@ export const appRouter = (config: AppRouterConfiguration): express.Router => {
 
     router.get("*/", async (request, response): Promise<void> => {
 
-        const statsFile = path.join(process.cwd(), "dist/client/loadable-stats.json");
+        const history = createHistory(request.url);
+        const store = createStore(history);
+        const chunkExtractor = createChunkExtractor();
 
-        const {
-            history,
-            store
-        } = createStore(request.path);
+        await getRouteData(routes, store, request);
 
-        let getData: (() => Promise<object>) = (): Promise<object> => new Promise((resolve): void => {
-            resolve({});
-        });
+        const reduxState = store.getState();
 
-        let match = null;
-
-        routes.some((route: PageRoute): boolean => {
-
-            // Use `matchPath` here
-            match = matchPath(request.path, {
-                exact: route.exact,
-                path: route.path,
-                strict: route.strict
-            });
-
-            if(match){
-                getData = (): Promise<object> => route.getData();
-            }
-
-            return Boolean(match);
-
-        });
-
-        const data = match ? await getData() : {};
-        const extractor = new ChunkExtractor({
-            entrypoints: ["index"],
-            statsFile
-        });
-
-        const content = renderToString(extractor.collectChunks(
+        const content = renderToString(chunkExtractor.collectChunks(
             <Tamland
                 helmetContext={ helmetContext }
                 history={ history }
@@ -109,20 +140,10 @@ export const appRouter = (config: AppRouterConfiguration): express.Router => {
             </Tamland>
         ));
 
-        // Set the http2 link header with assets that need to be pushed
-        response.setHeader("link", extractor.getLinkElements().map((element): string => {
-
-            const link = element.props as {
-                as: string;
-                href: string;
-                rel: string;
-            };
-
-            return `<${ link.href }>;rel=${ link.rel };as=${ link.as }`;
-
-        }).join(","));
-
         const { helmet } = helmetContext;
+
+        // Set the http2 link header with assets that need to be pushed
+        response.setHeader("link", getLinkHeader(chunkExtractor));
 
         if(helmet){
 
@@ -136,13 +157,13 @@ export const appRouter = (config: AppRouterConfiguration): express.Router => {
                         <base href="/">
                         <meta name="generator" content="Idle Hands">
                         <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,user-scalable=0,viewport-fit=cover">
-                        <script id="app-state-data" type="application/json">${ JSON.stringify(data) }</script>
-                        ${ extractor.getLinkTags() }
-                        ${ extractor.getStyleTags() }
+                        ${ chunkExtractor.getLinkTags() }
+                        ${ chunkExtractor.getStyleTags() }
                     </head>
                     <body ${ helmet.bodyAttributes.toString() }>
                         <div id="app">${ content }</div>
-                        ${ extractor.getScriptTags() }
+                        <script id="redux-data" type="application/json">${ JSON.stringify(reduxState) }</script>
+                        ${ chunkExtractor.getScriptTags() }
                     </body>
                 </html>
             `));

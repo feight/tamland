@@ -14,7 +14,7 @@ export const getInitialState = function(): object{
 
     }
 
-    const id = "app-state-data";
+    const id = "redux-data";
 
     // Do we have preloaded state available? Great, save it.
 

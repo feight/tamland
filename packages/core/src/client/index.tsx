@@ -5,7 +5,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { loadableReady } from "@loadable/component";
 
-import createStore from "../store";
+import { createHistory } from "../history";
+import { createStore } from "../store";
 import { Tamland } from "../app";
 
 
@@ -19,10 +20,8 @@ export class Client{
 
     public constructor(Application: React.ComponentClass){
 
-        const {
-            history,
-            store
-        } = createStore(window.location.pathname);
+        const history = createHistory();
+        const store = createStore(history);
 
         this.history = history;
         this.store = store;

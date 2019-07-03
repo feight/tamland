@@ -13,7 +13,7 @@ import {
     Location
 } from "history";
 import { Store } from "redux";
-import { Provider } from "react-redux";
+import { Provider as ReduxProvider } from "react-redux";
 
 import { Router } from "./router";
 
@@ -58,7 +58,7 @@ export class Tamland extends React.PureComponent<TamlandProps>{
     public render(): JSX.Element{
 
         return (
-            <Provider store={ this.props.store }>
+            <ReduxProvider store={ this.props.store }>
                 <HelmetProvider context={ this.props.helmetContext }>
                     <Helmet>
                         <title>
@@ -81,7 +81,7 @@ export class Tamland extends React.PureComponent<TamlandProps>{
                         { this.props.children }
                     </Router>
                 </HelmetProvider>
-            </Provider>
+            </ReduxProvider>
         );
 
     }

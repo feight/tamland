@@ -14,16 +14,4 @@ export default class HomeRoute extends Route{
 
     public path = "/";
 
-    public getData(): Promise<RouteData>{
-
-        return new Promise((resolve): void => {
-
-            resolve({
-                test: "Home page"
-            });
-
-        });
-
-    }
-
 }

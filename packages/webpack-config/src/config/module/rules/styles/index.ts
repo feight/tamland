@@ -56,7 +56,8 @@ const cssLoader = (
             localsConvention: "camelCaseOnly",
             modules: {
                 localIdentName: options.mode === "development" ? developmentLocalIdentName : productionLocalIdentName
-            }
+            },
+            onlyLocals: options.target === "server"
         } : {
             ...baseOptions
         }
@@ -120,24 +121,26 @@ export default function configuration(
                 // .module.scss and .module.css style extensions
                 {
                     test: /\.module\.s?css$/u,
-                    use: [
-                        miniCssExtractPlugin(config, options),
+                    use: (options.target === "client" ? [
+                        miniCssExtractPlugin(config, options)
+                    ] : []).concat([
                         cssLoader(options),
                         cleanCssLoader(),
                         postCssLoader(),
                         sassLoader()
-                    ]
+                    ])
                 },
                 // .scss and .css style extensions
                 {
                     test: /^((?!module).)*.s?css$/u,
-                    use: [
-                        miniCssExtractPlugin(config, options),
+                    use: (options.target === "client" ? [
+                        miniCssExtractPlugin(config, options)
+                    ] : []).concat([
                         cssLoader(options, false),
                         cleanCssLoader(),
                         postCssLoader(),
                         sassLoader()
-                    ]
+                    ])
                 }
             ]
         }

@@ -14,16 +14,4 @@ export default class XRoute extends Route{
 
     public path = "/x/";
 
-    public getData(): Promise<RouteData>{
-
-        return new Promise((resolve): void => {
-
-            resolve({
-                test: "x page"
-            });
-
-        });
-
-    }
-
 }

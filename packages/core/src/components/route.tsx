@@ -6,6 +6,11 @@ import {
     Route as ReactRouterDomRoute
 } from "react-router-dom";
 import loadable from "@loadable/component";
+import {
+    ThunkAction,
+    ThunkDispatch
+} from "redux-thunk";
+import { AnyAction } from "redux";
 
 import { ScrollTop } from "./scroll-top";
 
@@ -14,7 +19,6 @@ export interface RouteComponentProperties<T> extends RouteComponentProps{
     data?: T;
     getData: () => Promise<T>;
 }
-
 
 export class Route{
 
@@ -28,12 +32,22 @@ export class Route{
 
     public strict: boolean = true;
 
-    public getData(): Promise<object>{
+    public actions(): ThunkAction<Promise<void>, {}, {}, AnyAction>{
 
-        return new Promise((resolve): void => {
+        return (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => new Promise<void>((resolve): void => {
 
-            resolve({});
+            const delay = 50;
 
+            setTimeout((): void => {
+
+                dispatch({
+                    test: true,
+                    type: "TEST_ACTION"
+                });
+
+                resolve();
+
+            }, delay);
         });
 
     }

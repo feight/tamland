@@ -1,7 +1,7 @@
 
 
 import {
-    createBrowserHistory as createBrowserHistoryAlias,
+    createBrowserHistory,
     createMemoryHistory,
     History
 } from "history";
@@ -9,8 +9,8 @@ import {
 import { isServer } from "../context";
 
 
-export const createBrowserHistory = function(url = "/"): History{
+export const createHistory = function(url: string = "/"): History{
 
-    return isServer ? createMemoryHistory({ initialEntries: [url] }) : createBrowserHistoryAlias();
+    return isServer ? createMemoryHistory({ initialEntries: [url] }) : createBrowserHistory();
 
 };
