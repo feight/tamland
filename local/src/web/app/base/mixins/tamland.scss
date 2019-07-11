@@ -1,0 +1,463 @@
+
+@import "./font-smooth.scss";
+@import "./media.scss";
+
+@function get($map, $key, $default){
+
+    @return if(map-has-key(keywords($map), $key), map-get(keywords($map), $key), $default);
+
+}
+
+@mixin tamland($args...) {
+
+    // stylelint-disable
+    //      scss/at-function-named-arguments,
+    //      scss/dollar-variable-colon-space-after,
+    //      function-comma-space-after
+
+    $body-background:                       get($args, "body-background",                    #fff);
+    $body-color:                            get($args, "body-color",                         #333);
+    $body-font-family:                      get($args, "body-font-family",                   unquote('"Open Sans", "Helvetica", "Arial", san-serif'));
+    $body-font-family-hd:                   get($args, "body-font-family-hd",                unquote('"Open Sans", "Helvetica", "Arial", san-serif'));
+    $body-font-size:                        get($args, "body-font-size",                     13px);
+    $body-font-weight:                      get($args, "body-font-weight",                   normal);
+
+    $heading-color:                         get($args, "heading-color",                      #333);
+    $heading-font-weight:                   get($args, "heading-font-weight",                bold);
+    $heading-h1-font-size:                  get($args, "heading-h1-font-size",               36px);
+    $heading-h2-font-size:                  get($args, "heading-h2-font-size",               24px);
+    $heading-h3-font-size:                  get($args, "heading-h3-font-size",               17px);
+    $heading-h4-font-size:                  get($args, "heading-h4-font-size",               15px);
+    $heading-h5-font-size:                  get($args, "heading-h5-font-size",               14px);
+    $heading-h6-font-size:                  get($args, "heading-h6-font-size",               12px);
+
+    $input-field-background-color:          get($args, "input-field-background-color",       #fbfbfb);
+    $input-field-background-color-focus:    get($args, "input-field-background-color-focus", #fff);
+    $input-field-border:                    get($args, "input-field-border",                 1px solid rgba(185, 193, 199, .5));
+    $input-field-border-focus:              get($args, "input-field-border-focus",           1px solid #19a9f1);
+    $input-field-border-radius:             get($args, "input-field-border-radius",          3px);
+    $input-field-color:                     get($args, "input-field-color",                  $body-color);
+    $input-field-font-family:               get($args, "input-field-font-family",            $body-font-family);
+    $input-field-font-family-hd:            get($args, "input-field-font-family-hd",         $body-font-family-hd);
+    $input-field-font-size:                 get($args, "input-field-font-size",              $body-font-size);
+    $input-field-font-weight:               get($args, "input-field-font-weight",            $body-font-weight);
+
+    $input-button-background:               get($args, "input-button-background",            #19a9f1);
+    $input-button-border:                   get($args, "input-button-border",                1px solid darken($input-button-background, 5%));
+    $input-button-border-radius:            get($args, "input-button-border-radius",         3px);
+    $input-button-box-shadow:               get($args, "input-button-box-shadow",            unquote('0 1px 0 rgba(255, 255, 255, .3) inset'));
+    $input-button-color:                    get($args, "input-button-color",                 #fff);
+    $input-button-submit-background:        get($args, "input-button-submit-background",     #2cc03b);
+    $input-button-submit-border:            get($args, "input-button-submit-border",         1px solid darken($input-button-submit-background, 5%));
+    $input-button-submit-color:             get($args, "input-button-submit-color",          #fff);
+    $input-button-text-shadow:              get($args, "input-button-text-shadow",           unquote('0 1px 0 rgba(0, 0, 0, .15)'));
+
+    $link-color:                            get($args, "link-color",                         #2479c1);
+    $link-color-disabled:                   get($args, "link-color-disabled",                #ccc);
+    $link-color-hover:                      get($args, "link-color-hover",                   #2479c1);
+
+    $selection-background:                  get($args, "selection-background",               rgba(239, 201, 23, .99));
+    $selection-color:                       get($args, "selection-color",                    #555);
+    $selection-shadow:                      get($args, "selection-shadow",                   none);
+
+    $range-thumb-border:                    get($args, "range-thumb-border",                 none);
+    $range-thumb-color:                     get($args, "range-thumb-color",                  #fff);
+    $range-thumb-height:                    get($args, "range-thumb-height",                 13px);
+    $range-thumb-offset:                    get($args, "range-thumb-offset",                 -5px);
+    $range-thumb-shadow:                    get($args, "range-thumb-shadow",                 unquote('0 0 2px rgba(0, 0, 0, .7)'));
+    $range-thumb-radius:                    get($args, "range-thumb-radius",                 50%);
+    $range-thumb-width:                     get($args, "range-thumb-width",                  13px);
+
+    $range-track-border:                    get($args, "range-track-border",                 none);
+    $range-track-color:                     get($args, "range-track-color",                  unquote(' rgba(0, 0, 0, .3)'));
+    $range-track-height:                    get($args, "range-track-height",                 3px);
+    $range-track-shadow:                    get($args, "range-track-shadow",                 none);
+    $range-track-radius:                    get($args, "range-track-radius",                 3px);
+
+    // stylelint-enable
+    //      scss/at-function-named-arguments,
+    //      scss/dollar-variable-colon-space-after,
+    //      function-comma-space-after
+
+    *,
+    *:before,
+    *:after{
+
+        box-sizing: inherit;
+
+    }
+
+    *:focus{
+
+        outline: none;
+
+    }
+
+    html{
+
+        box-sizing: border-box;
+        text-size-adjust: 100%;
+
+    }
+
+    body{
+
+        @include font-smooth();
+        background: $body-background;
+        box-sizing: border-box;
+        color: $body-color;
+        font-family: $body-font-family;
+        font-size: $body-font-size;
+        font-smoothing: antialiased;
+        font-weight: $body-font-weight;
+        height: 100vh;
+        margin: 0;
+        overflow: visible;
+        overflow-x: hidden;
+        overscroll-behavior: none;
+        padding: 0;
+        position: relative;
+        text-rendering: optimizeLegibility;
+
+        @include media("retina") {
+
+            font-family: $body-font-family-hd;
+
+        }
+
+        *::selection{
+
+            background: $selection-background;
+            color: $selection-color;
+            text-shadow: $selection-shadow;
+
+        }
+
+    }
+
+    img{
+
+        user-select: none;
+
+    }
+
+    a{
+
+        color: $link-color;
+        cursor: pointer;
+        outline: none;
+        text-decoration: none;
+
+        &:focus,
+        &:hover{
+
+            color: $link-color-hover;
+            text-decoration: underline;
+
+        }
+
+        img{
+
+            border: 0;
+
+        }
+
+        &.disabled{
+
+            color: $link-color-disabled;
+            cursor: not-allowed;
+
+        }
+
+    }
+
+    form{
+
+        margin: 0;
+        padding: 0;
+
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6{
+
+        color: $heading-color;
+        font-weight: $heading-font-weight;
+
+    }
+
+    h1{
+
+        font-size: $heading-h1-font-size;
+
+    }
+
+    h2{
+
+        font-size: $heading-h2-font-size;
+
+    }
+
+    h3{
+
+        font-size: $heading-h3-font-size;
+
+    }
+
+    h4{
+
+        font-size: $heading-h4-font-size;
+
+    }
+
+    h5{
+
+        font-size: $heading-h5-font-size;
+
+    }
+
+    h6{
+
+        font-size: $heading-h6-font-size;
+
+    }
+
+    p{
+
+        margin: 10px 0;
+        padding: 0;
+
+    }
+
+    ul{
+
+        padding: 0 0 10px 1.1em;
+
+    }
+
+    textarea{
+
+        font-family: $input-field-font-family;
+        font-size: $input-field-font-size;
+        resize: none;
+
+        @include media("retina") {
+
+            font-family: $input-field-font-family-hd;
+
+        }
+
+    }
+
+    input:not([type]),
+    input[type = "email"],
+    input[type = "password"],
+    input[type = "slug"],
+    input[type = "text"]{
+
+        background-color: $input-field-background-color;
+        background-position: center right .5625rem;
+        background-repeat: no-repeat;
+        background-size: 1.125rem 1.125rem;
+        border: $input-field-border;
+        border-radius: $input-field-border-radius;
+        color: $input-field-color;
+        display: block;
+        font-size: $input-field-font-size;
+        line-height: 1.4em;
+        margin: 6px 0;
+        padding: 8px 10px;
+        resize: none;
+        transition:
+            border-color .3s ease-in-out,
+            background-color .3s ease-in-out;
+        width: 100%;
+
+        &:focus{
+
+            background-color: $input-field-background-color-focus;
+            border: $input-field-border-focus;
+
+        }
+
+    }
+
+    a.button,
+    input[type = "submit"],
+    input[type = "button"]{
+
+        appearance: none;
+        background: $input-button-background;
+        border: $input-button-border;
+        border-radius: $input-button-border-radius;
+        box-shadow: $input-button-box-shadow;
+        color: $input-button-color;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.4em;
+        margin: 17px 0;
+        padding: 8px 25px;
+        text-align: center;
+        text-shadow: $input-button-text-shadow;
+
+        &.button-wide{
+
+            display: block;
+            width: 100%;
+
+        }
+
+        &:hover{
+
+            text-decoration: none;
+
+        }
+
+        &:focus{
+
+            background: $input-button-background;
+            border: $input-button-border;
+
+        }
+
+    }
+
+    a.button.submit,
+    input[type = "submit"]{
+
+        background: $input-button-submit-background;
+        border: $input-button-submit-border;
+
+        &:focus{
+
+            background: $input-button-submit-background;
+            border: $input-button-submit-border;
+
+        }
+
+    }
+
+    input[type = "range"]{
+
+        appearance: none;
+        background: transparent;
+        cursor: pointer;
+        height: 25px;
+        margin: 5px 0;
+        min-width: 150px;
+        width: 100%;
+
+        &:focus{
+
+            outline: none;
+
+            &::-webkit-slider-runnable-track{
+
+                background: $range-track-color;
+
+            }
+
+            &::-ms-fill-lower,
+            &::-ms-fill-upper{
+
+                background: $range-track-color;
+
+            }
+
+        }
+
+        &::-webkit-slider-runnable-track{
+
+            background: $range-track-color;
+            border: $range-track-border;
+            border-radius: $range-track-radius;
+            box-shadow: $range-track-shadow;
+            cursor: pointer;
+            height: $range-track-height;
+            width: 100%;
+
+        }
+
+        &::-webkit-slider-thumb{
+
+            appearance: none;
+            background: $range-thumb-color;
+            border-radius: $range-thumb-radius;
+            box-shadow: $range-thumb-shadow;
+            cursor: pointer;
+            height: $range-thumb-height;
+            margin-top: $range-thumb-offset;
+            width: $range-thumb-width;
+
+        }
+
+        &::-moz-range-track{
+
+            background: $range-track-color;
+            border: $range-track-border;
+            border-radius: $range-track-radius;
+            box-shadow: $range-track-shadow;
+            cursor: pointer;
+            height: $range-track-height;
+            width: 100%;
+
+        }
+
+        &::-moz-range-thumb{
+
+            background: $range-thumb-color;
+            border-radius: $range-thumb-radius;
+            box-shadow: $range-thumb-shadow;
+            cursor: pointer;
+            height: $range-thumb-height;
+            width: $range-thumb-width;
+
+        }
+
+        &::-ms-track{
+
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+            cursor: pointer;
+            height: $range-track-height;
+            width: 100%;
+
+        }
+
+        &::-ms-thumb{
+
+            background: $range-thumb-color;
+            border-radius: $range-thumb-radius;
+            box-shadow: $range-thumb-shadow;
+            cursor: pointer;
+            height: $range-thumb-height;
+            width: $range-thumb-width;
+
+        }
+
+        &::-ms-fill-lower,
+        &::-ms-fill-upper{
+
+            background: $range-track-color;
+            border: $range-track-border;
+            border-radius: $range-track-radius;
+            box-shadow: $range-track-shadow;
+
+        }
+
+    }
+
+    input[type = "color"]{
+
+        cursor: pointer;
+
+    }
+
+}

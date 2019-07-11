@@ -1,0 +1,128 @@
+
+@import "../base.scss";
+
+$slide-transition: .25s cubic-bezier(0, 0, .3, 1);
+$color: #fff;
+$height: $nav-height;
+$height-offset-ratio: .7;
+$height-offset: $nav-height * $height-offset-ratio;
+$logo-height-ratio: .5;
+$logo-height: $height * $logo-height-ratio;
+$logo-height-offset: $height-offset * $logo-height-ratio;
+
+.nav{
+
+    @include notch-padding();
+    align-items: center;
+    color: $color;
+    display: grid;
+    grid-template-columns: 250px 1fr 100px;
+    grid-template-rows: 100%;
+    height: $height;
+    transition: none;
+
+    :global(body.mounted) &:not(.top){
+
+        /*
+         * As far as I know there isn't another way to achieve this effect in
+         * a more performant manner.
+         */
+        // stylelint-disable plugin/no-low-performance-animation-properties
+        transition:
+            background-color $slide-transition,
+            box-shadow $slide-transition,
+            height $slide-transition;
+        // stylelint-enable plugin/no-low-performance-animation-properties
+
+        .hamburger-wrap,
+        .logo-wrap{
+
+            transition: transform $slide-transition;
+
+        }
+
+        .logo-wrap svg{
+
+            /*
+             * As far as I know there isn't another way to achieve this effect in
+             * a more performant manner.
+             */
+            // stylelint-disable plugin/no-low-performance-animation-properties
+            transition: height $slide-transition;
+            // stylelint-enable plugin/no-low-performance-animation-properties
+
+        }
+
+    }
+
+    &.top{
+
+        .logo-wrap{
+
+            transition: none;
+
+            svg{
+
+                transition: none;
+
+            }
+
+        }
+
+    }
+
+    &.hidden{
+
+        box-shadow: none;
+
+    }
+
+    &.offset{
+
+        // background: linear-gradient(to bottom, $nav-background 0%, darken($nav-background, 4) 100%);
+        background-color: $nav-background;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+        height: $height-offset;
+
+        .hamburger-wrap{
+
+            transform: translate3d((($height - $logo-height) - ($height-offset - $logo-height-offset)), 0, 0);
+
+        }
+
+        .logo-wrap{
+
+            transform: translate3d((($height - $logo-height) - ($height-offset - $logo-height-offset)) * -1, 0, 0);
+
+            svg{
+
+                box-shadow: none;
+                height: $logo-height-offset;
+
+            }
+
+        }
+
+    }
+
+    .logo-wrap{
+
+        padding-left: $height - $logo-height;
+
+        svg{
+
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, .2));
+            height: $logo-height;
+
+        }
+
+    }
+
+    .hamburger-wrap{
+
+        padding-right: $height - $logo-height;
+        text-align: right;
+
+    }
+
+}

@@ -46,6 +46,7 @@
     "get-cursor-position": "^1.0.5",
     "justify-text": "^1.0.1",
     "node-pty": "^0.8.1",
+    "slice-ansi": "^2.1.0",
     "strip-ansi": "^5.2.0",
     "strip-color": "^0.1.0",
     "text-table": "^0.2.0",

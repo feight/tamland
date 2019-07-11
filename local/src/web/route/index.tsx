@@ -6,7 +6,7 @@ import { Route as PageRoute } from "@tamland/core";
 
 export class Route extends PageRoute{
 
-    public loading(): JSX.Element{
+    public loading(): React.ReactNode{
 
         return (
             <div>
@@ -28,7 +28,11 @@ export class Route extends PageRoute{
     public loadable(id: string): () => Promise<{ default: React.ComponentType }>{
 
         // eslint-disable-next-line no-inline-comments
-        return /* #__LOADABLE__ */ (): Promise<{ default: React.ComponentType }> => import(`./../routes/${ id }/page`);
+        return /* #__LOADABLE__ */ (): Promise<{ default: React.ComponentType }> => import(
+
+            /* webpackChunkName: "[request]" */
+            `./../routes/${ id }/page`
+        );
 
     }
 

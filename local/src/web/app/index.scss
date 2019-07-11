@@ -1,12 +1,4 @@
 
-body{
+@import "base.scss";
 
-    background: #f00;
-
-}
-
-.test{
-
-    background: #f0f;
-
-}
+@include tamland();

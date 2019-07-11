@@ -7,7 +7,7 @@ import { routes } from "../routes";
 
 
 const server = new Server(App, {
-    hostname: "www.sweetlikepete.com",
+    hostname: "www.newsteam.io",
     jwt: {
         secret: "ndB2N7l2sqSpvRNJBXtNdmKfvj6up1VN"
     },

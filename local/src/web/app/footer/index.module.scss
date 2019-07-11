@@ -1,0 +1,47 @@
+
+@import "../base.scss";
+
+$background: $footer-background;
+$color: #fff;
+$font-size: 13px;
+$link-color: #fff;
+
+.footer{
+
+    background: $background;
+    color: $color;
+    font-size: $font-size;
+    padding: 30px;
+    text-align: center;
+
+    ul{
+
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li{
+
+            display: inline;
+            line-height: 2em;
+            padding: 0 15px;
+
+        }
+
+    }
+
+    a{
+
+        color: $link-color;
+        text-decoration: none;
+
+        &:focus,
+        &:hover{
+
+            text-decoration: underline;
+
+        }
+
+    }
+
+}

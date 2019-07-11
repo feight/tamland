@@ -6,11 +6,11 @@ import { Page } from "@tamland/core";
 
 export default class PageNotFoundPage extends Page{
 
-    public render(): JSX.Element{
+    public render(): React.ReactNode{
 
         return (
             <div>
-                { "404 PAGE | BABOOOM BITCH TITS" }
+                { "Page not found" }
             </div>
         );
 

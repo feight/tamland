@@ -6,6 +6,7 @@ import getCursorPosition from "get-cursor-position";
 import strip from "strip-color";
 import stripAnsi from "strip-ansi";
 import { rjust } from "justify-text";
+import sliceAnsi from "slice-ansi";
 import table from "text-table";
 
 
@@ -95,6 +96,8 @@ const inLineFormat = function(line){
 };
 
 const logger = {
+
+    carryAnsi: "",
 
     command(label = "", command = ""){
 
@@ -219,6 +222,27 @@ const logger = {
 
     write(message = "", options = {}){
 
+        // Normalize new line characters
+        let output = message
+        .replace(/\r\n/gu, "\n")
+        .replace(/\n\r/gu, "\n")
+        .replace(/\r/gu, "\n");
+
+        // eslint-disable-next-line require-unicode-regexp
+        const match = output.match(/\033(?!\[\d*m).*$/gm);
+
+        output = `${ this.carryAnsi }${ output }`;
+
+        if(match){
+
+            [this.carryAnsi] = match;
+
+        }else{
+
+            this.carryAnsi = "";
+
+        }
+
         const {
             label = defaultLabel,
             error = false
@@ -229,12 +253,6 @@ const logger = {
         const testLabel = `${ label } ${ String(error) }`;
         const blank = started ? formatLabel(`${ nonBreakingCharacter }`) : "";
         const cursor = getCursorPosition.sync();
-
-        // Normalize new line characters
-        let output = message
-        .replace(/\r\n/gu, "\n")
-        .replace(/\n\r/gu, "\n")
-        .replace(/\r/gu, "\n");
 
         /*
          * If this you're writing to the first col and your first character is a

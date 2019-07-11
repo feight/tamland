@@ -1,12 +1,17 @@
 
+@import "base.scss";
+
+$background: #fff;
+
 .app{
 
-    min-height: 200vh;
+    background: $background;
 
-    ul{
+}
 
-        margin-top: 100vh;
+.page{
 
-    }
+    background-size: cover;
+    min-height: 100vh;
 
 }
