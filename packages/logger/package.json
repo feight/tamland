@@ -46,16 +46,14 @@
     "get-cursor-position": "^1.0.5",
     "justify-text": "^1.0.1",
     "node-pty": "^0.8.1",
-    "slice-ansi": "^2.1.0",
     "strip-ansi": "^5.2.0",
     "strip-color": "^0.1.0",
-    "text-table": "^0.2.0",
-    "through2": "^3.0.1"
+    "text-table": "^0.2.0"
   },
   "devDependencies": {
     "@tamland/babel": "^0.0.3",
-    "@tamland/eslint": "^0.0.1",
+    "@tamland/eslint": "^0.0.9",
     "babel-tape-runner": "^3.0.0",
-    "tape": "^4.10.2"
+    "tape": "^4.11.0"
   }
 }

@@ -6,7 +6,6 @@ import getCursorPosition from "get-cursor-position";
 import strip from "strip-color";
 import stripAnsi from "strip-ansi";
 import { rjust } from "justify-text";
-import sliceAnsi from "slice-ansi";
 import table from "text-table";
 
 
@@ -228,20 +227,18 @@ const logger = {
         .replace(/\n\r/gu, "\n")
         .replace(/\r/gu, "\n");
 
+        /*
+         * Test if there are any unclosed terminal color literals
+         *
+         * If you find one at the end of the message, store it so it can be
+         * prepended to the next written message.
+         */
         // eslint-disable-next-line require-unicode-regexp
         const match = output.match(/\033(?!\[\d*m).*$/gm);
 
         output = `${ this.carryAnsi }${ output }`;
 
-        if(match){
-
-            [this.carryAnsi] = match;
-
-        }else{
-
-            this.carryAnsi = "";
-
-        }
+        [this.carryAnsi] = match ? match : [""];
 
         const {
             label = defaultLabel,
