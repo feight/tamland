@@ -70,7 +70,10 @@ program
 
 program
 .command("optimize")
-.action(() => optimize(config));
+.option("-p, --platform [platform]", "device platform (defaults to 'web')")
+.action((options) => optimize(config, {
+    platform: options.platform || "web"
+}));
 
 
 program

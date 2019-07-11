@@ -57,12 +57,6 @@ const getRouteData = async function(routes: PageRoute[], store: Store, request: 
             strict: route.strict
         });
 
-        if(match){
-
-            console.log(route);
-
-        }
-
         return Boolean(match);
 
     });

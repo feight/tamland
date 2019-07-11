@@ -2,6 +2,9 @@
 make eslint resolve modules using webpack
 move @tamland/core into @tamland/web
 
+add deploy complete message and make sure the deploy quits the script
+dont let webpack build images into the server folder
+
 
 figure out module resolution with
 https://www.npmjs.com/package/eslint-import-resolver-alias

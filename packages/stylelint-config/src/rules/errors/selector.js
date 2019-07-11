@@ -15,7 +15,21 @@ export default {
          *
          * https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown/
          */
-        "selector-pseudo-class-no-unknown": true,
+        "selector-pseudo-class-no-unknown": [
+            true,
+            {
+                ignorePseudoClasses: [
+
+                    /*
+                     * Used by css-loader when css modules are enabled.
+                     *
+                     * https://github.com/webpack-contrib/css-loader#scope
+                     */
+                    "global",
+                    "local"
+                ]
+            }
+        ],
 
         /*
          * Disallow unknown pseudo-element selectors.

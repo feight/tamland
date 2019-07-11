@@ -8,10 +8,7 @@ import userConfig from "@tamland/rc-config";
 // eslint-disable-next-line no-empty-function
 const noop = () => {};
 
-const base = {
-    exclude: "!**/{dist,node_modules}/**/*",
-    include: "**/*"
-};
+const base = "src/{web,mobile,desktop,shared}/!(node_modules|dist)/**/*";
 
 const defaults = {
     firestore: {
@@ -26,13 +23,11 @@ const defaults = {
     },
     lint: {
         css: [
-            `${ base.include }.{css,scss}`,
-            `${ base.exclude }.{css,scss}`
+            `${ base }.{css,scss}`
         ],
         js: [
-            `${ base.include }.{js,jsx,ts,tsx}`,
-            `!${ base.include }.d.ts`,
-            `${ base.exclude }.{js,jsx,ts,tsx}`
+            `${ base }.{js,jsx,ts,tsx}`,
+            `!${ base }.d.ts`
         ]
     },
     modernizr: {
@@ -44,8 +39,7 @@ const defaults = {
     optimize: {
         image: {
             paths: [
-                `${ base.include }.{png,gif,jpg,jpeg,svg}`,
-                `${ base.exclude }.{png,gif,jpg,jpeg,svg}`
+                `${ base }.{png,gif,jpg,jpeg,svg}`
             ]
         }
     },

@@ -1,6 +1,6 @@
 {
   "name": "@tamland/stylelint-config",
-  "version": "0.0.3",
+  "version": "0.0.8",
   "description": "Shared config for stylelint",
   "main": "lib/index.js",
   "scripts": {
@@ -58,10 +58,10 @@
     "stylelint-high-performance-animation": "^1.2.1",
     "stylelint-no-unsupported-browser-features": "^3.0.2",
     "stylelint-order": "^3.0.0",
-    "stylelint-scss": "^3.8.0",
+    "stylelint-scss": "^3.9.1",
     "stylelint-selector-tag-no-without-class": "^2.0.0",
     "stylelint-use-nesting": "^1.2.1",
-    "tape": "^4.10.2"
+    "tape": "^4.11.0"
   },
   "peerDependencies": {
     "stylelint": "^10.1.0",
@@ -71,7 +71,7 @@
     "stylelint-high-performance-animation": "^1.2.1",
     "stylelint-no-unsupported-browser-features": "^3.0.2",
     "stylelint-order": "^3.0.0",
-    "stylelint-scss": "^3.8.0",
+    "stylelint-scss": "^3.9.1",
     "stylelint-selector-tag-no-without-class": "^2.0.0",
     "stylelint-use-nesting": "^1.2.1"
   }

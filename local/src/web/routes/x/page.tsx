@@ -3,7 +3,7 @@
 import React from "react";
 import { Page } from "@tamland/core";
 
-import style from "./page.scss";
+import style from "./page.module.scss";
 
 
 export default class XPage extends Page{

@@ -9,13 +9,17 @@ import globby from "globby";
 import imagemin from "@tamland/imagemin";
 import logger from "@tamland/logger";
 
+import tamland from "../local/tamland";
+
 
 const label = "optimize";
 
 
-const optimize = async function(globalConfig){
+const optimize = async function(config, options){
 
-    const paths = await globby(globalConfig.optimize.image.paths);
+    await tamland(config, options);
+
+    const paths = await globby(config.optimize.image.paths);
     const stats = await Promise.all(paths.map((pth) => fs.stat(pth)));
     const sizes = stats.map((stat) => stat.size);
 

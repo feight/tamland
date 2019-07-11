@@ -21,6 +21,7 @@ export default {
                 ignoreProperties: [
                     "box-align",
                     "box-pack",
+                    "composes",
                     "font-feature-settings",
                     "font-smoothing",
                     "tap-highlight-color",

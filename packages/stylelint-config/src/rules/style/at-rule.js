@@ -42,7 +42,7 @@ export default {
          *
          * https://stylelint.io/user-guide/rules/at-rule-name-space-after/
          */
-        "at-rule-name-space-after": "always",
+        "at-rule-name-space-after": "always-single-line",
 
         /*
          * Require a newline after the semicolon of at-rules (Autofixable).

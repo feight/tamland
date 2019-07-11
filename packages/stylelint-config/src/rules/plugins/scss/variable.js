@@ -25,7 +25,7 @@ export default {
          *
          * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules//README.md
          */
-        "scss/dollar-variable-colon-space-after": "always",
+        "scss/dollar-variable-colon-space-after": "always-single-line",
 
         /*
          * Require a single space or disallow whitespace before the colon in $-variable declarations (Autofixable).

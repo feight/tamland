@@ -53,6 +53,7 @@ const cssLoader = (
         loader: "css-loader",
         options: modules ? {
             ...baseOptions,
+            importLoaders: 3,
             localsConvention: "camelCaseOnly",
             modules: {
                 localIdentName: options.mode === "development" ? developmentLocalIdentName : productionLocalIdentName

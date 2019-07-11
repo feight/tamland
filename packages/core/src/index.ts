@@ -18,7 +18,7 @@ const { Server } = isServer ? eval("require")("./server") : {
 
 // Needed so that webpack won't require this on the client
 // eslint-disable-next-line node/no-missing-require, @typescript-eslint/no-require-imports
-const Modernizr = isServer ? null : require("modernizr");
+const Modernizr = isServer ? {} : require("modernizr");
 
 
 export {
