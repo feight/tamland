@@ -1,5 +1,7 @@
 
 
+import path from "path";
+
 import merge from "merge";
 import userConfig from "@tamland/rc-config";
 
@@ -21,6 +23,7 @@ const defaults = {
             pre: noop
         }
     },
+    icon: path.join(__dirname, "images/icon.png"),
     lint: {
         css: [
             `${ base }.{css,scss}`
@@ -33,6 +36,7 @@ const defaults = {
     modernizr: {
         features: []
     },
+    name: "Tamland Project",
     nodemon: {
         port: 5555
     },

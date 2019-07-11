@@ -1,6 +1,11 @@
 
 
+const path = require("path");
+
+
 module.exports = {
+    icon: path.join(__dirname, "icon.png"),
+    name: "Local Project",
     platform: {
         web: {
             environments: [
