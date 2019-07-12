@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@ionaru/romanize": "^1.1.0",
-    "@tamland/core": "file:../../node_modules/.cache/tamland-core-0.0.22.tgz",
+    "@tamland/web": "file:../../node_modules/.cache/tamland-web-0.0.2.tgz",
     "browserslist": "^4.6.4",
     "react": "^16.8.6"
   },

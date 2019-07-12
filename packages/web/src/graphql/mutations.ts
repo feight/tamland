@@ -9,11 +9,11 @@ export default {
     default: {
 
         description: stripIndent`
-            The default query. This query will only exist if no queries have been
-            configured in your @tamland/core server configuration.
+            The default mutation. This query will only exist if no queries have been
+            configured in your @tamland/web server configuration.
         `,
 
-        name: "default",
+        name: "defaultMutation",
 
         public: true,
 

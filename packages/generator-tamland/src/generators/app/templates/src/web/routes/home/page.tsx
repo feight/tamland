@@ -1,7 +1,7 @@
 
 
 import React from "react";
-import { Helmet } from "@tamland/core";
+import { Helmet } from "@tamland/web";
 
 import style from "./page.scss";
 

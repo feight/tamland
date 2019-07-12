@@ -5,7 +5,7 @@ import {
     Helmet,
     Modernizr,
     Router
-} from "@tamland/core";
+} from "@tamland/web";
 
 import { Footer } from "./footer";
 import { Nav } from "./nav";

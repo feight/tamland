@@ -1,7 +1,7 @@
 
 
 import React from "react";
-import { Page } from "@tamland/core";
+import { Page } from "@tamland/web";
 
 
 export default class CosmosPage extends Page{

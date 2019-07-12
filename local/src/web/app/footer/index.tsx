@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { romanize } from "@ionaru/romanize";
-import { Link } from "@tamland/core";
+import { Link } from "@tamland/web";
 
 import style from "./index.module.scss";
 

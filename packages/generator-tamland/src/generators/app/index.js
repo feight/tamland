@@ -93,7 +93,8 @@ class AppGenerator extends Generator{
         });
 
         const packageJSON = {
-            name: params.project
+            name: params.project,
+            repository: ""
         };
 
         // Extend or create package.json file in destination path

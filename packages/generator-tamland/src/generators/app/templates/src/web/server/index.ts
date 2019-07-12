@@ -1,6 +1,6 @@
 
 
-import { Server } from "@tamland/core";
+import { Server } from "@tamland/web";
 
 import { App } from "../app";
 import { routes } from "../routes";

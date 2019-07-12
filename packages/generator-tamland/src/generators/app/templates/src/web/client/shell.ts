@@ -1,6 +1,6 @@
 
 
-import { Client } from "@tamland/core";
+import { Client } from "@tamland/web";
 
 import { App } from "../app";
 

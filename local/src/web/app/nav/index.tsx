@@ -1,7 +1,7 @@
 
 
 import * as React from "react";
-import { Link } from "@tamland/core";
+import { Link } from "@tamland/web";
 
 import style from "./index.module.scss";
 import drawerStyle from "./drawer.module.scss";

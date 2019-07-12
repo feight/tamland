@@ -1,7 +1,7 @@
 
 
 import React from "react";
-import { Route as PageRoute } from "@tamland/core";
+import { Route as PageRoute } from "@tamland/web";
 
 
 export class Route extends PageRoute{

@@ -1,7 +1,7 @@
 
 
 import * as React from "react";
-import { Router } from "@tamland/core";
+import { Router } from "@tamland/web";
 
 import { routes } from "../routes";
 

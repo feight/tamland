@@ -4,7 +4,7 @@ import React from "react";
 import {
     Helmet,
     Page
-} from "@tamland/core";
+} from "@tamland/web";
 
 import style from "./page.module.scss";
 import { logos } from "./logos";

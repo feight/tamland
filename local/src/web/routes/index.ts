@@ -1,6 +1,6 @@
 
 
-import { Route as PageRoute } from "@tamland/core";
+import { Route as PageRoute } from "@tamland/web";
 
 import { AboutRoute } from "./about";
 import { CareersRoute } from "./careers";

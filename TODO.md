@@ -1,19 +1,7 @@
 
 make eslint resolve modules using webpack
-move @tamland/core into @tamland/web
-
-
-figure out module resolution with
-https://www.npmjs.com/package/eslint-import-resolver-alias
-and link-module-alias
-- requires tweak in webpack resolve (symlinks: true) and externals (add /src/ to ignore regex)
-
-fix
-npm WARN generator-tamland-template-web@1.0.0 No repository field.
-
 
 Make a base scss in core
-Finish off moving the defaults from packages/cli/src/config to packages/rc-config
 Add a base meta description
 Hook up sample image icons for the manifest and link them in the html
 Add a default <meta name="theme-color">
@@ -23,21 +11,21 @@ figure out a way to reference things in src/shared in src/web
 try out the performance of not pushing http2 pushing js code
 try out performance of no script at all
 
-fix the newsteam nav so reload doesn't flash hide it
-
-Update the packages/generator-tamland/src/generators/app/templates/README.md
-    - include all the details on how to use
-        - local development
-            - npm run setup
-            - npm run local
-            - npm run production
-        - deploying
-            - configuring your environments
-            - npm run deploy
-Automate gcloud project and GAE project init
-Automate github init
-Make sure all the dot files from src/web get copied by the generator
-Move host into tamlandrc web environments configuration
+generator things:
+    Update the packages/generator-tamland/src/generators/app/templates/README.md
+        - include all the details on how to use
+            - local development
+                - npm run setup
+                - npm run local
+                - npm run production
+            - deploying
+                - configuring your environments
+                - npm run deploy
+    Automate gcloud project and GAE project init
+    Automate github init
+        - pass the repo to the template generator so the package.json has the repo in it
+    Make sure all the dot files from src/web get copied by the generator
+    Move host into tamlandrc web environments configuration
 
 Integrate https://developers.google.com/web/tools/workbox/
 
@@ -65,5 +53,3 @@ create the application
     - use react suspence/lazy
     - use react-intl
     - use extract-react-intl
-
-make it an npm module
