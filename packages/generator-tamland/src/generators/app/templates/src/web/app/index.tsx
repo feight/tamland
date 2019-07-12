@@ -8,7 +8,7 @@ import { routes } from "../routes";
 
 export class App extends React.PureComponent{
 
-    public render(): JSX.Element{
+    public render(): React.ReactNode{
 
         return (
             <div>

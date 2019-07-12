@@ -5,7 +5,7 @@ import React from "react";
 
 export default class Page extends React.PureComponent{
 
-    public render(): JSX.Element{
+    public render(): React.ReactNode{
 
         return (
             <div>

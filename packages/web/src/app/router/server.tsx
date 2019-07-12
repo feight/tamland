@@ -8,7 +8,7 @@ import { BaseRouter } from "./base";
 
 export class Router extends BaseRouter{
 
-    public render(): JSX.Element{
+    public render(): React.ReactNode{
 
         return (
             <StaticRouter

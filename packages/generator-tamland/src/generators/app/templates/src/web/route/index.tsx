@@ -6,7 +6,7 @@ import { Route as PageRoute } from "@tamland/web";
 
 export class Route extends PageRoute{
 
-    public loading(): JSX.Element{
+    public loading(): React.ReactNode{
 
         return (
             <div>

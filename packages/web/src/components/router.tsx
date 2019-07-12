@@ -23,11 +23,11 @@ export class Router extends React.Component<RouterProps>{
 
     }
 
-    public render(): JSX.Element{
+    public render(): React.ReactNode{
 
         return (
             <Switch>
-                { this.props.routes.map((instance): JSX.Element => instance.render()) }
+                { this.props.routes.map((instance): React.ReactNode => instance.render()) }
             </Switch>
         );
 

@@ -61,7 +61,7 @@ export class Route{
 
     }
 
-    public loading(): JSX.Element{
+    public loading(): React.ReactNode{
 
         return (
             <div>
@@ -71,7 +71,7 @@ export class Route{
 
     }
 
-    public render(): JSX.Element{
+    public render(): React.ReactNode{
 
         return (
             <ReactRouterDomRoute
@@ -84,7 +84,7 @@ export class Route{
                  * the render method and I can't think of how to do this without a function
                  */
                 // eslint-disable-next-line react/jsx-no-bind, react-perf/jsx-no-new-function-as-prop
-                render={ (): JSX.Element => {
+                render={ (): React.ReactNode => {
 
                     const loadableComponent = this.loadable(this.id);
 

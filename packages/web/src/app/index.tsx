@@ -93,7 +93,7 @@ export class Tamland extends React.PureComponent<TamlandProps>{
 
     }
 
-    public render(): JSX.Element{
+    public render(): React.ReactNode{
 
         return (
             <ReduxProvider store={ this.props.store }>

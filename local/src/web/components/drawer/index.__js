@@ -226,7 +226,7 @@ module.exports = class Drawer extends Component{
 
     }
 
-    public render(props): JSX.Element{
+    public render(props): React.ReactNode{
 
         return (
             <sidebar
