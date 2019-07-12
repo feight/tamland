@@ -213,7 +213,9 @@ export class Server{
             this.app.listen(this.port, (): void => {
 
                 logger.info(`App listening on port ${ this.port }`);
+                logger.info("");
                 logger.info("Press Ctrl+ C to quit.");
+                logger.info("");
 
             });
 

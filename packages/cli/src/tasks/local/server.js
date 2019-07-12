@@ -166,18 +166,18 @@ const startNodemonServer = function(script, environment){
 
                         }
 
-                        return;
-
                     }
 
-                }catch(error){}
+                }catch(error){
 
-                if(string){
+                    if(string){
 
-                    logger.log(string, {
-                        color,
-                        label
-                    });
+                        logger.log(string.replace(/\n$/gu, ""), {
+                            color,
+                            label
+                        });
+
+                    }
 
                 }
 

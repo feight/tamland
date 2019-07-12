@@ -17,12 +17,23 @@ import { Provider as ReduxProvider } from "react-redux";
 
 import { Router } from "./router";
 
+import { Modernizr } from "../modernizr";
+
 
 export interface TamlandProps{
     helmetContext?: {} | undefined;
     history: History;
+    language: string;
     request?: express.Request;
     store: Store;
+}
+
+interface BodyAttributes{
+    class: string;
+}
+
+interface HtmlAttributes{
+    lang: string;
 }
 
 
@@ -31,11 +42,16 @@ const context = {};
 
 export class Tamland extends React.PureComponent<TamlandProps>{
 
+    public static defaultProps = {
+        language: "en"
+    };
+
     public static propTypes = {
         children: PropTypes.oneOfType([
             PropTypes.arrayOf(PropTypes.node),
             PropTypes.node
-        ]).isRequired
+        ]).isRequired,
+        language: PropTypes.string
     };
 
     public location: Location;
@@ -55,12 +71,37 @@ export class Tamland extends React.PureComponent<TamlandProps>{
 
     }
 
+    public getBodyAttributes(): BodyAttributes{
+
+        const classes = [
+            typeof window === "undefined" ? "" : "mounted"
+        ].concat(Object.keys(Modernizr).map((feature: string): string => `feature-detect-${ feature }`))
+        .filter(Boolean)
+        .join(" ");
+
+        return {
+            class: classes
+        };
+
+    }
+
+    public getHtmlAttributes(): HtmlAttributes{
+
+        return {
+            lang: this.props.language
+        };
+
+    }
+
     public render(): JSX.Element{
 
         return (
             <ReduxProvider store={ this.props.store }>
                 <HelmetProvider context={ this.props.helmetContext }>
-                    <Helmet>
+                    <Helmet
+                        bodyAttributes={ this.getBodyAttributes() }
+                        htmlAttributes={ this.getHtmlAttributes() }
+                    >
                         <title>
                             {
 

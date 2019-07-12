@@ -7,7 +7,7 @@ import notifier from "node-notifier";
 import build from "../../build";
 import { exec } from "../../../utils/subprocess";
 import prompts from "../../../prompts";
-import tamland from "../../local/tamland";
+import tamland from "../../tamland";
 
 
 const deployWeb = async function(config, options){
@@ -39,10 +39,17 @@ const deployWeb = async function(config, options){
         contentImage: config.icon,
         icon: path.join(__dirname, "../../../images/icon.png"),
         message: `${ projectId }.appspot.com`,
-        open: `http://${ projectId }.appspot.com`,
         sound: "Blow",
         timeout: 30,
         title: `Deployed ${ config.name }`
+    });
+
+    await exec({
+        command: `
+            gcloud app browse
+            ${ project }
+        `,
+        label: "deploy"
     });
 
     /*

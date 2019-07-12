@@ -5,7 +5,7 @@ import gcloud from "./gcloud";
 import ruby from "./ruby";
 import xcode from "./xcode";
 
-import tamland from "../local/tamland";
+import tamland from "../tamland";
 
 
 const setup = async function(config){

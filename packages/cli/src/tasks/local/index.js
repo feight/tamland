@@ -4,8 +4,8 @@ import firestore from "./firestore";
 import memcached from "./memcached";
 import open from "./open";
 import server from "./server";
-import tamland from "./tamland";
 
+import tamland from "../tamland";
 import build from "../build";
 
 

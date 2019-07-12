@@ -9,7 +9,7 @@ import globby from "globby";
 import imagemin from "@tamland/imagemin";
 import logger from "@tamland/logger";
 
-import tamland from "../local/tamland";
+import tamland from "../tamland";
 
 
 const label = "optimize";

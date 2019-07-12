@@ -1,13 +1,14 @@
 {
   "name": "@tamland/rc-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "@tamland rc project configuration",
   "main": "lib/index.js",
   "scripts": {
-    "build": "rm -rf lib && npm run build:script && npm run build:types",
+    "build": "rm -rf lib && npm run build:script && npm run build:types && npm run build:static",
     "build:script": "npm run build:script:module && npm run build:script:common",
     "build:script:common": "babel src --ignore src/cli --out-dir lib --extensions '.js,.ts'",
     "build:script:module": "BUILD_MJS=1 npm run build:script:common && renamer --find js --replace mjs \"lib/**\"",
+    "build:static": "cp -R src/images lib/images",
     "build:types": "tsc --emitDeclarationOnly",
     "lint": "eslint src test --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts",
     "prelint": "npm run build",
@@ -46,12 +47,16 @@
     "lib"
   ],
   "dependencies": {
+    "deepmerge": "^4.0.0",
     "rc-config-loader": "^2.0.3"
   },
   "devDependencies": {
     "@tamland/babel": "^0.0.3",
     "@tamland/eslint": "^0.0.1",
+    "@types/deepmerge": "^2.2.0",
+    "@types/node": "^12.6.2",
     "babel-tape-runner": "^3.0.0",
+    "color-json": "^2.0.0",
     "renamer": "^1.1.2",
     "tape": "^4.10.2"
   }

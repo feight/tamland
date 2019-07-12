@@ -2,8 +2,32 @@
 
 import { LoggingWinston } from "@google-cloud/logging-winston";
 import {
-    createLogger, transports, format
+    createLogger,
+    format,
+    transports
 } from "winston";
+import Transport from "winston-transport";
+
+
+class LocalTransport extends Transport{
+
+    // Extending this function so I can't change the type of info
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    public log(info: any, next: () => void): void{
+
+        setImmediate((): void => {
+
+            console.log(info.message);
+
+            this.emit("logged", info);
+
+        });
+
+        next();
+
+    }
+
+}
 
 
 const service = process.env.GAE_SERVICE;
@@ -17,14 +41,12 @@ const loggingWinston = service && version ? new LoggingWinston({
     }
 }) : null;
 
+
 const localLoggerConfig = {
     format: format.simple(),
     level: "info",
-    transports: loggingWinston ? [
-        new transports.Console(),
-        loggingWinston
-    ] : [
-        new transports.Console()
+    transports: [
+        new LocalTransport()
     ]
 };
 
@@ -39,5 +61,6 @@ const loggerConfig = {
 };
 
 const logger = createLogger(local ? localLoggerConfig : loggerConfig);
+
 
 export default logger;

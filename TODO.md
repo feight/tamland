@@ -2,9 +2,6 @@
 make eslint resolve modules using webpack
 move @tamland/core into @tamland/web
 
-add deploy complete message and make sure the deploy quits the script
-dont let webpack build images into the server folder
-
 
 figure out module resolution with
 https://www.npmjs.com/package/eslint-import-resolver-alias
@@ -17,12 +14,9 @@ npm WARN generator-tamland-template-web@1.0.0 No repository field.
 
 Make a base scss in core
 Finish off moving the defaults from packages/cli/src/config to packages/rc-config
-Add a lang attribute to html - source the value from tamlandrc
 Add a base meta description
-Add start_url to the manifest
 Hook up sample image icons for the manifest and link them in the html
 Add a default <meta name="theme-color">
-Get rid of stupid logging
 
 figure out a way to reference things in src/shared in src/web
 
@@ -42,8 +36,6 @@ Update the packages/generator-tamland/src/generators/app/templates/README.md
             - npm run deploy
 Automate gcloud project and GAE project init
 Automate github init
-Add a notification to deploy complete
-Run gcloud app browse --project=newsteam-site-production after deploy
 Make sure all the dot files from src/web get copied by the generator
 Move host into tamlandrc web environments configuration
 
@@ -54,17 +46,9 @@ Implemented https local testing option
     - https://webapplog.com/http2-node/
     - WebpackDevServer has an https option
 
-use connected router to get over rerender
-  - finish @loadable implementation
-
-@typescript-eslint/interface-name-prefix
-    - get rid of prefer interface over type
-
 - add jasmine tests to everything like the documentation of typescript shows
 
 add https://github.com/gajus/prepack-webpack-plugin to webpack
-
-add a modernizr step (finish testing it after the client webpack build is done)
 
 add a test harness
 add format message harness with https://www.npmjs.com/package/format-message
