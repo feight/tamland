@@ -4,6 +4,7 @@ import { Client } from "@tamland/web";
 
 import { App } from "../app";
 
+
 if(process.env.watch){
 
     if(typeof module.hot !== "undefined"){
@@ -14,6 +15,11 @@ if(process.env.watch){
 
 }
 
-const client = new Client(App);
 
-client.start();
+export const start = function(): void{
+
+    const client = new Client(App);
+
+    client.start();
+
+};

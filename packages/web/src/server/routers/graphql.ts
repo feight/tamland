@@ -6,6 +6,10 @@
 */
 
 import https from "https";
+import {
+    IncomingMessage,
+    ServerResponse
+} from "http";
 
 import express from "express";
 import graphqlHTTP from "express-graphql";
@@ -15,7 +19,7 @@ import { TamlandGraphQLFieldConfigMap } from "../../graphql/types";
 
 
 export interface GraphqlRouterConfiguration {
-    authorized?: (request: express.Request) => boolean;
+    authorized?: (request: IncomingMessage) => boolean;
     endpoint?: string;
     host?: string | undefined;
     mutations?: TamlandGraphQLFieldConfigMap<any, any, any>;
@@ -23,7 +27,7 @@ export interface GraphqlRouterConfiguration {
 }
 
 interface GraphqlServerConfiguration {
-    authorized?: (request: express.Request) => boolean;
+    authorized?: (request: IncomingMessage) => boolean;
     graphiql?: boolean;
     mutations?: TamlandGraphQLFieldConfigMap<any, any, any>;
     queries?: TamlandGraphQLFieldConfigMap<any, any, any>;
@@ -67,12 +71,12 @@ const postJSON = (
 });
 
 const graphqlServer = (config: GraphqlServerConfiguration): graphqlHTTP.Middleware => graphqlHTTP((
-    request: express.Request,
-    response: express.Response
+    request: IncomingMessage,
+    response: ServerResponse
 ): graphqlHTTP.OptionsResult => {
 
     const {
-        authorized = (authRequest: express.Request): boolean => !authRequest,
+        authorized = (authRequest: IncomingMessage): boolean => !authRequest,
         graphiql = false,
         mutations,
         queries
@@ -99,7 +103,7 @@ const graphqlServer = (config: GraphqlServerConfiguration): graphqlHTTP.Middlewa
 export const graphqlRouter = (config: GraphqlRouterConfiguration = {}): express.Router => {
 
     const {
-        authorized = (request: express.Request): boolean => !request,
+        authorized = (request: IncomingMessage): boolean => !request,
         endpoint = "/graphql/",
         host
     } = config;

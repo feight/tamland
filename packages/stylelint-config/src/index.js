@@ -14,5 +14,11 @@ export default {
         "./rules/errors",
         "./rules/features",
         "./rules/style"
-    ].map(require.resolve)
+    ].map(require.resolve),
+    ignoreFiles: [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.tsx"
+    ]
 };

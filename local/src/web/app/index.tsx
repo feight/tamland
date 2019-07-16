@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
     Helmet,
-    Modernizr,
     Router
 } from "@tamland/web";
 
@@ -16,23 +15,18 @@ import { routes } from "../routes";
 import "./index.scss";
 
 
-export class App extends React.PureComponent<{}, AppState>{
+export class App extends React.PureComponent{
 
     public render(): React.ReactNode{
 
-        const classes = [
-            typeof window === "undefined" ? "" : "mounted",
-            Modernizr.backdropfilter ? "feature-detect-backdropfilter" : ""
-        ].filter(Boolean)
-        .join(" ");
-
         return (
             <div className={ style.app }>
-                <Helmet
-                    bodyAttributes={ {
-                        class: classes
-                    } }
-                />
+                <Helmet>
+                    <title>
+                        { "News Team" }
+                    </title>
+                    <meta content="Helmet application" name="description" />
+                </Helmet>
                 <Nav />
                 <div className={ style.page }>
                     <Router routes={ routes } />

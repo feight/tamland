@@ -1,5 +1,11 @@
 
-make eslint resolve modules using webpack
+enable brotli compression https://medium.com/groww-engineering/enable-brotli-compression-in-webpack-with-fallback-to-gzip-397a57cf9fc6
+add cache-control immutatble
+figure out how to implement a shell for the client
+add image importance attribute to all images add loading=lazy to all iframes and images
+guetzli and zopfli for images
+add <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+
 
 Make a base scss in core
 Add a base meta description
@@ -35,8 +41,6 @@ Implemented https local testing option
     - WebpackDevServer has an https option
 
 - add jasmine tests to everything like the documentation of typescript shows
-
-add https://github.com/gajus/prepack-webpack-plugin to webpack
 
 add a test harness
 add format message harness with https://www.npmjs.com/package/format-message

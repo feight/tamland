@@ -1,6 +1,6 @@
 {
   "name": "@tamland/cli",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "Collection of tools, presets and shared configs for @tamland's projects",
   "main": "lib/index",
   "sideEffects": false,
@@ -47,8 +47,8 @@
     "@tamland/logger": "0.0.3",
     "@tamland/postcss-config": "0.0.1",
     "@tamland/rc-config": "0.0.2",
-    "@tamland/stylelint": "0.0.8",
-    "@tamland/webpack-config": "^0.0.17",
+    "@tamland/stylelint": "0.0.9",
+    "@tamland/webpack-config": "0.0.19",
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
     "core-js": "^3.1.4",
@@ -79,7 +79,7 @@
     "touch": "^3.1.0",
     "typescript": "^3.5.3",
     "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5",
+    "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
   },
   "devDependencies": {

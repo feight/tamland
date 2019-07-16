@@ -1,5 +1,8 @@
 
 @import "../base.scss";
+
+$drawer-background: #0f0;
+
 @import "../../components/drawer/index.module.scss";
 
 :global(body.backdropfilter) .drawer:before{

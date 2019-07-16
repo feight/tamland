@@ -65,12 +65,12 @@ const getRouteData = async function(routes: PageRoute[], store: Store, request: 
 
 };
 
-const createChunkExtractor = function(): ChunkExtractor{
+const createChunkExtractor = function(entrypoints: string[]): ChunkExtractor{
 
     const statsFile = path.join(process.cwd(), "dist/client/loadable-stats.json");
 
     return new ChunkExtractor({
-        entrypoints: ["index"],
+        entrypoints,
         statsFile
     });
 
@@ -117,13 +117,15 @@ export const appRouter = (config: AppRouterConfiguration): express.Router => {
 
         const history = createHistory(request.url);
         const store = createStore(history);
-        const chunkExtractor = createChunkExtractor();
+        const chunkExtractor = createChunkExtractor([
+            "index"
+        ]);
 
         await getRouteData(routes, store, request);
 
         const reduxState = store.getState();
 
-        const content = renderToString(chunkExtractor.collectChunks(
+        const App = (
             <Tamland
                 helmetContext={ helmetContext }
                 history={ history }
@@ -132,7 +134,9 @@ export const appRouter = (config: AppRouterConfiguration): express.Router => {
             >
                 <Component />
             </Tamland>
-        ));
+        );
+
+        const content = renderToString(chunkExtractor.collectChunks(App));
 
         const { helmet } = helmetContext;
 

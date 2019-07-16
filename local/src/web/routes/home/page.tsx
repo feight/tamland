@@ -1,10 +1,7 @@
 
 
 import React from "react";
-import {
-    Helmet,
-    Page
-} from "@tamland/web";
+import { Page } from "@tamland/web";
 
 import style from "./page.module.scss";
 import { logos } from "./logos";
@@ -16,11 +13,6 @@ export default class HomePage extends Page{
 
         return (
             <div className={ style.page }>
-                <Helmet>
-                    <title>
-                        { "News Team" }
-                    </title>
-                </Helmet>
                 <div className={ style.splash }>
                     <div className={ style.splashWrap }>
                         <h1>
@@ -45,10 +37,13 @@ export default class HomePage extends Page{
                                 title={ item.name }
                             >
                                 <span
-                                    style={ {
-                                        backgroundImage: `url(${ item.logo })`,
-                                        width: item.width ? `${ item.width }px` : ""
-                                    } }
+                                    style={
+                                        // eslint-disable-next-line react-perf/jsx-no-new-object-as-prop
+                                        {
+                                            backgroundImage: `url(${ item.logo })`,
+                                            width: item.width ? `${ item.width }px` : ""
+                                        }
+                                    }
                                 />
                             </a>
                         )) }
