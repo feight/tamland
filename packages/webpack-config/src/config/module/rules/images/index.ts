@@ -15,15 +15,32 @@ export default function configuration(
     return merge(config, {
         module: {
             rules: [
-                // .svg .png .jpg .jpeg .gif .webp and .ico image extensions
+                // .png .jpg .jpeg .gif .webp and .ico image extensions
                 {
-                    test: /\.(?:svg|png|jpg|jpeg|gif|webp|ico)$/u,
+                    test: /\.(?:png|jpg|jpeg|gif|webp)$/u,
 
                     /*
                      * We don't use an optimizer like image-webpack-loader because
                      * we optimize images manually using tamland optimize
                      */
-                    use: [fileLoader(config, options)]
+                    use: [
+                        fileLoader(config, options),
+                        {
+                            loader: "image-process-loader"
+                        }
+                    ]
+                },
+                // .svg .png .jpg .jpeg .gif .webp and .ico image extensions
+                {
+                    test: /\.(?:svg|ico)$/u,
+
+                    /*
+                     * We don't use an optimizer like image-webpack-loader because
+                     * we optimize images manually using tamland optimize
+                     */
+                    use: [
+                        fileLoader(config, options)
+                    ]
                 }
             ]
         }

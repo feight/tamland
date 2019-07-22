@@ -1,11 +1,11 @@
 
 
 import compressionMiddleware from "compression";
-import express from "express";
+import { Express } from "express";
 
 
 export const compression = function(
-    app: express.Express
+    app: Express
 ): void{
 
     /*

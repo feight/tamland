@@ -24,6 +24,7 @@ const gcloud = async function(component){
                 detatch: true
             });
 
+            // eslint-disable-next-line require-atomic-updates
             versions = JSON.parse(rawVersions);
 
         }

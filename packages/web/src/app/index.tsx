@@ -1,7 +1,6 @@
 
 
 import * as React from "react";
-import express from "express";
 import parseurl from "parseurl";
 import PropTypes from "prop-types";
 import {
@@ -9,50 +8,48 @@ import {
     HelmetProvider
 } from "react-helmet-async";
 import {
-    History,
-    Location
+    Location, History
 } from "history";
-import { Store } from "redux";
 import { Provider as ReduxProvider } from "react-redux";
+import { Request } from "express";
+import { Store } from "redux";
 
+import { TamlandAppConfig } from "./config";
 import { Router } from "./router";
-
-import { Modernizr } from "../modernizr";
-
-
-export interface TamlandProps{
-    helmetContext?: {} | undefined;
-    history: History;
-    language: string;
-    request?: express.Request;
-    store: Store;
-}
-
-interface BodyAttributes{
-    class: string;
-}
-
-interface HtmlAttributes{
-    lang: string;
-}
 
 
 const context = {};
 
 
-export class Tamland extends React.PureComponent<TamlandProps>{
+export interface TamlandProps{
+    config: TamlandAppConfig;
+    helmetContext?: {} | undefined;
+    history: History;
+    request?: Request;
+    store: Store;
+}
 
-    public static defaultProps = {
-        language: "en"
-    };
+
+export interface BodyAttributes{
+    class: string;
+}
+
+
+export interface HtmlAttributes{
+    lang: string;
+}
+
+
+export class Tamland extends React.PureComponent<TamlandProps>{
 
     public static propTypes = {
         children: PropTypes.oneOfType([
             PropTypes.arrayOf(PropTypes.node),
             PropTypes.node
-        ]).isRequired,
-        language: PropTypes.string
+        ]).isRequired
     };
+
+    public config: TamlandAppConfig;
 
     public location: Location;
 
@@ -61,6 +58,8 @@ export class Tamland extends React.PureComponent<TamlandProps>{
         super(props);
 
         const loc = (this.props.request ? parseurl(this.props.request) : window.location) || {};
+
+        this.config = new TamlandAppConfig(this.props.config);
 
         this.location = {
             hash: loc.hash || "",
@@ -72,6 +71,10 @@ export class Tamland extends React.PureComponent<TamlandProps>{
     }
 
     public getBodyAttributes(): BodyAttributes{
+
+        // Needed so that webpack won't require this on the server, since it's a client only module
+        // eslint-disable-next-line node/no-missing-require, @typescript-eslint/no-require-imports, global-require
+        const Modernizr = typeof window === "undefined" ? {} : require("modernizr");
 
         const classes = [
             typeof window === "undefined" ? "" : "mounted"
@@ -88,7 +91,7 @@ export class Tamland extends React.PureComponent<TamlandProps>{
     public getHtmlAttributes(): HtmlAttributes{
 
         return {
-            lang: this.props.language
+            lang: this.props.config.language
         };
 
     }
@@ -101,6 +104,7 @@ export class Tamland extends React.PureComponent<TamlandProps>{
                     <Helmet
                         bodyAttributes={ this.getBodyAttributes() }
                         htmlAttributes={ this.getHtmlAttributes() }
+                        onChangeClientState={(newState, addedTags, removedTags) => console.log(newState, addedTags, removedTags)}
                     >
                         <title>
                             {
@@ -113,6 +117,7 @@ export class Tamland extends React.PureComponent<TamlandProps>{
                             }
                             { " " }
                         </title>
+                        <link href="/manifest.json" rel="manifest" />
                     </Helmet>
                     <Router
                         context={ context }

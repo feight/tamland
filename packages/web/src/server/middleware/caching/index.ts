@@ -1,23 +1,12 @@
 
 
-import express from "express";
+import { Express } from "express";
 
-
-export interface CachingConfiguration {
-
-    /**
-     * Optional.
-     *
-     * Is this application running on a local development server.
-     *
-     */
-    local?: boolean;
-
-}
+import { CachingConfiguration } from "./types";
 
 
 export const caching = function(
-    app: express.Express,
+    app: Express,
     config: CachingConfiguration
 ): void{
 

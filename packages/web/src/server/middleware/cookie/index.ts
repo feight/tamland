@@ -1,11 +1,11 @@
 
 
 import cookieParser from "cookie-parser";
-import express from "express";
+import { Express } from "express";
 
 
 export const cookie = function(
-    app: express.Express
+    app: Express
 ): void{
 
     /*

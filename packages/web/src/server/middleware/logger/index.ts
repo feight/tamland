@@ -2,10 +2,10 @@
 
 import express from "express";
 
-import logger from "../logger";
+import log from "../../../logger";
 
 
-export const logs = function(app: express.Express): void{
+export const logger = function(app: express.Express): void{
 
     app.use((
         request: express.Request,
@@ -17,7 +17,7 @@ export const logs = function(app: express.Express): void{
 
         response.on("finish", (): void => {
 
-            logger.info(`${ request.method.toUpperCase() } ${ response.statusCode } ${ url }`, {
+            log.info(`${ request.method.toUpperCase() } ${ response.statusCode } ${ url }`, {
                 httpRequest: {
                     remoteIp: request.connection.remoteAddress,
                     requestMethod: request.method,

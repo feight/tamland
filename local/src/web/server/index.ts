@@ -1,36 +1,18 @@
 
 
-import { Server } from "@tamland/web";
+import { Server } from "@tamland/web/lib/server";
 
 import { App } from "../app";
+import config from "../config";
 import { routes } from "../routes";
 
 
-const server = new Server(App, {
+const server = new Server({
+    App,
+    config,
     hostname: "www.newsteam.io",
     jwt: {
         secret: "ndB2N7l2sqSpvRNJBXtNdmKfvj6up1VN"
-    },
-    manifest: {
-        backgroundColor: "#fff",
-        description: "",
-        display: "standalone",
-        icons: [
-            {
-                sizes: "192x192",
-                src: "/images/icons-192.png",
-                type: "image/png"
-            },
-            {
-                sizes: "512x512",
-                src: "/images/icons-512.png",
-                type: "image/png"
-            }
-        ],
-        name: "Example",
-        shortName: "Example shortname",
-        startUrl: "/",
-        themeColor: "#fff"
     },
     routes
 });

@@ -1,34 +1,18 @@
 
 
-import express from "express";
+import {
+    Express,
+    Request
+} from "express";
 import expressJWT from "express-jwt";
 
-import logger from "../logger";
+import { JWTConfiguration } from "./types";
 
-
-export interface JWTConfiguration {
-
-    /**
-     * Optional.
-     *
-     * JWT Cookie Name.
-     *
-     */
-    cookieName?: string;
-
-    /**
-     * Optional.
-     *
-     * JWT Secret.
-     *
-     */
-    secret?: string;
-
-}
+import logger from "../../../logger";
 
 
 export const jwt = function(
-    app: express.Express,
+    app: Express,
     config: JWTConfiguration
 ): void{
 
@@ -41,7 +25,7 @@ export const jwt = function(
 
         app.use(expressJWT({
             credentialsRequired: false,
-            getToken: (request: express.Request): string|null => {
+            getToken: (request: Request): string|null => {
 
                 const query = request.query;
                 const cookies = request.cookies;

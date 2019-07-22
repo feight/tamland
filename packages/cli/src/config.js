@@ -1,6 +1,6 @@
 
 
-import { config } from "@tamland/rc-config";
+import { config } from "@tamland/config";
 
 
 export {

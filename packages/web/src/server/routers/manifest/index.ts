@@ -2,25 +2,8 @@
 
 import express from "express";
 
+import { ManifestConfiguration } from "./types";
 
-export interface ManifestConfigurationIcon {
-    sizes: string;
-    src: string;
-    type: string;
-}
-
-export interface ManifestConfiguration {
-    backgroundColor: string;
-    description: string;
-    display: string;
-    icons: ManifestConfigurationIcon[];
-    name: string;
-    orientation?: string;
-    scope?: string;
-    shortName: string;
-    startUrl: string;
-    themeColor: string;
-}
 
 export const manifestRouter = (config: ManifestConfiguration): express.Router => {
 

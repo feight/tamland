@@ -1,22 +1,11 @@
 
 
-import logger from "../logger";
+import { UncaughtConfiguration } from "./types";
+
+import logger from "../../../logger";
 
 
-export interface DomainConfiguration {
-
-    /**
-     * Optional.
-     *
-     * Is this application running on a local development server.
-     *
-     */
-    local?: boolean;
-
-}
-
-
-export const uncaught = function(config: DomainConfiguration): void{
+export const uncaught = function(config: UncaughtConfiguration): void{
 
     /*
      * Listen for unhandled promise rejections and log the errors. If this isn't

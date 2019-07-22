@@ -2,10 +2,8 @@
 
 import React from "react";
 
-import { isServer } from "../context";
 
-
-const startTime = isServer ? 0 : new Date().getTime();
+const startTime = typeof window === "undefined" ? 0 : new Date().getTime();
 const minimumScrollTime = 100;
 
 

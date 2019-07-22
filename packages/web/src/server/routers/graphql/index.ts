@@ -6,40 +6,24 @@
 */
 
 import https from "https";
-import {
-    IncomingMessage,
-    ServerResponse
-} from "http";
 
-import express from "express";
+import { Router } from "express";
 import graphqlHTTP from "express-graphql";
 
-import { schema as generateSchema } from "../../graphql/schema";
-import { TamlandGraphQLFieldConfigMap } from "../../graphql/types";
+import {
+    GraphqlRouterConfiguration,
+    GraphqlServerConfiguration,
+    JSONResponse,
+    PostJSONOptions,
+    Request,
+    Response
+} from "./types";
 
+import { schema as generateSchema } from "../../../graphql/schema";
 
-export interface GraphqlRouterConfiguration {
-    authorized?: (request: IncomingMessage) => boolean;
-    endpoint?: string;
-    host?: string | undefined;
-    mutations?: TamlandGraphQLFieldConfigMap<any, any, any>;
-    queries?: TamlandGraphQLFieldConfigMap<any, any, any>;
-}
-
-interface GraphqlServerConfiguration {
-    authorized?: (request: IncomingMessage) => boolean;
-    graphiql?: boolean;
-    mutations?: TamlandGraphQLFieldConfigMap<any, any, any>;
-    queries?: TamlandGraphQLFieldConfigMap<any, any, any>;
-}
-
-interface JSONResponse {
-    data: any;
-    status: number | undefined;
-}
 
 const postJSON = (
-    options: string | https.RequestOptions | URL,
+    options: PostJSONOptions,
     data: any
 ): Promise<JSONResponse> => new Promise((resolve, reject): void => {
 
@@ -71,12 +55,12 @@ const postJSON = (
 });
 
 const graphqlServer = (config: GraphqlServerConfiguration): graphqlHTTP.Middleware => graphqlHTTP((
-    request: IncomingMessage,
-    response: ServerResponse
+    request: Request,
+    response: Response
 ): graphqlHTTP.OptionsResult => {
 
     const {
-        authorized = (authRequest: IncomingMessage): boolean => !authRequest,
+        authorized = (authRequest: Request): boolean => !authRequest,
         graphiql = false,
         mutations,
         queries
@@ -100,15 +84,15 @@ const graphqlServer = (config: GraphqlServerConfiguration): graphqlHTTP.Middlewa
 });
 
 
-export const graphqlRouter = (config: GraphqlRouterConfiguration = {}): express.Router => {
+export const graphqlRouter = (config: GraphqlRouterConfiguration = {}): Router => {
 
     const {
-        authorized = (request: IncomingMessage): boolean => !request,
+        authorized = (request: Request): boolean => !request,
         endpoint = "/graphql/",
         host
     } = config;
 
-    const router = express.Router({
+    const router = Router({
         caseSensitive: true,
         strict: true
     });

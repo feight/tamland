@@ -1,7 +1,6 @@
 
 
 import logger from "../logger";
-import { isServer } from "../context";
 
 
 let initialStateCache: object | undefined;
@@ -20,7 +19,7 @@ export const getInitialState = function(): object{
 
     let initialState = {};
 
-    if(!isServer){
+    if(typeof window !== "undefined"){
 
         const element = document.querySelector(`#${ id }`);
 
@@ -35,9 +34,6 @@ export const getInitialState = function(): object{
                 logger.error(`Could not parse initial data from element #${ id }`);
 
             }
-
-            // Delete it once we have it stored in a variable
-            element.remove();
 
         }else{
 

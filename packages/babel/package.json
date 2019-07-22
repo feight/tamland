@@ -1,6 +1,6 @@
 {
   "name": "@tamland/babel",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "description": "Collection of babel dependencies",
   "browserslist": "node 8",
   "engines": {
@@ -31,8 +31,8 @@
   "homepage": "https://github.com/feight/tamland/tree/master/packages/babel#readme",
   "files": [],
   "dependencies": {
-    "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.5.4",
-    "@tamland/babel-preset": "^0.0.4"
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@tamland/babel-preset": "^0.0.8"
   }
 }

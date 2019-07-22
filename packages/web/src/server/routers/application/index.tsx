@@ -11,17 +11,12 @@ import { HelmetData } from "react-helmet";
 import { Store } from "redux";
 import { ChunkExtractor } from "@loadable/server";
 
+import { AppRouterConfiguration } from "./types";
+
 import { Route as PageRoute } from "../../../components/route";
 import { createStore } from "../../../store";
 import { Tamland } from "../../../app";
 import { createHistory } from "../../../history";
-
-
-export interface AppRouterConfiguration {
-    Component: React.ComponentClass;
-    local: boolean;
-    routes: PageRoute[];
-}
 
 
 const minifyHTML = function(html: string): string{
@@ -98,12 +93,13 @@ const helmetContext: {
 } = {};
 
 
-export const appRouter = (config: AppRouterConfiguration): express.Router => {
+export const applicationRouter = (routerConfig: AppRouterConfiguration): express.Router => {
 
     const {
-        Component,
+        App,
+        config,
         routes
-    } = config;
+    } = routerConfig;
 
     // Force exact matches on paths
     const router = express.Router({
@@ -125,18 +121,19 @@ export const appRouter = (config: AppRouterConfiguration): express.Router => {
 
         const reduxState = store.getState();
 
-        const App = (
+        const Application = (
             <Tamland
+                config={ config }
                 helmetContext={ helmetContext }
                 history={ history }
                 request={ request }
                 store={ store }
             >
-                <Component />
+                <App />
             </Tamland>
         );
 
-        const content = renderToString(chunkExtractor.collectChunks(App));
+        const content = renderToString(chunkExtractor.collectChunks(Application));
 
         const { helmet } = helmetContext;
 

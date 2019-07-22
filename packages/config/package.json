@@ -1,7 +1,7 @@
 {
-  "name": "@tamland/rc-config",
+  "name": "@tamland/config",
   "version": "0.0.2",
-  "description": "@tamland rc project configuration",
+  "description": "@tamland project configuration",
   "main": "lib/index.js",
   "scripts": {
     "build": "rm -rf lib && npm run build:script && npm run build:types && npm run build:static",
@@ -42,22 +42,22 @@
     "tamland",
     "@tamland"
   ],
-  "homepage": "https://github.com/feight/tamland/tree/master/packages/rc-config#readme",
+  "homepage": "https://github.com/feight/tamland/tree/master/packages/config#readme",
   "files": [
     "lib"
   ],
   "dependencies": {
     "deepmerge": "^4.0.0",
-    "rc-config-loader": "^2.0.3"
+    "rc-config-loader": "^2.0.4"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.3",
-    "@tamland/eslint": "^0.0.1",
+    "@tamland/babel": "^0.0.8",
+    "@tamland/eslint": "^0.0.9",
     "@types/deepmerge": "^2.2.0",
-    "@types/node": "^12.6.2",
+    "@types/node": "^12.6.8",
     "babel-tape-runner": "^3.0.0",
     "color-json": "^2.0.0",
     "renamer": "^1.1.2",
-    "tape": "^4.10.2"
+    "tape": "^4.11.0"
   }
 }

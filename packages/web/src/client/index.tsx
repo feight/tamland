@@ -5,6 +5,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { loadableReady } from "@loadable/component";
 
+import {
+    TamlandClientOptions,
+    TamlandClientOptionsInterface
+} from "./options";
+
 import { createHistory } from "../history";
 import { createStore } from "../store";
 import { Tamland } from "../app";
@@ -12,30 +17,30 @@ import { Tamland } from "../app";
 
 export class Client{
 
-    private Application: React.ComponentClass;
-
     private history: History;
+
+    private options: TamlandClientOptions;
 
     private store: Store;
 
-    public constructor(Application: React.ComponentClass){
+    public constructor(options: TamlandClientOptionsInterface){
 
         const history = createHistory();
         const store = createStore(history);
 
         this.history = history;
         this.store = store;
-
-        this.Application = Application;
+        this.options = new TamlandClientOptions(options);
 
     }
 
     public start(): void{
 
-        const Application = this.Application;
+        const Application = this.options.App;
 
         const app = (
             <Tamland
+                config={ this.options.config }
                 history={ this.history }
                 store={ this.store }
             >

@@ -1,8 +1,9 @@
 
 
-import { Client } from "@tamland/web";
+import { Client } from "@tamland/web/lib/client";
 
 import { App } from "../app";
+import config from "../config";
 
 
 if(process.env.watch){
@@ -16,10 +17,9 @@ if(process.env.watch){
 }
 
 
-export const start = function(): void{
+const client = new Client({
+    App,
+    config
+});
 
-    const client = new Client(App);
-
-    client.start();
-
-};
+client.start();

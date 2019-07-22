@@ -5,6 +5,7 @@ import { Link } from "@tamland/web";
 
 import style from "./index.module.scss";
 import drawerStyle from "./drawer.module.scss";
+import { Hamburger } from "./hamburger";
 
 import { Logo } from "../logo/newsteam";
 import { Toggle } from "../../components/toggle";
@@ -75,7 +76,7 @@ export class Nav extends React.Component<{}, NavState>{
                                 value={ drawerOpen }
                             >
                                 <div>
-                                    { drawerOpen === true ? "open" : "closed" }
+                                    <Hamburger fill="#fff" />
                                 </div>
                             </Toggle>
                         </div>

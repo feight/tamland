@@ -3,23 +3,7 @@
 import express from "express";
 import helmet from "helmet";
 
-
-export interface SecurityConfiguration {
-
-    /**
-     * Optional.
-     *
-     * Helmet content security policy
-     */
-    csp?: helmet.IHelmetContentSecurityPolicyConfiguration;
-
-    /**
-     * Optional.
-     *
-     * Sets the X-Powered-By http response header
-     */
-    xPoweredBy?: string;
-}
+import { SecurityConfiguration } from "./types";
 
 
 export const security = function(

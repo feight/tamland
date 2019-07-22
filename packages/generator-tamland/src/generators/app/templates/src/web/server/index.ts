@@ -11,27 +11,6 @@ const server = new Server(App, {
     jwt: {
         secret: "ndB2N7l2sqSpvRNJBXtNdmKfvj6up1VN"
     },
-    manifest: {
-        backgroundColor: "#fff",
-        description: "",
-        display: "standalone",
-        icons: [
-            {
-                sizes: "192x192",
-                src: "/images/icons-192.png",
-                type: "image/png"
-            },
-            {
-                sizes: "512x512",
-                src: "/images/icons-512.png",
-                type: "image/png"
-            }
-        ],
-        name: "Example",
-        shortName: "Example shortname",
-        startUrl: "/",
-        themeColor: "#fff"
-    },
     routes
 });
 

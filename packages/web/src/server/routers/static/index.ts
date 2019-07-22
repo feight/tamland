@@ -1,13 +1,8 @@
 
 /*
     eslint
-    @typescript-eslint/no-require-imports: "off",
-    @typescript-eslint/no-var-requires: "off",
-    global-require: "off",
-    import/no-dynamic-require: "off",
     no-sync: "off",
     security/detect-non-literal-fs-filename: "off",
-    security/detect-non-literal-require: "off"
 */
 
 import fs from "fs";
@@ -16,20 +11,10 @@ import path from "path";
 import express from "express";
 import proxy from "express-http-proxy";
 
-
-export interface StaticFile {
-    cacheExpiration?: string | number;
-    path: string;
-    source: string;
-}
-
-export interface StaticRouter {
-    cacheExpiration?: string | number;
-    cwd?: string;
-    local?: boolean;
-    staticFiles?: StaticFile[];
-    staticFolder: string;
-}
+import {
+    StaticFile,
+    StaticRouter
+} from "./types";
 
 
 const getStaticFileMap = function(
@@ -68,6 +53,11 @@ const getStaticFileMap = function(
             cacheExpiration: "1h",
             path: "/favicon.ico",
             source: "favicon.ico"
+        },
+        {
+            cacheExpiration: "1h",
+            path: "/favicon.png",
+            source: "favicon.png"
         }
 
     /**
@@ -89,7 +79,7 @@ const getStaticFileMap = function(
          */
         if(!fs.existsSync(path.join(cwd, file.source))){
 
-            const packagedAlternative = path.join(__dirname, "../../static", file.source);
+            const packagedAlternative = path.join(__dirname, "../../../static", file.source);
 
             if(fs.existsSync(packagedAlternative)){
 

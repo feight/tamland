@@ -1,20 +1,3 @@
 
-declare module "*.module.scss" {
-    const content: {[className: string]: string};
-    export default content;
-}
-
-declare module "*.module.scss" {
-    const content: string;
-    export default content;
-}
-
-declare module "*.png" {
-    const content: string;
-    export default content;
-}
-
-declare module "*.svg" {
-    const content: string;
-    export default content;
-}
+/// <reference path="node_modules/@tamland/web/lib/definitions.d.ts" />
+/// <reference path="icon/index.d.ts" />

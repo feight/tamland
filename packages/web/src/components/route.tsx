@@ -83,37 +83,41 @@ export class Route{
                  * We're going to let this one slide for now, because we need to override
                  * the render method and I can't think of how to do this without a function
                  */
-                // eslint-disable-next-line react/jsx-no-bind, react-perf/jsx-no-new-function-as-prop
-                render={ (): React.ReactNode => {
+                render={ // eslint-disable-line react/jsx-no-bind
 
-                    const loadableComponent = this.loadable(this.id);
+                    // eslint-disable-next-line react-perf/jsx-no-new-function-as-prop
+                    (): React.ReactNode => {
 
-                    if(loadableComponent){
+                        const loadableComponent = this.loadable(this.id);
 
-                        const Page = loadable(loadableComponent, {
-                            fallback: (
+                        if(loadableComponent){
+
+                            const Page = loadable(loadableComponent, {
+                                fallback: (
+                                    <ScrollTop>
+                                        { this.loading() }
+                                    </ScrollTop>
+                                ),
+                                ssr: true
+                            });
+
+                            return (
                                 <ScrollTop>
-                                    { this.loading() }
+                                    <Page />
                                 </ScrollTop>
-                            ),
-                            ssr: true
-                        });
+                            );
+
+                        }
 
                         return (
-                            <ScrollTop>
-                                <Page />
-                            </ScrollTop>
+                            <div>
+                                { "blank" }
+                            </div>
                         );
 
                     }
 
-                    return (
-                        <div>
-                            { "blank" }
-                        </div>
-                    );
-
-                } }
+                }
                 sensitive={ this.sensitive }
                 strict={ this.strict }
             />

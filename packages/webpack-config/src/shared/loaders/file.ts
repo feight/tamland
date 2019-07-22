@@ -22,7 +22,7 @@ export default function loader(
     return {
         loader: "file-loader",
         options: {
-            name: options.mode === "production" ? `[hash:${ options.hashLength }].[ext]` : "[path][name].[ext]",
+            name: options.mode === "production" ? `[hash:${ options.hashLength }].[ext]` : `[path][name].[hash:${ options.hashLength }].[ext]`,
             outputPath: "../client",
             publicPath: config.output ? config.output.publicPath : null
         }
