@@ -1,11 +1,10 @@
 
 
-import * as React from "react";
 import {
     Helmet,
-    hot,
     Router
 } from "@tamland/web";
+import * as React from "react";
 
 import { Footer } from "./footer";
 import { Nav } from "./nav";
@@ -14,9 +13,6 @@ import style from "./index.module.scss";
 import { routes } from "../routes";
 
 import "./index.scss";
-
-
-console.log(["hot", hot]);
 
 
 export class App extends React.PureComponent{
@@ -42,4 +38,3 @@ export class App extends React.PureComponent{
     }
 
 }
-

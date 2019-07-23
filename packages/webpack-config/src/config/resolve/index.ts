@@ -10,7 +10,8 @@ export default function configuration(): Configuration{
     return {
         resolve: {
             alias: {
-                modernizr$: path.resolve(path.join(process.cwd(), ".modernizrrc"))
+                modernizr$: path.resolve(path.join(process.cwd(), ".modernizrrc")),
+                "react-dom": "@hot-loader/react-dom"
             },
 
             /*

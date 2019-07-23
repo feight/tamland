@@ -1,8 +1,8 @@
 
 import { Store } from "redux";
 import { History } from "history";
-import React from "react";
 import ReactDOM from "react-dom";
+import React from "react";
 import { loadableReady } from "@loadable/component";
 
 import {

@@ -13,6 +13,7 @@ import {
 import { Provider as ReduxProvider } from "react-redux";
 import { Request } from "express";
 import { Store } from "redux";
+import { hot } from "react-hot-loader";
 
 import { TamlandAppConfig } from "./config";
 import { Router } from "./router";
@@ -40,7 +41,7 @@ export interface HtmlAttributes{
 }
 
 
-export class Tamland extends React.PureComponent<TamlandProps>{
+class TamlandApp extends React.PureComponent<TamlandProps>{
 
     public static propTypes = {
         children: PropTypes.oneOfType([
@@ -133,3 +134,4 @@ export class Tamland extends React.PureComponent<TamlandProps>{
 
 }
 
+export const Tamland = hot(module)(TamlandApp);
