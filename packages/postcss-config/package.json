@@ -1,6 +1,6 @@
 {
   "name": "@tamland/postcss-config",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Shared config for postcss",
   "main": "lib/index.js",
   "scripts": {
@@ -69,8 +69,8 @@
     "postcss-reduce-transforms": "^4.0.2"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.8",
-    "@tamland/eslint": "^0.0.10",
+    "@tamland/babel": "^0.0.10",
+    "@tamland/eslint": "^0.0.15",
     "babel-tape-runner": "^3.0.0",
     "tape": "^4.11.0"
   }

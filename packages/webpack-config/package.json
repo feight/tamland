@@ -1,6 +1,6 @@
 {
   "name": "@tamland/webpack-config",
-  "version": "0.0.27",
+  "version": "0.0.30",
   "description": "Shared config for webpack",
   "main": "lib",
   "scripts": {
@@ -76,8 +76,8 @@
     "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.8",
-    "@tamland/eslint": "^0.0.10",
+    "@tamland/babel": "^0.0.10",
+    "@tamland/eslint": "^0.0.15",
     "@types/assets-webpack-plugin": "^3.9.0",
     "@types/autoprefixer": "^9.5.0",
     "@types/duplicate-package-checker-webpack-plugin": "^2.1.0",
@@ -93,9 +93,9 @@
     "babel-tape-runner": "^3.0.0",
     "renamer": "^1.1.2",
     "tape": "^4.11.0",
-    "webpack": "^4.36.1"
+    "webpack": "^4.37.0"
   },
   "peerDependencies": {
-    "webpack": "^4.36.1"
+    "webpack": "^4.37.0"
   }
 }

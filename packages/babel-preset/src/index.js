@@ -39,7 +39,8 @@ export default declare((api, options) => {
                     force: true,
                     replacement: "#!/usr/bin/env node"
                 }
-            ] : null
+            ] : null,
+            "react-hot-loader/babel"
         ].filter(Boolean),
         presets: [
             "@babel/preset-typescript",

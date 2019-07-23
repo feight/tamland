@@ -1,4 +1,7 @@
 
+Add https://www.npmjs.com/package/react-hot-loader to fix the hot loader bugging out for react stuff
+Fix eslint issue with you-dont-need-lodash-underscoreyou-dont-need-lodash-underscore
+
 <link rel="apple-touch-icon" sizes="57x57" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-57x57.png"/>
 <link rel="apple-touch-icon" sizes="60x60" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-60x60.png"/>
 <link rel="apple-touch-icon" sizes="72x72" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-72x72.png"/>

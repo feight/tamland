@@ -104,7 +104,6 @@ export class Tamland extends React.PureComponent<TamlandProps>{
                     <Helmet
                         bodyAttributes={ this.getBodyAttributes() }
                         htmlAttributes={ this.getHtmlAttributes() }
-                        onChangeClientState={(newState, addedTags, removedTags) => console.log(newState, addedTags, removedTags)}
                     >
                         <title>
                             {

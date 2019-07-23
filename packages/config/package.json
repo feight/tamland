@@ -1,6 +1,6 @@
 {
   "name": "@tamland/config",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "@tamland project configuration",
   "main": "lib/index.js",
   "scripts": {
@@ -51,8 +51,8 @@
     "rc-config-loader": "^2.0.4"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.8",
-    "@tamland/eslint": "^0.0.9",
+    "@tamland/babel": "^0.0.10",
+    "@tamland/eslint": "^0.0.15",
     "@types/deepmerge": "^2.2.0",
     "@types/node": "^12.6.8",
     "babel-tape-runner": "^3.0.0",

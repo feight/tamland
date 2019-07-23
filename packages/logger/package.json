@@ -1,6 +1,6 @@
 {
   "name": "@tamland/logger",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Logger for tamland tasks",
   "main": "lib/index.js",
   "scripts": {
@@ -51,8 +51,8 @@
     "text-table": "^0.2.0"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.8",
-    "@tamland/eslint": "^0.0.9",
+    "@tamland/babel": "^0.0.10",
+    "@tamland/eslint": "^0.0.15",
     "babel-tape-runner": "^3.0.0",
     "tape": "^4.11.0"
   }
