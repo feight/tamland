@@ -12,8 +12,6 @@ import {
 } from "redux-thunk";
 import { AnyAction } from "redux";
 
-import { ScrollTop } from "./scroll-top";
-
 
 export interface RouteComponentProperties<T> extends RouteComponentProps{
     data?: T;
@@ -94,17 +92,15 @@ export class Route{
 
                             const Page = loadable(loadableComponent, {
                                 fallback: (
-                                    <ScrollTop>
+                                    <div>
                                         { this.loading() }
-                                    </ScrollTop>
+                                    </div>
                                 ),
                                 ssr: true
                             });
 
                             return (
-                                <ScrollTop>
-                                    <Page />
-                                </ScrollTop>
+                                <Page />
                             );
 
                         }

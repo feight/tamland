@@ -8,7 +8,8 @@ import {
     HelmetProvider
 } from "react-helmet-async";
 import {
-    Location, History
+    Location as HistoryLocation,
+    History
 } from "history";
 import { Provider as ReduxProvider } from "react-redux";
 import { Request } from "express";
@@ -17,6 +18,7 @@ import { hot } from "react-hot-loader";
 
 import { TamlandAppConfig } from "./config";
 import { Router } from "./router";
+import { Location } from "./location";
 
 
 const context = {};
@@ -52,7 +54,7 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
 
     public config: TamlandAppConfig;
 
-    public location: Location;
+    public location: HistoryLocation;
 
     public constructor(props: TamlandProps){
 
@@ -124,6 +126,7 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
                         history={ this.props.history }
                         location={ this.location }
                     >
+                        <Location context={ context } />
                         { this.props.children }
                     </Router>
                 </HelmetProvider>
