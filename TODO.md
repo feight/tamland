@@ -1,41 +1,6 @@
 
-Add https://www.npmjs.com/package/react-hot-loader to fix the hot loader bugging out for react stuff
-Fix eslint issue with you-dont-need-lodash-underscoreyou-dont-need-lodash-underscore
-
-<link rel="apple-touch-icon" sizes="57x57" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-57x57.png"/>
-<link rel="apple-touch-icon" sizes="60x60" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-60x60.png"/>
-<link rel="apple-touch-icon" sizes="72x72" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-72x72.png"/>
-<link rel="apple-touch-icon" sizes="76x76" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-76x76.png"/>
-<link rel="apple-touch-icon" sizes="114x114" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-114x114.png"/>
-<link rel="apple-touch-icon" sizes="120x120" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-120x120.png"/>
-<link rel="apple-touch-icon" sizes="144x144" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-144x144.png"/>
-<link rel="apple-touch-icon" sizes="152x152" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-152x152.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-180x180.png"/>
-<link rel="icon" type="image/png" sizes="192x192" href="https://www.redditstatic.com/desktop2x/img/favicon/android-icon-192x192.png"/>
-<link rel="icon" type="image/png" sizes="32x32" href="https://www.redditstatic.com/desktop2x/img/favicon/favicon-32x32.png"/>
-<link rel="icon" type="image/png" sizes="96x96" href="https://www.redditstatic.com/desktop2x/img/favicon/favicon-96x96.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="https://www.redditstatic.com/desktop2x/img/favicon/favicon-16x16.png"/>
-<link rel="manifest" href="https://www.redditstatic.com/desktop2x/img/favicon/manifest.json"/>
-<meta name="msapplication-TileColor" content="#ffffff"/>
-<meta name="msapplication-TileImage" content="https://www.redditstatic.com/desktop2x/img/favicon/ms-icon-144x144.png"/>
-<?xml version="1.0" encoding="utf-8"?>
-<browserconfig>
-    <msapplication>
-        <tile>
-        <square70x70logo src="/mstile-70x70.png"/>
-        <square150x150logo src="/mstile-150x150.png"/>
-        <wide310x150logo src="/mstile-310x150.png"/>
-        <square310x310logo src="/mstile-310x310.png"/>
-        <TileColor>#8bc53f</TileColor>
-        <TileImage src="/mstile-150x150.png" />
-        </tile>
-    </msapplication>
-</browserconfig>
-<meta name="msapplication-TileColor" content="#2b5797">
-<meta name="msapplication-TileImage" content="/mstile-144x144.png">
-
-
 enable brotli compression https://medium.com/groww-engineering/enable-brotli-compression-in-webpack-with-fallback-to-gzip-397a57cf9fc6
+
 add cache-control immutatble
 add image importance attribute to all images add loading=lazy to all iframes and images
 guetzli and zopfli for images

@@ -14,12 +14,32 @@ declare module "*.png?{'resize':[57,57]}" {
     export default content;
 }
 
+declare module "*.png?{'resize':[60,60]}" {
+    const content: string;
+    export default content;
+}
+
 declare module "*.png?{'resize':[64,64]}" {
     const content: string;
     export default content;
 }
 
+declare module "*.png?{'resize':[70,70]}" {
+    const content: string;
+    export default content;
+}
+
+declare module "*.png?{'resize':[72,72]}" {
+    const content: string;
+    export default content;
+}
+
 declare module "*.png?{'resize':[76,76]}" {
+    const content: string;
+    export default content;
+}
+
+declare module "*.png?{'resize':[114,114]}" {
     const content: string;
     export default content;
 }
@@ -30,6 +50,11 @@ declare module "*.png?{'resize':[120,120]}" {
 }
 
 declare module "*.png?{'resize':[128,128]}" {
+    const content: string;
+    export default content;
+}
+
+declare module "*.png?{'resize':[144,144]}" {
     const content: string;
     export default content;
 }
@@ -55,6 +80,21 @@ declare module "*.png?{'resize':[192,192]}" {
 }
 
 declare module "*.png?{'resize':[256,256]}" {
+    const content: string;
+    export default content;
+}
+
+declare module "*.png?{'resize':[270,270]}" {
+    const content: string;
+    export default content;
+}
+
+declare module "*.png?{'resize':[558,558]}" {
+    const content: string;
+    export default content;
+}
+
+declare module "*.png?{'resize':[558,270]}" {
     const content: string;
     export default content;
 }

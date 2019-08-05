@@ -22,8 +22,6 @@ class ShowTheLocation extends React.PureComponent<LocationProps>{
 
     public componentDidUpdate(previous: LocationProps): void{
 
-        console.log([previous.location.pathname, this.props.location.pathname]);
-
         if(previous.location.pathname !== this.props.location.pathname){
 
             window.scrollTo(0, 0);

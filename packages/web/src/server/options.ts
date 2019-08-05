@@ -1,11 +1,16 @@
 
 
+import path from "path";
+
 import { IHelmetContentSecurityPolicyConfiguration } from "helmet";
 import { ComponentClass } from "react";
 
 import { GraphqlRouterConfiguration } from "./routers/graphql/types";
 import { JWTConfiguration } from "./middleware/jwt/types";
-import { ManifestConfiguration } from "./routers/manifest/types";
+import {
+    ManifestConfiguration,
+    ManifestConfigurationIcon
+} from "./routers/manifest";
 import { StaticFile } from "./routers/static/types";
 
 import { Route } from "../components/route";
@@ -157,13 +162,11 @@ export class TamlandServerOptions{
             backgroundColor: this.config.backgroundColor,
             description: this.config.description,
             display: "standalone",
-            icons: [
-                {
-                    sizes: "192x192",
-                    src: "/favicon.png",
-                    type: "image/png"
-                }
-            ],
+            icons: this.config.icons.map((icon): ManifestConfigurationIcon => ({
+                sizes: icon.size.join("x"),
+                src: icon.path,
+                type: `image/${ path.extname(icon.path) }`
+            })),
             name: this.config.name,
             shortName: this.config.shortName,
             startUrl: "/",

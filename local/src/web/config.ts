@@ -1,10 +1,12 @@
 
 
-import path from "path";
+import icons from "./icons";
 
 
 export default {
-    icon: path.resolve("./icon/index.png"),
-    name: "Tamland Local hole"
+    description: "Tamland local development site",
+    icons,
+    name: "Tamland Local",
+    shortName: "Tammy Local"
 };
 

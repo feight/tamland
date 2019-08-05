@@ -11,6 +11,7 @@ import { HelmetData } from "react-helmet";
 import { Store } from "redux";
 import { ChunkExtractor } from "@loadable/server";
 
+import { renderIcons } from "./icons";
 import { AppRouterConfiguration } from "./types";
 
 import { Route as PageRoute } from "../../../components/route";
@@ -109,6 +110,8 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
 
     router.use(compression());
 
+    const iconMetadata = renderIcons(config.icons);
+
     router.get("*/", async (request, response): Promise<void> => {
 
         const history = createHistory(request.url);
@@ -146,12 +149,18 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
                 <!doctype html>
                     <html ${ helmet.htmlAttributes.toString() }>
                     <head>
+                        <meta charset="utf-8">
+                        <meta name="generator" content="Idle Hands">
                         ${ helmet.title.toString() }
                         ${ helmet.meta.toString() }
                         ${ helmet.link.toString() }
                         <base href="/">
-                        <meta name="generator" content="Idle Hands">
                         <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,user-scalable=0,viewport-fit=cover">
+                        <link rel="manifest" href="/manifest.json">
+                        <meta name="msapplication-config" content="/browserconfig.xml">
+                        <meta name="msapplication-TileColor" content="${ config.tileColor }">
+                        <meta name="theme-color" content="${ config.themeColor }">
+                        ${ iconMetadata }
                         ${ chunkExtractor.getLinkTags() }
                         ${ chunkExtractor.getStyleTags() }
                     </head>

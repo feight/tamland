@@ -43,6 +43,7 @@ export class Server{
         // Add the request logger here so it skips static file requests.
         middleware.logger();
 
+        routers.browserconfig();
         routers.graphql();
         routers.manifest();
 

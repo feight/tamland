@@ -4,8 +4,9 @@ export interface TamlandAppConfigInterface{
     backgroundColor?: string;
     description?: string;
     icons?: {
-        [id: number]: string;
-    };
+        path: string;
+        size: [number, number];
+    }[];
     language?: string;
     name?: string;
     shortName?: string;
@@ -22,6 +23,11 @@ export class TamlandAppConfig{
 
     public language: string;
 
+    public icons: {
+        path: string;
+        size: [number, number];
+    }[];
+
     public name: string;
 
     public shortName: string;
@@ -34,6 +40,12 @@ export class TamlandAppConfig{
 
         this.backgroundColor = config.backgroundColor || "#fff";
         this.description = config.description || "Tamland application description";
+        this.icons = config.icons || [{
+            path: "/favicon.png",
+            // Width height array
+            // eslint-disable-next-line @typescript-eslint/no-magic-numbers, no-magic-numbers
+            size: [128, 128]
+        }];
         this.language = config.language || "en";
         this.name = config.name || "Tamland application";
         this.shortName = config.shortName || "Tamland app";

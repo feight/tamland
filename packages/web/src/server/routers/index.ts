@@ -3,6 +3,7 @@
 import { Express } from "express";
 
 import { applicationRouter } from "./application";
+import { browserconfigRouter } from "./browserconfig";
 import { graphqlRouter } from "./graphql";
 import { manifestRouter } from "./manifest";
 import { staticRouter } from "./static";
@@ -39,6 +40,21 @@ export class TamlandServerRouters{
             config,
             local,
             routes
+        }));
+
+    }
+
+    public browserconfig(): void{
+
+        const { config } = this.options;
+        const {
+            icons,
+            tileColor
+        } = config;
+
+        this.app.use(browserconfigRouter({
+            icons,
+            tileColor
         }));
 
     }

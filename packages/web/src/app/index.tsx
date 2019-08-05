@@ -73,7 +73,54 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
 
     }
 
-    public getBodyAttributes(): BodyAttributes{
+    public render(): React.ReactNode{
+
+        return (
+
+            <ReduxProvider store={ this.props.store }>
+
+                <HelmetProvider context={ this.props.helmetContext }>
+
+                    <Helmet
+                        bodyAttributes={ this.getBodyAttributes() }
+                        htmlAttributes={ this.getHtmlAttributes() }
+                    >
+
+                        <title>
+                            {
+
+                                /*
+                                 * This needs to be an empty space so that if a
+                                 * Route doesn't implement a title the title is
+                                 * blanked out
+                                 */
+                            }
+                            { " " }
+                        </title>
+
+                    </Helmet>
+
+                    <Router
+                        context={ context }
+                        history={ this.props.history }
+                        location={ this.location }
+                    >
+
+                        <Location context={ context } />
+
+                        { this.props.children }
+
+                    </Router>
+
+                </HelmetProvider>
+
+            </ReduxProvider>
+
+        );
+
+    }
+
+    private getBodyAttributes(): BodyAttributes{
 
         // Needed so that webpack won't require this on the server, since it's a client only module
         // eslint-disable-next-line node/no-missing-require, @typescript-eslint/no-require-imports, global-require
@@ -91,47 +138,11 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
 
     }
 
-    public getHtmlAttributes(): HtmlAttributes{
+    private getHtmlAttributes(): HtmlAttributes{
 
         return {
             lang: this.props.config.language
         };
-
-    }
-
-    public render(): React.ReactNode{
-
-        return (
-            <ReduxProvider store={ this.props.store }>
-                <HelmetProvider context={ this.props.helmetContext }>
-                    <Helmet
-                        bodyAttributes={ this.getBodyAttributes() }
-                        htmlAttributes={ this.getHtmlAttributes() }
-                    >
-                        <title>
-                            {
-
-                                /*
-                                 * This needs to be an empty space so that if a
-                                 * Route doesn't implement a title the title is
-                                 * blanked out
-                                 */
-                            }
-                            { " " }
-                        </title>
-                        <link href="/manifest.json" rel="manifest" />
-                    </Helmet>
-                    <Router
-                        context={ context }
-                        history={ this.props.history }
-                        location={ this.location }
-                    >
-                        <Location context={ context } />
-                        { this.props.children }
-                    </Router>
-                </HelmetProvider>
-            </ReduxProvider>
-        );
 
     }
 
