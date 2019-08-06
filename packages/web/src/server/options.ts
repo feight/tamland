@@ -165,7 +165,7 @@ export class TamlandServerOptions{
             icons: this.config.icons.map((icon): ManifestConfigurationIcon => ({
                 sizes: icon.size.join("x"),
                 src: icon.path,
-                type: `image/${ path.extname(icon.path) }`
+                type: `image/${ path.extname(icon.path).replace(/\./gu, "") || "png" }`
             })),
             name: this.config.name,
             shortName: this.config.shortName,

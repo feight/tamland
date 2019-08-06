@@ -84,6 +84,7 @@ export class TamlandServerRouters{
         } = this.options;
 
         this.app.use(staticRouter({
+            app: this.app,
             cacheExpiration,
             cwd,
             local,

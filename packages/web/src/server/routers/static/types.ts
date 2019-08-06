@@ -1,5 +1,8 @@
 
 
+import { Express } from "express";
+
+
 export interface StaticFile {
     cacheExpiration?: string | number;
     path: string;
@@ -7,6 +10,7 @@ export interface StaticFile {
 }
 
 export interface StaticRouter {
+    app: Express;
     cacheExpiration?: string | number;
     cwd?: string;
     local?: boolean;

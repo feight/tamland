@@ -36,7 +36,7 @@ export class Client{
 
     public start(): void{
 
-        const Application = this.options.App;
+        const App = this.options.App;
 
         const app = (
             <Tamland
@@ -44,7 +44,7 @@ export class Client{
                 history={ this.history }
                 store={ this.store }
             >
-                <Application />
+                <App />
             </Tamland>
         );
 
