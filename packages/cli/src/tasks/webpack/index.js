@@ -50,9 +50,11 @@ const log = (label1, label2) => (error, stats, configFile) => {
 
 };
 
+// eslint-disable-next-line max-lines-per-function
 const webpackTask = task("webpack", async (config, options) => {
 
     const {
+        hostname = "localhost",
         mode = "production",
         platform = "web",
         watch = false
@@ -70,6 +72,7 @@ const webpackTask = task("webpack", async (config, options) => {
         // This doesn't present any danger and is necessary in this case.
         // eslint-disable-next-line import/no-dynamic-require, security/detect-non-literal-require, global-require
         const webpackConfig = require(webpackConfigFile)({
+            hostname,
             mode,
             platform,
             target,
@@ -88,6 +91,7 @@ const webpackTask = task("webpack", async (config, options) => {
                     command: [
                         "webpack-dev-server",
                         `--mode=${ mode }`,
+                        `--env.hostname=${ hostname }`,
                         `--env.mode=${ mode }`,
                         `--env.watch=${ watch }`,
                         `--env.platform=${ platform }`,

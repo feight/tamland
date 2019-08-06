@@ -1,6 +1,6 @@
 {
   "name": "@tamland/web",
-  "version": "0.0.20",
+  "version": "0.0.22",
   "description": "Node.js SSR application framework",
   "main": "lib",
   "types": "lib",
@@ -88,7 +88,6 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.3",
-    "shrink-ray-current": "^4.0.0",
     "type-graphql": "^0.17.4",
     "webpack": "^4.39.1",
     "webpack-dev-middleware": "^3.7.0",

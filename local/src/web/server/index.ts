@@ -10,7 +10,7 @@ import { routes } from "../routes";
 const server = new Server({
     App,
     config,
-    hostname: "www.newsteam.io",
+    hostname: process.env.hostname,
     jwt: {
         secret: "ndB2N7l2sqSpvRNJBXtNdmKfvj6up1VN"
     },

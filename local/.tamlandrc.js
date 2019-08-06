@@ -14,8 +14,9 @@ module.exports = {
                     project: "sweetlikepete777"
                 },
                 {
+                    hostname: "www.goalden.co.za",
                     name: "production",
-                    project: "newsteam-site-production"
+                    project: "goalden-nodejs"
                 }
             ]
         }

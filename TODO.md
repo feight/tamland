@@ -1,6 +1,8 @@
 
 enable brotli compression https://medium.com/groww-engineering/enable-brotli-compression-in-webpack-with-fallback-to-gzip-397a57cf9fc6
 
+take the rcconfig environment object and pass it to webpack
+
 add cache-control immutatble
 add image importance attribute to all images add loading=lazy to all iframes and images
 guetzli and zopfli for images
@@ -11,7 +13,7 @@ Add a base meta description
 Hook up sample image icons for the manifest and link them in the html
 Add a default <meta name="theme-color">
 
-figure out a way to reference things in src/shared in src/web
+figure out a way to reference things in src/base in src/web
 
 try out the performance of not pushing http2 pushing js code
 try out performance of no script at all

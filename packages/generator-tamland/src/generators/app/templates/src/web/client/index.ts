@@ -1,6 +1,9 @@
 
 
-import "./index.scss";
+import { Client } from "@tamland/web/lib/client";
+
+import { App } from "../app";
+import config from "../config";
 
 
 if(process.env.watch){
@@ -13,14 +16,10 @@ if(process.env.watch){
 
 }
 
-(async (): Promise<void> => {
 
-    const { initialize } = await import(
+const client = new Client({
+    App,
+    config
+});
 
-        /* webpackChunkName: "shell" */
-        "./shell"
-    );
-
-    initialize();
-
-})();
+client.start();

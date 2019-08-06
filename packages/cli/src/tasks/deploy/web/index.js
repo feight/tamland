@@ -6,6 +6,7 @@ import notifier from "node-notifier";
 
 import build from "../../build";
 import { exec } from "../../../utils/subprocess";
+import open from "../../open";
 import prompts from "../../../prompts";
 import tamland from "../../tamland";
 
@@ -14,12 +15,16 @@ const deployWeb = async function(config, options){
 
     await tamland(config, options);
 
-    const projectId = await prompts.environments.web();
+    const environment = await prompts.environments.web();
     const version = options.version ? `--version=${ options.version }` : "";
-    const project = `--project=${ projectId }`;
+    const project = `--project=${ environment.project }`;
     const verbosity = `--verbosity=${ options.verbosity || "error" }`;
+    const url = `https://${ environment.hostname || `${ environment.project }.appspot.com` }`;
 
-    await build(config, options);
+    await build(config, {
+        hostname: environment.hostname,
+        ...options
+    });
 
     process.chdir(config.cwd);
 
@@ -35,21 +40,15 @@ const deployWeb = async function(config, options){
         label: "deploy"
     });
 
+    await open(url);
+
     notifier.notify({
         contentImage: config.icon,
         icon: path.join(__dirname, "../../../images/icon.png"),
-        message: `${ projectId }.appspot.com`,
+        message: url,
         sound: "Blow",
         timeout: 30,
         title: `Deployed ${ config.name }`
-    });
-
-    await exec({
-        command: `
-            gcloud app browse
-            ${ project }
-        `,
-        label: "deploy"
     });
 
     /*

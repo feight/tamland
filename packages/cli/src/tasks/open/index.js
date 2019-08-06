@@ -8,14 +8,13 @@ import logger from "@tamland/logger";
 const label = "server";
 
 
-const openBrowser = async function(config){
+const openBrowser = async function(path){
 
     try{
 
         await new Promise((resolve) => {
 
             const oneSecond = 1000;
-            const path = `http://localhost:${ config.nodemon.port }`;
             const retryLogMinimum = 4;
 
             logger.log(`Opening ${ path } in your default browser`, { label });

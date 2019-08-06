@@ -25,6 +25,7 @@ export default function configuration(
         plugins: [
             // Set NODE_ENV based on the provided Webpack environment.
             new webpack.DefinePlugin({
+                "process.env.hostname": JSON.stringify(options.hostname),
                 "process.env.mode": JSON.stringify(options.mode),
                 "process.env.target": JSON.stringify(options.target),
                 // Bug in the linter

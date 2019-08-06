@@ -76,14 +76,12 @@ export interface TamlandServerOptionsInterface {
     /**
      * Required.
      *
-     * The hostname the application will be served from. If configured, in production,
-     * the application will redirect to this host automatically if it is served
-     * from another host. This prevents the application from serving from the appspot.com
-     * domain.
+     * This should be set to process.env.hostname which is derived from your
+     * tamlandrc.config.js environment hostname property.
      *
      * e.g. www.yourdomain.com
      */
-    hostname: string;
+    hostname?: string;
 
     /**
      * Optional.

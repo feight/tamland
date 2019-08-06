@@ -15,8 +15,8 @@ const web = function(){
     }
 
     return prompt("Web Environment", environments.map((environment) => ({
-        name: `${ environment.name } (${ environment.project })`,
-        value: environment.project
+        name: `${ environment.name } (${ environment.hostname || `${ environment.project }.appspot.com` })`,
+        value: environment
     })));
 
 };
