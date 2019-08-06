@@ -18,6 +18,8 @@ figure out a way to reference things in src/base in src/web
 try out the performance of not pushing http2 pushing js code
 try out performance of no script at all
 
+convert all modules to typescript
+
 generator things:
     Update the packages/generator-tamland/src/generators/app/templates/README.md
         - include all the details on how to use

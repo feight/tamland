@@ -48,7 +48,7 @@ export default function configure(
 
         const optionsDefaults: Options = {
             bundleAnalyzerPort: 3001,
-            hashLength: 10,
+            hashLength: 8,
             hostname: "localhost",
             mode: "development",
             platform: "web",

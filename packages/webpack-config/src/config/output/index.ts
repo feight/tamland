@@ -21,6 +21,7 @@ export default function configuration(
         output: {
             chunkFilename: hash ? `[chunkhash:${ options.hashLength }].js` : "[id].js",
             filename: hash ? `[chunkhash:${ options.hashLength }].js` : "[name].js",
+            hashSalt: "salt",
             path: path.join(process.cwd(), `dist/${ options.target }`),
             publicPath: `/${ options.staticFolder }/`
         }
