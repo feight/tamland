@@ -17,9 +17,6 @@ export default function configuration(
 
     return {
         entry: {
-            ...options.target === "client" ? {
-                "service-worker": "./service-worker.ts"
-            } : {},
             index: `./${ options.target }/index.ts`
         }
     };

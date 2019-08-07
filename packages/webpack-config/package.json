@@ -1,6 +1,6 @@
 {
   "name": "@tamland/webpack-config",
-  "version": "0.0.38",
+  "version": "0.0.40",
   "description": "Shared config for webpack",
   "main": "lib",
   "scripts": {
@@ -73,7 +73,8 @@
     "webpack-json-loader": "^1.0.0",
     "webpack-merge": "^4.2.1",
     "webpack-modernizr-loader": "^5.0.0",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "workbox-webpack-plugin": "^4.3.1"
   },
   "devDependencies": {
     "@tamland/babel": "^0.0.10",

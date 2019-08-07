@@ -9,6 +9,7 @@ import {
     TamlandClientOptions,
     TamlandClientOptionsInterface
 } from "./options";
+import { registerServiceWorker } from "./register-service-worker";
 
 import { createHistory } from "../history";
 import { createStore } from "../store";
@@ -53,6 +54,8 @@ export class Client{
             ReactDOM.hydrate(app, document.querySelector("#app"));
 
         });
+
+        registerServiceWorker();
 
     }
 

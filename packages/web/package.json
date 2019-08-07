@@ -1,6 +1,6 @@
 {
   "name": "@tamland/web",
-  "version": "0.0.24",
+  "version": "0.0.26",
   "description": "Node.js SSR application framework",
   "main": "lib",
   "types": "lib",
@@ -94,8 +94,7 @@
     "webpack-dev-middleware": "^3.7.0",
     "webpack-hot-middleware": "^2.25.0",
     "winston": "^3.2.1",
-    "winston-transport": "^4.3.0",
-    "workbox-precaching": "^4.3.1"
+    "winston-transport": "^4.3.0"
   },
   "devDependencies": {
     "@tamland/babel": "^0.0.10",
