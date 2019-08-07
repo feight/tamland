@@ -1,6 +1,6 @@
 {
   "name": "@tamland/webpack-config",
-  "version": "0.0.40",
+  "version": "0.0.42",
   "description": "Shared config for webpack",
   "main": "lib",
   "scripts": {

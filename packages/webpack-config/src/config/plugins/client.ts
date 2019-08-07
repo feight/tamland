@@ -43,6 +43,7 @@ export default function configuration(
                 statsOptions: null
             }),
             new InjectManifest({
+                importWorkboxFrom: "local",
                 swDest: "service-worker.js",
                 swSrc: "service-worker.ts"
             })

@@ -35,7 +35,8 @@ export default function configuration(
             },
             watchOptions: {
                 poll: true
-            }
+            },
+            writeToDisk: true
         }
     };
 

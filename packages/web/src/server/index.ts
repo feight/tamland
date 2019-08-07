@@ -46,7 +46,6 @@ export class Server{
         routers.browserconfig();
         routers.graphql();
         routers.manifest();
-        routers.serviceWorker();
 
         // All routes from here on will be forced to end in a slash
         middleware.slash();

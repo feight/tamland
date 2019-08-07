@@ -47,6 +47,11 @@ const getStaticFileMap = function(
     const defaultStaticFiles: StaticFile[] = [
         {
             cacheExpiration: "1h",
+            path: "/service-worker.js",
+            source: "dist/client/service-worker.js"
+        },
+        {
+            cacheExpiration: "1h",
             path: "/robots.txt",
             source: "robots.txt"
         },
@@ -90,7 +95,6 @@ const getStaticFileMap = function(
                 };
 
             }
-
 
         }
 
@@ -154,7 +158,6 @@ export const staticRouter = ({
         });
 
     }
-
 
     return router;
 
