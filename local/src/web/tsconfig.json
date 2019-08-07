@@ -19,6 +19,6 @@
     "target": "es5"
   },
   "include": [
-    "**/*"
+    "**/*", "../../../packages/web/src/service-worker.ts"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "@tamland/web",
-  "version": "0.0.22",
+  "version": "0.0.24",
   "description": "Node.js SSR application framework",
   "main": "lib",
   "types": "lib",
@@ -88,12 +88,14 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.3",
+    "request": "^2.88.0",
     "type-graphql": "^0.17.4",
     "webpack": "^4.39.1",
     "webpack-dev-middleware": "^3.7.0",
     "webpack-hot-middleware": "^2.25.0",
     "winston": "^3.2.1",
-    "winston-transport": "^4.3.0"
+    "winston-transport": "^4.3.0",
+    "workbox-precaching": "^4.3.1"
   },
   "devDependencies": {
     "@tamland/babel": "^0.0.10",

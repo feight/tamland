@@ -54,7 +54,7 @@ const log = (label1, label2) => (error, stats, configFile) => {
 const webpackTask = task("webpack", async (config, options) => {
 
     const {
-        hostname = "localhost",
+        hostname,
         mode = "production",
         platform = "web",
         watch = false

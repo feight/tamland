@@ -15,24 +15,12 @@ export default function configuration(
     options: Options
 ): Configuration{
 
-    const index = `./${ options.target }/index.ts`;
-
-    if(
-        options.watch &&
-        options.target === "client"
-    ){
-
-        return {
-            entry: {
-                index
-            }
-        };
-
-    }
-
     return {
         entry: {
-            index
+            ...options.target === "client" ? {
+                "service-worker": "./service-worker.ts"
+            } : {},
+            index: `./${ options.target }/index.ts`
         }
     };
 

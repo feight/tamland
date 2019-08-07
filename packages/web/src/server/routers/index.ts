@@ -6,6 +6,7 @@ import { applicationRouter } from "./application";
 import { browserconfigRouter } from "./browserconfig";
 import { graphqlRouter } from "./graphql";
 import { manifestRouter } from "./manifest";
+import { serviceWorkerRouter } from "./service-worker";
 import { staticRouter } from "./static";
 
 import { TamlandServerOptions } from "../options";
@@ -70,6 +71,12 @@ export class TamlandServerRouters{
         const { manifest } = this.options;
 
         this.app.use(manifestRouter(manifest));
+
+    }
+
+    public serviceWorker(): void{
+
+        this.app.use(serviceWorkerRouter());
 
     }
 
