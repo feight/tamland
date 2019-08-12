@@ -120,6 +120,13 @@ export default {
         "unicorn/no-hex-escape": "error",
 
         /*
+         * Disallow identifiers starting with new or class
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-keyword-prefix.md
+         */
+        "unicorn/no-keyword-prefix": "off",
+
+        /*
          * Enforce the use of Buffer.from() and Buffer.alloc() instead of the deprecated new Buffer(). (fixable)
          *
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-new-buffer.md
@@ -192,6 +199,13 @@ export default {
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-exponentiation-operator.md
          */
         "unicorn/prefer-exponentiation-operator": "error",
+
+        /*
+         * Prefer .flatMap(…) over .map(…).flat()
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-flat-map.md
+         */
+        "unicorn/prefer-flat-map": "error",
 
         /*
          * Prefer .includes() over .indexOf() when checking for existence or non-existence

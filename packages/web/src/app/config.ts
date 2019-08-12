@@ -43,7 +43,7 @@ export class TamlandAppConfig{
         this.icons = config.icons || [{
             path: "/favicon.png",
             // Width height array
-            // eslint-disable-next-line @typescript-eslint/no-magic-numbers, no-magic-numbers
+            // eslint-disable-next-line no-magic-numbers
             size: [128, 128]
         }];
         this.language = config.language || "en";

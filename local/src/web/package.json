@@ -7,9 +7,9 @@
   },
   "dependencies": {
     "@ionaru/romanize": "^1.1.0",
-    "@tamland/web": "file:../../node_modules/.cache/tamland-web-0.0.26.tgz",
-    "browserslist": "^4.6.4",
-    "react": "^16.8.6"
+    "@tamland/web": "file:../../node_modules/.cache/tamland-web-0.0.31.tgz",
+    "browserslist": "^4.6.6",
+    "react": "^16.9.0"
   },
   "devDependencies": {
     "link-module-alias": "^1.2.0"

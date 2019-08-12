@@ -17,9 +17,9 @@ import logger from "../logger";
 
 export class Server{
 
-    public port: number;
+    public readonly port: number;
 
-    private app: express.Express;
+    private readonly app: express.Express;
 
     public constructor(serverOptions: TamlandServerOptionsInterface){
 

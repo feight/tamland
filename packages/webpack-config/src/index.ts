@@ -14,7 +14,6 @@ export type Target = "client" | "server";
 
 export interface ConfigurationOptions {
     bundleAnalyzerPort?: number;
-    hashLength?: number;
     staticFolder?: string;
     watch?: boolean;
 }
@@ -29,7 +28,6 @@ export interface Environment {
 
 export interface Options {
     bundleAnalyzerPort: number;
-    hashLength: number;
     hostname?: string;
     mode: Mode;
     platform: Platform;
@@ -48,7 +46,6 @@ export default function configure(
 
         const optionsDefaults: Options = {
             bundleAnalyzerPort: 3001,
-            hashLength: 8,
             mode: "development",
             platform: "web",
             staticFolder: "static",
@@ -58,7 +55,6 @@ export default function configure(
 
         const options: Options = Object.assign(optionsDefaults, {
             bundleAnalyzerPort: webpackOptions.bundleAnalyzerPort,
-            hashLength: webpackOptions.hashLength || optionsDefaults.hashLength,
             hostname: environment.hostname,
             mode: environment.mode || optionsDefaults.mode,
             platform: environment.platform || optionsDefaults.platform,

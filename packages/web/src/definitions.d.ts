@@ -1,4 +1,9 @@
 
+interface FetchEvent extends Event {
+    request: Request;
+    respondWith(response: Promise<Response>|Response): Promise<Response>;
+}
+
 declare module "*.module.scss" {
     const content: {[className: string]: string};
     export default content;

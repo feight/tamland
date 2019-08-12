@@ -67,6 +67,16 @@ export default {
         "@typescript-eslint/class-name-casing": "error",
 
         /*
+         * Consistent with type definition either interface or type
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-definitions.md
+         */
+        "@typescript-eslint/consistent-type-definitions": [
+            "error",
+            "interface"
+        ],
+
+        /*
          * Require explicit return types on functions and class methods
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md
@@ -181,6 +191,13 @@ export default {
         "@typescript-eslint/no-array-constructor": "error",
 
         /*
+         * Disallow Empty Functions
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.md
+         */
+        "@typescript-eslint/no-empty-function": "error",
+
+        /*
          * Disallow the declaration of empty interfaces (no-empty-interface from TSLint)
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-interface.md
@@ -211,6 +228,13 @@ export default {
         "@typescript-eslint/no-extraneous-class": "error",
 
         /*
+         * Requires Promise-like values to be handled appropriately
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-floating-promises.md
+         */
+        "@typescript-eslint/no-floating-promises": "error",
+
+        /*
          * Disallow iterating over an array with a for-in loop (no-for-in-array)
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-for-in-array.md
@@ -227,10 +251,12 @@ export default {
         /*
          * Disallow Magic Numbers
          *
+         * This is off for now because the base no-magic-numbers handles this just fine
+         *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.md
          */
         "@typescript-eslint/no-magic-numbers": [
-            "error",
+            "off",
             {
                 detectObjects: false,
                 ignore: [
@@ -249,6 +275,13 @@ export default {
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-misused-new.md
          */
         "@typescript-eslint/no-misused-new": "error",
+
+        /*
+         * Avoid using promises in places not designed to handle them
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-misused-promises.md
+         */
+        "@typescript-eslint/no-misused-promises": "error",
 
         /*
          * Disallow the use of custom TypeScript modules and namespaces (no-namespace from TSLint)
@@ -386,6 +419,13 @@ export default {
         "@typescript-eslint/prefer-namespace-keyword": "error",
 
         /*
+         * Require never-modified private members be marked as readonly
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-readonly.md
+         */
+        "@typescript-eslint/prefer-readonly": "error",
+
+        /*
          * Enforce to use RegExp#exec over String#match
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-regexp-exec.md
@@ -416,6 +456,13 @@ export default {
         "@typescript-eslint/require-array-sort-compare": "error",
 
         /*
+         * Disallow async functions which have no await expression
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/require-await.md
+         */
+        "@typescript-eslint/require-await": "error",
+
+        /*
          * When adding two variables, operands must both be of type number or of type string. (restrict-plus-operands from TSLint)
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/restrict-plus-operands.md
@@ -428,6 +475,29 @@ export default {
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
          */
         "@typescript-eslint/semi": "error",
+
+        /*
+         * Boolean expressions are limited to booleans
+         *
+         * Off until ignoreRhs lands
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/strict-boolean-expressions.md
+         */
+        "@typescript-eslint/strict-boolean-expressions": "off",
+
+        /*
+         * Sets preference level for triple slash directives versus ES6-style import declarations.
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/triple-slash-reference.md
+         */
+        "@typescript-eslint/triple-slash-reference": [
+            "error",
+            {
+                lib: "never",
+                path: "never",
+                types: "never"
+            }
+        ],
 
         /*
          * Require consistent spacing around type annotations (typedef-whitespace from TSLint)

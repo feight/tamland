@@ -11,7 +11,7 @@ import {
     ManifestConfiguration,
     ManifestConfigurationIcon
 } from "./routers/manifest";
-import { StaticFile } from "./routers/static/types";
+import { StaticFile } from "./routers/static";
 
 import { Route } from "../components/route";
 import {

@@ -20,9 +20,9 @@ const local = process.env.local === "true" || false;
 
 export class TamlandServerMiddleware{
 
-    private app: Express;
+    private readonly app: Express;
 
-    private options: TamlandServerOptions;
+    private readonly options: TamlandServerOptions;
 
     public constructor(app: Express, options: TamlandServerOptions){
 

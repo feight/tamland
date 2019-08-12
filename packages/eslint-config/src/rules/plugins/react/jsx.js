@@ -46,6 +46,13 @@ export default {
         "react/jsx-curly-brace-presence": "error",
 
         /*
+         * Enforce linebreaks in curly braces in JSX attributes and expressions. (fixable)
+         *
+         * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-newline.md
+         */
+        "react/jsx-curly-newline": ["error", "consistent"],
+
+        /*
          * Enforce or disallow spaces inside of curly braces in JSX attributes and expressions (fixable)
          *
          * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md

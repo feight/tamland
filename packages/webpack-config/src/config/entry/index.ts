@@ -15,10 +15,19 @@ export default function configuration(
     options: Options
 ): Configuration{
 
+    const entry: { [key: string]: string } = {
+        index: `./${ options.target }/index.ts`
+    };
+
+    if(
+        options.target === "client" &&
+        options.platform === "web"
+    ){
+        entry["service-worker"] = "./service-worker.ts";
+    }
+
     return {
-        entry: {
-            index: `./${ options.target }/index.ts`
-        }
+        entry
     };
 
 }

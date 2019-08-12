@@ -9,20 +9,21 @@ import {
     TamlandClientOptions,
     TamlandClientOptionsInterface
 } from "./options";
-import { registerServiceWorker } from "./register-service-worker";
+import { registerServiceWorker } from "./register";
 
 import { createHistory } from "../history";
 import { createStore } from "../store";
 import { Tamland } from "../app";
+import logger from "../logger";
 
 
 export class Client{
 
-    private history: History;
+    private readonly history: History;
 
-    private options: TamlandClientOptions;
+    private readonly options: TamlandClientOptions;
 
-    private store: Store;
+    private readonly store: Store;
 
     public constructor(options: TamlandClientOptionsInterface){
 
@@ -53,9 +54,19 @@ export class Client{
 
             ReactDOM.hydrate(app, document.querySelector("#app"));
 
+        }).catch((error: Error): void => {
+
+            logger.error("@loadable/component failed to ready up.");
+            logger.error(error);
+
         });
 
-        registerServiceWorker();
+        registerServiceWorker().catch((error: Error): void => {
+
+            logger.error("Failed to register service worker.");
+            logger.error(error);
+
+        });
 
     }
 

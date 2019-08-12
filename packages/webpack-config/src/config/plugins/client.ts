@@ -6,7 +6,6 @@ import AssetsPlugin from "assets-webpack-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import webpack, { Configuration } from "webpack";
 import LoadablePlugin from "@loadable/webpack-plugin";
-import { InjectManifest } from "workbox-webpack-plugin";
 
 
 import { Options } from "../..";
@@ -41,11 +40,6 @@ export default function configuration(
                 reportFilename: "report.html",
                 statsFilename: "stats.json",
                 statsOptions: null
-            }),
-            new InjectManifest({
-                importWorkboxFrom: "local",
-                swDest: "service-worker.js",
-                swSrc: "service-worker.ts"
             })
         ].concat(options.watch ? [
             new webpack.NoEmitOnErrorsPlugin()

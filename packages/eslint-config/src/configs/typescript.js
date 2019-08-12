@@ -15,10 +15,23 @@ export default {
         "init-declarations": "off",
 
         /*
-         * Use the typescript unused vars check only because it works with
+         * Overridden by @typescript/no-empty-function because it doesn't trigger
+         * on valid Typescript specific cases that would otherwise trigger
+         */
+        "no-empty-function": "off",
+
+        /*
+         * Overridden by @typescript-eslint/no-unused-vars because it works with
          * imported interfaces
          */
         "no-unused-vars": "off",
+
+        /*
+         * The @typescript-eslint/require-await rule extends the require-await rule
+         * from ESLint core, and allows for cases where the additional typing information
+         * can prevent false positives that would otherwise trigger the rule.
+         */
+        "require-await": "off",
 
         /*
          * Overridden by @typescript-eslint/semi

@@ -34,8 +34,8 @@ export default function configuration(
             }),
             new DuplicatePackageCheckerPlugin(),
             new MiniCssExtractPlugin({
-                chunkFilename: hash ? `[chunkhash:${ options.hashLength }].css` : "[id].css",
-                filename: hash ? `[chunkhash:${ options.hashLength }].css` : "[name].css"
+                chunkFilename: hash ? "[chunkhash].css" : "[id].css",
+                filename: hash ? "[chunkhash].css" : "[name].css"
             })
         ]
     };

@@ -39,6 +39,7 @@ export default {
                 tryExtensions: [
                     ".js",
                     ".jsx",
+                    ".mjs",
                     ".ts",
                     ".tsx"
                 ]

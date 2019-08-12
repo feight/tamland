@@ -12,10 +12,21 @@ import express from "express";
 import proxy from "express-http-proxy";
 
 
-import {
-    StaticFile,
-    StaticRouter
-} from "./types";
+export interface StaticFile {
+    cacheExpiration?: string | number;
+    etag?: boolean;
+    path: string;
+    source: string;
+}
+
+export interface StaticRouter {
+    app: express.Express;
+    cacheExpiration?: string | number;
+    cwd?: string;
+    local?: boolean;
+    staticFiles?: StaticFile[];
+    staticFolder: string;
+}
 
 
 const getStaticFileMap = function(
@@ -29,6 +40,8 @@ const getStaticFileMap = function(
     // Static public url base and source
     const source = "dist/client";
     const encodedStaticFolder = staticFolder.split("/").map((sub): string => encodeURIComponent(sub)).join("/");
+    const webpackAssets = JSON.parse(fs.readFileSync(path.join(process.cwd(), "dist/client/webpack-assets.json")).toString());
+    const getWebpackAsset = (chunkName: string): string => webpackAssets[chunkName].js.replace(`/${ staticFolder }`, source);
 
     const customStaticFiles: StaticFile[] = staticFiles.map((file): StaticFile => ({
         cacheExpiration,
@@ -46,9 +59,10 @@ const getStaticFileMap = function(
 
     const defaultStaticFiles: StaticFile[] = [
         {
-            cacheExpiration: "1h",
+            cacheExpiration: 0,
+            etag: false,
             path: "/service-worker.js",
-            source: "dist/client/service-worker.js"
+            source: getWebpackAsset("service-worker")
         },
         {
             cacheExpiration: "1h",
@@ -98,7 +112,10 @@ const getStaticFileMap = function(
 
         }
 
-        return file;
+        return {
+            ...file,
+            etag: typeof file.etag === "undefined" ? true : file.etag
+        };
 
     });
 
@@ -129,7 +146,7 @@ export const staticRouter = ({
     getStaticFileMap(staticFiles, staticFolder, cwd, watch, cacheExpiration).forEach((file): void => {
 
         router.use(file.path, express.static(path.join(cwd, file.source), {
-            etag: true,
+            etag: file.etag,
             maxAge: file.cacheExpiration
         }));
 

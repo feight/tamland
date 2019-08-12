@@ -47,7 +47,7 @@ const cssLoader = (
     };
 
     const developmentLocalIdentName = "/[path][name].[ext]::.[local]";
-    const productionLocalIdentName = `[hash:base64:${ options.hashLength }]`;
+    const productionLocalIdentName = "[hash:base64]";
 
     return {
         loader: "css-loader",
