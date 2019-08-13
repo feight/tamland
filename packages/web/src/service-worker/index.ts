@@ -1,30 +1,32 @@
 
 
-import {
-    CacheFirst,
-    NetworkFirst,
-    StaleWhileRevalidate
-} from "workbox-strategies";
-import { precacheAndRoute } from "workbox-precaching";
-import { Plugin as ExpirationPlugin } from "workbox-expiration";
-import { registerRoute } from "workbox-routing";
-import { initialize as initializeGoogleAnalytics } from "workbox-google-analytics";
+import WorkboxNamespace from "workbox-sw";
 
 import { TamlandServiceWorkerOptionsInterface } from "./options";
 
 
+declare const workbox: typeof WorkboxNamespace;
+
+declare function importScripts(...urls: string[]): void;
+
+
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+
+
 export class ServiceWorker{
+
+    public workbox: typeof workbox;
 
     public precache: (string|{
         url: string;
         revision: string;
     })[];
 
-    public constructor(options: TamlandServiceWorkerOptionsInterface){
+    public constructor(options?: TamlandServiceWorkerOptionsInterface){
 
         const {
             precache = []
-        } = options;
+        } = options || {};
 
         this.precache = precache;
 
@@ -32,19 +34,23 @@ export class ServiceWorker{
 
     public start(): void{
 
-        precacheAndRoute(this.precache);
+        if(this.precache){
+
+            workbox.precaching.precacheAndRoute(this.precache);
+
+        }
 
         /*
          * Images carry most of the weight for a web page. Use this rule to serve
          * them quickly from the cache, while making sure you don’t cache them
          * indefinitely, consuming your users' storage.
          */
-        registerRoute(
+        workbox.routing.registerRoute(
             /\.(?:png|gif|jpg|jpeg|svg)$/gu,
-            new CacheFirst({
+            new workbox.strategies.CacheFirst({
                 cacheName: "images",
                 plugins: [
-                    new ExpirationPlugin({
+                    new workbox.expiration.Plugin({
                         // 30 Days
                         // eslint-disable-next-line no-magic-numbers
                         maxAgeSeconds: 30 * 24 * 60 * 60,
@@ -58,17 +64,17 @@ export class ServiceWorker{
          * Make your JS and CSS ⚡ fast by returning the assets from the cache,
          * while making sure they are updated in the background for the next use.
          */
-        registerRoute(
+        workbox.routing.registerRoute(
             /\.(?:js|css)$/gu,
-            new StaleWhileRevalidate(),
+            new workbox.strategies.StaleWhileRevalidate(),
         );
 
-        registerRoute(
+        workbox.routing.registerRoute(
             /\.*\/$/gu,
-            new NetworkFirst()
+            new workbox.strategies.NetworkFirst()
         );
 
-        initializeGoogleAnalytics();
+        workbox.googleAnalytics.initialize();
 
     }
 

@@ -60,18 +60,14 @@ export class Server{
 
     }
 
-    public async start(): Promise<void>{
+    public start(): void{
 
-        await new Promise((): void => {
+        this.app.listen(this.port, (): void => {
 
-            this.app.listen(this.port, (): void => {
-
-                logger.info(`App listening on port ${ this.port }`);
-                logger.info("");
-                logger.info("Press Ctrl+ C to quit.");
-                logger.info("");
-
-            });
+            logger.info(`App listening on port ${ this.port }`);
+            logger.info("");
+            logger.info("Press Ctrl+ C to quit.");
+            logger.info("");
 
         });
 

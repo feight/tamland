@@ -19,8 +19,10 @@ export const registerServiceWorker = async function(): Promise<void>{
 
     if(
         "serviceWorker" in navigator &&
-        !window.location.host.includes("localhost") &&
-        window.location.protocol.includes("https")
+        (
+            !window.location.host.includes("localhost") ||
+            process.env.mode === "production"
+        )
     ){
 
         const sw = navigator.serviceWorker;
