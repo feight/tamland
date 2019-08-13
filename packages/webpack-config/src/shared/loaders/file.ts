@@ -23,7 +23,8 @@ export default function loader(
         loader: "file-loader",
         options: {
             emitFile: options.target !== "server",
-            name: options.mode === "production" ? "[hash].[ext]" : "[path][name].[ext]",
+            // Hash is needed in both modes because changes that image-process-loader might make
+            name: options.mode === "production" ? "[hash].[ext]" : "[path][name].[hash].[ext]",
             publicPath: config.output ? config.output.publicPath : null
         }
     };
