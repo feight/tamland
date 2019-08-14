@@ -1,10 +1,10 @@
 
 
+import * as React from "react";
 import {
     Helmet,
     Router
 } from "@tamland/web";
-import * as React from "react";
 
 import { Footer } from "./footer";
 import { Nav } from "./nav";
@@ -26,6 +26,7 @@ export class App extends React.PureComponent{
                         { "News Team" }
                     </title>
                     <meta content="Helmet application" name="description" />
+                    <meta content="MM63KQdfrn3d7XEwLwcXYZLTmWK4kbGmuJwsO4QUryA" name="google-site-verification" />
                 </Helmet>
                 <Nav />
                 <div className={ style.page }>
@@ -38,3 +39,4 @@ export class App extends React.PureComponent{
     }
 
 }
+

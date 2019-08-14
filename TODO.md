@@ -1,6 +1,8 @@
 
 
-Integrate https://developers.google.com/web/tools/workbox/
+make sure the deploy task remembers your last deploy
+
+implement https://www.npmjs.com/package/webp-loader
 
 add cache-control immutatble
 add image importance attribute to all images add loading=lazy to all iframes and images
@@ -28,7 +30,6 @@ generator things:
     Automate github init
         - pass the repo to the template generator so the package.json has the repo in it
     Make sure all the dot files from src/web get copied by the generator
-    Move host into tamlandrc web environments configuration
 
 enable brotli compression https://medium.com/groww-engineering/enable-brotli-compression-in-webpack-with-fallback-to-gzip-397a57cf9fc6
 

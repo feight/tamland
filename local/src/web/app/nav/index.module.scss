@@ -9,6 +9,7 @@ $height-offset: $nav-height * $height-offset-ratio;
 $logo-height-ratio: .5;
 $logo-height: $height * $logo-height-ratio;
 $logo-height-offset: $height-offset * $logo-height-ratio;
+$hamburger-scale: .8;
 
 .nav{
 
@@ -41,7 +42,8 @@ $logo-height-offset: $height-offset * $logo-height-ratio;
 
         }
 
-        .logo-wrap svg{
+        .logo-wrap svg,
+        .hamburger-wrap svg{
 
             /*
              * As far as I know there isn't another way to achieve this effect in
@@ -77,18 +79,12 @@ $logo-height-offset: $height-offset * $logo-height-ratio;
 
     }
 
-    &.offset{
+    &.offset:not(.top){
 
         // background: linear-gradient(to bottom, $nav-background 0%, darken($nav-background, 4) 100%);
         background-color: $nav-background;
         box-shadow: 0 0 10px rgba(0, 0, 0, .4);
         height: $height-offset;
-
-        .hamburger-wrap{
-
-            transform: translate3d((($height - $logo-height) - ($height-offset - $logo-height-offset)), 0, 0);
-
-        }
 
         .logo-wrap{
 
@@ -103,6 +99,27 @@ $logo-height-offset: $height-offset * $logo-height-ratio;
 
         }
 
+        .hamburger-wrap{
+
+            svg{
+
+                height: $logo-height-offset * $hamburger-scale;
+
+            }
+
+        }
+
+    }
+
+    .logo-wrap,
+    .hamburger-wrap{
+
+        svg{
+
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, .2));
+
+        }
+
     }
 
     .logo-wrap{
@@ -111,7 +128,6 @@ $logo-height-offset: $height-offset * $logo-height-ratio;
 
         svg{
 
-            filter: drop-shadow(0 0 5px rgba(0, 0, 0, .2));
             height: $logo-height;
 
         }
@@ -120,8 +136,24 @@ $logo-height-offset: $height-offset * $logo-height-ratio;
 
     .hamburger-wrap{
 
-        padding-right: $height - $logo-height;
+        cursor: pointer;
+        display: none;
         text-align: right;
+        transition: .2s ease-in-out transform;
+
+        &:focus,
+        &:hover{
+
+            transform: scale(1.1);
+
+        }
+
+        svg{
+
+            height: $logo-height * $hamburger-scale;
+            margin-right: $height - $logo-height;
+
+        }
 
     }
 

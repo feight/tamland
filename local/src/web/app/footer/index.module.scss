@@ -9,6 +9,7 @@ $link-color: #fff;
 .footer{
 
     background: $background;
+    border-bottom: 10px solid scale-color($color: $footer-background, $lightness: -50%);
     color: $color;
     font-size: $font-size;
     padding: 30px;
@@ -18,13 +19,19 @@ $link-color: #fff;
 
         list-style: none;
         margin: 0;
-        padding: 0;
+        padding: 15px 0;
 
         li{
 
             display: inline;
             line-height: 2em;
-            padding: 0 15px;
+            padding: 0 10px;
+
+        }
+
+        a{
+
+            padding: 10px;
 
         }
 
@@ -38,6 +45,7 @@ $link-color: #fff;
         &:focus,
         &:hover{
 
+            color: $link-color;
             text-decoration: underline;
 
         }

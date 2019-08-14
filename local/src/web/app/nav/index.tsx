@@ -75,9 +75,7 @@ export class Nav extends React.Component<{}, NavState>{
                                 onChange={ this.handleHamburgerToggleOnChange }
                                 value={ drawerOpen }
                             >
-                                <div>
-                                    <Hamburger fill="#fff" />
-                                </div>
+                                <Hamburger fill="#fff" />
                             </Toggle>
                         </div>
                     </div>

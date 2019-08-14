@@ -57,11 +57,11 @@ const supportsPassiveEventListeners = ((): boolean => {
 
 export class Drawer extends React.Component<DrawerProps, DrawerState>{
 
-    private baseRef: React.RefObject<HTMLDivElement>;
+    private readonly baseRef: React.RefObject<HTMLDivElement>;
 
-    private closeRef: React.RefObject<HTMLDivElement>;
+    private readonly closeRef: React.RefObject<HTMLDivElement>;
 
-    private wrapRef: React.RefObject<HTMLDivElement>;
+    private readonly wrapRef: React.RefObject<HTMLDivElement>;
 
     public constructor(props: DrawerProps){
 
@@ -260,7 +260,7 @@ export class Drawer extends React.Component<DrawerProps, DrawerState>{
 
     }
 
-    private block = (event: Event): void => {
+    private readonly block = (event: Event): void => {
 
         event.stopPropagation();
 
@@ -290,19 +290,19 @@ export class Drawer extends React.Component<DrawerProps, DrawerState>{
 
     }
 
-    private handleCloseOnClick = (): void => {
+    private readonly handleCloseOnClick = (): void => {
 
         this.toggle();
 
     };
 
-    private handleDrawerOnClick = (): void => {
+    private readonly handleDrawerOnClick = (): void => {
 
         this.toggle();
 
     };
 
-    private handleOnTouchEnd = (): void => {
+    private readonly handleOnTouchEnd = (): void => {
 
         if(!this.state.touching){
             return;
@@ -337,7 +337,7 @@ export class Drawer extends React.Component<DrawerProps, DrawerState>{
 
     };
 
-    private handleOnTouchMove = (event: TouchEvent): void => {
+    private readonly handleOnTouchMove = (event: TouchEvent): void => {
 
         if(!this.state.touching){
             return;
@@ -359,7 +359,7 @@ export class Drawer extends React.Component<DrawerProps, DrawerState>{
 
     };
 
-    private handleOnTouchStart = (event: TouchEvent): void => {
+    private readonly handleOnTouchStart = (event: TouchEvent): void => {
 
         const wrap = this.wrapRef.current;
 
@@ -399,7 +399,7 @@ export class Drawer extends React.Component<DrawerProps, DrawerState>{
 
     };
 
-    private touchUpdate = (): void => {
+    private readonly touchUpdate = (): void => {
 
         const wrap = this.wrapRef.current;
 
@@ -425,7 +425,7 @@ export class Drawer extends React.Component<DrawerProps, DrawerState>{
 
     };
 
-    private toggle = (): void => {
+    private readonly toggle = (): void => {
 
         this.props.onChange(!this.props.open);
 

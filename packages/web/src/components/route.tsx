@@ -12,6 +12,8 @@ import {
 } from "redux-thunk";
 import { AnyAction } from "redux";
 
+import { PageProps } from "./page";
+
 
 export interface RouteComponentProperties<T> extends RouteComponentProps{
     data?: T;
@@ -50,9 +52,9 @@ export class Route{
 
     }
 
-    public loadable(id: string): (() => Promise<{ default: React.ComponentType }>) | undefined{
+    public loadable(id: string, props: PageProps): (() => Promise<{ default: React.ComponentType<PageProps> }>) | undefined{
 
-        console.log(`public loadable(id: string): () => Promise<{ default: React.ComponentType }> not implmented on Route ${ id }`);
+        console.log(`public loadable(id: string): () => Promise<{ default: React.ComponentType }> not implmented on Route ${ id } at ${ props.match.path }`);
 
         // eslint-disable-next-line no-undefined
         return undefined;
@@ -84,9 +86,10 @@ export class Route{
                 render={ // eslint-disable-line react/jsx-no-bind
 
                     // eslint-disable-next-line react-perf/jsx-no-new-function-as-prop
-                    (): React.ReactNode => {
+                    ({ match }): React.ReactNode => {
 
-                        const loadableComponent = this.loadable(this.id);
+                        const pageProps = { match };
+                        const loadableComponent = this.loadable(this.id, pageProps);
 
                         if(loadableComponent){
 
@@ -100,7 +103,9 @@ export class Route{
                             });
 
                             return (
-                                <Page />
+                                // This is safe enough to we'll take the convenience here
+                                // eslint-disable-next-line react/jsx-props-no-spreading
+                                <Page { ...pageProps } />
                             );
 
                         }

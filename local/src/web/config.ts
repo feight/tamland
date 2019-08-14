@@ -1,12 +1,20 @@
 
 
-import icons from "./icons";
+import config from "../base/config";
+
+
+const {
+    description,
+    icons,
+    name,
+    shortName
+} = config;
 
 
 export default {
-    description: "Tamland local development site",
+    description,
     icons,
-    name: "Tamland Local",
-    shortName: "Tammy Local"
+    name,
+    shortName
 };
 

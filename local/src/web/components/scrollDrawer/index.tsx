@@ -164,7 +164,9 @@ export class ScrollDrawer extends React.Component<ScrollDrawerProps, ScrollDrawe
     ): boolean{
 
         if(
+            this.state.direction !== state.direction ||
             this.state.hidden !== state.hidden ||
+            this.state.lastScrollTop !== state.lastScrollTop ||
             this.state.offset !== state.offset ||
             this.state.top !== state.top
         ){
@@ -179,7 +181,9 @@ export class ScrollDrawer extends React.Component<ScrollDrawerProps, ScrollDrawe
 
     private atTop(): boolean{
 
-        return this.state.scrollTop <= 0;
+        const scrollTop = getScrollTop();
+
+        return scrollTop <= 0;
 
     }
 
@@ -253,10 +257,11 @@ export class ScrollDrawer extends React.Component<ScrollDrawerProps, ScrollDrawe
 
         if(this.atTop()){
 
-            this.setState({
+            this.setState((previousState): ScrollDrawerState => ({
+                ...previousState,
                 direction: "up",
                 hidden: false
-            });
+            }));
 
         }else if(scrollTop < lastScrollTop){
 
@@ -276,6 +281,7 @@ export class ScrollDrawer extends React.Component<ScrollDrawerProps, ScrollDrawe
             }
 
         }else if(scrollTop > lastScrollTop){
+
 
             this.setState((previousState): ScrollDrawerState => ({
                 ...previousState,

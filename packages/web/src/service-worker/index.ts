@@ -64,15 +64,11 @@ export class ServiceWorker{
          * Make your JS and CSS ⚡ fast by returning the assets from the cache,
          * while making sure they are updated in the background for the next use.
          */
-        workbox.routing.registerRoute(
-            /\.(?:js|css)$/gu,
-            new workbox.strategies.StaleWhileRevalidate(),
-        );
+        workbox.routing.registerRoute(/\.js$/gu, new workbox.strategies.CacheFirst());
 
-        workbox.routing.registerRoute(
-            /\.*\/$/gu,
-            new workbox.strategies.NetworkFirst()
-        );
+        workbox.routing.registerRoute(/\.css$/gu, new workbox.strategies.CacheFirst());
+
+        workbox.routing.registerRoute(/\.*\/$/gu, new workbox.strategies.NetworkFirst());
 
         workbox.googleAnalytics.initialize();
 

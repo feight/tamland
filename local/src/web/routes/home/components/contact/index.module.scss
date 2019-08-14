@@ -1,0 +1,93 @@
+
+@import "../../../../app/base.scss";
+
+$color: #4a4542;
+$link-color: #fff;
+$link-background: #0098bd;
+
+.contact{
+
+    background: #fd3;
+    color: $color;
+    overflow: hidden;
+    padding: 70px 10px;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, .4);
+
+    &:before{
+
+        background: url("./background.png") center center;
+        background-position: center center;
+        background-size: 450px;
+        content: "";
+        height: 500%;
+        left: -50%;
+        opacity: .04;
+        position: absolute;
+        top: -250%;
+        transform: rotate(45deg);
+        width: 200%;
+        z-index: 1;
+
+    }
+
+    .contact-content{
+
+        margin: 0 auto;
+        max-width: 800px;
+        position: relative;
+        z-index: 2;
+
+    }
+
+    a{
+
+        background: $link-background;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, .05);
+        color: $link-color;
+        display: inline-block;
+        margin-top: 15px;
+        padding: 15px 20px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+        transition: .2s ease-in-out transform;
+
+        &:focus,
+        &:hover{
+
+            text-decoration: none;
+            transform: scale(1.1);
+
+        }
+
+    }
+
+    p,
+    h2,
+    h3{
+
+        margin: 0;
+        padding: 10px;
+
+    }
+
+    h2{
+
+        font-size: 35px;
+        padding-bottom: 20px;
+
+    }
+
+    h3{
+
+        font-size: 30px;
+
+    }
+
+    p{
+
+        color: scale-color($color: $color, $lightness: 15%);
+
+    }
+
+}

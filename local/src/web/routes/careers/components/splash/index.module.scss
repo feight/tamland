@@ -1,0 +1,50 @@
+
+@import "../../../../app/base.scss";
+
+$background: linear-gradient(45deg, scale-color($color: #32ccfe, $lightness: 30%), #32ccfe);
+$color: #fff;
+$heading-color: #4a4542;
+$heading-background-color: #fd3;
+
+.splash{
+
+    @include notch-padding();
+    background-image: url("./background.jpg");
+    background-position: 50% 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    h1{
+
+        background: $heading-background-color;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, .25);
+        color: $heading-color;
+        display: inline-block;
+        font-size: 40px;
+        margin: 0;
+        padding: 15px 25px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+        white-space: nowrap;
+
+        @include media("phone"){
+
+            font-size: 25px;
+
+        }
+
+    }
+
+    div.splash-wrap{
+
+        align-items: center;
+        background: rgba(0, 0, 0, .2);
+        color: $color;
+        display: flex;
+        justify-content: center;
+        min-height: 50vh;
+        padding: $nav-height 0;
+        text-align: center;
+
+    }
+
+}
