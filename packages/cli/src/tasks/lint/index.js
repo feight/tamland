@@ -3,10 +3,8 @@
 import css from "./css";
 import js from "./js";
 
-import { task } from "../../utils/task";
 
-
-const lint = task("Lint", async (config, options = {}) => {
+const lint = async function(config, options = {}){
 
     const watch = options.watch || false;
 
@@ -15,6 +13,6 @@ const lint = task("Lint", async (config, options = {}) => {
         js(config.lint.js, watch)
     ]);
 
-});
+};
 
 export default lint;

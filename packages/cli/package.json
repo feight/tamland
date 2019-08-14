@@ -83,6 +83,7 @@
     "webpack-dev-server": "^3.8.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^8.0.0",
     "renamer": "^1.1.2"
   }
 }

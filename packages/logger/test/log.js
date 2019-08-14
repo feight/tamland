@@ -1,10 +1,10 @@
 
 
-import logger from "../src";
+import logger from "../lib";
 
 
 // This breaks if you import it for some reason
-// eslint-disable-next-line import/no-commonjs
+// eslint-disable-next-line import/no-commonjs, @typescript-eslint/no-var-requires
 const pty = require("node-pty");
 
 

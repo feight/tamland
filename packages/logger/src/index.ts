@@ -9,10 +9,21 @@ import { rjust } from "justify-text";
 import table from "text-table";
 
 
+interface ErrorFile{
+    errors: {
+        column: number;
+        file: string;
+        line: number;
+        message: string;
+    }[];
+    filePath: string;
+}
+
+
 const nonBreakingCharacterCode = 160;
 const nonBreakingCharacter = String.fromCharCode(nonBreakingCharacterCode);
 
-const emojis = {
+const emojis: { [id: string]: string } = {
     anonymous: "🤔",
     clean: "🧻",
     datastore: "💾",
@@ -47,11 +58,11 @@ const colors = {
 
 const defaultLabel = "anonymous";
 
-let lastFormattedLabel = null;
-let lastLabel = null;
+let lastFormattedLabel: string | null = null;
+let lastLabel: string | null = null;
 let started = false;
 
-const formatLabel = function(string, error = false){
+const formatLabel = function(string: string, error = false): string{
 
     const label = stripAnsi(string);
     const clearedLabel = label;
@@ -73,17 +84,17 @@ const formatLabel = function(string, error = false){
 
 };
 
-const format = function(label, message = "", color, error = false){
+const format = function(label: string, message = "", color?: string, error = false): string{
 
     let formattedMessage = message ? strip(message) : "";
 
     formattedMessage = color ? chalk.hex(color)(formattedMessage) : message;
 
-    return formattedMessage.split("\n").map((line) => `${ formatLabel(label, error) } ${ line }`).join("\n");
+    return formattedMessage.split("\n").map((line): string => `${ formatLabel(label, error) } ${ line }`).join("\n");
 
 };
 
-const inLineFormat = function(line){
+const inLineFormat = function(line: string): string{
 
     return line
     .replace(/(https?:\/\/[^(\s|")]*)/gu, chalk.hex(colors.urlColor)("$1"))
@@ -98,7 +109,7 @@ const logger = {
 
     carryAnsi: "",
 
-    command(label = "", command = ""){
+    command(label = "", command = ""): void{
 
         this.log(command.split(" && ").join("\n"), {
             color: "#ff5400",
@@ -107,12 +118,12 @@ const logger = {
 
     },
 
-    error(message = "", options = {}){
+    error(message: string | typeof Error = "", options?: { color?: string | true; label?: string }): void{
 
         const {
-            color,
+            color = colors.errorColor,
             label = defaultLabel
-        } = options;
+        } = options || {};
 
 
         let formattedLabel = label;
@@ -123,27 +134,37 @@ const logger = {
             formattedMessage = label;
         }
 
-        if(formattedMessage.stack && formattedMessage.name){
-            formattedMessage = `${ formattedMessage.name }\n\n${ formattedMessage.stack }`;
-        }else if(formattedMessage.message){
-            formattedMessage = formattedMessage.message;
+        if(formattedMessage instanceof Error){
+
+            if(formattedMessage.stack && formattedMessage.name){
+
+                formattedMessage = `${ formattedMessage.name }\n\n${ formattedMessage.stack }`;
+
+            }else if(formattedMessage.message){
+
+                formattedMessage = formattedMessage.message;
+
+            }
+
         }
 
-        this.log(formattedMessage, {
-            color: color === true ? null : color || colors.errorColor,
+        this.log(String(formattedMessage), {
+            // Needed in this case
+            // eslint-disable-next-line no-undefined
+            color: color === true ? undefined : color,
             error: true,
             label: formattedLabel
         });
 
     },
 
-    lint(files){
+    lint(files: ErrorFile[]): void{
 
-        files.forEach((errorFile) => {
+        files.forEach((errorFile): void => {
 
             if(errorFile.errors && errorFile.errors.length > 0){
 
-                const errorOutput = errorFile.errors.map((error) => {
+                const errorOutput = errorFile.errors.map((error): string => {
 
                     const errorFrame = codeframe.get({
                         column: error.column,
@@ -169,13 +190,19 @@ const logger = {
 
     },
 
-    log(message = "", options = {}){
+    log(message: string = "", options?: {
+        color?: string;
+        error?: boolean;
+        label?: string;
+    }): void{
 
         const {
             label = message ? defaultLabel : "",
-            color,
+            // Needed in this case
+            // eslint-disable-next-line no-undefined
+            color = undefined,
             error = false
-        } = options;
+        } = options || {};
 
         const testLabel = `${ label } ${ String(error) }`;
         const formattedMessage = format(label, String(message), color, error);
@@ -193,7 +220,7 @@ const logger = {
 
         lastLabel = testLabel;
 
-        formattedMessage.split("\n").forEach((line) => {
+        formattedMessage.split("\n").forEach((line): void => {
 
             const cursor = getCursorPosition.sync();
             const output = inLineFormat(line);
@@ -206,11 +233,11 @@ const logger = {
 
     },
 
-    table(label, labels, data, options){
+    table(label: string, labels: string[], data: string[], options: table.Options): void{
 
-        this.log(table([labels.map((lbl) => chalk.bold(lbl))].concat(data), {
+        this.log(table([labels.map((lbl: string): string => chalk.bold(lbl))].concat(data), {
             ...options,
-            stringLength(string){
+            stringLength(string): number{
 
                 return stripAnsi(string).length;
 
@@ -219,7 +246,10 @@ const logger = {
 
     },
 
-    write(message = "", options = {}){
+    write(message = "", options?: {
+        error: boolean;
+        label: string;
+    }): void{
 
         // Normalize new line characters
         let output = message
@@ -243,7 +273,7 @@ const logger = {
         const {
             label = defaultLabel,
             error = false
-        } = options;
+        } = options || {};
 
         let lbl = formatLabel(label);
 

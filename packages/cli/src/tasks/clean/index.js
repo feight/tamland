@@ -5,8 +5,6 @@ import path from "path";
 import fs from "fs-extra";
 import logger from "@tamland/logger";
 
-import { task } from "../../utils/task";
-
 
 const label = "clean";
 
@@ -29,7 +27,7 @@ const remove = async (removePath) => {
 };
 
 
-const clean = task(label, (config, options) => {
+const clean = async function(config, options){
 
     const {
         platform = "web"
@@ -41,9 +39,9 @@ const clean = task(label, (config, options) => {
 
     paths.sort((pathA, pathB) => pathA.localeCompare(pathB));
 
-    return Promise.all(paths.map((pth) => remove(pth)));
+    await Promise.all(paths.map((pth) => remove(pth)));
 
-});
+};
 
 
 export default clean;

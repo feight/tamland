@@ -10,7 +10,6 @@ import {
     kill,
     spawn
 } from "../../utils";
-import { task } from "../../utils/task";
 
 
 const statsOptions = {
@@ -51,7 +50,7 @@ const log = (label1, label2) => (error, stats, configFile) => {
 };
 
 // eslint-disable-next-line max-lines-per-function
-const webpackTask = task("webpack", async (config, options) => {
+const webpackTask = async function(config, options){
 
     const {
         hostname,
@@ -151,6 +150,6 @@ const webpackTask = task("webpack", async (config, options) => {
 
     }
 
-});
+};
 
 export default webpackTask;
