@@ -1,7 +1,5 @@
 
 
-make sure the deploy task remembers your last deploy
-
 implement https://www.npmjs.com/package/webp-loader
 
 add cache-control immutatble
@@ -42,7 +40,6 @@ Implemented https local testing option
 
 add a test harness
 add format message harness with https://www.npmjs.com/package/format-message
-enable this for translation https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-literals.md
 add a step to the build that extracts format message strings for translation
 
 after implementing graphql have a look at https://www.npmjs.com/package/eslint-plugin-graphql

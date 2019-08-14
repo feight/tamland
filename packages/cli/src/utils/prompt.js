@@ -17,8 +17,9 @@ const prompt = async function(id, choices){
     if(previousExists){
 
         const raw = await fs.readFile(previousPath);
+        const project = JSON.parse(raw)[key].project;
 
-        previous = JSON.parse(raw)[key];
+        [previous] = choices.map((choice, index) => choice.value.project === project ? index : false).filter((value) => value !== false);
 
     }
 
