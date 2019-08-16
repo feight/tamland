@@ -19,7 +19,7 @@ const noop = async (): Promise<void> => {
 
 };
 
-const base = "src/{web,mobile,desktop,shared}/!(node_modules|dist)/**/*";
+const base = "src/*/!(node_modules|dist)/**/*";
 
 const defaults = {
     firestore: {

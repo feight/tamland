@@ -1,6 +1,6 @@
 {
   "name": "@tamland/cli",
-  "version": "0.0.59",
+  "version": "0.0.60",
   "description": "Collection of tools, presets and shared configs for @tamland's projects",
   "main": "lib/index",
   "sideEffects": false,
@@ -44,7 +44,7 @@
     "@tamland/babel": "0.0.10",
     "@tamland/config": "0.0.15",
     "@tamland/eslint": "0.0.19",
-    "@tamland/imagemin": "0.0.4",
+    "@tamland/imagemin": "0.0.8",
     "@tamland/logger": "0.0.15",
     "@tamland/postcss-config": "0.0.3",
     "@tamland/stylelint": "0.0.12",

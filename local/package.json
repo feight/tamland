@@ -15,6 +15,6 @@
   "version": "1.0.0",
   "devDependencies": {},
   "dependencies": {
-    "@tamland/cli": "file:node_modules/.cache/tamland-cli-0.0.58.tgz"
+    "@tamland/cli": "file:node_modules/.cache/tamland-cli-0.0.60.tgz"
   }
 }

@@ -7,9 +7,10 @@ import optipng from "imagemin-optipng";
 import svgo from "imagemin-svgo";
 
 
-export const imagemin = function(input: string[], output: string): Promise<minify.Result[]>{
+export const imagemin = function(input: string[], destination: string): Promise<minify.Result[]>{
 
-    return minify(input, output, {
+    return minify(input, {
+        destination,
         plugins: [
             gifsicle({
                 interlaced: true
