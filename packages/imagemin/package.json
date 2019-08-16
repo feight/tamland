@@ -1,10 +1,14 @@
 {
   "name": "@tamland/imagemin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Preconfigured imagemin function",
   "main": "lib/index.js",
   "scripts": {
-    "build": "rm -rf lib && babel src --config-file --out-dir lib",
+    "build": "rm -rf lib && npm run build:script && npm run build:types",
+    "build:script": "npm run build:script:module && npm run build:script:common",
+    "build:script:common": "babel src --ignore src/cli --out-dir lib --extensions '.js,.ts'",
+    "build:script:module": "BUILD_MJS=1 npm run build:script:common && renamer --find js --replace mjs \"lib/**\"",
+    "build:types": "tsc --emitDeclarationOnly",
     "lint": "eslint src test --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts",
     "prelint": "npm run build",
     "prepublishOnly": "npm run test",
@@ -51,8 +55,14 @@
   },
   "devDependencies": {
     "@tamland/babel": "^0.0.10",
-    "@tamland/eslint": "^0.0.15",
+    "@tamland/eslint": "^0.0.19",
+    "@types/imagemin": "^6.0.0",
+    "@types/imagemin-gifsicle": "^5.2.0",
+    "@types/imagemin-jpegtran": "^5.0.0",
+    "@types/imagemin-optipng": "^5.2.0",
+    "@types/imagemin-svgo": "^7.0.0",
     "babel-tape-runner": "^3.0.0",
+    "renamer": "^1.1.2",
     "tape": "^4.11.0"
   }
 }

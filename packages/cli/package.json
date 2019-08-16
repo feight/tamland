@@ -1,6 +1,6 @@
 {
   "name": "@tamland/cli",
-  "version": "0.0.58",
+  "version": "0.0.59",
   "description": "Collection of tools, presets and shared configs for @tamland's projects",
   "main": "lib/index",
   "sideEffects": false,
@@ -14,7 +14,7 @@
     "prelint": "npm run build",
     "prepublishOnly": "npm run test",
     "pretest": "npm run lint",
-    "test": "echo 'no tests found'"
+    "test": "babel-tape-runner ./test/*.js"
   },
   "browserslist": "node 8",
   "engines": {
@@ -42,13 +42,13 @@
   "dependencies": {
     "@babel/cli": "7.5.5",
     "@tamland/babel": "0.0.10",
-    "@tamland/config": "0.0.4",
+    "@tamland/config": "0.0.15",
     "@tamland/eslint": "0.0.19",
-    "@tamland/imagemin": "0.0.3",
-    "@tamland/logger": "0.0.6",
+    "@tamland/imagemin": "0.0.4",
+    "@tamland/logger": "0.0.15",
     "@tamland/postcss-config": "0.0.3",
     "@tamland/stylelint": "0.0.12",
-    "@tamland/webpack-config": "0.0.47",
+    "@tamland/webpack-config": "0.0.48",
     "chalk": "^2.4.2",
     "commander": "^3.0.0",
     "core-js": "^3.2.1",
@@ -78,12 +78,27 @@
     "through2": "^3.0.1",
     "touch": "^3.1.0",
     "typescript": "^3.5.3",
+    "vinyl": "^2.2.0",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.8.0"
   },
   "devDependencies": {
+    "@types/filesize": "^4.1.0",
     "@types/fs-extra": "^8.0.0",
-    "renamer": "^1.1.2"
+    "@types/gulp": "^4.0.6",
+    "@types/gulp-cache": "^0.4.4",
+    "@types/gulp-if": "0.0.33",
+    "@types/gulp-watch": "^4.1.34",
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "^12.7.2",
+    "@types/node-notifier": "^5.4.0",
+    "@types/request": "^2.48.2",
+    "@types/through2": "^2.0.34",
+    "@types/touch": "^3.1.1",
+    "@types/webpack": "^4.32.1",
+    "babel-tape-runner": "^3.0.0",
+    "renamer": "^1.1.2",
+    "tape": "^4.11.0"
   }
 }

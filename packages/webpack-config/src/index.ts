@@ -2,21 +2,21 @@
 
 import merge from "webpack-merge";
 import { Configuration } from "webpack";
+import {
+    Mode,
+    Platform,
+    Target
+} from "@tamland/config";
 
 import config from "./config";
 
-
-export type Mode = "development" | "production";
-
-export type Platform = "desktop" | "mobile" | "web";
-
-export type Target = "client" | "server";
 
 export interface ConfigurationOptions {
     bundleAnalyzerPort?: number;
     staticFolder?: string;
     watch?: boolean;
 }
+
 
 export interface Environment {
     hostname?: string;
@@ -25,6 +25,7 @@ export interface Environment {
     target?: Target;
     watch?: boolean;
 }
+
 
 export interface Options {
     bundleAnalyzerPort: number;

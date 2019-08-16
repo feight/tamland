@@ -1,6 +1,6 @@
 {
   "name": "@tamland/logger",
-  "version": "0.0.7",
+  "version": "0.0.15",
   "description": "Logger for tamland tasks",
   "main": "lib/index.js",
   "scripts": {
@@ -45,6 +45,9 @@
     "lib"
   ],
   "dependencies": {
+    "@types/node": "^12.7.2",
+    "@types/strip-color": "^0.1.0",
+    "@types/text-table": "^0.2.1",
     "chalk": "^2.4.2",
     "codeframe": "^0.0.1",
     "get-cursor-position": "^1.0.5",
@@ -56,10 +59,7 @@
   },
   "devDependencies": {
     "@tamland/babel": "^0.0.10",
-    "@tamland/eslint": "^0.0.15",
-    "@types/node": "^12.7.1",
-    "@types/strip-color": "^0.1.0",
-    "@types/text-table": "^0.2.1",
+    "@tamland/eslint": "^0.0.19",
     "babel-tape-runner": "^3.0.0",
     "renamer": "^1.1.2",
     "tape": "^4.11.0"

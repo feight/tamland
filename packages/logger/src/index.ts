@@ -9,17 +9,6 @@ import { rjust } from "justify-text";
 import table from "text-table";
 
 
-interface ErrorFile{
-    errors: {
-        column: number;
-        file: string;
-        line: number;
-        message: string;
-    }[];
-    filePath: string;
-}
-
-
 const nonBreakingCharacterCode = 160;
 const nonBreakingCharacter = String.fromCharCode(nonBreakingCharacterCode);
 
@@ -105,7 +94,22 @@ const inLineFormat = function(line: string): string{
 
 };
 
-const logger = {
+
+export interface LintError{
+    column: number;
+    file: string;
+    line: number;
+    message: string;
+}
+
+
+export interface LintErrorFile{
+    errors: LintError[];
+    filePath: string;
+}
+
+
+export const logger = {
 
     carryAnsi: "",
 
@@ -118,7 +122,7 @@ const logger = {
 
     },
 
-    error(message: string | typeof Error = "", options?: { color?: string | true; label?: string }): void{
+    error(message: string | Error = "", options?: { color?: string | true; label?: string }): void{
 
         const {
             color = colors.errorColor,
@@ -158,7 +162,7 @@ const logger = {
 
     },
 
-    lint(files: ErrorFile[]): void{
+    lint(files: LintErrorFile[]): void{
 
         files.forEach((errorFile): void => {
 
@@ -233,7 +237,7 @@ const logger = {
 
     },
 
-    table(label: string, labels: string[], data: string[], options: table.Options): void{
+    table(label: string, labels: string[], data: string[][], options: table.Options): void{
 
         this.log(table([labels.map((lbl: string): string => chalk.bold(lbl))].concat(data), {
             ...options,
@@ -247,7 +251,7 @@ const logger = {
     },
 
     write(message = "", options?: {
-        error: boolean;
+        error?: boolean;
         label: string;
     }): void{
 
@@ -330,4 +334,4 @@ const logger = {
 };
 
 
-export default logger;
+export type Logger = typeof logger;

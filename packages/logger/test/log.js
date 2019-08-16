@@ -1,6 +1,6 @@
 
 
-import logger from "../lib";
+import { logger } from "../lib";
 
 
 // This breaks if you import it for some reason
@@ -88,7 +88,8 @@ const run = function(options = {}){
 
 };
 
-
+// Shhhhh... just let it happen
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
 (async () => {
 
     try{

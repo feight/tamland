@@ -1,6 +1,6 @@
 {
   "name": "@tamland/webpack-config",
-  "version": "0.0.47",
+  "version": "0.0.48",
   "description": "Shared config for webpack",
   "main": "lib",
   "scripts": {
@@ -45,6 +45,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@loadable/babel-plugin": "^5.10.0",
     "@loadable/webpack-plugin": "^5.7.1",
+    "@tamland/config": "0.0.9",
     "assets-webpack-plugin": "^3.9.10",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",

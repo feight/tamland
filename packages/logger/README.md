@@ -16,7 +16,7 @@ $ npm install logger
 ## Usage
 
 ```js
-import logger from "@tamland/logger";
+import { logger } from "@tamland/logger";
 
 logger.log(label, message);
 

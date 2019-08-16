@@ -14,7 +14,6 @@
     ],
     "module": "commonjs",
     "outDir": "./lib",
-    "resolveJsonModule": true,
     "strict": true,
     "target": "es5"
   },
