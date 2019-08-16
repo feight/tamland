@@ -1,6 +1,7 @@
 
 @import "../base.scss";
 
+$background: #cd0c21;
 $slide-transition: .25s cubic-bezier(0, 0, .3, 1);
 $color: #fff;
 $height: $nav-height;
@@ -81,8 +82,8 @@ $hamburger-scale: .8;
 
     &.offset:not(.top){
 
-        // background: linear-gradient(to bottom, $nav-background 0%, darken($nav-background, 4) 100%);
-        background-color: $nav-background;
+        // background: linear-gradient(to bottom, $background 0%, darken($background, 4) 100%);
+        background-color: $background;
         box-shadow: 0 0 10px rgba(0, 0, 0, .4);
         height: $height-offset;
 

@@ -1,5 +1,8 @@
 
 
+Make a base scss in core
+
+
 implement https://www.npmjs.com/package/webp-loader
 
 add cache-control immutatble
@@ -7,12 +10,9 @@ add image importance attribute to all images add loading=lazy to all iframes and
 guetzli and zopfli for images
 add <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
 
-Make a base scss in core
 Add a base meta description
 Hook up sample image icons for the manifest and link them in the html
 Add a default <meta name="theme-color">
-
-convert all modules to typescript
 
 generator things:
     Update the packages/generator-tamland/src/generators/app/templates/README.md

@@ -1,4 +1,9 @@
 
-@import "base.scss";
+@import "./base.scss";
 
-@include tamland();
+@include
+    tamland(
+        $body-background: #fff,
+        $body-color: #71767a,
+        $body-font-size:15px
+    );

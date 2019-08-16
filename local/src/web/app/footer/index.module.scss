@@ -1,7 +1,7 @@
 
 @import "../base.scss";
 
-$background: $footer-background;
+$background: #737677;
 $color: #fff;
 $font-size: 13px;
 $link-color: #fff;
@@ -9,7 +9,7 @@ $link-color: #fff;
 .footer{
 
     background: $background;
-    border-bottom: 10px solid scale-color($color: $footer-background, $lightness: -50%);
+    border-bottom: 10px solid scale-color($color: $background, $lightness: -50%);
     color: $color;
     font-size: $font-size;
     padding: 30px;
