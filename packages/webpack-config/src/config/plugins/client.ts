@@ -3,7 +3,9 @@
 import path from "path";
 
 import AssetsPlugin from "assets-webpack-plugin";
+import BrotliPlugin from "brotli-webpack-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import ImageminWebpWebpackPlugin from "imagemin-webp-webpack-plugin";
 import webpack, { Configuration } from "webpack";
 import LoadablePlugin from "@loadable/webpack-plugin";
 
@@ -21,6 +23,24 @@ export default function configuration(
 
     return {
         plugins: [
+            new BrotliPlugin({
+                asset: "[path].br[query]",
+                minRatio: 0.8,
+                test: /\.(js|css|html|svg)$/gu,
+                threshold: 10240
+            }),
+            new ImageminWebpWebpackPlugin({
+                config: [{
+                    options: {
+                        quality: 75
+                    },
+                    test: /\.(jpe?g|png)/gu
+                }],
+                detailedLogs: false,
+                overrideExtension: false,
+                silent: false,
+                strict: true
+            }),
             new LoadablePlugin({
                 filename: "loadable-stats.json",
                 writeToDisk: true

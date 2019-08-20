@@ -20,6 +20,15 @@ import {
 } from "../app/config";
 
 
+export type ClientHint =
+    "Viewport-Width" |
+    "DPR" |
+    "Device-Memory" |
+    "RTT" |
+    "Downlink" |
+    "ECT";
+
+
 export interface TamlandServerOptionsInterface {
 
     /**
@@ -43,6 +52,20 @@ export interface TamlandServerOptionsInterface {
      * Default: "1y"
      */
     cacheExpiration?: string | number;
+
+
+    /**
+     * Optional.
+     *
+     * A list of client hints to request from the client.
+     *
+     * Client hints are a set of opt-in HTTP request headers that give us insight
+     * into these aspects of the user’s device and the network they’re connected to.
+     *
+     * Default: ["Device-Memory", "Downlink", "DPR", "ECT", "RTT", "Viewport-Width"]
+     *
+     */
+    clientHints?: ClientHint[];
 
     /**
      * Required.
@@ -128,6 +151,15 @@ export class TamlandServerOptions{
 
     public cacheExpiration: string | number;
 
+    public clientHints?: (
+        "Device-Memory" |
+        "Downlink" |
+        "DPR" |
+        "ECT" |
+        "RTT" |
+        "Viewport-Width"
+    )[];
+
     public config: TamlandAppConfig;
 
     public csp?: IHelmetContentSecurityPolicyConfiguration;
@@ -152,6 +184,14 @@ export class TamlandServerOptions{
 
         this.App = options.App;
         this.cacheExpiration = options.cacheExpiration || "1y";
+        this.clientHints = options.clientHints || [
+            "Device-Memory",
+            "Downlink",
+            "DPR",
+            "ECT",
+            "RTT",
+            "Viewport-Width"
+        ];
         this.config = new TamlandAppConfig(options.config);
         this.csp = options.csp;
         this.hostname = options.hostname;

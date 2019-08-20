@@ -86,7 +86,10 @@ export default {
          *
          * https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/prefer-global/url.md
          */
-        "node/prefer-global/url": "error",
+        "node/prefer-global/url": [
+            "error",
+            "never"
+        ],
 
         /*
          * Enforce either URLSearchParams or require("url").URLSearchParams

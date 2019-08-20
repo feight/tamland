@@ -3,6 +3,7 @@
 import { Express } from "express";
 
 import { caching } from "./caching";
+import { clientHints } from "./client-hints";
 import { compression } from "./compression";
 import { cookie } from "./cookie";
 import { domain } from "./domain";
@@ -34,6 +35,14 @@ export class TamlandServerMiddleware{
     public caching(): void{
 
         caching(this.app, { local });
+
+    }
+
+    public clientHints(): void{
+
+        clientHints(this.app, {
+            hints: this.options.clientHints
+        });
 
     }
 

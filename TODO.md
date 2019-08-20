@@ -1,18 +1,20 @@
 
+convert all gif, png and jpg files to webp versions at build time
+use the accepts header to serve the webp version if it exists
 
-Make a base scss in core
-
+Add a default <meta name="theme-color">
 
 implement https://www.npmjs.com/package/webp-loader
 
-add cache-control immutatble
+add cache-control immutable
 add image importance attribute to all images add loading=lazy to all iframes and images
 guetzli and zopfli for images
-add <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
 
 Add a base meta description
 Hook up sample image icons for the manifest and link them in the html
-Add a default <meta name="theme-color">
+
+
+
 
 generator things:
     Update the packages/generator-tamland/src/generators/app/templates/README.md

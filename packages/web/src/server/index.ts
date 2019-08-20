@@ -49,6 +49,7 @@ export class Server{
 
         // All routes from here on will be forced to end in a slash
         middleware.slash();
+        middleware.clientHints();
 
         routers.application();
 

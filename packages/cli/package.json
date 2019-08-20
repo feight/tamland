@@ -1,6 +1,6 @@
 {
   "name": "@tamland/cli",
-  "version": "0.0.60",
+  "version": "0.0.61",
   "description": "Collection of tools, presets and shared configs for @tamland's projects",
   "main": "lib/index",
   "sideEffects": false,
@@ -48,7 +48,7 @@
     "@tamland/logger": "0.0.15",
     "@tamland/postcss-config": "0.0.3",
     "@tamland/stylelint": "0.0.12",
-    "@tamland/webpack-config": "0.0.48",
+    "@tamland/webpack-config": "0.0.53",
     "chalk": "^2.4.2",
     "commander": "^3.0.0",
     "core-js": "^3.2.1",
@@ -63,10 +63,10 @@
     "gulp-print": "^5.0.2",
     "gulp-stylelint": "^9.0.0",
     "gulp-watch": "^5.0.1",
-    "husky": "^3.0.3",
+    "husky": "^3.0.4",
     "inquirer": "^6.5.1",
     "merge": "^1.2.1",
-    "node-notifier": "^5.4.1",
+    "node-notifier": "^5.4.3",
     "node-pty": "^0.8.1",
     "nodemon": "^1.19.1",
     "open-browsers": "^1.1.1",
@@ -80,7 +80,7 @@
     "typescript": "^3.5.3",
     "vinyl": "^2.2.0",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.6",
+    "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
   },
   "devDependencies": {
@@ -96,7 +96,7 @@
     "@types/request": "^2.48.2",
     "@types/through2": "^2.0.34",
     "@types/touch": "^3.1.1",
-    "@types/webpack": "^4.32.1",
+    "@types/webpack": "^4.39.0",
     "babel-tape-runner": "^3.0.0",
     "renamer": "^1.1.2",
     "tape": "^4.11.0"

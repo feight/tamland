@@ -31,7 +31,7 @@ export default function configuration(
      *
      * https://webpack.js.org/configuration/devtool/#production
      */
-    const production = "source-map";
+    const production = false;
 
     return {
         devtool: options.mode === "development" ? development : production
