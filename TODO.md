@@ -1,4 +1,22 @@
 
+babel
+babel-preset
+cli
+config
+- eslint
+- eslint-config
+generator-tamland
+imagemin
+lib
+logger
+postcss-config
+stylelint
+stylelint-config
+web
+- webpack-config
+
+
+
 convert all gif, png and jpg files to webp versions at build time
 use the accepts header to serve the webp version if it exists
 

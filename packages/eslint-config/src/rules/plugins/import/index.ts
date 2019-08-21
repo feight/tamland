@@ -14,7 +14,7 @@ export default {
         "./static-analysis",
         "./style",
         "./warnings"
-    ].map(require.resolve),
+    ].map((string: string) => require.resolve(string)),
     plugins: ["import"],
     settings: {
         "import/resolver": {

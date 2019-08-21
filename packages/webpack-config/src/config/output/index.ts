@@ -22,7 +22,7 @@ export default function configuration(
             chunkFilename: hash ? "[chunkhash].js" : "[id].js",
             filename: hash ? "[chunkhash].js" : "[name].js",
             hashSalt: "salt",
-            path: path.join(process.cwd(), `dist/${ options.target }`),
+            path: path.join(options.cwd, `dist/${ options.target }`),
             publicPath: `/${ options.staticFolder }/`
         }
     };

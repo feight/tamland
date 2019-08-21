@@ -15,6 +15,6 @@ export default {
         "./es2017",
         "./es2018",
         "./es2019"
-    ].map(require.resolve),
+    ].map((string: string) => require.resolve(string)),
     plugins: ["es"]
 };

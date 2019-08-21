@@ -7,10 +7,19 @@
  */
 
 
-import fs from "fs";
+import { existsSync } from "fs";
 
 
-const settings = {
+interface FormatMessageSettings{
+    "format-message": {
+        generateId: string;
+        locale?: string;
+        sourceLocale: string;
+    };
+}
+
+
+const settings: FormatMessageSettings = {
     "format-message": {
         generateId: "normalized",
         sourceLocale: "en-US"
@@ -18,7 +27,7 @@ const settings = {
 };
 
 
-if(fs.existsSync("locale")){
+if(existsSync("locale")){
     settings["format-message"].locale = "./locale";
 }
 

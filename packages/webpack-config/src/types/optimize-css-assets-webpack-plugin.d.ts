@@ -1,12 +1,13 @@
 
 
-declare module "workbox-webpack-plugin" {
+
+declare module "optimize-css-assets-webpack-plugin" {
 
     import { Plugin } from 'webpack';
 
     interface PluginOptions{}
 
-    export class InjectManifest extends Plugin{
+    export default class webpackPlugin extends Plugin{
 
         constructor(options: PluginOptions);
 

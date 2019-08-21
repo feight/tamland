@@ -3,7 +3,7 @@
 import webpack, { Configuration } from "webpack";
 
 
-export default function configuration(): Configuration{
+export const server = function(): Configuration{
 
     return {
         plugins: [
@@ -16,4 +16,4 @@ export default function configuration(): Configuration{
         ]
     };
 
-}
+};

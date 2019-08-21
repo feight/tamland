@@ -1,11 +1,15 @@
 
 
+import { Linter } from "eslint";
+
 import base from "./base";
 
 
-export default {
+const config: Linter.Config = {
     ...base,
-    extends: ["../rules/plugins/typescript"].map(require.resolve).concat(base.extends),
+    extends: [
+        "../rules/plugins/typescript"
+    ].map((string: string) => require.resolve(string)).concat(base.extends ? base.extends : []),
     rules: {
 
         /*
@@ -41,3 +45,5 @@ export default {
     }
 };
 
+
+export default config;

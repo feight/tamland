@@ -4,13 +4,18 @@ import path from "path";
 
 import { Configuration } from "webpack";
 
+import { Options } from "../..";
 
-export default function configuration(): Configuration{
+
+export default function configuration(
+    config: Configuration,
+    options: Options
+): Configuration{
 
     return {
         resolve: {
             alias: {
-                modernizr$: path.resolve(path.join(process.cwd(), ".modernizrrc")),
+                modernizr$: path.resolve(path.join(options.cwd, ".modernizrrc")),
                 "react-dom": "@hot-loader/react-dom"
             },
 

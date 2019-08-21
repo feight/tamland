@@ -12,6 +12,6 @@ export default {
         "./best-practices",
         "./errors",
         "./style"
-    ].map(require.resolve),
+    ].map((string: string) => require.resolve(string)),
     plugins: ["node"]
 };

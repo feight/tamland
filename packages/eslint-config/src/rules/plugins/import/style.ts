@@ -151,6 +151,7 @@ export default {
                     "@babel/polyfill",
                     "@babel/register",
                     "core-js/stable",
+                    "jasmine",
                     "regenerator-runtime/runtime",
                     "**/*.scss",
                     "**/*.css"

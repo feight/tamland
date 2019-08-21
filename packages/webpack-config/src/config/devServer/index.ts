@@ -20,7 +20,7 @@ export default function configuration(
 
     const client = {
         devServer: {
-            contentBase: path.join(process.cwd(), `dist/${ options.target }`),
+            contentBase: path.join(options.cwd, `dist/${ options.target }`),
             hot: true,
             port: 9000,
             publicPath: "/",

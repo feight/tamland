@@ -15,7 +15,8 @@
     "module": "commonjs",
     "outDir": "./dist",
     "strict": true,
-    "target": "es5"
+    "target": "es5",
+    "tsBuildInfoFile": "./node_modules/.cache/tsbuildinfo"
   },
   "include": [
     "**/*"

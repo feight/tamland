@@ -11,7 +11,7 @@ export default {
     extends: [
         "./base",
         "./jsx"
-    ].map(require.resolve),
+    ].map((string: string) => require.resolve(string)),
     parserOptions: {
         ecmaFeatures: {
             jsx: true

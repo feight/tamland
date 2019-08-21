@@ -19,6 +19,7 @@ export interface ConfigurationOptions {
 
 
 export interface Environment {
+    cwd?: string;
     hostname?: string;
     mode?: Mode;
     platform?: Platform;
@@ -29,6 +30,7 @@ export interface Environment {
 
 export interface Options {
     bundleAnalyzerPort: number;
+    cwd: string;
     hostname?: string;
     mode: Mode;
     platform: Platform;
@@ -47,6 +49,7 @@ export default function configure(
 
         const optionsDefaults: Options = {
             bundleAnalyzerPort: 3001,
+            cwd: process.cwd(),
             mode: "development",
             platform: "web",
             staticFolder: "static",
@@ -56,6 +59,7 @@ export default function configure(
 
         const options: Options = Object.assign(optionsDefaults, {
             bundleAnalyzerPort: webpackOptions.bundleAnalyzerPort,
+            cwd: environment.cwd || optionsDefaults.cwd,
             hostname: environment.hostname,
             mode: environment.mode || optionsDefaults.mode,
             platform: environment.platform || optionsDefaults.platform,
@@ -84,7 +88,7 @@ export default function configure(
             config.module(configuration, options),
             config.optimization(configuration, options),
             config.plugins(configuration, options),
-            config.resolve(),
+            config.resolve(configuration, options),
             config.stats(),
             config.target(configuration, options),
             config.watchOptions(),

@@ -1,8 +1,12 @@
 
 
-export default {
+import { Linter } from "eslint";
+
+
+const config: Linter.Config = {
     env: {
         browser: true,
+        jasmine: true,
         node: true
     },
     extends: [
@@ -42,9 +46,12 @@ export default {
         "../rules/strict",
         "../rules/style",
         "../rules/variables"
-    ].map(require.resolve),
+    ].map((string: string) => require.resolve(string)),
     parserOptions: {
         ecmaVersion: 2018,
         sourceType: "module"
     }
 };
+
+
+export default config;

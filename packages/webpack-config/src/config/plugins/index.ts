@@ -3,25 +3,24 @@
 import DuplicatePackageCheckerPlugin from "duplicate-package-checker-webpack-plugin";
 import merge from "webpack-merge";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import webpack, { Configuration } from "webpack";
+import webpack from "webpack";
 
-
-import client from "./client";
-import server from "./server";
+import { client } from "./client";
+import { server } from "./server";
 
 import { Options } from "../..";
 
 
 export default function configuration(
-    config: Configuration,
+    config: webpack.Configuration,
     options: Options
-): Configuration{
+): webpack.Configuration{
 
     const hash =
         options.mode !== "development" ||
         options.watch !== true;
 
-    const base: Configuration = {
+    const base: webpack.Configuration = {
         plugins: [
             // Set NODE_ENV based on the provided Webpack environment.
             new webpack.DefinePlugin({

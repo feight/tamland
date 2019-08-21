@@ -9,15 +9,13 @@
     "lib": [
       "es5",
       "es6",
+      "es7",
       "dom",
       "esnext.asynciterable"
     ],
     "module": "commonjs",
-    "outDir": "./lib",
-    "resolveJsonModule": true,
     "strict": true,
-    "target": "es5",
-    "tsBuildInfoFile": "./node_modules/.cache/tsbuildinfo"
+    "target": "es5"
   },
   "include": [
     "src/**/*"

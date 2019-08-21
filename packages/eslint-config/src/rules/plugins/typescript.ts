@@ -67,6 +67,19 @@ export default {
         "@typescript-eslint/class-name-casing": "error",
 
         /*
+         * Enforces consistent usage of type assertions.
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-assertions.md
+         */
+        "@typescript-eslint/consistent-type-assertions": [
+            "error",
+            {
+                assertionStyle: "as",
+                objectLiteralTypeAssertions: "never"
+            }
+        ],
+
+        /*
          * Consistent with type definition either interface or type
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-definitions.md
@@ -177,13 +190,6 @@ export default {
         ],
 
         /*
-         * Enforces the use of as Type assertions instead of <Type> assertions (no-angle-bracket-type-assertion from TSLint)
-         *
-         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-angle-bracket-type-assertion.md
-         */
-        "@typescript-eslint/no-angle-bracket-type-assertion": "error",
-
-        /*
          * Disallow generic Array constructors
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-array-constructor.md
@@ -244,6 +250,8 @@ export default {
         /*
          * Disallows explicit type declarations for variables or parameters initialized to a number, string, or boolean. (no-inferrable-types from TSLint)
          *
+         * This is off for now
+         *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-inferrable-types.md
          */
         "@typescript-eslint/no-inferrable-types": "error",
@@ -298,13 +306,6 @@ export default {
         "@typescript-eslint/no-non-null-assertion": "error",
 
         /*
-         * Forbids an object literal to appear in a type assertion expression (no-object-literal-type-assertion from TSLint)
-         *
-         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-object-literal-type-assertion.md
-         */
-        "@typescript-eslint/no-object-literal-type-assertion": "error",
-
-        /*
          * Disallow the use of parameter properties in class constructors. (no-parameter-properties from TSLint)
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-parameter-properties.md
@@ -326,13 +327,6 @@ export default {
         "@typescript-eslint/no-this-alias": "error",
 
         /*
-         * Disallow /// <reference path="" /> comments (no-reference from TSLint)
-         *
-         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-triple-slash-reference.md
-         */
-        "@typescript-eslint/no-triple-slash-reference": "error",
-
-        /*
          * Disallow the use of type aliases (interface-over-type-literal from TSLint)
          *
          * Off for now because these seem like they're too useful to pass up
@@ -347,6 +341,13 @@ export default {
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-qualifier.md
          */
         "@typescript-eslint/no-unnecessary-qualifier": "error",
+
+        /*
+         * Enforces that types will not to be used
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-type-arguments.md
+         */
+        "@typescript-eslint/no-unnecessary-type-arguments": "error",
 
         /*
          * Warns if a type assertion does not change the type of an expression (no-unnecessary-type-assertion from TSLint)
@@ -403,13 +404,6 @@ export default {
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-includes.md
          */
         "@typescript-eslint/prefer-includes": "error",
-
-        /*
-         * Prefer an interface declaration over a type literal (type T = { ... }) (interface-over-type-literal from TSLint)
-         *
-         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-interface.md
-         */
-        "@typescript-eslint/prefer-interface": "error",
 
         /*
          * Require the use of the namespace keyword instead of the module keyword to declare custom TypeScript modules. (no-internal-module from TSLint)
@@ -505,6 +499,20 @@ export default {
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/type-annotation-spacing.md
          */
         "@typescript-eslint/type-annotation-spacing": "error",
+
+        /*
+         * Require type annotations to exist
+         *
+         * Off for now because requiring type annotations unnecessarily can be cumbersome
+         * to maintain and generally reduces code readability. TypeScript is often
+         * better at inferring types than easily written type annotations would allow.
+         * Instead of enabling typedef, it is generally recommended to use the --noImplicitAny
+         * and/or --strictPropertyInitialization compiler options to enforce type
+         * annotations only when useful. (we do this)
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/typedef.md
+         */
+        "@typescript-eslint/typedef": "off",
 
         /*
          * Enforces unbound methods are called with their expected scope.

@@ -1,14 +1,9 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "incremental": true,
-    "jsx": "react",
-    "lib": ["es2015"],
-    "module": "commonjs",
     "outDir": "./lib",
-    "strict": true,
-    "target": "es5"
+    "tsBuildInfoFile": "./node_modules/.cache/tsconfig.tsbuildinfo"
   },
+  "extends": "../../shared/tsconfig.json",
   "include": [
     "src/**/*"
   ]

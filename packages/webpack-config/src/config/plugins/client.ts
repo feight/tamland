@@ -13,13 +13,13 @@ import LoadablePlugin from "@loadable/webpack-plugin";
 import { Options } from "../..";
 
 
-export default function configuration(
+export const client = function(
     config: Configuration,
     options: Options
 ): Configuration{
 
     const output = config.output || {};
-    const folder = output.path ? path.relative(process.cwd(), output.path) : "dist";
+    const folder = output.path ? path.relative(options.cwd, output.path) : "dist";
 
     return {
         plugins: [
@@ -66,4 +66,4 @@ export default function configuration(
         ] : [])
     };
 
-}
+};

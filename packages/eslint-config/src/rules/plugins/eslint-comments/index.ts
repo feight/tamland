@@ -12,6 +12,6 @@ export default {
     extends: [
         "./best-practices",
         "./style"
-    ].map(require.resolve),
+    ].map((string: string) => require.resolve(string)),
     plugins: ["eslint-comments"]
 };

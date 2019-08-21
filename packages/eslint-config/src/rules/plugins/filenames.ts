@@ -36,7 +36,7 @@ export default {
          */
         "filenames/match-regex": [
             "error",
-            "^[a-z0-9-]+$",
+            "^[a-z0-9-.]+$",
             true
         ],
 
