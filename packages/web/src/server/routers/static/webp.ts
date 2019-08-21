@@ -1,4 +1,6 @@
-import url from "url";
+
+
+import { URL } from "url";
 import { join as pathJoin } from "path";
 import fs from "fs";
 
@@ -6,21 +8,13 @@ import express from "express";
 import vary from "vary";
 
 
-function valueInArray(value, array){
-
-    for(let i = 0, length_ = array.length; i < length_; i++){
-        if(value === array[i]){
-            return true;
-        }
-    }
-
-    return false;
-
-}
-
 export default function webp(
     dirname: string,
-    extensions: string[] = ["jpg", "png", "jpeg"]
+    extensions: string[] = [
+        "jpeg",
+        "jpg",
+        "png"
+    ]
 ): (
     request: express.Request,
     response: express.Response,
@@ -41,14 +35,15 @@ export default function webp(
 
         }
 
-        const pathname = new url.URL(request.url).pathname;
+        const pathname = new URL(request.url).pathname;
         const extpos = pathname.lastIndexOf(".");
         const extension = pathname.substr(extpos + 1);
 
-        if(valueInArray(extension, extensions) &&
-
+        if(
+            extensions.includes(extension) &&
             request.headers.accept &&
-            request.headers.accept.includes("image/webp")){
+            request.headers.accept.includes("image/webp")
+        ){
 
             const newPathname = `${ pathname.substr(0, extpos) }.webp`;
             const filePath = pathJoin(dirname, newPathname);

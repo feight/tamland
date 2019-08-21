@@ -22,15 +22,15 @@ export interface RouteComponentProperties<T> extends RouteComponentProps{
 
 export class Route{
 
-    public exact: boolean = true;
+    public exact = true;
 
     public id: string;
 
     public path: string;
 
-    public sensitive: boolean = true;
+    public sensitive = true;
 
-    public strict: boolean = true;
+    public strict = true;
 
     public actions(): ThunkAction<Promise<void>, {}, {}, AnyAction>{
 

@@ -14,4 +14,4 @@ export interface RouterProps{
 }
 
 
-export class BaseRouter extends React.PureComponent<RouterProps, {}>{}
+export class BaseRouter extends React.PureComponent<RouterProps>{}

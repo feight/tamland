@@ -6,24 +6,15 @@ export default {
         "./block",
         "./color",
         "./comment",
-        "./custom-property",
         "./declaration-block",
-        "./declaration",
         "./font-family",
-        "./font-weight",
         "./function",
         "./general",
-        "./length",
+        "./keyframe-declaration",
         "./media-feature",
-        "./media-query-list",
-        "./number",
         "./property",
-        "./rule",
-        "./selector-list",
         "./selector",
         "./string",
-        "./unit",
-        "./value-list",
-        "./value"
-    ].map(require.resolve)
+        "./unit"
+    ].map((string): string => require.resolve(string))
 };

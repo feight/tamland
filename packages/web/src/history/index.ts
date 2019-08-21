@@ -7,7 +7,7 @@ import {
 } from "history";
 
 
-export const createHistory = function(url: string = "/"): History{
+export const createHistory = function(url = "/"): History{
 
     return typeof window === "undefined" ? createMemoryHistory({ initialEntries: [url] }) : createBrowserHistory();
 

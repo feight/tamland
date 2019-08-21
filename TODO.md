@@ -1,4 +1,7 @@
 
+npm install --save-dev @types/node @types/jasmine jasmine renamer
+npm uninstall babel-tape-runner tape
+
 babel
 babel-preset
 cli
@@ -7,12 +10,11 @@ config
 - eslint-config
 generator-tamland
 imagemin
-lib
 logger
-postcss-config
-stylelint
-stylelint-config
-web
+- postcss-config
+- stylelint
+- stylelint-config
+- web
 - webpack-config
 
 

@@ -1,16 +1,12 @@
 {
   "name": "@tamland/stylelint-config",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Shared config for stylelint",
   "main": "lib/index.js",
   "scripts": {
-    "build": "rm -rf lib && babel src --config-file --out-dir lib",
-    "lint": "eslint src --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts",
-    "prelint": "npm run build",
-    "prepublishOnly": "npm run test",
-    "pretest": "npm run lint",
-    "stylelint": "stylelint test/*.scss",
-    "test": "stylelint-find-new-rules && stylelint test/*.scss && babel-tape-runner ./test/*.js"
+    "build": "bash ../../shared/scripts/build.sh",
+    "prepublishOnly": "bash ../../shared/scripts/publish.sh && stylelint **/*.scss && stylelint-find-new-rules",
+    "test": "bash ../../shared/scripts/test.sh && stylelint **/*.scss && stylelint-find-new-rules"
   },
   "browserslist": "node 8",
   "engines": {
@@ -48,8 +44,11 @@
   "dependencies": {},
   "devDependencies": {
     "@tamland/babel": "^0.0.10",
-    "@tamland/eslint": "^0.0.15",
-    "babel-tape-runner": "^3.0.0",
+    "@tamland/eslint": "^0.0.27",
+    "@types/jasmine": "^3.4.0",
+    "@types/node": "^12.7.2",
+    "jasmine": "^3.4.0",
+    "renamer": "^1.1.2",
     "stylelint": "^10.1.0",
     "stylelint-a11y": "^1.2.1",
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
@@ -58,10 +57,9 @@
     "stylelint-high-performance-animation": "^1.2.1",
     "stylelint-no-unsupported-browser-features": "^3.0.2",
     "stylelint-order": "^3.0.1",
-    "stylelint-scss": "^3.9.2",
-    "stylelint-selector-tag-no-without-class": "^2.0.0",
-    "stylelint-use-nesting": "^1.2.1",
-    "tape": "^4.11.0"
+    "stylelint-scss": "^3.9.4",
+    "stylelint-selector-tag-no-without-class": "^2.0.1",
+    "stylelint-use-nesting": "^1.2.1"
   },
   "peerDependencies": {
     "stylelint": "^10.1.0",
@@ -71,8 +69,8 @@
     "stylelint-high-performance-animation": "^1.2.1",
     "stylelint-no-unsupported-browser-features": "^3.0.2",
     "stylelint-order": "^3.0.1",
-    "stylelint-scss": "^3.9.2",
-    "stylelint-selector-tag-no-without-class": "^2.0.0",
+    "stylelint-scss": "^3.9.4",
+    "stylelint-selector-tag-no-without-class": "^2.0.1",
     "stylelint-use-nesting": "^1.2.1"
   }
 }

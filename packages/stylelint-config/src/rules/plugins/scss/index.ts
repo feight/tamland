@@ -29,7 +29,7 @@ export default {
         "./placeholder",
         "./selector",
         "./variable"
-    ].map(require.resolve),
+    ].map((string): string => require.resolve(string)),
     plugins: [
         "stylelint-scss"
     ]

@@ -1,26 +1,8 @@
 
+const shared = require("../../shared/babel.config");
 
-module.exports = function(api){
+module.exports = function config(api){
 
-    api.cache(false);
-
-    const mjs = process.env.BUILD_MJS === "1";
-    const shebang = process.env.BUILD_SHEBANG === "1";
-
-    return {
-        presets: [
-            [
-                "@tamland/babel-preset",
-                {
-                    addModuleExports: !mjs,
-                    modules: !mjs,
-                    shebang,
-                    targets: {
-                        node: mjs ? true : 4
-                    }
-                }
-            ]
-        ]
-    };
+    return shared(api);
 
 };

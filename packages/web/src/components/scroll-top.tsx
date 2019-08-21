@@ -7,6 +7,8 @@ const startTime = typeof window === "undefined" ? 0 : new Date().getTime();
 const minimumScrollTime = 100;
 
 
+// Needed for other eslint plugins to understand about the components props
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-arguments
 export class ScrollTop extends React.PureComponent<{}>{
 
     public componentDidMount(): void{
