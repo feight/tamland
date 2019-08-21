@@ -194,7 +194,7 @@ export const logger = {
 
     },
 
-    log(message: string = "", options?: {
+    log(message = "", options?: {
         color?: string;
         error?: boolean;
         label?: string;
