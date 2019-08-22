@@ -89,7 +89,8 @@ export const webpackTask = async function(config: TamlandConfig, options: Webpac
         const webpackConfigFile = path.join(process.cwd(), "webpack.config.js");
 
         // This doesn't present any danger and is necessary in this case.
-        // eslint-disable-next-line import/no-dynamic-require, security/detect-non-literal-require, global-require, @typescript-eslint/no-require-imports
+        // eslint-disable-next-line max-len
+        // eslint-disable-next-line import/no-dynamic-require, security/detect-non-literal-require, global-require, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
         const webpackConfig = require(webpackConfigFile)({
             hostname,
             mode,

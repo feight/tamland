@@ -1,24 +1,17 @@
 {
   "name": "@tamland/config",
-  "version": "0.0.15",
+  "version": "0.0.17",
   "description": "@tamland project configuration",
-  "main": "lib/index.js",
+  "main": "lib",
+  "types": "lib",
   "scripts": {
-    "build": "rm -rf lib && npm run build:script && npm run build:types && npm run build:static",
-    "build:script": "npm run build:script:module && npm run build:script:common",
-    "build:script:common": "babel src --ignore src/cli --out-dir lib --extensions '.js,.ts'",
-    "build:script:module": "BUILD_MJS=1 npm run build:script:common && renamer --find js --replace mjs \"lib/**\"",
-    "build:static": "cp -R src/images lib/images",
-    "build:types": "tsc --emitDeclarationOnly && rm lib/**/*.test.d.ts",
-    "lint": "eslint src --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts",
-    "prelint": "npm run build",
-    "prepublishOnly": "npm run test",
-    "pretest": "npm run lint",
-    "test": "jasmine-ts --config=jasmine.json"
+    "build": "bash ../../shared/scripts/build.sh",
+    "prepublishOnly": "bash ../../shared/scripts/publish.sh",
+    "test": "bash ../../shared/scripts/test.sh"
   },
   "browserslist": "node 8",
   "engines": {
-    "node": ">= 8"
+    "node": ">= 10"
   },
   "repository": {
     "type": "git",
@@ -47,18 +40,18 @@
     "lib"
   ],
   "dependencies": {
-    "@tamland/logger": "0.0.15",
+    "@tamland/logger": "0.0.18",
     "deepmerge": "^4.0.0",
     "rc-config-loader": "^2.0.4"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.10",
-    "@tamland/eslint": "^0.0.19",
+    "@tamland/babel": "^0.0.11",
+    "@tamland/eslint": "^0.0.28",
     "@types/deepmerge": "^2.2.0",
+    "@types/jasmine": "^3.4.0",
     "@types/node": "^12.7.2",
-    "babel-tape-runner": "^3.0.0",
     "color-json": "^2.0.0",
-    "renamer": "^1.1.2",
-    "tape": "^4.11.0"
+    "jasmine": "^3.4.0",
+    "renamer": "^1.1.2"
   }
 }

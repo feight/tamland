@@ -35,6 +35,8 @@ export const gcloudSetupTask = async function(component?: string): Promise<void>
                 detatch: true
             });
 
+            // This works ok - leaving it alone for now
+            // eslint-disable-next-line require-atomic-updates
             versions = JSON.parse(rawVersions);
 
         }

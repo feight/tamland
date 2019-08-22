@@ -4,20 +4,19 @@
       "declaration": true,
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
-      "incremental": true,
       "jsx": "react",
       "lib": [
         "es5",
         "es6",
+        "es7",
         "dom",
         "esnext.asynciterable"
       ],
       "module": "commonjs",
       "moduleResolution": "node",
-      "outDir": "./lib",
       "strict": true,
-      "target": "es5",
-      "tsBuildInfoFile": "./node_modules/.cache/tsbuildinfo"
+      "strictPropertyInitialization": false,
+      "target": "es5"
     },
     "include": [
       "packages/**/*"

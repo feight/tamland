@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./lib",
-    "tsBuildInfoFile": "./node_modules/.cache/tsconfig.tsbuildinfo"
+    "outDir": "./lib"
   },
   "extends": "../../shared/tsconfig.json",
   "include": [

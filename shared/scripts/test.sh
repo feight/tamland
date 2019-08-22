@@ -6,7 +6,15 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 bash "$DIR/build.sh" &&
 
 # Lint the code
-eslint src --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts &&
+if hash eslint 2>/dev/null; then
+    eslint src --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts
+else
+    echo 'eslint is not installed'
+fi
 
 # Run the jasmine tests
-jasmine --config=jasmine.json
+if hash jasmine 2>/dev/null; then
+    jasmine --config=jasmine.json
+else
+    echo 'jasmine is not installed'
+fi

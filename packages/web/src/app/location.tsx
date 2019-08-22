@@ -40,4 +40,4 @@ class ShowTheLocation extends React.PureComponent<LocationProps>{
 
 }
 
-export const Location = withRouter<LocationProps>(ShowTheLocation);
+export const Location = withRouter(ShowTheLocation);

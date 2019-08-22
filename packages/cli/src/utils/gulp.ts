@@ -71,7 +71,7 @@ export const task = function(
 
     return async function asyncLintTask(
         paths: string | string[] = __filename,
-        watch: boolean = false
+        watch = false
     ): Promise<void>{
 
         if(watch){

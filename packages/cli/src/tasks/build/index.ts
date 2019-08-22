@@ -20,11 +20,19 @@ export interface BuildTaskOptions{
 
 export const buildTask = async function(config: TamlandConfig, options: BuildTaskOptions): Promise<void>{
 
-    await config.hooks.build.pre(config, options, logger);
+    if(config.hooks.build.pre){
+
+        await config.hooks.build.pre(config, options, logger);
+
+    }
 
     await cleanTask(config, options);
     await webpackTask(config, options);
 
-    await config.hooks.build.post(config, options, logger);
+    if(config.hooks.build.post){
+
+        await config.hooks.build.post(config, options, logger);
+
+    }
 
 };

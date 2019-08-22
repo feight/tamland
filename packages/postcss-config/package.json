@@ -1,8 +1,9 @@
 {
   "name": "@tamland/postcss-config",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Shared config for postcss",
-  "main": "lib/index.js",
+  "main": "lib",
+  "types": "lib",
   "scripts": {
     "build": "bash ../../shared/scripts/build.sh",
     "prepublishOnly": "bash ../../shared/scripts/publish.sh",
@@ -66,8 +67,8 @@
     "postcss-reduce-transforms": "^4.0.2"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.10",
-    "@tamland/eslint": "^0.0.27",
+    "@tamland/babel": "^0.0.11",
+    "@tamland/eslint": "^0.0.28",
     "@types/autoprefixer": "^9.6.1",
     "@types/jasmine": "^3.4.0",
     "@types/node": "^12.7.2",

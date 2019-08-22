@@ -1,24 +1,9 @@
 {
-    "compilerOptions": {
-      "allowSyntheticDefaultImports": true,
-      "declaration": true,
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "incremental": true,
-      "jsx": "react",
-      "lib": [
-        "es5",
-        "es6",
-        "dom",
-        "esnext.asynciterable"
-      ],
-      "module": "commonjs",
-      "outDir": "./dist",
-      "strict": true,
-      "target": "es5",
-      "tsBuildInfoFile": "./node_modules/.cache/tsbuildinfo"
-    },
-    "include": [
-      "**/*"
-    ]
-  }
+  "compilerOptions": {
+    "outDir": "./lib"
+  },
+  "extends": "../../shared/tsconfig.json",
+  "include": [
+    "src/**/*"
+  ]
+}

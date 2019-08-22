@@ -1,21 +1,14 @@
 {
   "name": "@tamland/cli",
-  "version": "0.0.61",
+  "version": "0.0.62",
   "description": "Collection of tools, presets and shared configs for @tamland's projects",
-  "main": "lib/index",
+  "main": "lib",
+  "types": "lib",
   "sideEffects": false,
   "scripts": {
-    "build": "rm -rf lib && npm run build:script && npm run build:types",
-    "build:script": "npm run build:script:module && npm run build:script:common && npm run build:script:cli",
-    "build:script:cli": "BUILD_SHEBANG=1 babel src/cli --out-dir lib/cli --extensions '.js,.ts'",
-    "build:script:common": "babel src --ignore src/cli --out-dir lib --extensions '.js,.ts'",
-    "build:script:module": "BUILD_MJS=1 npm run build:script:common && renamer --find js --replace mjs \"lib/**\"",
-    "build:types": "tsc --emitDeclarationOnly && rm lib/**/*.test.d.ts",
-    "lint": "eslint src --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts",
-    "prelint": "npm run build",
-    "prepublishOnly": "npm run test",
-    "pretest": "npm run lint",
-    "test": "jasmine-ts --config=jasmine.json"
+    "build": "bash ../../shared/scripts/build.sh",
+    "prepublishOnly": "bash ../../shared/scripts/publish.sh",
+    "test": "bash ../../shared/scripts/test.sh"
   },
   "browserslist": "node 8",
   "engines": {
@@ -42,14 +35,14 @@
   ],
   "dependencies": {
     "@babel/cli": "7.5.5",
-    "@tamland/babel": "0.0.10",
-    "@tamland/config": "0.0.15",
-    "@tamland/eslint": "0.0.19",
-    "@tamland/imagemin": "0.0.8",
-    "@tamland/logger": "0.0.15",
-    "@tamland/postcss-config": "0.0.3",
-    "@tamland/stylelint": "0.0.12",
-    "@tamland/webpack-config": "0.0.53",
+    "@tamland/babel": "0.0.11",
+    "@tamland/config": "0.0.17",
+    "@tamland/eslint": "0.0.28",
+    "@tamland/imagemin": "0.0.13",
+    "@tamland/logger": "0.0.18",
+    "@tamland/postcss-config": "0.0.5",
+    "@tamland/stylelint": "0.0.14",
+    "@tamland/webpack-config": "0.0.55",
     "chalk": "^2.4.2",
     "commander": "^3.0.0",
     "core-js": "^3.2.1",
@@ -92,14 +85,14 @@
     "@types/gulp-if": "0.0.33",
     "@types/gulp-watch": "^4.1.34",
     "@types/inquirer": "^6.5.0",
+    "@types/jasmine": "^3.4.0",
     "@types/node": "^12.7.2",
     "@types/node-notifier": "^5.4.0",
     "@types/request": "^2.48.2",
     "@types/through2": "^2.0.34",
     "@types/touch": "^3.1.1",
     "@types/webpack": "^4.39.0",
-    "babel-tape-runner": "^3.0.0",
-    "renamer": "^1.1.2",
-    "tape": "^4.11.0"
+    "jasmine": "^3.4.0",
+    "renamer": "^1.1.2"
   }
 }

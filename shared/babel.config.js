@@ -15,7 +15,7 @@
 */
 
 
-const baseNodeVersion = 4;
+const baseNodeVersion = 8;
 
 
 module.exports = function babelConfiguration(api){

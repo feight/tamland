@@ -10,15 +10,6 @@ import { Logger } from "@tamland/logger";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const cfg: any = rcfile("tamland");
 const user = cfg && cfg.config ? cfg.config : {};
-
-const noop = async (): Promise<void> => {
-
-    await new Promise((resolve): void => {
-        resolve();
-    });
-
-};
-
 const base = "src/*/!(node_modules|dist)/**/*";
 
 const defaults = {
@@ -28,8 +19,10 @@ const defaults = {
     },
     hooks: {
         build: {
-            post: noop,
-            pre: noop
+            /* eslint-disable no-undefined */
+            post: undefined,
+            pre: undefined
+            /* eslint-enable no-undefined */
         }
     },
     icon: path.join(__dirname, "images/icon.png"),
@@ -97,8 +90,8 @@ export interface TamlandConfig {
     };
     hooks: {
         build: {
-            post: BuildHook;
-            pre: BuildHook;
+            post: BuildHook | undefined;
+            pre: BuildHook | undefined;
         };
     };
     icon: string;

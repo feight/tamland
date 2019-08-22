@@ -5,6 +5,7 @@ import { prompt } from "../../utils/prompt";
 
 
 const web = function(): Promise<{
+    hostname?: string;
     name: string;
     project: string;
 }>{
@@ -20,6 +21,7 @@ const web = function(): Promise<{
     return prompt("Web Environment", environments.map((environment): {
         name: string;
         value: {
+            hostname?: string;
             name: string;
             project: string;
         };

@@ -1,8 +1,9 @@
 {
   "name": "@tamland/eslint-config",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "Shared config for eslint",
   "main": "lib/configs",
+  "types": "lib/configs",
   "scripts": {
     "build": "bash ../../shared/scripts/build.sh",
     "find-unused-rules": "eslint-find-rules lib/configs/index.js --unused",
@@ -46,7 +47,7 @@
     "confusing-browser-globals": "^1.0.8"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.10",
+    "@tamland/babel": "^0.0.11",
     "@types/eslint": "^6.1.0",
     "@types/jasmine": "^3.4.0",
     "@types/node": "^12.7.2",
@@ -72,7 +73,7 @@
     "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-react-hooks": "^2.0.1",
     "eslint-plugin-react-native": "^3.7.0",
     "eslint-plugin-react-perf": "^3.2.1",
     "eslint-plugin-react-redux": "^3.0.1",
@@ -109,7 +110,7 @@
     "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-react-hooks": "^2.0.1",
     "eslint-plugin-react-native": "^3.7.0",
     "eslint-plugin-react-perf": "^3.2.1",
     "eslint-plugin-react-redux": "^3.0.1",

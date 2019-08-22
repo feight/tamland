@@ -1,6 +1,6 @@
 {
   "name": "@tamland/web",
-  "version": "0.0.37",
+  "version": "0.0.40",
   "description": "Node.js SSR application framework",
   "main": "lib",
   "types": "lib",
@@ -9,20 +9,6 @@
     "build": "bash ../../shared/scripts/build.sh",
     "prepublishOnly": "bash ../../shared/scripts/publish.sh",
     "test": "bash ../../shared/scripts/test.sh"
-  },
-  "x": {
-    "build": "rm -rf lib && npm run build:script && npm run build:static && npm run build:styles && npm run build:types",
-    "build:script": "npm run build:script:module && npm run build:script:common",
-    "build:script:common": "babel src --ignore '**/*.d.ts' --out-dir lib --extensions '.js,.jsx,.ts,.tsx'",
-    "build:script:module": "BUILD_MJS=1 npm run build:script:common && renamer --find js --replace mjs \"lib/**\"",
-    "build:static": "rsync -rv --include '*/' --include '*.*' --exclude '*' --prune-empty-dirs src/static lib/static",
-    "build:styles": "rsync -rv --include '*/' --include '*.scss' --exclude '*' --prune-empty-dirs src/ lib/",
-    "build:types": "tsc --emitDeclarationOnly && cp src/definitions.d.ts lib/definitions.d.ts && rm lib/**/*.test.d.ts",
-    "lint": "eslint src --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts",
-    "prelint": "npm run build",
-    "prepublishOnly": "npm run test",
-    "pretest": "npm run lint",
-    "test": "jasmine-ts --config=jasmine.json"
   },
   "browserslist": "node 8",
   "engines": {
@@ -51,7 +37,7 @@
     "lib"
   ],
   "dependencies": {
-    "@google-cloud/logging-winston": "^1.1.1",
+    "@google-cloud/logging-winston": "^2.0.0",
     "@hot-loader/react-dom": "^16.9.0",
     "@loadable/component": "^5.10.2",
     "@loadable/server": "^5.10.2",
@@ -106,8 +92,8 @@
     "workbox-sw": "^4.3.1"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.10",
-    "@tamland/eslint": "0.0.27",
+    "@tamland/babel": "^0.0.11",
+    "@tamland/eslint": "0.0.28",
     "@types/common-tags": "^1.8.0",
     "@types/compression": "^1.0.1",
     "@types/cookie-parser": "^1.4.2",
@@ -128,7 +114,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-frontload": "^1.0.0",
     "@types/react-redux": "7.1.2",
-    "@types/react-router-dom": "^4.3.4",
+    "@types/react-router-dom": "^4.3.5",
     "@types/vary": "^1.1.0",
     "@types/webpack-dev-middleware": "^2.0.3",
     "@types/webpack-hot-middleware": "^2.16.5",
