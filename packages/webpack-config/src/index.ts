@@ -28,11 +28,19 @@ export interface Environment {
 }
 
 
+export interface Optimizations {
+    brotli: boolean;
+    gzip: boolean;
+    webp: boolean;
+}
+
+
 export interface Options {
     bundleAnalyzerPort: number;
     cwd: string;
     hostname?: string;
     mode: Mode;
+    optimizations: Optimizations;
     platform: Platform;
     staticFolder: string;
     target: Target;
@@ -51,6 +59,21 @@ export default function configure(
             bundleAnalyzerPort: 3001,
             cwd: process.cwd(),
             mode: "development",
+            optimizations: {
+
+                /*
+                 * Doesn't work in nodejs on production because of accept encodings
+                 * header is stripped
+                 */
+                brotli: false,
+
+                /*
+                 * Doesn't work in nodejs on production because of accept encodings
+                 * header is stripped
+                 */
+                gzip: false,
+                webp: environment.mode !== "production"
+            },
             platform: "web",
             staticFolder: "static",
             target: "client",

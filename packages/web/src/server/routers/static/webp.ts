@@ -8,7 +8,7 @@ import express from "express";
 import vary from "vary";
 
 
-export default function webp(
+export const webp = function(
     dirname: string,
     extensions: string[] = [
         "jpeg",
@@ -29,13 +29,16 @@ export default function webp(
 
         const method = request.method.toUpperCase();
 
-        if(method !== "GET" && method !== "HEAD"){
+        if(
+            method !== "GET" &&
+            method !== "HEAD"
+        ){
 
             return next();
 
         }
 
-        const pathname = new URL(request.url).pathname;
+        const pathname = new URL(request.url, `${ request.protocol }://${ request.get("host") }`).pathname;
         const extpos = pathname.lastIndexOf(".");
         const extension = pathname.substr(extpos + 1);
 
@@ -45,7 +48,7 @@ export default function webp(
             request.headers.accept.includes("image/webp")
         ){
 
-            const newPathname = `${ pathname.substr(0, extpos) }.webp`;
+            const newPathname = `${ pathname }.webp`;
             const filePath = pathJoin(dirname, newPathname);
 
             // Not a security concern, and we can't use node/prefer-promises/fs until node 11.4.0
@@ -82,4 +85,4 @@ export default function webp(
 
     };
 
-}
+};

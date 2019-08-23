@@ -11,6 +11,8 @@ import path from "path";
 import express from "express";
 import proxy from "express-http-proxy";
 
+import { webp } from "./webp";
+
 
 export interface StaticFile {
     cacheExpiration?: string | number;
@@ -39,7 +41,6 @@ const getStaticFileMap = function(
 
     // Static public url base and source
     const source = "dist/client";
-    const encodedStaticFolder = staticFolder.split("/").map((sub): string => encodeURIComponent(sub)).join("/");
     const webpackAssets = JSON.parse(fs.readFileSync(path.join(process.cwd(), "dist/client/webpack-assets.json")).toString());
     const getWebpackAsset = (chunkName: string): string => webpackAssets[chunkName].js.replace(`/${ staticFolder }`, source);
 
@@ -49,20 +50,18 @@ const getStaticFileMap = function(
         source: file.source.replace(`/${ staticFolder }`, source)
     }));
 
-    const defaultStaticFolders: StaticFile[] = watch ? [] : [
-        {
-            cacheExpiration: "1y",
-            path: `/${ encodedStaticFolder }`,
-            source
-        }
-    ];
-
     const defaultStaticFiles: StaticFile[] = [
         {
             cacheExpiration: 0,
             etag: false,
             path: "/service-worker.js",
             source: getWebpackAsset("service-worker")
+        },
+        {
+            cacheExpiration: 0,
+            etag: false,
+            path: "/service-worker.js.map",
+            source: `${ getWebpackAsset("service-worker") }.map`
         },
         {
             cacheExpiration: "1h",
@@ -120,8 +119,7 @@ const getStaticFileMap = function(
     });
 
 
-    return defaultStaticFolders
-    .concat(defaultStaticFiles)
+    return defaultStaticFiles
     .concat(customStaticFiles);
 
 };
@@ -159,6 +157,28 @@ export const staticRouter = ({
         }));
 
     }else{
+
+        router.use(`/${ encodedStaticFolder }`, webp(path.join(cwd, "dist/client")));
+
+        /*
+         * This doesn't work in proudction at the moment. Appengine strips the accepts-encoding
+         * header, which is required by this middleware.
+         *
+         *  router.use(`/${ encodedStaticFolder }`, expressStaticGzip(path.join(cwd, "dist/client"), {
+         *      enableBrotli: true,
+         *      orderPreference: ["br"],
+         *      serveStatic: {
+         *          etag: true,
+         *          maxAge: "1y"
+         *      }
+         *  }));
+         *
+         */
+
+        router.use(`/${ encodedStaticFolder }`, express.static(path.join(cwd, "dist/client"), {
+            etag: true,
+            maxAge: "1y"
+        }));
 
         router.use(`/${ encodedStaticFolder }/*`, (
             request: express.Request,

@@ -1,6 +1,6 @@
 {
   "name": "@tamland/webpack-config",
-  "version": "0.0.55",
+  "version": "0.0.59",
   "description": "Shared config for webpack",
   "main": "lib",
   "types": "lib",
@@ -45,6 +45,7 @@
     "babel-loader": "^8.0.6",
     "brotli-webpack-plugin": "^1.1.0",
     "clean-css-loader": "^2.0.0",
+    "compression-webpack-plugin": "^3.0.0",
     "css-hot-loader": "^1.4.4",
     "css-loader": "^3.2.0",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",

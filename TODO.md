@@ -1,26 +1,7 @@
 
-npm install --save-dev @types/node @types/jasmine jasmine renamer
-npm uninstall babel-tape-runner tape
+add a toggle brotli and webp through config - leave webp on
+clean up the performance warnings in webpack
 
-- babel
-- babel-preset
-cli
-- config
-- eslint
-- eslint-config
-generator-tamland
-- imagemin
-- logger
-- postcss-config
-- stylelint
-- stylelint-config
-- web
-- webpack-config
-
-
-
-convert all gif, png and jpg files to webp versions at build time
-use the accepts header to serve the webp version if it exists
 
 Add a default <meta name="theme-color">
 

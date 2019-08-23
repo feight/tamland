@@ -4,6 +4,7 @@ import path from "path";
 
 import AssetsPlugin from "assets-webpack-plugin";
 import BrotliPlugin from "brotli-webpack-plugin";
+import CompressionPlugin from "compression-webpack-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import ImageminWebpWebpackPlugin from "imagemin-webp-webpack-plugin";
 import webpack, { Configuration } from "webpack";
@@ -23,32 +24,6 @@ export const client = function(
 
     return {
         plugins: [
-            new BrotliPlugin({
-                asset: "[path].br[query]",
-                minRatio: 0.8,
-                test: /\.(js|css|html|svg)$/gu,
-                threshold: 10240
-            }),
-            new ImageminWebpWebpackPlugin({
-                config: [{
-                    options: {
-                        quality: 75
-                    },
-                    test: /\.(jpe?g|png)/gu
-                }],
-                detailedLogs: false,
-                overrideExtension: false,
-                silent: false,
-                strict: true
-            }),
-            new LoadablePlugin({
-                filename: "loadable-stats.json",
-                writeToDisk: true
-            }),
-            new AssetsPlugin({
-                filename: "webpack-assets.json",
-                path: folder
-            }),
             new BundleAnalyzerPlugin({
                 analyzerHost: "127.0.0.1",
                 analyzerMode: "server",
@@ -61,9 +36,51 @@ export const client = function(
                 statsFilename: "stats.json",
                 statsOptions: null
             })
-        ].concat(options.watch ? [
+        ]
+        .concat(options.optimizations.brotli ? [
+            new BrotliPlugin({
+                asset: "[path].br[query]",
+                minRatio: 1,
+                test: /\.(js|css|html|svg)$/gu,
+                threshold: 0
+            })
+        ] : [])
+        .concat(options.optimizations.gzip ? [
+            new CompressionPlugin({
+                algorithm: "gzip",
+                filename: "[path].gz[query]",
+                minRatio: 1,
+                test: /\.(js|css|html|svg)$/gu,
+                threshold: 0
+            })
+        ] : [])
+        .concat(options.optimizations.webp ? [
+            new ImageminWebpWebpackPlugin({
+                config: [{
+                    options: {
+                        quality: 75
+                    },
+                    test: /\.(jpe?g|png)/gu
+                }],
+                detailedLogs: false,
+                overrideExtension: false,
+                silent: false,
+                strict: true
+            })
+        ] : [])
+        .concat(options.watch ? [
             new webpack.NoEmitOnErrorsPlugin()
         ] : [])
+        .concat([
+            new LoadablePlugin({
+                filename: "loadable-stats.json",
+                writeToDisk: true
+            }),
+            new AssetsPlugin({
+                filename: "webpack-assets.json",
+                path: folder
+            })
+        ])
     };
 
 };

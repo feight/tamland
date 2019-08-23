@@ -6,10 +6,11 @@ declare module "imagemin-webp-webpack-plugin" {
 
     interface PluginOptions{
         config: {
-                test: RegExp,
-                options: {
-                quality:  number
-            }
+            options: {
+                lossless?: boolean,
+                quality?:  number
+            },
+            test: RegExp
         }[],
         overrideExtension: boolean,
         detailedLogs: boolean,
