@@ -110,6 +110,7 @@ export default function configure(
             config.mode(configuration, options),
             config.module(configuration, options),
             config.optimization(configuration, options),
+            config.performance(configuration, options),
             config.plugins(configuration, options),
             config.resolve(configuration, options),
             config.stats(),

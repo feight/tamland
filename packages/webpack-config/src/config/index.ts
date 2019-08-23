@@ -8,6 +8,7 @@ import mode from "./mode";
 import module from "./module";
 import optimization from "./optimization";
 import output from "./output";
+import performance from "./performance";
 import plugins from "./plugins";
 import resolve from "./resolve";
 import stats from "./stats";
@@ -24,6 +25,7 @@ export default {
     module,
     optimization,
     output,
+    performance,
     plugins,
     resolve,
     stats,

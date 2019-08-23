@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@ionaru/romanize": "^1.1.0",
-    "@tamland/web": "file:../../node_modules/.cache/tamland-web-0.0.44.tgz",
+    "@tamland/web": "file:../../node_modules/.cache/tamland-web-0.0.46.tgz",
     "react": "^16.9.0"
   }
 }

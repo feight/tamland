@@ -1,5 +1,4 @@
 
-add a toggle brotli and webp through config - leave webp on
 clean up the performance warnings in webpack
 
 
