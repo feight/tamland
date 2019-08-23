@@ -48,7 +48,5 @@ echo 'Successfully generated .d.ts assets'
 #     echo 'Successfully copied types'
 # fi
 
-if [ -d "./src/definitions.d.ts" ]; then
-    cp src/definitions.d.ts lib/definitions.d.ts &&
-    echo 'Successfully copied definitions.d.ts asset'
-fi
+rsync -rv --include '*/' --include '*.d.ts' --exclude '*' --prune-empty-dirs src/ lib/ &&
+echo 'Successfully copied typescript d.ts assets'

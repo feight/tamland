@@ -1,20 +1,6 @@
 
-clean up the performance warnings in webpack
-
-
-Add a default <meta name="theme-color">
-
-implement https://www.npmjs.com/package/webp-loader
-
-add cache-control immutable
-add image importance attribute to all images add loading=lazy to all iframes and images
-guetzli and zopfli for images
-
 Add a base meta description
 Hook up sample image icons for the manifest and link them in the html
-
-
-
 
 generator things:
     Update the packages/generator-tamland/src/generators/app/templates/README.md
@@ -31,16 +17,6 @@ generator things:
         - pass the repo to the template generator so the package.json has the repo in it
     Make sure all the dot files from src/web get copied by the generator
 
-enable brotli compression https://medium.com/groww-engineering/enable-brotli-compression-in-webpack-with-fallback-to-gzip-397a57cf9fc6
-
-Implemented https local testing option
-    - use spdy
-    - https://webapplog.com/http2-node/
-    - WebpackDevServer has an https option
-
-- add jasmine tests to everything like the documentation of typescript shows
-
-add a test harness
 add format message harness with https://www.npmjs.com/package/format-message
 add a step to the build that extracts format message strings for translation
 

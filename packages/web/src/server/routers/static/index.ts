@@ -177,6 +177,7 @@ export const staticRouter = ({
 
         router.use(`/${ encodedStaticFolder }`, express.static(path.join(cwd, "dist/client"), {
             etag: true,
+            immutable: true,
             maxAge: "1y"
         }));
 

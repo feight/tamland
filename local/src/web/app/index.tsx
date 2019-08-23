@@ -25,7 +25,7 @@ export class App extends React.PureComponent{
                     <title>
                         { "News Team" }
                     </title>
-                    <meta content="Helmet application" name="description" />
+                    <meta content="Newsteam.io - News tools that scale" name="description" />
                     <meta content="MM63KQdfrn3d7XEwLwcXYZLTmWK4kbGmuJwsO4QUryA" name="google-site-verification" />
                 </Helmet>
                 <Nav />
