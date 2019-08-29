@@ -1,6 +1,7 @@
 
 
 import * as React from "react";
+import { ApolloProvider } from "@apollo/react-hooks";
 import parseurl from "parseurl";
 import PropTypes from "prop-types";
 import {
@@ -19,6 +20,8 @@ import { hot } from "react-hot-loader";
 import { TamlandAppConfig } from "./config";
 import { Router } from "./router";
 import { Location } from "./location";
+
+import { client } from "../graphql";
 
 
 const context = {};
@@ -77,44 +80,48 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
 
         return (
 
-            <ReduxProvider store={ this.props.store }>
+            <ApolloProvider client={ client() }>
 
-                <HelmetProvider context={ this.props.helmetContext }>
+                <ReduxProvider store={ this.props.store }>
 
-                    <Helmet
-                        bodyAttributes={ this.getBodyAttributes() }
-                        htmlAttributes={ this.getHtmlAttributes() }
-                    >
+                    <HelmetProvider context={ this.props.helmetContext }>
 
-                        <title>
-                            {
+                        <Helmet
+                            bodyAttributes={ this.getBodyAttributes() }
+                            htmlAttributes={ this.getHtmlAttributes() }
+                        >
 
-                                /*
-                                 * This needs to be an empty space so that if a
-                                 * Route doesn't implement a title the title is
-                                 * blanked out
-                                 */
-                            }
-                            { " " }
-                        </title>
+                            <title>
+                                {
 
-                    </Helmet>
+                                    /*
+                                     * This needs to be an empty space so that if a
+                                     * Route doesn't implement a title the title is
+                                     * blanked out
+                                     */
+                                }
+                                { " " }
+                            </title>
 
-                    <Router
-                        context={ context }
-                        history={ this.props.history }
-                        location={ this.location }
-                    >
+                        </Helmet>
 
-                        <Location context={ context } />
+                        <Router
+                            context={ context }
+                            history={ this.props.history }
+                            location={ this.location }
+                        >
 
-                        { this.props.children }
+                            <Location context={ context } />
 
-                    </Router>
+                            { this.props.children }
 
-                </HelmetProvider>
+                        </Router>
 
-            </ReduxProvider>
+                    </HelmetProvider>
+
+                </ReduxProvider>
+
+            </ApolloProvider>
 
         );
 

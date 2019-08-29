@@ -5,7 +5,8 @@ import logger from "../logger";
 
 let initialStateCache: object | undefined;
 
-export const getInitialState = function(): object{
+
+export const getInitialState = function(serializationId: string): object{
 
     if(initialStateCache){
 
@@ -13,15 +14,13 @@ export const getInitialState = function(): object{
 
     }
 
-    const id = "redux-data";
-
     // Do we have preloaded state available? Great, save it.
 
     let initialState = {};
 
     if(typeof window !== "undefined"){
 
-        const element = document.querySelector(`#${ id }`);
+        const element = document.querySelector(`#${ serializationId }`);
 
         if(element){
 
@@ -31,13 +30,13 @@ export const getInitialState = function(): object{
 
             }catch(error){
 
-                logger.error(`Could not parse initial data from element #${ id }`);
+                logger.error(`Could not parse initial data from element #${ serializationId }`);
 
             }
 
         }else{
 
-            logger.error(`Could not find initial data element #${ id }`);
+            logger.error(`Could not find initial data element #${ serializationId }`);
 
         }
 

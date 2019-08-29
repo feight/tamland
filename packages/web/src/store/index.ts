@@ -14,9 +14,11 @@ import { createRootReducer } from "./reducers";
 import { getInitialState } from "./initial";
 
 
+export const reduxStateSerializationId = "react-state";
+
 export const createStore = function(history: History): Store{
 
-    const initialState = getInitialState();
+    const initialState = getInitialState(reduxStateSerializationId);
 
     return createReduxStore(
         createRootReducer(history),
@@ -28,3 +30,5 @@ export const createStore = function(history: History): Store{
     );
 
 };
+
+

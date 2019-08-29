@@ -4,8 +4,8 @@ import path from "path";
 
 import { IHelmetContentSecurityPolicyConfiguration } from "helmet";
 import { ComponentClass } from "react";
+import { ApolloServerExpressConfig } from "apollo-server-express";
 
-import { GraphqlRouterConfiguration } from "./routers/graphql/types";
 import { JWTConfiguration } from "./middleware/jwt/types";
 import {
     ManifestConfiguration,
@@ -94,7 +94,7 @@ export interface TamlandServerOptionsInterface {
      * GraphQL configuration.
      *
      */
-    graphql?: GraphqlRouterConfiguration;
+    apollo?: ApolloServerExpressConfig;
 
     /**
      * Required.
@@ -147,6 +147,8 @@ export interface TamlandServerOptionsInterface {
 
 export class TamlandServerOptions{
 
+    public apollo?: ApolloServerExpressConfig;
+
     public App: React.ComponentClass;
 
     public cacheExpiration: string | number;
@@ -163,8 +165,6 @@ export class TamlandServerOptions{
     public config: TamlandAppConfig;
 
     public csp?: IHelmetContentSecurityPolicyConfiguration;
-
-    public graphql?: GraphqlRouterConfiguration;
 
     public hostname?: string;
 

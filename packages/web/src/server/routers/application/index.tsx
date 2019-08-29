@@ -10,14 +10,22 @@ import { matchPath } from "react-router-dom";
 import { HelmetData } from "react-helmet";
 import { Store } from "redux";
 import { ChunkExtractor } from "@loadable/server";
+import { getDataFromTree } from "@apollo/react-ssr";
 
 import { renderIcons } from "./icons";
 import { AppRouterConfiguration } from "./types";
 
 import { Route as PageRoute } from "../../../components/route";
-import { createStore } from "../../../store";
+import {
+    createStore,
+    reduxStateSerializationId
+} from "../../../store";
 import { Tamland } from "../../../app";
 import { createHistory } from "../../../history";
+import {
+    apolloStateSerializationId,
+    client as apolloClient
+} from "../../../graphql";
 
 
 const minifyHTML = function(html: string): string{
@@ -136,6 +144,8 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
             </Tamland>
         );
 
+        await getDataFromTree(Application);
+
         const content = renderToString(chunkExtractor.collectChunks(Application));
 
         const { helmet } = helmetContext;
@@ -166,7 +176,12 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
                     </head>
                     <body ${ helmet.bodyAttributes.toString() }>
                         <div id="app">${ content }</div>
-                        <script id="redux-data" type="application/json">${ JSON.stringify(reduxState) }</script>
+                        <script id="${ reduxStateSerializationId }" type="application/json">
+                            ${ JSON.stringify(reduxState) }
+                        </script>
+                        <script id="${ apolloStateSerializationId }" type="application/json">
+                            ${ JSON.stringify(apolloClient().extract()) }
+                        </script>
                         ${ chunkExtractor.getScriptTags() }
                     </body>
                 </html>

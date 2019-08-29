@@ -1,6 +1,5 @@
 
-Add a base meta description
-Hook up sample image icons for the manifest and link them in the html
+add graphql
 
 generator things:
     Update the packages/generator-tamland/src/generators/app/templates/README.md

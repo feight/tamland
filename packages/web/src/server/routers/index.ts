@@ -4,7 +4,7 @@ import { Express } from "express";
 
 import { applicationRouter } from "./application";
 import { browserconfigRouter } from "./browserconfig";
-import { graphqlRouter } from "./graphql";
+import { createApolloServer } from "./graphql";
 import { manifestRouter } from "./manifest";
 import { staticRouter } from "./static";
 
@@ -61,7 +61,12 @@ export class TamlandServerRouters{
 
     public graphql(): void{
 
-        this.app.use(graphqlRouter());
+        const server = createApolloServer(this.options.apollo);
+
+        server.applyMiddleware({
+            app: this.app,
+            path: "/graphql/"
+        });
 
     }
 
