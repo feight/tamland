@@ -15,6 +15,7 @@ import { createHistory } from "../history";
 import { createStore } from "../store";
 import { Tamland } from "../app";
 import logger from "../logger";
+import { createApolloClient } from "../graphql";
 
 
 export class Client{
@@ -42,6 +43,7 @@ export class Client{
 
         const app = (
             <Tamland
+                apolloClient={ createApolloClient() }
                 config={ this.options.config }
                 history={ this.history }
                 store={ this.store }

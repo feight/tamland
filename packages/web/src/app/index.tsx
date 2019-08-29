@@ -16,18 +16,18 @@ import { Provider as ReduxProvider } from "react-redux";
 import { Request } from "express";
 import { Store } from "redux";
 import { hot } from "react-hot-loader";
+import { ApolloClient } from "apollo-client";
 
 import { TamlandAppConfig } from "./config";
 import { Router } from "./router";
 import { Location } from "./location";
-
-import { client } from "../graphql";
 
 
 const context = {};
 
 
 export interface TamlandProps{
+    apolloClient: ApolloClient<{}>;
     config: TamlandAppConfig;
     helmetContext?: {} | undefined;
     history: History;
@@ -80,7 +80,7 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
 
         return (
 
-            <ApolloProvider client={ client() }>
+            <ApolloProvider client={ this.props.apolloClient }>
 
                 <ReduxProvider store={ this.props.store }>
 

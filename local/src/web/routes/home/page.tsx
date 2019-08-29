@@ -23,10 +23,7 @@ const ExchangeRates: React.FunctionComponent = () => {
         {
             hello
         }
-    `, {
-        fetchPolicy: "network-only",
-        ssr: false
-    });
+    `);
 
     if(loading){
 

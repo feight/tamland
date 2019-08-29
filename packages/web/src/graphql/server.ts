@@ -6,45 +6,52 @@ import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { onError } from "apollo-link-error";
 import fetch from "node-fetch";
+import { Request } from "express";
 
 
-const cache = new InMemoryCache();
+export const client = (request: Request): ApolloClient<{}> => {
 
-const link = ApolloLink.from([
-    onError(({
-        graphQLErrors,
-        networkError
-    }) => {
+    const cache = new InMemoryCache();
 
-        if(graphQLErrors){
+    const link = ApolloLink.from([
+        onError(({
+            graphQLErrors,
+            networkError
+        }) => {
 
-            graphQLErrors.forEach(({
-                message,
-                locations,
-                path
-            }) => console.log(
-                `[GraphQL error]: Message: ${ message }, Location: ${ locations }, Path: ${ path }`
-            ));
+            if(graphQLErrors){
 
-        }
+                graphQLErrors.forEach(({
+                    message,
+                    locations,
+                    path
+                }) => console.log(
+                    `[GraphQL error]: Message: ${ message }, Location: ${ locations }, Path: ${ path }`
+                ));
 
-        if(networkError){
+            }
 
-            console.log(`[Network error]: ${ networkError }`);
+            if(networkError){
 
-        }
+                console.log(`[Network error]: ${ networkError }`);
 
-    }),
-    new HttpLink({
-        credentials: "same-origin",
-        fetch,
-        uri: "http://localhost:5555/graphql/"
-    })
-]);
+            }
 
+        }),
+        new HttpLink({
+            credentials: "same-origin",
+            fetch,
+            headers: {
+                cookie: request.header("Cookie")
+            },
+            uri: "http://localhost:5555/graphql/"
+        })
+    ]);
 
-export const client = (): ApolloClient<{}> => new ApolloClient({
-    cache,
-    link,
-    ssrMode: true
-});
+    return new ApolloClient({
+        cache,
+        link,
+        ssrMode: true
+    });
+
+};

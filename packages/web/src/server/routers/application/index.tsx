@@ -24,7 +24,7 @@ import { Tamland } from "../../../app";
 import { createHistory } from "../../../history";
 import {
     apolloStateSerializationId,
-    client as apolloClient
+    createApolloClient
 } from "../../../graphql";
 
 
@@ -102,6 +102,7 @@ const helmetContext: {
 } = {};
 
 
+// eslint-disable-next-line max-lines-per-function
 export const applicationRouter = (routerConfig: AppRouterConfiguration): express.Router => {
 
     const {
@@ -132,8 +133,11 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
 
         const reduxState = store.getState();
 
+        const apolloClient = createApolloClient(request);
+
         const Application = (
             <Tamland
+                apolloClient={ apolloClient }
                 config={ config }
                 helmetContext={ helmetContext }
                 history={ history }
@@ -180,7 +184,7 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
                             ${ JSON.stringify(reduxState) }
                         </script>
                         <script id="${ apolloStateSerializationId }" type="application/json">
-                            ${ JSON.stringify(apolloClient().extract()) }
+                            ${ JSON.stringify(apolloClient.extract()) }
                         </script>
                         ${ chunkExtractor.getScriptTags() }
                     </body>
