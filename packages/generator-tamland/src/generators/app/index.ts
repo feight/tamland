@@ -3,9 +3,16 @@
 import Generator from "yeoman-generator";
 
 
-class AppGenerator extends Generator{
+export default class AppGenerator extends Generator{
 
-    install(){
+    public answers: {
+        description: string;
+        folder: string;
+        name: string;
+        project: string;
+    };
+
+    public install(): void{
 
         this.npmInstall();
 
@@ -15,11 +22,26 @@ class AppGenerator extends Generator{
 
     }
 
-    async prompting(){
+    public async prompting(): Promise<void>{
 
         this.answers = await this.prompt([
             {
-                message: "Your project name",
+                message: "Project name (e.g. The Tamland Blog)",
+                name: "name",
+                type: "input"
+            },
+            {
+                message: "Project description (e.g. All the latest Tamland news)",
+                name: "description",
+                type: "input"
+            },
+            {
+                message: "Project destination folder (e.g. tamland)",
+                name: "folder",
+                type: "input"
+            },
+            {
+                message: "GAE project id (e.g. tamland-project-420)",
                 name: "project",
                 type: "input"
             }
@@ -27,7 +49,7 @@ class AppGenerator extends Generator{
 
     }
 
-    writing(){
+    public writing(): void{
 
         const project = String(this.answers.project)
         .replace(/\s\s+/gu, " ")
@@ -35,11 +57,7 @@ class AppGenerator extends Generator{
         .replace(/[^a-zA-Z0-9.-_]/gu, "-")
         .replace(/--+/gu, "-");
 
-        this.destinationRoot(project);
-
-        const params = {
-            project
-        };
+        this.destinationRoot(this.answers.folder);
 
         [
             [
@@ -57,8 +75,16 @@ class AppGenerator extends Generator{
             [
                 "./.*",
                 "."
+            ],
+            [
+                "./src/web/*.*",
+                "./src/web"
+            ],
+            [
+                "./src/web/.*",
+                "./src/web"
             ]
-        ].forEach((cp) => {
+        ].forEach((cp): void => {
 
             const [
                 from,
@@ -68,7 +94,10 @@ class AppGenerator extends Generator{
             this.fs.copyTpl(
                 this.templatePath(from),
                 this.destinationPath(to),
-                params
+                {
+                    project,
+                    ...this.answers
+                }
             );
 
         });
@@ -78,7 +107,7 @@ class AppGenerator extends Generator{
                 "./gitignore",
                 "./.gitignore"
             ]
-        ].forEach((cp) => {
+        ].forEach((cp): void => {
 
             const [
                 from,
@@ -93,7 +122,7 @@ class AppGenerator extends Generator{
         });
 
         const packageJSON = {
-            name: params.project,
+            name: project,
             repository: ""
         };
 
@@ -103,6 +132,3 @@ class AppGenerator extends Generator{
     }
 
 }
-
-
-export default AppGenerator;

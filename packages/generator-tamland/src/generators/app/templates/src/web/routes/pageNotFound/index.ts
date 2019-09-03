@@ -8,7 +8,7 @@ export interface RouteData{
 }
 
 
-export default class PageNotFoundRoute extends Route{
+export class PageNotFoundRoute extends Route{
 
     public id = "pageNotFound";
 

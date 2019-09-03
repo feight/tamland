@@ -1,10 +1,7 @@
 
 
-const path = require("path");
-
-
 module.exports = {
-    icon: path.join(__dirname, "icon.png"),
+    icon: "src/base/icons/icon.png",
     name: "Local Project",
     platform: {
         web: {

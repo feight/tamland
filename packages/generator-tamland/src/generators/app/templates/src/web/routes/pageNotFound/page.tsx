@@ -1,15 +1,16 @@
 
 
 import React from "react";
+import { Page } from "@tamland/web";
 
 
-export default class Page extends React.PureComponent{
+export default class PageNotFoundPage extends Page{
 
     public render(): React.ReactNode{
 
         return (
             <div>
-                { "404 PAGE | BABOOOM BITCH TITS" }
+                { "Page not found" }
             </div>
         );
 

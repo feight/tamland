@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 
 function build_basic {
-    babel src --ignore '**/*.d.ts,src/cli' --out-dir lib --extensions '.js,.jsx,.ts,.tsx'
-}
-
-function build_cli {
-    babel src --ignore '**/*.d.ts,src/cli' --out-dir lib --extensions '.js,.jsx,.ts,.tsx'
+    babel src --ignore '**/*.d.ts,src/cli,**/node_modules' --out-dir lib --extensions '.js,.jsx,.ts,.tsx'
 }
 
 # Clean the lib directory

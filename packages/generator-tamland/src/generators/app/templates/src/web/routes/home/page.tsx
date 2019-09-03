@@ -1,24 +1,77 @@
 
 
 import React from "react";
-import { Helmet } from "@tamland/web";
+import {
+    gql,
+    Page,
+    useQuery
+} from "@tamland/web";
 
-import style from "./page.scss";
+import { Contact } from "./components/contact";
+import { Features } from "./components/features";
+import { Publications } from "./components/publications";
+import { Splash } from "./components/splash";
 
 
-export default class Page extends React.PureComponent{
+const ExchangeRates: React.FunctionComponent = () => {
+
+    const {
+        data,
+        error,
+        loading
+    } = useQuery(gql`
+        {
+            hello
+        }
+    `);
+
+    if(loading){
+
+        return (
+            <p>
+                { "Loading..." }
+            </p>
+        );
+
+    }
+
+    if(error){
+
+        return (
+            <p>
+                { "Error..." }
+            </p>
+        );
+
+    }
+
+    return (
+        <p>
+            { "hello" }
+            { data.hello }
+        </p>
+    );
+
+};
+
+
+export default class HomePage extends Page{
 
     public render(): React.ReactNode{
 
         return (
-            <div className={ style.page }>
-                <Helmet>
-                    <title>
-                        { "homex" }
-                    </title>
-                    <meta content="BusinessLIVE" property="og:site_name" />
-                </Helmet>
-                { "NEWx CONTENT" }
+            <div>
+
+                <Splash />
+
+                <ExchangeRates />
+
+                <Publications />
+
+                <Features />
+
+                <Contact />
+
             </div>
         );
 

@@ -4,9 +4,9 @@ import icons from "./icons";
 
 
 export default {
-    description: "Tamland generated site",
+    description: "<%= description %>",
     icons,
-    name: "Tamland Site",
-    shortName: "Tammy Site"
+    name: "<%= name %>",
+    shortName: "<%= name %>"
 };
 

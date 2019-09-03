@@ -1,7 +1,6 @@
 
 
 import * as React from "react";
-import { romanize } from "@ionaru/romanize";
 import { Link } from "@tamland/web";
 
 import style from "./index.module.scss";
@@ -19,7 +18,7 @@ export class Footer extends React.PureComponent<{
                     <Link to="/">
                         { "News Team" }
                     </Link>
-                    { ` © ${ romanize(new Date().getFullYear()) }` }
+                    { ` © ${ new Date().getFullYear() }` }
                 </p>
             </div>
         );

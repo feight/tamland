@@ -130,7 +130,7 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
     private getBodyAttributes(): BodyAttributes{
 
         // Needed so that webpack won't require this on the server, since it's a client only module
-        // eslint-disable-next-line node/no-missing-require, @typescript-eslint/no-require-imports, global-require
+        // eslint-disable-next-line @typescript-eslint/no-require-imports, global-require
         const Modernizr = typeof window === "undefined" ? {} : require("modernizr");
 
         const classes = [

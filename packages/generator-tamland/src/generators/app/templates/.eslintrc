@@ -1,6 +1,9 @@
 {
   "extends": "@tamland",
   "rules": {
-    "node/no-unpublished-import": "off"
+    "no-invalid-this": "off",
+    "node/no-unpublished-import": "off",
+    "react/no-set-state": "off",
+    "react-perf/jsx-no-new-object-as-prop": "off"
   }
 }

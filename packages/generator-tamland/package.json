@@ -1,15 +1,15 @@
 {
   "name": "@tamland/generator-tamland",
-  "version": "0.0.20",
+  "version": "0.0.29",
   "description": "Yeoman generator for the Tamland framework",
   "main": "lib/generators/app",
   "scripts": {
-    "build": "bash ../../shared/scripts/build.sh && npm run build:templates",
-    "build:js": "babel src --ignore **/node_modules --out-dir lib",
+    "build": "npm run clean && npm run build:js && npm run build:templates",
+    "build:js": "babel src --ignore '**/*.d.ts,src/cli,**/node_modules,**/templates' --out-dir lib --extensions '.js,.jsx,.ts,.tsx'",
     "build:templates": "rsync -av src/generators/app/templates lib/generators/app --exclude node_modules",
     "clean": "rm -rf lib",
     "link": "npm run build && npm link",
-    "lint": "eslint src --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts",
+    "lint": "eslint src --ext .tsx,.ts --ignore-pattern *.d.ts",
     "prelint": "npm run build",
     "prepublishOnly": "npm run test",
     "pretest": "npm run lint",
@@ -47,11 +47,12 @@
     "lib"
   ],
   "dependencies": {
-    "yeoman-generator": "^4.0.1"
+    "yeoman-generator": "^4.0.2"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.10",
-    "@tamland/eslint": "^0.0.15",
+    "@tamland/babel": "^0.0.12",
+    "@tamland/eslint": "^0.0.30",
+    "@types/yeoman-generator": "^3.1.4",
     "babel-tape-runner": "^3.0.0",
     "tape": "^4.11.0"
   }
