@@ -9,13 +9,13 @@ import {
 
 
 export interface TamlandBabelPresetOptions{
-    addModuleExports: boolean,
-    comments: boolean,
-    debug: boolean,
-    development: boolean | undefined,
-    modules: boolean | "auto" | undefined,
-    shebang: boolean,
-    targets: string | Array<string> | { [string: string]: string }
+    addModuleExports: boolean;
+    comments: boolean;
+    debug: boolean;
+    development: boolean | undefined;
+    modules: boolean | "auto" | undefined;
+    shebang: boolean;
+    targets: string | string[] | { [string: string]: string };
 }
 
 

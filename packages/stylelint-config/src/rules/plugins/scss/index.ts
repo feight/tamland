@@ -19,6 +19,7 @@ export default {
         "./comment",
         "./comment-double-slash",
         "./declaration",
+        "./dimension",
         "./function",
         "./general",
         "./at/if",

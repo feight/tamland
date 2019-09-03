@@ -29,6 +29,13 @@ export default {
     rules: {
 
         /*
+         * Ensure Node.js-style error-first callback pattern is followed
+         *
+         * https://github.com/mysticatea/eslint-plugin-node/blob/HEAD/docs/rules/no-callback-literal.md
+         */
+        "node/no-callback-literal": "error",
+
+        /*
          * Disallow import declarations of extraneous packages
          *
          * https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-extraneous-import.md

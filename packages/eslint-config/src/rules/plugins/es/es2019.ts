@@ -21,7 +21,14 @@ export default {
          *
          * https://mysticatea.github.io/eslint-plugin-es/rules/no-optional-catch-binding.html
          */
-        "es/no-optional-catch-binding": "off"
+        "es/no-optional-catch-binding": "off",
+
+        /*
+         * Disallow the new values of RegExp Unicode property escape sequences in ES2019
+         *
+         * https://mysticatea.github.io/eslint-plugin-es/rules/no-regexp-unicode-property-escapes-2019.html
+         */
+        "es/no-regexp-unicode-property-escapes-2019": "off"
 
     }
 };

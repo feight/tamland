@@ -2,7 +2,7 @@
 
 declare module "node-fetch" {
 
-    const fetch: GlobalFetch["fetch"];
+    const fetch: WindowOrWorkerGlobalScope["fetch"];
 
     export default fetch;
 

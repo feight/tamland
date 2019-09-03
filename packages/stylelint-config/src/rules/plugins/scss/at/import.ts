@@ -18,6 +18,13 @@ export default {
         "scss/at-import-no-partial-leading-underscore": true,
 
         /*
+         * Require or disallow extension in @import commands.
+         *
+         * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/at-import-partial-extension/README.md
+         */
+        "scss/at-import-partial-extension": null,
+
+        /*
          * Specify blacklist of disallowed file extensions for partial names in @import commands.
          *
          * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules//README.md
