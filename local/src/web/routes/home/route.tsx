@@ -1,11 +1,6 @@
 
 
-import { Route } from "../../route";
-
-
-export interface RouteData{
-    test: string;
-}
+import { Route } from "../route";
 
 
 export class HomeRoute extends Route{

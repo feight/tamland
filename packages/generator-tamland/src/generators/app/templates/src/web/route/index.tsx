@@ -25,10 +25,11 @@ export class Route extends PageRoute{
      * when they're made in modules inside node_modules. It's not a good idea to
      * modify this.
      */
-    public loadable(id: string): () => Promise<{ default: React.ComponentType }>{
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    public loadable(id: string): () => Promise<{ default: React.ComponentType<any> }>{
 
-        // eslint-disable-next-line no-inline-comments
-        return /* #__LOADABLE__ */ (): Promise<{ default: React.ComponentType }> => import(
+        // eslint-disable-next-line no-inline-comments, @typescript-eslint/no-explicit-any
+        return /* #__LOADABLE__ */ (): Promise<{ default: React.ComponentType<any> }> => import(
 
             /* webpackChunkName: "[request]" */
             `./../routes/${ id }/page`

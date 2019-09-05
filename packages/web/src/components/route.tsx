@@ -6,11 +6,6 @@ import {
     Route as ReactRouterDomRoute
 } from "react-router-dom";
 import loadable from "@loadable/component";
-import {
-    ThunkAction,
-    ThunkDispatch
-} from "redux-thunk";
-import { AnyAction } from "redux";
 
 import { PageProps } from "./page";
 
@@ -32,29 +27,9 @@ export class Route{
 
     public strict = true;
 
-    public actions(): ThunkAction<Promise<void>, {}, {}, AnyAction>{
+    public loadable(id: string): (() => Promise<{ default: React.ComponentType<PageProps> }>) | undefined{
 
-        return (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => new Promise<void>((resolve): void => {
-
-            const delay = 50;
-
-            setTimeout((): void => {
-
-                dispatch({
-                    test: true,
-                    type: "TEST_ACTION"
-                });
-
-                resolve();
-
-            }, delay);
-        });
-
-    }
-
-    public loadable(id: string, props: PageProps): (() => Promise<{ default: React.ComponentType<PageProps> }>) | undefined{
-
-        console.log(`public loadable(id: string): () => Promise<{ default: React.ComponentType }> not implmented on Route ${ id } at ${ props.match.path }`);
+        console.log(`public loadable(id: string): () => Promise<{ default: React.ComponentType }> not implmented on Route ${ id }`);
 
         // eslint-disable-next-line no-undefined
         return undefined;
@@ -89,7 +64,7 @@ export class Route{
                     ({ match }): React.ReactNode => {
 
                         const pageProps = { match };
-                        const loadableComponent = this.loadable(this.id, pageProps);
+                        const loadableComponent = this.loadable(this.id);
 
                         if(loadableComponent){
 

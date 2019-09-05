@@ -2,12 +2,12 @@
 
 import { Route as PageRoute } from "@tamland/web";
 
-import { AboutRoute } from "./about";
-import { CareersRoute } from "./careers";
-import { ContactRoute } from "./contact";
-import { CosmosRoute } from "./cosmos";
-import { HomeRoute } from "./home";
-import { PageNotFoundRoute } from "./pageNotFound";
+import { AboutRoute } from "./about/route";
+import { CareersRoute } from "./careers/route";
+import { ContactRoute } from "./contact/route";
+import { CosmosRoute } from "./cosmos/route";
+import { HomeRoute } from "./home/route";
+import { PageNotFoundRoute } from "./pageNotFound/route";
 
 
 export const routes: PageRoute[] = [
