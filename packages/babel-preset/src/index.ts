@@ -15,6 +15,7 @@ export interface TamlandBabelPresetOptions{
     development: boolean | undefined;
     modules: boolean | "auto" | undefined;
     shebang: boolean;
+    reactHotLoader: boolean;
     targets: string | string[] | { [string: string]: string };
 }
 
@@ -32,6 +33,7 @@ export default declare((
         comments = false,
         modules,
         shebang = false,
+        reactHotLoader = false,
         targets
     } = options;
 
@@ -47,9 +49,12 @@ export default declare((
         "@babel/plugin-syntax-dynamic-import",
         "@babel/plugin-transform-named-capturing-groups-regex",
         "@loadable/babel-plugin",
-        "jsx-control-statements",
-        "react-hot-loader/babel"
+        "jsx-control-statements"
     ];
+
+    if(reactHotLoader){
+        plugins.push("react-hot-loader/babel");
+    }
 
     if(addModuleExports){
         plugins.push("add-module-exports");

@@ -31,6 +31,12 @@ const config: Linter.Config = {
         "no-unused-vars": "off",
 
         /*
+         * Overridden by @typescript-eslint/quotes to prevent errors while linting
+         * typescript code.
+         */
+        quotes: "off",
+
+        /*
          * The @typescript-eslint/require-await rule extends the require-await rule
          * from ESLint core, and allows for cases where the additional typing information
          * can prevent false positives that would otherwise trigger the rule.

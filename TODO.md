@@ -1,5 +1,7 @@
 
-add graphql
+clean up the template in the @tamland/generator-tamland
+
+prefect graphql implementation
 
 generator things:
     Update the packages/generator-tamland/src/generators/app/templates/README.md

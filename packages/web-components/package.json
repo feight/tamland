@@ -1,7 +1,7 @@
 {
-  "name": "@tamland/logger",
-  "version": "0.0.20",
-  "description": "Logger for tamland tasks",
+  "name": "@tamland/web-components",
+  "version": "0.0.4",
+  "description": "A suite of components for @tamland/web",
   "main": "lib",
   "types": "lib",
   "scripts": {
@@ -9,12 +9,13 @@
     "prepublishOnly": "bash ../../shared/scripts/publish.sh",
     "test": "bash ../../shared/scripts/test.sh"
   },
+  "browserslist": "node 8",
   "engines": {
-    "node": ">= 10"
+    "node": ">= 8"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/feight/tamland"
+    "url": "git+https://github.com/feight/tamland.git"
   },
   "author": "News Team (https://www.newsteam.co.za)",
   "contributors": [
@@ -30,31 +31,18 @@
   "bugs": {
     "url": "https://github.com/feight/tamland/issues"
   },
-  "keywords": [
-    "tamland",
-    "@tamland"
-  ],
-  "homepage": "https://github.com/feight/tamland/tree/master/packages/logger#readme",
+  "homepage": "https://github.com/feight/tamland/tree/master/packages/web-components#readme",
   "files": [
     "lib"
   ],
   "dependencies": {
-    "@types/strip-color": "^0.1.0",
-    "@types/text-table": "^0.2.1",
-    "chalk": "^2.4.2",
-    "codeframe": "^0.0.1",
-    "get-cursor-position": "^1.0.5",
-    "justify-text": "^1.0.1",
-    "node-pty": "^0.8.1",
-    "strip-ansi": "^5.2.0",
-    "strip-color": "^0.1.0",
-    "text-table": "^0.2.0"
+    "@ionaru/romanize": "^1.1.0",
+    "react": "^16.9.0"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.13",
-    "@tamland/eslint": "^0.0.31",
+    "@tamland/babel": "0.0.13",
     "@types/jasmine": "^3.4.0",
-    "@types/node": "^12.7.4",
+    "@types/react-dom": "^16.9.0",
     "jasmine": "^3.4.0",
     "renamer": "^1.1.3"
   }

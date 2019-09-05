@@ -1,6 +1,6 @@
 {
   "name": "@tamland/eslint-config",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "description": "Shared config for eslint",
   "main": "lib/configs",
   "types": "lib/configs",
@@ -47,12 +47,12 @@
     "confusing-browser-globals": "^1.0.8"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.12",
+    "@tamland/babel": "^0.0.13",
     "@types/eslint": "^6.1.1",
     "@types/jasmine": "^3.4.0",
-    "@types/node": "^12.7.3",
-    "@typescript-eslint/eslint-plugin": "2.0.0",
-    "@typescript-eslint/parser": "2.0.0",
+    "@types/node": "^12.7.4",
+    "@typescript-eslint/eslint-plugin": "2.1.0",
+    "@typescript-eslint/parser": "2.1.0",
     "eslint": "^5.16.0",
     "eslint-find-rules": "^3.4.0",
     "eslint-plugin-array-func": "^3.1.3",
@@ -82,15 +82,15 @@
     "eslint-plugin-sort-keys-fix": "^1.0.1",
     "eslint-plugin-unicorn": "^10.0.0",
     "eslint-plugin-webassembly": "^1.8.5",
-    "eslint-plugin-you-dont-need-lodash-underscore": "^6.6.0",
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.7.0",
     "eslint-plugin-you-dont-need-momentjs": "^1.5.0",
     "jasmine": "^3.4.0",
     "renamer": "^1.1.3",
     "typescript": "^3.6.2"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "2.0.0",
-    "@typescript-eslint/parser": "2.0.0",
+    "@typescript-eslint/eslint-plugin": "2.1.0",
+    "@typescript-eslint/parser": "2.1.0",
     "eslint": "^6.3.0",
     "eslint-plugin-array-func": "^3.1.3",
     "eslint-plugin-async-await": "^0.0.0",
@@ -119,7 +119,7 @@
     "eslint-plugin-sort-keys-fix": "^1.0.1",
     "eslint-plugin-unicorn": "^10.0.0",
     "eslint-plugin-webassembly": "^1.8.5",
-    "eslint-plugin-you-dont-need-lodash-underscore": "^6.6.0",
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.7.0",
     "eslint-plugin-you-dont-need-momentjs": "^1.5.0",
     "typescript": "^3.6.2"
   }

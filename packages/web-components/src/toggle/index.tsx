@@ -9,7 +9,7 @@ interface ToggleProps{
 }
 
 
-export class Toggle extends React.Component<ToggleProps, {}>{
+export class Toggle extends React.Component<ToggleProps>{
 
     public constructor(props: ToggleProps){
 
@@ -29,7 +29,7 @@ export class Toggle extends React.Component<ToggleProps, {}>{
 
     }
 
-    private handleOnClick = (): void => {
+    private readonly handleOnClick = (): void => {
 
         this.props.onChange(!this.props.value);
 

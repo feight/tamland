@@ -2,7 +2,6 @@
   "extends": "@tamland",
   "rules": {
     "no-invalid-this": "off",
-    "node/no-unpublished-import": "off",
     "react/no-set-state": "off"
   }
 }

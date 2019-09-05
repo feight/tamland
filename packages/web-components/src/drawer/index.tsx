@@ -2,14 +2,16 @@
 
 import * as React from "react";
 
+import {
+    Component,
+    ComponentProps
+} from "../component";
 
-interface DrawerProps{
+
+interface DrawerProps extends ComponentProps{
     side?: "left" | "right" | "top" | "bottom";
     onChange: (open: boolean) => void;
     open?: boolean;
-    styleModule: {
-        [className: string]: string;
-    };
 }
 
 interface DrawerState{
@@ -29,33 +31,8 @@ const config = {
     closeRatio: 5
 };
 
-const supportsPassiveEventListeners = ((): boolean => {
 
-    let supports = false;
-
-    try{
-
-        const options = Object.defineProperty({}, "passive", {
-            get(): boolean{
-
-                supports = true;
-
-                return supports;
-
-            }
-        });
-
-        window.addEventListener("testPassive", (): boolean => true, options);
-        window.removeEventListener("testPassive", (): boolean => true, options);
-
-    }catch(error){}
-
-    return supports;
-
-})();
-
-
-export class Drawer extends React.Component<DrawerProps, DrawerState>{
+export class Drawer extends Component<DrawerProps, DrawerState>{
 
     private readonly baseRef: React.RefObject<HTMLDivElement>;
 
@@ -97,11 +74,10 @@ export class Drawer extends React.Component<DrawerProps, DrawerState>{
     public render(): React.ReactNode{
 
         this.updateTouchMoveBlock();
-        const style = this.props.styleModule;
 
         const classes = [
-            style.drawer,
-            this.props.open ? style.open : "",
+            this.props.classes.drawer,
+            this.props.open ? this.props.classes.open : "",
             this.getSideClass()
         ].filter(Boolean)
         .join(" ");
@@ -111,9 +87,9 @@ export class Drawer extends React.Component<DrawerProps, DrawerState>{
                 className={ classes }
                 ref={ this.baseRef }
             >
-                <div className={ style.wrap } ref={ this.wrapRef }>
-                    <div className={ style.contentWrap }>
-                        <div className={ style.content }>
+                <div className={ this.props.classes.wrap } ref={ this.wrapRef }>
+                    <div className={ this.props.classes.contentWrap }>
+                        <div className={ this.props.classes.content }>
                             { this.props.children }
                         </div>
                     </div>
@@ -131,8 +107,8 @@ export class Drawer extends React.Component<DrawerProps, DrawerState>{
 
         if(wrap){
 
-            wrap.addEventListener("touchstart", this.handleOnTouchStart, supportsPassiveEventListeners ? { passive: true } : false);
-            wrap.addEventListener("touchmove", this.handleOnTouchMove, supportsPassiveEventListeners ? { passive: true } : false);
+            wrap.addEventListener("touchstart", this.handleOnTouchStart, this.features.passiveEventListeners ? { passive: true } : false);
+            wrap.addEventListener("touchmove", this.handleOnTouchMove, this.features.passiveEventListeners ? { passive: true } : false);
             wrap.addEventListener("touchend", this.handleOnTouchEnd);
             wrap.addEventListener("click", this.block);
 
@@ -238,19 +214,19 @@ export class Drawer extends React.Component<DrawerProps, DrawerState>{
 
             case "left" :
 
-                return this.props.styleModule.sideLeft;
+                return this.props.classes.sideLeft;
 
             case "right" :
 
-                return this.props.styleModule.sideRight;
+                return this.props.classes.sideRight;
 
             case "bottom" :
 
-                return this.props.styleModule.sideBottom;
+                return this.props.classes.sideBottom;
 
             case "top" :
 
-                return this.props.styleModule.sideTop;
+                return this.props.classes.sideTop;
 
             default :
 
@@ -364,12 +340,6 @@ export class Drawer extends React.Component<DrawerProps, DrawerState>{
         const wrap = this.wrapRef.current;
 
         if(wrap){
-
-            /*
-             * If(this.base.getAttribute("open") === null){
-             * return;
-             * }
-             */
 
             if(this.state.horizontal){
 

@@ -443,6 +443,13 @@ export default {
         "@typescript-eslint/promise-function-async": "off",
 
         /*
+         * Enforce the consistent use of either backticks, double, or single quotes
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
+         */
+        "@typescript-eslint/quotes": "error",
+
+        /*
          * Enforce giving compare argument to Array#sort
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/require-array-sort-compare.md

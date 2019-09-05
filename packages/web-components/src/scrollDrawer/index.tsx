@@ -2,33 +2,10 @@
 
 import * as React from "react";
 
-import style from "./index.module.scss";
-
-
-const supportsPassiveEventListeners = ((): boolean => {
-
-    let supports = false;
-
-    try{
-
-        const options = Object.defineProperty({}, "passive", {
-            get(): boolean{
-
-                supports = true;
-
-                return supports;
-
-            }
-        });
-
-        window.addEventListener("testPassive", (): boolean => true, options);
-        window.removeEventListener("testPassive", (): boolean => true, options);
-
-    }catch(error){}
-
-    return supports;
-
-})();
+import {
+    Component,
+    ComponentProps
+} from "../component";
 
 
 interface ScrollDrawerState{
@@ -50,7 +27,7 @@ export interface ScrollDrawerChangeState{
 }
 
 
-export interface ScrollDrawerProps{
+export interface ScrollDrawerProps extends ComponentProps{
     force: number;
     offsetRatio: number;
     onChange: (state: ScrollDrawerChangeState) => void;
@@ -71,7 +48,7 @@ export const getScrollTop = function(): number{
 };
 
 
-export class ScrollDrawer extends React.Component<ScrollDrawerProps, ScrollDrawerState>{
+export class ScrollDrawer extends Component<ScrollDrawerProps, ScrollDrawerState>{
 
     public static defaultProps = {
         force: 60,
@@ -79,7 +56,7 @@ export class ScrollDrawer extends React.Component<ScrollDrawerProps, ScrollDrawe
         tollerance: 50
     };
 
-    private timeouts = {
+    private readonly timeouts = {
         clear: 0
     };
 
@@ -120,7 +97,7 @@ export class ScrollDrawer extends React.Component<ScrollDrawerProps, ScrollDrawe
 
             this.onScroll();
 
-        }, supportsPassiveEventListeners ? { passive: true } : false);
+        }, this.features.passiveEventListeners ? { passive: true } : false);
 
         this.props.onChange({
             hidden: this.state.hidden,
@@ -143,9 +120,9 @@ export class ScrollDrawer extends React.Component<ScrollDrawerProps, ScrollDrawe
     public render(): React.ReactNode{
 
         const classes = [
-            style.scrollDrawer,
-            this.state.hidden ? style.hidden : "",
-            this.state.top ? style.top : ""
+            this.props.classes.scrollDrawer,
+            this.state.hidden ? this.props.classes.hidden : "",
+            this.state.top ? this.props.classes.top : ""
         ]
         .filter(Boolean)
         .join(" ");

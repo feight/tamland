@@ -15,7 +15,7 @@ import {
 import * as gulpUtils from "../../../utils/gulp";
 
 
-export const lintCSSTask = async function(
+export const lintCSSTask = function(
     paths: string[],
     watching: boolean
 ): Promise<void>{
