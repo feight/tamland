@@ -3,7 +3,6 @@
 import path from "path";
 
 import { IHelmetContentSecurityPolicyConfiguration } from "helmet";
-import { ComponentClass } from "react";
 import { ApolloServerExpressConfig } from "apollo-server-express";
 
 import { JWTConfiguration } from "./middleware/jwt/types";
@@ -13,6 +12,7 @@ import {
 } from "./routers/manifest";
 import { StaticFile } from "./routers/static";
 
+import { Application } from "../components/application";
 import {
     TamlandAppConfig,
     TamlandAppConfigInterface
@@ -36,7 +36,7 @@ export interface TamlandServerOptionsInterface {
      * The React app component that will be rendered as the App
      *
      */
-    App: ComponentClass;
+    App: typeof Application;
 
     /**
      * Optional.
@@ -149,7 +149,7 @@ export class TamlandServerOptions{
 
     public apollo?: ApolloServerExpressConfig;
 
-    public App: React.ComponentClass;
+    public App: typeof Application;
 
     public cacheExpiration: string | number;
 

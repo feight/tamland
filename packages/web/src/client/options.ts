@@ -1,7 +1,6 @@
 
 
-import { ComponentClass } from "react";
-
+import { Application } from "../components/application";
 import {
     TamlandAppConfig,
     TamlandAppConfigInterface
@@ -16,7 +15,7 @@ export interface TamlandClientOptionsInterface {
      * The React app component that will be rendered as the App
      *
      */
-    App: ComponentClass;
+    App: typeof Application;
 
     /**
      * Required.
@@ -30,7 +29,7 @@ export interface TamlandClientOptionsInterface {
 
 export class TamlandClientOptions{
 
-    public App: ComponentClass;
+    public App: typeof Application;
 
     public config: TamlandAppConfig;
 

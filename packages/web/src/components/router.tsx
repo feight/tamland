@@ -8,7 +8,7 @@ import {
 import React from "react";
 
 
-interface TamlandRoute{
+export interface TamlandRoute{
     exact?: boolean;
     id: string;
     loading?: () => React.ReactNode;

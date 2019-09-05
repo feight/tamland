@@ -48,7 +48,10 @@ export class Client{
                 history={ this.history }
                 store={ this.store }
             >
-                <App />
+                <App
+                    loader={ this.options.config.loader }
+                    routes={ this.options.config.routes }
+                />
             </Tamland>
         );
 

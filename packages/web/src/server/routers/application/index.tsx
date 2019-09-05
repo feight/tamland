@@ -6,10 +6,7 @@ import * as React from "react";
 import express from "express";
 import compression from "compression";
 import { renderToString } from "react-dom/server";
-import {
-    matchPath,
-    RouteProps
-} from "react-router-dom";
+import { matchPath } from "react-router-dom";
 import { HelmetData } from "react-helmet";
 import { Store } from "redux";
 import { ChunkExtractor } from "@loadable/server";
@@ -17,6 +14,7 @@ import { getDataFromTree } from "@apollo/react-ssr";
 
 import { renderIcons } from "./icons";
 
+import { TamlandRoute } from "../../../components/router";
 import { TamlandAppConfig } from "../../../app/config";
 import {
     createStore,
@@ -24,6 +22,7 @@ import {
 } from "../../../store";
 import { Tamland } from "../../../app";
 import { createHistory } from "../../../history";
+import { Application } from "../../../components/application";
 import {
     apolloStateSerializationId,
     createApolloClient
@@ -46,7 +45,7 @@ const minifyHTML = function(html: string): string{
 
 };
 
-const getRouteData = async function(routes: RouteProps[], store: Store, request: express.Request): Promise<void>{
+const getRouteData = async function(routes: TamlandRoute[], store: Store, request: express.Request): Promise<void>{
 
     const actions: (() => Promise<object>) = (): Promise<object> => new Promise((resolve): void => {
         resolve({});
@@ -54,7 +53,7 @@ const getRouteData = async function(routes: RouteProps[], store: Store, request:
 
     let match = null;
 
-    routes.some((route: RouteProps): boolean => {
+    routes.some((route: TamlandRoute): boolean => {
 
         // Use `matchPath` here
         match = matchPath(request.path, {
@@ -105,7 +104,7 @@ const helmetContext: {
 
 
 export interface AppRouterConfiguration {
-    App: React.ComponentClass;
+    App: typeof Application;
     config: TamlandAppConfig;
     local: boolean;
 }
@@ -142,7 +141,7 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
 
         const apolloClient = createApolloClient(request);
 
-        const Application = (
+        const app = (
             <Tamland
                 apolloClient={ apolloClient }
                 config={ config }
@@ -151,13 +150,16 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
                 request={ request }
                 store={ store }
             >
-                <App />
+                <App
+                    loader={ config.loader }
+                    routes={ config.routes }
+                />
             </Tamland>
         );
 
-        await getDataFromTree(Application);
+        await getDataFromTree(app);
 
-        const content = renderToString(chunkExtractor.collectChunks(Application));
+        const content = renderToString(chunkExtractor.collectChunks(app));
 
         const { helmet } = helmetContext;
 
