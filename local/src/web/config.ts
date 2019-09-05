@@ -1,20 +1,19 @@
 
 
-import config from "../base/config";
-
-
-const {
-    description,
-    icons,
-    name,
-    shortName
-} = config;
+import config from "../config";
 
 
 export default {
-    description,
-    icons,
-    name,
-    shortName
+    routes: [
+        {
+            id: "home",
+            path: "/"
+        },
+        {
+            id: "pageNotFound",
+            path: "*"
+        }
+    ],
+    ...config
 };
 

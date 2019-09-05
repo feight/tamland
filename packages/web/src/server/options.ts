@@ -13,7 +13,6 @@ import {
 } from "./routers/manifest";
 import { StaticFile } from "./routers/static";
 
-import { Route } from "../components/route";
 import {
     TamlandAppConfig,
     TamlandAppConfigInterface
@@ -132,8 +131,9 @@ export interface TamlandServerOptionsInterface {
      * https://developers.google.com/web/fundamentals/web-app-manifest/
      */
     manifest?: ManifestConfiguration;
-    routes: Route[];
+
     staticFiles?: StaticFile[];
+
     staticFolder?: string;
 
     /**
@@ -172,8 +172,6 @@ export class TamlandServerOptions{
 
     public manifest: ManifestConfiguration;
 
-    public routes: Route[];
-
     public staticFiles: StaticFile[];
 
     public staticFolder: string;
@@ -211,7 +209,6 @@ export class TamlandServerOptions{
             themeColor: this.config.themeColor,
             ...options.manifest || {}
         };
-        this.routes = options.routes;
         this.staticFiles = options.staticFiles || [];
         this.staticFolder = options.staticFolder || "static";
         this.xPoweredBy = options.xPoweredBy || "https://www.youtube.com/watch?v=e_DqV1xdf-Y";

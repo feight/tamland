@@ -4,7 +4,6 @@ import { Server } from "@tamland/web/lib/server";
 
 import { App } from "../app";
 import config from "../config";
-import { routes } from "../routes";
 
 
 const server = new Server({
@@ -13,8 +12,7 @@ const server = new Server({
     hostname: process.env.hostname,
     jwt: {
         secret: "ndB2N7l2sqSpvRNJBXtNdmKfvj6up1VN"
-    },
-    routes
+    }
 });
 
 server.start();

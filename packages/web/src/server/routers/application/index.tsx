@@ -6,16 +6,18 @@ import * as React from "react";
 import express from "express";
 import compression from "compression";
 import { renderToString } from "react-dom/server";
-import { matchPath } from "react-router-dom";
+import {
+    matchPath,
+    RouteProps
+} from "react-router-dom";
 import { HelmetData } from "react-helmet";
 import { Store } from "redux";
 import { ChunkExtractor } from "@loadable/server";
 import { getDataFromTree } from "@apollo/react-ssr";
 
 import { renderIcons } from "./icons";
-import { AppRouterConfiguration } from "./types";
 
-import { Route as PageRoute } from "../../../components/route";
+import { TamlandAppConfig } from "../../../app/config";
 import {
     createStore,
     reduxStateSerializationId
@@ -44,7 +46,7 @@ const minifyHTML = function(html: string): string{
 
 };
 
-const getRouteData = async function(routes: PageRoute[], store: Store, request: express.Request): Promise<void>{
+const getRouteData = async function(routes: RouteProps[], store: Store, request: express.Request): Promise<void>{
 
     const actions: (() => Promise<object>) = (): Promise<object> => new Promise((resolve): void => {
         resolve({});
@@ -52,7 +54,7 @@ const getRouteData = async function(routes: PageRoute[], store: Store, request: 
 
     let match = null;
 
-    routes.some((route: PageRoute): boolean => {
+    routes.some((route: RouteProps): boolean => {
 
         // Use `matchPath` here
         match = matchPath(request.path, {
@@ -102,13 +104,18 @@ const helmetContext: {
 } = {};
 
 
+export interface AppRouterConfiguration {
+    App: React.ComponentClass;
+    config: TamlandAppConfig;
+    local: boolean;
+}
+
 // eslint-disable-next-line max-lines-per-function
 export const applicationRouter = (routerConfig: AppRouterConfiguration): express.Router => {
 
     const {
         App,
-        config,
-        routes
+        config
     } = routerConfig;
 
     // Force exact matches on paths
@@ -129,7 +136,7 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
             "index"
         ]);
 
-        await getRouteData(routes, store, request);
+        await getRouteData(config.routes, store, request);
 
         const reduxState = store.getState();
 

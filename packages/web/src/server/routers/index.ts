@@ -31,15 +31,13 @@ export class TamlandServerRouters{
 
         const {
             App,
-            config,
-            routes
+            config
         } = this.options;
 
         this.app.use(applicationRouter({
             App,
             config,
-            local,
-            routes
+            local
         }));
 
     }

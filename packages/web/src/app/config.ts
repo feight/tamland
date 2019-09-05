@@ -1,5 +1,8 @@
 
 
+import { RouteProps } from "react-router-dom";
+
+
 export interface TamlandAppConfigInterface{
     backgroundColor?: string;
     description?: string;
@@ -9,6 +12,7 @@ export interface TamlandAppConfigInterface{
     }[];
     language?: string;
     name?: string;
+    routes: RouteProps[];
     shortName?: string;
     themeColor?: string;
     tileColor?: string;
@@ -30,6 +34,8 @@ export class TamlandAppConfig{
 
     public name: string;
 
+    public routes: RouteProps[];
+
     public shortName: string;
 
     public themeColor: string;
@@ -48,6 +54,7 @@ export class TamlandAppConfig{
         }];
         this.language = config.language || "en";
         this.name = config.name || "Tamland application";
+        this.routes = config.routes;
         this.shortName = config.shortName || "Tamland app";
         this.themeColor = config.themeColor || "#fff";
         this.tileColor = config.tileColor || "#fff";
