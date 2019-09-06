@@ -28,10 +28,7 @@ export class App extends Application{
                 </Helmet>
                 <Nav />
                 <div className={ style.page }>
-                    <Router
-                        loader={ this.props.loader }
-                        routes={ this.props.routes }
-                    />
+                    <Router { ...this.props.router } />
                 </div>
                 <Footer />
             </div>

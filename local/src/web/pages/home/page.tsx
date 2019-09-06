@@ -7,13 +7,8 @@ import {
     useQuery
 } from "@tamland/web";
 
-import { Contact } from "./components/contact";
-import { Features } from "./components/features";
-import { Publications } from "./components/publications";
-import { Splash } from "./components/splash";
 
-
-const ExchangeRates: React.FunctionComponent = () => {
+const HelloWorld: React.FunctionComponent = () => {
 
     const {
         data,
@@ -62,15 +57,9 @@ export default class HomePage extends Page{
         return (
             <div>
 
-                <Splash />
+                { "home page" }
 
-                <ExchangeRates />
-
-                <Publications />
-
-                <Features />
-
-                <Contact />
+                <HelloWorld />
 
             </div>
         );

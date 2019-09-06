@@ -1,6 +1,6 @@
 
 
-import icons from "./icons";
+import icons from "./base/icons";
 
 
 export default {

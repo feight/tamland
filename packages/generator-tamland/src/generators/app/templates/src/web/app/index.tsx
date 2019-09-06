@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import {
+    Application,
     Helmet,
     Router
 } from "@tamland/web";
@@ -10,12 +11,10 @@ import { Footer } from "./footer";
 import { Nav } from "./nav";
 import style from "./index.module.scss";
 
-import { routes } from "../routes";
-
 import "./index.scss";
 
 
-export class App extends React.PureComponent{
+export class App extends Application{
 
     public render(): React.ReactNode{
 
@@ -23,13 +22,14 @@ export class App extends React.PureComponent{
             <div className={ style.app }>
                 <Helmet>
                     <title>
-                        { "<%= name %>" }
+                        { "News Team" }
                     </title>
-                    <meta content="<%= name %> - <%= description %>" name="description" />
+                    <meta content="Newsteam.io - News tools that scale" name="description" />
                 </Helmet>
                 <Nav />
                 <div className={ style.page }>
-                    <Router routes={ routes } />
+                    { /* eslint-disable-next-line react/jsx-props-no-spreading */ }
+                    <Router { ...this.props.router } />
                 </div>
                 <Footer />
             </div>

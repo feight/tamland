@@ -2,19 +2,20 @@
 
 import * as React from "react";
 import { Link } from "@tamland/web";
-
-import style from "./index.module.scss";
-import drawerStyle from "./drawer.module.scss";
-import { Hamburger } from "./hamburger";
-
-import { Logo } from "../logo/newsteam";
-import { Toggle } from "../../components/toggle";
-import { Drawer } from "../../components/drawer";
+import { Drawer } from "@tamland/web-components/lib/drawer";
+import { Toggle } from "@tamland/web-components/lib/toggle";
 import {
     getScrollTop,
     ScrollDrawer,
     ScrollDrawerChangeState
-} from "../../components/scrollDrawer";
+} from "@tamland/web-components/lib/scrollDrawer";
+
+import style from "./index.module.scss";
+import drawerClasses from "./drawer.module.scss";
+import scrollDrawerClasses from "./scrollDrawer.module.scss";
+import { Hamburger } from "./hamburger";
+
+import { Logo } from "../logo/newsteam";
 
 
 interface NavState{
@@ -60,6 +61,7 @@ export class Nav extends React.Component<{}, NavState>{
         return (
             <div>
                 <ScrollDrawer
+                    classes={ scrollDrawerClasses }
                     force={ 100 }
                     onChange={ this.handleScrollDrawerOnChange }
                 >
@@ -81,10 +83,10 @@ export class Nav extends React.Component<{}, NavState>{
                     </div>
                 </ScrollDrawer>
                 <Drawer
+                    classes={ drawerClasses }
                     onChange={ this.handleDrawerOnChange }
                     open={ drawerOpen }
                     side="right"
-                    styleModule={ drawerStyle }
                 >
                     <p>
                         { "things in my drawer" }

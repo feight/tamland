@@ -3,10 +3,4 @@
 
 $drawer-background: #0f0;
 
-@import "../../components/drawer/index.module.scss";
-
-:global(body.backdropfilter) .drawer:before{
-
-    border: 1px solid #f00;
-
-}
+@import "@tamland/web-components/lib/drawer";

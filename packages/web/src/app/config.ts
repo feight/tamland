@@ -1,7 +1,6 @@
 
 
-import { PageProps } from "../components/page";
-import { TamlandRoute } from "../components/router";
+import { RouterProps } from "../components/router";
 
 
 export interface TamlandAppConfigInterface{
@@ -12,9 +11,8 @@ export interface TamlandAppConfigInterface{
         size: [number, number];
     }[];
     language?: string;
-    loader: (id: string) => () => Promise<{ default: React.ComponentType<PageProps> }>;
     name?: string;
-    routes: TamlandRoute[];
+    router: RouterProps;
     shortName?: string;
     themeColor?: string;
     tileColor?: string;
@@ -34,11 +32,10 @@ export class TamlandAppConfig{
         size: [number, number];
     }[];
 
-    public loader: (id: string) => () => Promise<{ default: React.ComponentType<PageProps> }>;
 
     public name: string;
 
-    public routes: TamlandRoute[];
+    public router: RouterProps;
 
     public shortName: string;
 
@@ -57,9 +54,8 @@ export class TamlandAppConfig{
             size: [128, 128]
         }];
         this.language = config.language || "en";
-        this.loader = config.loader;
         this.name = config.name || "Tamland application";
-        this.routes = config.routes;
+        this.router = config.router;
         this.shortName = config.shortName || "Tamland app";
         this.themeColor = config.themeColor || "#fff";
         this.tileColor = config.tileColor || "#fff";

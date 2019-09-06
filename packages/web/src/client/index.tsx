@@ -49,8 +49,7 @@ export class Client{
                 store={ this.store }
             >
                 <App
-                    loader={ this.options.config.loader }
-                    routes={ this.options.config.routes }
+                    router={ this.options.config.router }
                 />
             </Tamland>
         );

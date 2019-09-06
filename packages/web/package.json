@@ -1,6 +1,6 @@
 {
   "name": "@tamland/web",
-  "version": "0.0.56",
+  "version": "0.0.59",
   "description": "Node.js SSR application framework",
   "main": "lib",
   "types": "lib",

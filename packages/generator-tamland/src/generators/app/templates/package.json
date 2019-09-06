@@ -15,6 +15,6 @@
   },
   "version": "1.0.0",
   "devDependencies": {
-    "@tamland/cli": "^0.0.68"
+    "@tamland/cli": "^0.0.70"
   }
 }

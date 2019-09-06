@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import React from "react";
 
+import { PageProps } from "./page";
+
 
 export interface TamlandRoute{
     exact?: boolean;
@@ -17,11 +19,15 @@ export interface TamlandRoute{
     strict?: boolean;
 }
 
+export interface RouterProps{
+    import: (id: string) => () => Promise<{ default: React.ComponentType<PageProps> }>;
+    routes: TamlandRoute[];
+}
+
 
 const render = function(
     route: TamlandRoute,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    loader: (id: string) => () => Promise<{ default: React.ComponentType<any> }>
+    loadableImport: RouterProps["import"]
 ): React.ReactNode{
 
     const {
@@ -49,7 +55,7 @@ const render = function(
                 ({ match }): React.ReactNode => {
 
                     const pageProps = { match };
-                    const loadableComponent = loader(id);
+                    const loadableComponent = loadableImport(id);
 
                     if(loadableComponent){
 
@@ -87,18 +93,6 @@ const render = function(
 };
 
 
-export interface RouterProps{
-    // This can be anything
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    data?: any;
-    initial?: string;
-    // This can be anything
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    loader: (id: string) => () => Promise<{ default: React.ComponentType<any> }>;
-    routes: TamlandRoute[];
-}
-
-
 // eslint-disable-next-line react/no-multi-comp
 export class Router extends React.Component<RouterProps>{
 
@@ -112,7 +106,7 @@ export class Router extends React.Component<RouterProps>{
 
         return (
             <Switch>
-                { this.props.routes.map((instance): React.ReactNode => render(instance, this.props.loader)) }
+                { this.props.routes.map((instance): React.ReactNode => render(instance, this.props.import)) }
             </Switch>
         );
 

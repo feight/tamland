@@ -135,7 +135,7 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
             "index"
         ]);
 
-        await getRouteData(config.routes, store, request);
+        await getRouteData(config.router.routes, store, request);
 
         const reduxState = store.getState();
 
@@ -151,8 +151,7 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
                 store={ store }
             >
                 <App
-                    loader={ config.loader }
-                    routes={ config.routes }
+                    router={ config.router }
                 />
             </Tamland>
         );

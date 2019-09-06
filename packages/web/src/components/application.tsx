@@ -2,13 +2,11 @@
 
 import * as React from "react";
 
-import { PageProps } from "./page";
-import { TamlandRoute } from "./router";
+import { RouterProps } from "./router";
 
 
 export interface ApplicationProps{
-    loader: (id: string) => () => Promise<{ default: React.ComponentType<PageProps> }>;
-    routes: TamlandRoute[];
+    router: RouterProps;
 }
 
 
