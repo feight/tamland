@@ -1,18 +1,17 @@
 
 
-import { Page } from "@tamland/web";
-
 import config from "../config";
 
 
 export default {
-    loader(id: string): () => Promise<{ default: React.ComponentType<Page> }>{
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    loader(id: string): () => Promise<{ default: React.ComponentType<any> }>{
 
-        // eslint-disable-next-line no-inline-comments
-        return /* #__LOADABLE__ */ (): Promise<{ default: React.ComponentType<Page> }> => import(
+        // eslint-disable-next-line no-inline-comments, @typescript-eslint/no-explicit-any
+        return /* #__LOADABLE__ */ (): Promise<{ default: React.ComponentType<any> }> => import(
 
             /* webpackChunkName: "[request]" */
-            `./routes/${ id }/page`
+            `./pages/${ id }/page`
         );
 
     },
