@@ -44,7 +44,19 @@ export default declare((
     const debug = typeof options.debug === "boolean" ? options.debug : false;
     const development = typeof options.development === "boolean" ? options.development : api.cache.using(() => process.env.NODE_ENV === "development");
     const plugins: PluginItem[] = [
-        "@babel/plugin-proposal-class-properties",
+        "babel-plugin-transform-typescript-metadata",
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                legacy: true
+            }
+        ],
+        [
+            "@babel/plugin-proposal-class-properties",
+            {
+                loose: true
+            }
+        ],
         "@babel/plugin-proposal-object-rest-spread",
         "@babel/plugin-syntax-dynamic-import",
         "@babel/plugin-transform-named-capturing-groups-regex",

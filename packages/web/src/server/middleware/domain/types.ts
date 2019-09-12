@@ -1,6 +1,6 @@
 
 
-export interface DomainConfiguration {
+export interface DomainConfiguration{
 
 
     /**

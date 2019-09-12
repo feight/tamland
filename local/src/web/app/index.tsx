@@ -28,6 +28,7 @@ export class App extends Application{
                 </Helmet>
                 <Nav />
                 <div className={ style.page }>
+                    { /* eslint-disable-next-line react/jsx-props-no-spreading */ }
                     <Router { ...this.props.router } />
                 </div>
                 <Footer />

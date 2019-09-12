@@ -11,6 +11,7 @@ import table from "text-table";
 
 const nonBreakingCharacterCode = 160;
 const nonBreakingCharacter = String.fromCharCode(nonBreakingCharacterCode);
+const cwd = process.cwd();
 
 const emojis: { [id: string]: string } = {
     anonymous: "🤔",
@@ -34,6 +35,7 @@ const colors = {
     errorLabelBgColor: "#7a170e",
     errorLabelColor: "#eeeeee",
     errorLabelColorRepeat: "#eeeeee",
+    fileColor: "#ff3bdc",
     labelBgColor: "#222222",
     labelColor: "#eeeeee",
     labelColorRepeat: "#555555",
@@ -86,7 +88,10 @@ const format = function(label: string, message = "", color?: string, error = fal
 const inLineFormat = function(line: string): string{
 
     return line
-    .replace(/(https?:\/\/[^(\s|")]*)/gu, chalk.hex(colors.urlColor)("$1"))
+    // Not really a security concern here
+    // eslint-disable-next-line security/detect-non-literal-regexp
+    .replace(new RegExp(`${ cwd.replace(/\//gu, "\\/") }\\/(.*?)(\\]|$|\\s)`, "gu"), `${ chalk.hex(colors.fileColor)("$1") }$2`)
+    .replace(/(https?:\/\/[^(\]|\s|")]*)/gu, chalk.hex(colors.urlColor)("$1"))
     .replace(/info:\s(POST|GET|PUT|PATCH|DELETE)\s(2\d\d)\s/gu, `info: $1 ${ chalk.hex(colors.status200)("$2") } `)
     .replace(/info:\s(POST|GET|PUT|PATCH|DELETE)\s(3\d\d)\s/gu, `info: $1 ${ chalk.hex(colors.status300)("$2") } `)
     .replace(/info:\s(POST|GET|PUT|PATCH|DELETE)\s(4\d\d)\s/gu, `info: $1 ${ chalk.hex(colors.status400)("$2") } `)

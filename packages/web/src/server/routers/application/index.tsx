@@ -103,7 +103,7 @@ const helmetContext: {
 } = {};
 
 
-export interface AppRouterConfiguration {
+export interface AppRouterConfiguration{
     App: typeof Application;
     config: TamlandAppConfig;
     local: boolean;

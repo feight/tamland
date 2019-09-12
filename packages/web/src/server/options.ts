@@ -3,7 +3,7 @@
 import path from "path";
 
 import { IHelmetContentSecurityPolicyConfiguration } from "helmet";
-import { ApolloServerExpressConfig } from "apollo-server-express";
+import { BuildSchemaOptions } from "type-graphql";
 
 import { JWTConfiguration } from "./middleware/jwt/types";
 import {
@@ -19,6 +19,11 @@ import {
 } from "../app/config";
 
 
+interface GraphqlServerConfiguration{
+    resolvers: BuildSchemaOptions["resolvers"];
+}
+
+
 export type ClientHint =
     "Viewport-Width" |
     "DPR" |
@@ -28,7 +33,7 @@ export type ClientHint =
     "ECT";
 
 
-export interface TamlandServerOptionsInterface {
+export interface TamlandServerOptionsInterface{
 
     /**
      * Required.
@@ -90,10 +95,9 @@ export interface TamlandServerOptionsInterface {
     /**
      * Optional.
      *
-     * GraphQL configuration.
-     *
+     * Graphql server configuration
      */
-    apollo?: ApolloServerExpressConfig;
+    graphql?: GraphqlServerConfiguration;
 
     /**
      * Required.
@@ -147,8 +151,6 @@ export interface TamlandServerOptionsInterface {
 
 export class TamlandServerOptions{
 
-    public apollo?: ApolloServerExpressConfig;
-
     public App: typeof Application;
 
     public cacheExpiration: string | number;
@@ -165,6 +167,8 @@ export class TamlandServerOptions{
     public config: TamlandAppConfig;
 
     public csp?: IHelmetContentSecurityPolicyConfiguration;
+
+    public graphql?: GraphqlServerConfiguration;
 
     public hostname?: string;
 
@@ -192,6 +196,7 @@ export class TamlandServerOptions{
         ];
         this.config = new TamlandAppConfig(options.config);
         this.csp = options.csp;
+        this.graphql = options.graphql;
         this.hostname = options.hostname;
         this.jwt = options.jwt || {};
         this.manifest = {

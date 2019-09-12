@@ -1,6 +1,6 @@
 
 
-export interface UncaughtConfiguration {
+export interface UncaughtConfiguration{
 
     /**
      * Optional.

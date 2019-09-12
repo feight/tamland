@@ -36,6 +36,13 @@ export default {
         "node/no-callback-literal": "error",
 
         /*
+         * Disallow the assignment to exports
+         *
+         * https://github.com/mysticatea/eslint-plugin-node/blob/eca48c8052728cd79d5f06f00fb5cfb03b996e14/docs/rules/no-exports-assign.md
+         */
+        "node/no-exports-assign": "error",
+
+        /*
          * Disallow import declarations of extraneous packages
          *
          * https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-extraneous-import.md

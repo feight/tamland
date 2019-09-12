@@ -6,10 +6,11 @@
     "experimentalDecorators": true,
     "jsx": "react",
     "lib": [
+      "dom",
+      "es2016",
       "es5",
       "es6",
       "es7",
-      "dom",
       "esnext.asynciterable"
     ],
     "module": "commonjs",
@@ -17,7 +18,7 @@
     "resolveJsonModule": true,
     "strict": true,
     "strictPropertyInitialization": false,
-    "target": "es5"
+    "target": "es2016"
   },
   "include": [
     "src/**/*"

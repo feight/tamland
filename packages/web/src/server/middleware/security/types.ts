@@ -3,7 +3,7 @@
 import { IHelmetContentSecurityPolicyConfiguration } from "helmet";
 
 
-export interface SecurityConfiguration {
+export interface SecurityConfiguration{
 
     /**
      * Optional.

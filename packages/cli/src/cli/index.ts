@@ -22,6 +22,7 @@ import { lintTask } from "../tasks/lint";
 import { localTask } from "../tasks/local";
 import { optimizeTask } from "../tasks/optimize";
 import { setupTask } from "../tasks/setup";
+import { tamlandTask } from "../tasks/tamland";
 
 
 // This is dodgy, but the typing of this in globals.d.ts is kinda wierd
@@ -34,57 +35,78 @@ process.on("uncaughtException", (error: Error): void => logger.error(error));
 program.version(packageJSON.version);
 
 
+const task = (fn: Promise<void>): void => {
+
+    // A floating promise is needed here since commander does accept async functions
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    (async (): Promise<void> => {
+
+        await fn;
+
+        // This has to happen because the process doesn't exit by itself for some reason
+        process.exit();
+
+    })();
+
+};
+
+
 program
 .command("build")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
-.action((options): Promise<void> => buildTask(config, {
+.action((options): void => task(buildTask(config, {
     mode: "production",
     platform: options.platform || "web"
-}));
+})));
 
 
 program
 .command("clean")
-.action((): Promise<void> => cleanTask(config));
+.action((): void => task(cleanTask(config)));
+
+
+program
+.command("tamland")
+.action((): void => task(tamlandTask(config)));
 
 
 program
 .command("deploy")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
-.action((options): Promise<void> => deployTask(config, {
+.action((options): void => task(deployTask(config, {
     mode: "production",
     platform: options.platform || "web"
-}));
+})));
 
 
 program
 .command("lint")
 .option("-w, --watch", "Watch the lint")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
-.action((options): Promise<void> => lintTask(config, {
+.action((options): void => task(lintTask(config, {
     watch: options.watch || false
-}));
+})));
 
 
 program
 .command("local")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
 .option("--production", "run the local server as close to production as possible (defaults to false)")
-.action((options): Promise<void> => localTask(config, {
+.action((options): void => task(localTask(config, {
     mode: options.production ? "production" : "development",
     platform: options.platform || "web",
     watch: !options.production
-}));
+})));
 
 
 program
 .command("optimize")
-.action((): Promise<void> => optimizeTask(config));
+.action((): void => task(optimizeTask(config)));
 
 
 program
 .command("setup")
-.action((): Promise<void> => setupTask(config));
+.action((): void => task(setupTask(config)));
 
 
 program

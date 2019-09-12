@@ -5,7 +5,7 @@ import express from "express";
 import { TamlandAppConfig } from "../../../app/config";
 
 
-export interface BrowserconfigConfiguration {
+export interface BrowserconfigConfiguration{
     icons: TamlandAppConfig["icons"];
     tileColor: TamlandAppConfig["tileColor"];
 }

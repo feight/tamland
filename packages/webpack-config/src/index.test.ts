@@ -10,7 +10,7 @@ describe("config", () => {
 
     it("config.env.browser === true", () => {
 
-        const config = configure()({});
+        const config = configure()({}, {});
 
         expect(config.entry).toBeDefined();
 

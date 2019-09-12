@@ -57,14 +57,19 @@ export class TamlandServerRouters{
 
     }
 
-    public graphql(): void{
+    public async graphql(): Promise<void>{
 
-        const server = createApolloServer(this.options.apollo);
+        if(this.options.graphql){
 
-        server.applyMiddleware({
-            app: this.app,
-            path: "/graphql/"
-        });
+            const resolvers = this.options.graphql.resolvers;
+            const server = await createApolloServer(resolvers);
+
+            server.applyMiddleware({
+                app: this.app,
+                path: "/graphql/"
+            });
+
+        }
 
     }
 

@@ -51,6 +51,13 @@ export default {
         "@typescript-eslint/ban-types": "error",
 
         /*
+         * Enforce consistent brace style for blocks
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md
+         */
+        "@typescript-eslint/brace-style": "error",
+
+        /*
          * Enforce camelCase naming convention
          *
          * This is off for now because it's handled by the base elsint/camelcase

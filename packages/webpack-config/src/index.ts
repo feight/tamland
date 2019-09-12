@@ -11,14 +11,14 @@ import {
 import config from "./config";
 
 
-export interface ConfigurationOptions {
+export interface ConfigurationOptions{
     bundleAnalyzerPort?: number;
     staticFolder?: string;
     watch?: boolean;
 }
 
 
-export interface Environment {
+export interface Environment{
     cwd?: string;
     hostname?: string;
     mode?: Mode;
@@ -28,14 +28,15 @@ export interface Environment {
 }
 
 
-export interface Optimizations {
+export interface Optimizations{
     brotli: boolean;
+    preact: boolean;
     gzip: boolean;
     webp: boolean;
 }
 
 
-export interface Options {
+export interface Options{
     bundleAnalyzerPort: number;
     cwd: string;
     hostname?: string;
@@ -47,13 +48,23 @@ export interface Options {
     watch: boolean;
 }
 
+export interface Args{
+    mode?: Mode;
+}
+
 
 export default function configure(
     webpackConfig: Configuration = {},
     webpackOptions: ConfigurationOptions = {}
-): (environment: Environment) => Configuration{
+): (
+    environment: Environment,
+    args: Args
+) => Configuration{
 
-    return (environment: Environment = {}): Configuration => {
+    return (
+        environment: Environment = {},
+        args: Args
+    ): Configuration => {
 
         const optionsDefaults: Options = {
             bundleAnalyzerPort: 3001,
@@ -72,7 +83,12 @@ export default function configure(
                  * header is stripped
                  */
                 gzip: false,
-                webp: environment.mode !== "production"
+
+                /*
+                 * Can't get this to work quite right
+                 */
+                preact: false,
+                webp: args.mode !== "production"
             },
             platform: "web",
             staticFolder: "static",
@@ -84,7 +100,7 @@ export default function configure(
             bundleAnalyzerPort: webpackOptions.bundleAnalyzerPort,
             cwd: environment.cwd || optionsDefaults.cwd,
             hostname: environment.hostname,
-            mode: environment.mode || optionsDefaults.mode,
+            mode: args.mode || optionsDefaults.mode,
             platform: environment.platform || optionsDefaults.platform,
             staticFolder: webpackOptions.staticFolder || optionsDefaults.staticFolder,
             target: environment.target || optionsDefaults.target,

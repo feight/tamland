@@ -152,6 +152,7 @@ export default {
                     "@babel/register",
                     "core-js/stable",
                     "jasmine",
+                    "reflect-metadata",
                     "regenerator-runtime/runtime",
                     "**/*.scss",
                     "**/*.css"

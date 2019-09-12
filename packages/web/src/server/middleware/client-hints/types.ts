@@ -3,7 +3,7 @@
 import { TamlandServerOptionsInterface } from "../../options";
 
 
-export interface ClientHintsConfiguration {
+export interface ClientHintsConfiguration{
 
     /**
      * Optional.

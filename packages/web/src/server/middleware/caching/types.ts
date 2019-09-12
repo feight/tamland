@@ -1,6 +1,6 @@
 
 
-export interface CachingConfiguration {
+export interface CachingConfiguration{
 
     /**
      * Optional.

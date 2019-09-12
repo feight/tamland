@@ -1,6 +1,6 @@
 
 
-export interface JWTConfiguration {
+export interface JWTConfiguration{
 
     /**
      * Optional.

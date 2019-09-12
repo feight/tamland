@@ -1,35 +1,17 @@
 
 
+import { ApolloServer } from "apollo-server-express";
 import {
-    ApolloServer,
-    ApolloServerExpressConfig
-} from "apollo-server-express";
-import { DocumentNode } from "graphql";
-import { gql } from "apollo-server";
+    buildSchema,
+    BuildSchemaOptions
+} from "type-graphql";
 
 
-export const createApolloServer = function(config?: ApolloServerExpressConfig): ApolloServer{
+export const createApolloServer = async function(
+    resolvers: BuildSchemaOptions["resolvers"]
+): Promise<ApolloServer>{
 
-    let typeDefs: DocumentNode[] | string[] = [
-        gql`
-            type Query {
-                "A simple type for getting started!"
-                hello: String
-            }
-        `
-    ];
-
-    const resolvers = {
-        Query: {
-            hello: (): string => "world"
-        }
-    };
-
-    if(config && config.typeDefs){
-
-        typeDefs = typeDefs.concat(Array.isArray(config.typeDefs) ? config.typeDefs as DocumentNode[] : [config.typeDefs as DocumentNode]);
-
-    }
+    const schema = await buildSchema({ resolvers });
 
     return new ApolloServer({
         playground: {
@@ -37,12 +19,7 @@ export const createApolloServer = function(config?: ApolloServerExpressConfig): 
                 "editor.theme": "light"
             }
         },
-        resolvers: {
-            ...config && config.resolvers ? config.resolvers : {},
-            ...resolvers
-        },
-        typeDefs,
-        ...config
+        schema
     });
 
 };

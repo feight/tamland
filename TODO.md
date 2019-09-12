@@ -1,7 +1,9 @@
 
-clean up the template in the @tamland/generator-tamland
-
 prefect graphql implementation
+
+finish transitioning to preact
+    - https://www.npmjs.com/package/babel-preset-preact
+    - add an environment variable to allow for dynamic switching between the two
 
 generator things:
     Update the packages/generator-tamland/src/generators/app/templates/README.md

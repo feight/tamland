@@ -3,13 +3,13 @@
 import express from "express";
 
 
-export interface ManifestConfigurationIcon {
+export interface ManifestConfigurationIcon{
     sizes: string;
     src: string;
     type: string;
 }
 
-export interface ManifestConfiguration {
+export interface ManifestConfiguration{
     backgroundColor: string;
     description: string;
     display: string;

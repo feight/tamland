@@ -31,10 +31,9 @@ const log = (
     label1: string,
     label2: string
 ): (
-    error: Error,
-    stats: webpack.Stats,
-    configFile: string
-) => void => (error, stats, configFile: string): void => {
+    error?: Error,
+    stats?: webpack.Stats
+) => void => (error, stats): void => {
 
     const options = {
         label: label1
@@ -48,11 +47,17 @@ const log = (
 
     }else{
 
-        logger.log(`${ label2 } ${ configFile }`, options);
+        if(stats){
 
-        logger.log("", options);
+            logger.log("", options);
 
-        logger.log(stats.toString(statsOptions), options);
+            logger.log(stats.toString(statsOptions), options);
+
+            logger.log("", options);
+
+        }
+
+        logger.log(`${ label2 }`, options);
 
         logger.log("", options);
 
@@ -93,10 +98,11 @@ export const webpackTask = async function(config: TamlandConfig, options: Webpac
         // eslint-disable-next-line import/no-dynamic-require, security/detect-non-literal-require, global-require, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
         const webpackConfig = require(webpackConfigFile)({
             hostname,
-            mode,
             platform,
             target,
             watch
+        }, {
+            mode
         });
 
         const compiler = webpack(webpackConfig);
@@ -112,7 +118,6 @@ export const webpackTask = async function(config: TamlandConfig, options: Webpac
                         "webpack-dev-server",
                         `--mode=${ mode }`,
                         `--env.hostname=${ hostname }`,
-                        `--env.mode=${ mode }`,
                         `--env.watch=${ watch }`,
                         `--env.platform=${ platform }`,
                         `--env.target=${ target }`
@@ -131,7 +136,7 @@ export const webpackTask = async function(config: TamlandConfig, options: Webpac
                 },
                 (error, stats): void => {
 
-                    log(label, "Watching")(error, stats, webpackConfigFile);
+                    log(label, `Watching ${ webpackConfigFile } ${ target }`)(error, stats);
 
                     logger.log("");
 
@@ -141,9 +146,13 @@ export const webpackTask = async function(config: TamlandConfig, options: Webpac
 
         }else{
 
+            logger.log(`Building ${ webpackConfigFile } ${ target }`, {
+                label
+            });
+
             compiler.run((error, stats): void => {
 
-                log(label, "Running")(error, stats, webpackConfigFile);
+                log(label, `Completed ${ webpackConfigFile } ${ target }`)(error, stats);
 
                 resolve();
 

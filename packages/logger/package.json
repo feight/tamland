@@ -1,6 +1,6 @@
 {
   "name": "@tamland/logger",
-  "version": "0.0.20",
+  "version": "0.0.24",
   "description": "Logger for tamland tasks",
   "main": "lib",
   "types": "lib",
@@ -51,10 +51,10 @@
     "text-table": "^0.2.0"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.13",
-    "@tamland/eslint": "^0.0.31",
+    "@tamland/babel": "^0.0.17",
+    "@tamland/eslint": "^0.0.32",
     "@types/jasmine": "^3.4.0",
-    "@types/node": "^12.7.4",
+    "@types/node": "^12.7.5",
     "jasmine": "^3.4.0",
     "renamer": "^1.1.3"
   }

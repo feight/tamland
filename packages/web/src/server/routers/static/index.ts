@@ -14,14 +14,14 @@ import proxy from "express-http-proxy";
 import { webp } from "./webp";
 
 
-export interface StaticFile {
+export interface StaticFile{
     cacheExpiration?: string | number;
     etag?: boolean;
     path: string;
     source: string;
 }
 
-export interface StaticRouter {
+export interface StaticRouter{
     app: express.Express;
     cacheExpiration?: string | number;
     cwd?: string;

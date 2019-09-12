@@ -7,7 +7,7 @@ import {
 } from "../app/config";
 
 
-export interface TamlandClientOptionsInterface {
+export interface TamlandClientOptionsInterface{
 
     /**
      * Required.

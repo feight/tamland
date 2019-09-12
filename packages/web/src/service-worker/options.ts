@@ -1,6 +1,6 @@
 
 
-export interface TamlandServiceWorkerOptionsInterface {
+export interface TamlandServiceWorkerOptionsInterface{
 
     /**
      * Optional.

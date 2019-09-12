@@ -13,6 +13,11 @@ const config: Linter.Config = {
     rules: {
 
         /*
+         * Overridden by @typescript-eslint/brace-style
+         */
+        "brace-style": "off",
+
+        /*
          * Typescript needs unitialed declarations when variables have a type
          * that can be undefined
          */

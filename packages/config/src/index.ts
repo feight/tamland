@@ -82,7 +82,7 @@ export interface BuildOptions{
 export type BuildHook = (config: TamlandConfig, options: BuildOptions, logger: Logger) => Promise<void>;
 
 
-export interface TamlandConfig {
+export interface TamlandConfig{
     cwd: string;
     firestore: {
         host: string;

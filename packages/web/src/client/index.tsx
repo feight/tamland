@@ -56,7 +56,7 @@ export class Client{
 
         loadableReady((): void => {
 
-            ReactDOM.hydrate(app, document.querySelector("#app"));
+            ReactDOM.render(app, document.querySelector("#app"));
 
         }).catch((error: Error): void => {
 

@@ -49,6 +49,8 @@ const HelloWorld: React.FunctionComponent = () => {
 
 };
 
+console.log(HelloWorld);
+
 
 export default class HomePage extends Page{
 
@@ -58,8 +60,6 @@ export default class HomePage extends Page{
             <div>
 
                 { "home page" }
-
-                <HelloWorld />
 
             </div>
         );
