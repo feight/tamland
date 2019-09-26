@@ -164,6 +164,13 @@ export default {
         "no-func-assign": "error",
 
         /*
+         * Disallow assigning to imported bindings
+         *
+         * https://eslint.org/docs/rules/no-import-assign
+         */
+        // "no-import-assign": "error",
+
+        /*
          * Disallow variable or function declarations in nested blocks
          *
          * https://eslint.org/docs/rules/no-inner-declarations

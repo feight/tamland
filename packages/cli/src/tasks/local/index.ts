@@ -11,7 +11,6 @@ import { localMemcachedTask } from "./memcached";
 import { localServerTask } from "./server";
 
 import { openTask } from "../open";
-import { tamlandTask } from "../tamland";
 import { buildTask } from "../build";
 
 
@@ -23,8 +22,6 @@ export interface LocalTaskOptions{
 
 
 export const localTask = async function(config: TamlandConfig, options: LocalTaskOptions): Promise<void>{
-
-    await tamlandTask(config);
 
     await Promise.all([
         localFirestoreTask(config),

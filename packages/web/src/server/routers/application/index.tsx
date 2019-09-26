@@ -6,15 +6,12 @@ import * as React from "react";
 import express from "express";
 import compression from "compression";
 import { renderToString } from "react-dom/server";
-import { matchPath } from "react-router-dom";
 import { HelmetData } from "react-helmet";
-import { Store } from "redux";
 import { ChunkExtractor } from "@loadable/server";
 import { getDataFromTree } from "@apollo/react-ssr";
 
 import { renderIcons } from "./icons";
 
-import { TamlandRoute } from "../../../components/router";
 import { TamlandAppConfig } from "../../../app/config";
 import {
     createStore,
@@ -45,30 +42,6 @@ const minifyHTML = function(html: string): string{
 
 };
 
-const getRouteData = async function(routes: TamlandRoute[], store: Store, request: express.Request): Promise<void>{
-
-    const actions: (() => Promise<object>) = (): Promise<object> => new Promise((resolve): void => {
-        resolve({});
-    });
-
-    let match = null;
-
-    routes.some((route: TamlandRoute): boolean => {
-
-        // Use `matchPath` here
-        match = matchPath(request.path, {
-            exact: route.exact,
-            path: route.path,
-            strict: route.strict
-        });
-
-        return Boolean(match);
-
-    });
-
-    await actions();
-
-};
 
 const createChunkExtractor = function(entrypoints: string[]): ChunkExtractor{
 
@@ -109,7 +82,6 @@ export interface AppRouterConfiguration{
     local: boolean;
 }
 
-// eslint-disable-next-line max-lines-per-function
 export const applicationRouter = (routerConfig: AppRouterConfiguration): express.Router => {
 
     const {
@@ -134,11 +106,7 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
         const chunkExtractor = createChunkExtractor([
             "index"
         ]);
-
-        await getRouteData(config.router.routes, store, request);
-
         const reduxState = store.getState();
-
         const apolloClient = createApolloClient(request);
 
         const app = (

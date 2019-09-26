@@ -59,7 +59,7 @@ export default class HomePage extends Page{
         return (
             <div>
 
-                { "home page" }
+                { "home pagexxxx" }
 
             </div>
         );

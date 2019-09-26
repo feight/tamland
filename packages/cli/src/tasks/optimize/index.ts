@@ -10,15 +10,11 @@ import { imagemin } from "@tamland/imagemin";
 import { logger } from "@tamland/logger";
 import { TamlandConfig } from "@tamland/config";
 
-import { tamlandTask } from "../tamland";
-
 
 const label = "optimize";
 
 
 export const optimizeTask = async function(config: TamlandConfig): Promise<void>{
-
-    await tamlandTask(config);
 
     const paths = await globby(config.optimize.image.paths);
     const stats = await Promise.all(paths.map((pth): Promise<fs.Stats> => fs.stat(pth)));
@@ -51,7 +47,7 @@ export const optimizeTask = async function(config: TamlandConfig): Promise<void>
 
     if(savings.length > 0){
 
-        const saved = filesize(savings.reduce((acc, cur): number => Number(cur) + Number(acc)));
+        const saved = filesize(savings.reduce((accumulator, current): number => Number(current) + Number(accumulator)));
 
         logger.log(`Saved a total of ${ chalk.hex("#00ff00")(saved) }`, { label });
 

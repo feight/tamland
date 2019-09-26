@@ -519,9 +519,11 @@ export default {
         /*
          * Disallow nested ternary expressions
          *
+         * Taken care of by unicorn/no-nested-ternary
+         *
          * https://eslint.org/docs/rules/no-nested-ternary
          */
-        "no-nested-ternary": "error",
+        "no-nested-ternary": "off",
 
         /*
          * Disallow Object constructors

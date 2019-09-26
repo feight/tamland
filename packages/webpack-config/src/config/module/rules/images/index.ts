@@ -30,14 +30,23 @@ export default function configuration(
                         }
                     ]
                 },
-                // .svg .png .jpg .jpeg .gif .webp and .ico image extensions
+                // .ico file loader
                 {
-                    test: /\.(?:svg|ico)$/u,
-
-                    /*
-                     * We don't use an optimizer like image-webpack-loader because
-                     * we optimize images manually using tamland optimize
-                     */
+                    test: /\.ico$/u,
+                    use: [
+                        fileLoader(config, options)
+                    ]
+                },
+                // .string.svg
+                {
+                    test: /\.string\.svg$/u,
+                    use: [
+                        "svg-inline-loader"
+                    ]
+                },
+                // .svg file loader
+                {
+                    test: /^((?!(\.string)).)*.svg$/u,
                     use: [
                         fileLoader(config, options)
                     ]

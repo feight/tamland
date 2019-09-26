@@ -29,6 +29,7 @@ export default {
             "error",
             "never",
             {
+                ".html": "always",
                 ".ico": "always",
                 ".jpeg": "always",
                 ".jpg": "always",

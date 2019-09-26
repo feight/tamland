@@ -6,7 +6,7 @@ function build_basic {
 
 # Clean the lib directory
 rm -rf lib &&
-echo 'Successfully cleaned the lib directory'
+echo 'cleaned lib directory'
 
 # Build all .js and .ts code into the lib directory
 export BUILD_MJS=1
@@ -14,30 +14,30 @@ build_basic &&
 
 # Make .mjs versions of the .js files in the lib directory
 renamer --find js --replace mjs "lib/**" &&
-echo 'Successfully generated .mjs assets'
+echo 'generated .mjs assets'
 
 # Make .js files in the lib directory again because the old ones are now .mjs
 export BUILD_MJS=0
 build_basic &&
-echo 'Successfully generated .js assets'
+echo 'generated .js assets'
 
 if [ -d "./src/cli" ]; then
     export BUILD_SHEBANG=1
     babel src/cli --out-dir lib/cli --extensions '.js,.jsx,.ts,.tsx'
-    echo 'Successfully generated cli assets'
+    echo 'generated cli assets'
 fi
 
 if [ -d "./src/static" ]; then
     rsync -rv --include '*/' --include '*.*' --exclude '*' --prune-empty-dirs src/static lib &&
-    echo 'Successfully copied static assets'
+    echo 'copied static assets'
 fi
 
 rsync -rv --include '*/' --include '*.scss' --exclude '*' --prune-empty-dirs src/ lib/ &&
-echo 'Successfully copied scss assets'
+echo 'copied scss assets'
 
 # Generate typescript declarations
 tsc --emitDeclarationOnly &&
-echo 'Successfully generated .d.ts assets'
+echo 'generated .d.ts assets'
 
 # if [ -d "./src" ]; then
 #     rsync -rv --include '*/' --include '*.*' --exclude '*' --prune-empty-dirs src/types lib &&
@@ -45,4 +45,4 @@ echo 'Successfully generated .d.ts assets'
 # fi
 
 rsync -rv --include '*/' --include '*.d.ts' --exclude '*' --prune-empty-dirs src/ lib/ &&
-echo 'Successfully copied typescript d.ts assets'
+echo 'copied typescript d.ts assets'

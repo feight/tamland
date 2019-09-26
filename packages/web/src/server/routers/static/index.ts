@@ -152,9 +152,17 @@ export const staticRouter = ({
 
     if(watch){
 
-        router.use(`/${ encodedStaticFolder }`, proxy("localhost:9000", {
-            timeout: 2000
-        }));
+        if(process.env.WEBPACK_DEV_SERVER_PORT){
+
+            router.use(`/${ encodedStaticFolder }`, proxy(`localhost:${ process.env.WEBPACK_DEV_SERVER_PORT }`, {
+                timeout: 2000
+            }));
+
+        }else{
+
+            throw new Error("process.env.WEBPACK_DEV_SERVER_PORT is not set in watch mode");
+
+        }
 
     }else{
 

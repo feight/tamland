@@ -10,7 +10,7 @@ describe("config", () => {
 
     it("config.env.browser === true", () => {
 
-        if(config && config.env){
+        if(config.env){
 
             expect(config.env.browser).toBe(true);
 

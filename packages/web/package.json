@@ -1,6 +1,6 @@
 {
   "name": "@tamland/web",
-  "version": "0.0.60",
+  "version": "0.0.61",
   "description": "Node.js SSR application framework",
   "main": "lib",
   "types": "lib",
@@ -37,8 +37,8 @@
     "lib"
   ],
   "dependencies": {
-    "@apollo/react-hooks": "^3.1.0",
-    "@apollo/react-ssr": "^3.1.0",
+    "@apollo/react-hooks": "^3.1.1",
+    "@apollo/react-ssr": "^3.1.1",
     "@google-cloud/logging-winston": "^2.0.1",
     "@hot-loader/react-dom": "^16.9.0",
     "@loadable/component": "^5.10.2",
@@ -60,10 +60,10 @@
     "express-http-proxy": "^1.5.1",
     "express-jwt": "^5.3.1",
     "express-slash": "^2.0.1",
-    "graphql": "^14.5.4",
+    "graphql": "^14.5.6",
     "graphql-tag": "^2.10.1",
     "helmet": "^3.21.0",
-    "history": "^4.10.0",
+    "history": "^4.10.1",
     "modernizr": "^3.7.1",
     "node-fetch": "^2.6.0",
     "parseurl": "^1.3.3",
@@ -89,8 +89,8 @@
     "winston-transport": "^4.3.0"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.17",
-    "@tamland/eslint": "0.0.32",
+    "@tamland/babel": "^0.0.18",
+    "@tamland/eslint": "0.0.35",
     "@types/common-tags": "^1.8.0",
     "@types/compression": "^1.0.1",
     "@types/cookie-parser": "^1.4.2",

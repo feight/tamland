@@ -76,12 +76,59 @@ const awaitServerScript = function(config: TamlandConfig): Promise<string>{
 
 };
 
-// eslint-disable-next-line max-lines-per-function
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const output = (color: string): (data: any) => void => (data: any): void => {
+
+    const string = data.toString();
+
+    try{
+
+        const log = JSON.parse(string);
+
+        if(log.message){
+
+            if(
+                log.level === "warn" ||
+                log.level === "error"
+            ){
+
+                logger.error(log.message, {
+                    color: log.level === "warn" ? "#ff5400" : "#ff0000",
+                    label
+                });
+
+            }else{
+
+                logger.log(log.message, {
+                    color,
+                    label
+                });
+
+            }
+
+        }
+
+    }catch(error){
+
+        if(string){
+
+            logger.log(string.replace(/\n$/gu, ""), {
+                color,
+                label
+            });
+
+        }
+
+    }
+
+};
+
+
 const startNodemonServer = function(script: string, environment: {
     [id: string]: string | boolean | number;
 }): Promise<void>{
 
-    // eslint-disable-next-line max-lines-per-function
     return new Promise((): void => {
 
         nodemon({
@@ -152,53 +199,6 @@ const startNodemonServer = function(script: string, environment: {
 
         nodemon.on("readable", function readable(this: typeof nodemon): void{
 
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const output = (color: string): (data: any) => void => (data: any): void => {
-
-                const string = data.toString();
-
-                try{
-
-                    const log = JSON.parse(string);
-
-                    if(log.message){
-
-                        if(
-                            log.level === "warn" ||
-                            log.level === "error"
-                        ){
-
-                            logger.error(log.message, {
-                                color: log.level === "warn" ? "#ff5400" : "#ff0000",
-                                label
-                            });
-
-                        }else{
-
-                            logger.log(log.message, {
-                                color,
-                                label
-                            });
-
-                        }
-
-                    }
-
-                }catch(error){
-
-                    if(string){
-
-                        logger.log(string.replace(/\n$/gu, ""), {
-                            color,
-                            label
-                        });
-
-                    }
-
-                }
-
-            };
-
             /* eslint-disable no-invalid-this */
 
             this.stdout.on("data", output("#ffffff"));
@@ -234,7 +234,8 @@ export const localServerTask = async function(
         local: true,
         mode: options.mode,
         PORT: config.nodemon.port,
-        watch: Boolean(options.watch)
+        watch: Boolean(options.watch),
+        WEBPACK_DEV_SERVER_PORT: config.webpack.devServer.port
     });
 
 };

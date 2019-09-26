@@ -1,6 +1,6 @@
 {
   "name": "@tamland/babel-preset",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Shared preset for babel",
   "main": "lib",
   "types": "lib",

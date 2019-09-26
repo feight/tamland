@@ -1,6 +1,7 @@
 {
   "extends": "@tamland",
   "rules": {
+    "import/exports-last": "off",
     "no-process-env": "off"
   }
 }

@@ -40,7 +40,8 @@
     "react": "^16.9.0"
   },
   "devDependencies": {
-    "@tamland/babel": "0.0.13",
+    "@tamland/babel": "0.0.18",
+    "@tamland/eslint": "0.0.33",
     "@types/jasmine": "^3.4.0",
     "@types/react-dom": "^16.9.0",
     "jasmine": "^3.4.0",

@@ -78,6 +78,13 @@ export default {
         "default-case": "error",
 
         /*
+         * Enforce default parameters to be last
+         *
+         * https://eslint.org/docs/rules/default-case
+         */
+        // "default-param-last": "error",
+
+        /*
          * Enforce consistent newlines before and after dots
          *
          * https://eslint.org/docs/rules/dot-location
@@ -556,9 +563,12 @@ export default {
         /*
          * Disallow specified warning terms in comments
          *
+         * This is off for now because unicorn/expiring-todo-comments is taking
+         * care of keeping these comments time locked.
+         *
          * https://eslint.org/docs/rules/no-warning-comments
          */
-        "no-warning-comments": "error",
+        "no-warning-comments": "off",
 
         /*
          * Disallow with statements
@@ -586,6 +596,13 @@ export default {
         "prefer-promise-reject-errors": "error",
 
         /*
+         * Disallow use of the RegExp constructor in favor of regular expression literals
+         *
+         * https://eslint.org/docs/rules/prefer-promise-reject-errors
+         */
+        // "prefer-regex-literals": "error",
+
+        /*
          * Enforce the consistent use of the radix argument when using parseInt()
          *
          * https://eslint.org/docs/rules/radix
@@ -595,7 +612,7 @@ export default {
         /*
          * Disallow async functions which have no await expression
          *
-         * https://eslint.org/docs/rules/equire-await
+         * https://eslint.org/docs/rules/equire-awa1it
          */
         "require-await": "error",
 

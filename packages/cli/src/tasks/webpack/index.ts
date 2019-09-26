@@ -87,7 +87,7 @@ export const webpackTask = async function(config: TamlandConfig, options: Webpac
     process.chdir(path.join(config.cwd, `src/${ platform }`));
 
     // We'll allow this for now
-    // eslint-disable-next-line no-async-promise-executor, @typescript-eslint/no-misused-promises
+    // eslint-disable-next-line no-async-promise-executor, @typescript-eslint/no-misused-promises, unicorn/consistent-function-scoping
     const webpackPromise = (target: Target): () => Promise<void> => (): Promise<void> => new Promise(async (resolve): Promise<void> => {
 
         const label = "webpack";
@@ -99,10 +99,10 @@ export const webpackTask = async function(config: TamlandConfig, options: Webpac
         const webpackConfig = require(webpackConfigFile)({
             hostname,
             platform,
-            target,
-            watch
+            target
         }, {
-            mode
+            mode,
+            watch
         });
 
         const compiler = webpack(webpackConfig);
@@ -117,8 +117,8 @@ export const webpackTask = async function(config: TamlandConfig, options: Webpac
                     command: [
                         "webpack-dev-server",
                         `--mode=${ mode }`,
+                        `${ watch ? "--watch" : "" }`,
                         `--env.hostname=${ hostname }`,
-                        `--env.watch=${ watch }`,
                         `--env.platform=${ platform }`,
                         `--env.target=${ target }`
                     ].join(" "),

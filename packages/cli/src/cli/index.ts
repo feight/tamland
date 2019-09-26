@@ -35,78 +35,69 @@ process.on("uncaughtException", (error: Error): void => logger.error(error));
 program.version(packageJSON.version);
 
 
-const task = (fn: Promise<void>): void => {
-
-    // A floating promise is needed here since commander does accept async functions
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    (async (): Promise<void> => {
-
-        await fn;
-
-        // This has to happen because the process doesn't exit by itself for some reason
-        process.exit();
-
-    })();
-
-};
-
-
 program
 .command("build")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
-.action((options): void => task(buildTask(config, {
+.action(async (options): Promise<void> => buildTask(config, {
     mode: "production",
     platform: options.platform || "web"
-})));
+}));
 
 
 program
 .command("clean")
-.action((): void => task(cleanTask(config)));
+.action(async (): Promise<void> => cleanTask(config));
 
 
 program
 .command("tamland")
-.action((): void => task(tamlandTask(config)));
+.action(async (): Promise<void> => {
+
+    await tamlandTask(config);
+
+    // Needed because this often hangs
+    process.exit();
+
+});
 
 
 program
 .command("deploy")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
-.action((options): void => task(deployTask(config, {
+.action(async (options): Promise<void> => deployTask(config, {
     mode: "production",
     platform: options.platform || "web"
-})));
+}));
 
 
 program
 .command("lint")
 .option("-w, --watch", "Watch the lint")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
-.action((options): void => task(lintTask(config, {
+.action(async (options): Promise<void> => lintTask(config, {
     watch: options.watch || false
-})));
+}));
 
 
 program
 .command("local")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
 .option("--production", "run the local server as close to production as possible (defaults to false)")
-.action((options): void => task(localTask(config, {
+.action(async (options): Promise<void> => localTask(config, {
     mode: options.production ? "production" : "development",
     platform: options.platform || "web",
     watch: !options.production
-})));
+}));
 
 
 program
 .command("optimize")
-.action((): void => task(optimizeTask(config)));
+.action(async (): Promise<void> => optimizeTask(config));
 
 
 program
 .command("setup")
-.action((): void => task(setupTask(config)));
+.action(async (): Promise<void> => setupTask());
 
 
 program

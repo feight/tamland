@@ -24,6 +24,13 @@ export default {
         ],
 
         /*
+         * Move function definitions to the highest possible scope.
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/consistent-function-scoping.md
+         */
+        "unicorn/consistent-function-scoping": "error",
+
+        /*
          * Enforce correct Error subclassing. (fixable)
          *
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/custom-error-definition.md
@@ -43,6 +50,13 @@ export default {
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/escape-case.md
          */
         "unicorn/escape-case": "error",
+
+        /*
+         * Add expiration conditions to TODO comments
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/expiring-todo-comments.md
+         */
+        "unicorn/expiring-todo-comments": "error",
 
         /*
          * Enforce explicitly comparing the length property of a value. (partly fixable)
@@ -127,6 +141,13 @@ export default {
         "unicorn/no-keyword-prefix": "off",
 
         /*
+         * Disallow nested ternary expressions. (partly fixable)
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-nested-ternary.md
+         */
+        "unicorn/no-nested-ternary": "error",
+
+        /*
          * Enforce the use of Buffer.from() and Buffer.alloc() instead of the deprecated new Buffer(). (fixable)
          *
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-new-buffer.md
@@ -187,6 +208,13 @@ export default {
         "unicorn/prefer-add-event-listener": "error",
 
         /*
+         * Prefer using .dataset on DOM elements over .setAttribute(...). (fixable)
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-dataset.md
+         */
+        "unicorn/prefer-dataset": "error",
+
+        /*
          * Prefer KeyboardEvent#key over KeyboardEvent#keyCode
          *
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-event-key.md
@@ -234,6 +262,13 @@ export default {
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-query-selector.md
          */
         "unicorn/prefer-query-selector": "error",
+
+        /*
+         * Prefer Reflect.apply() over Function#apply(). (fixable)
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-reflect-apply.md
+         */
+        "unicorn/prefer-reflect-apply": "error",
 
         /*
          * Prefer the spread operator over Array.from(). (fixable)

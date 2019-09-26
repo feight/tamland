@@ -13,29 +13,29 @@ import {
 const label = "clean";
 
 
+const remove = async (removePath: string): Promise<void> => {
+
+    const exists = await fs.pathExists(removePath);
+
+    logger.log(removePath, {
+        color: exists ? "#ffffff" : "#777777",
+        label
+    });
+
+    if(exists){
+
+        await fs.remove(removePath);
+
+    }
+
+};
+
+
 export interface CleanTaskOptions{
     platform: Platform;
 }
 
-
 export const cleanTask = async function(config: TamlandConfig, options?: CleanTaskOptions): Promise<void>{
-
-    const remove = async (removePath: string): Promise<void> => {
-
-        const exists = await fs.pathExists(removePath);
-
-        logger.log(removePath, {
-            color: exists ? "#ffffff" : "#777777",
-            label
-        });
-
-        if(exists){
-
-            await fs.remove(removePath);
-
-        }
-
-    };
 
     const {
         platform = "web"

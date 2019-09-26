@@ -15,7 +15,7 @@ const server = new Server({
     },
     hostname: process.env.hostname,
     jwt: {
-        secret: "ndB2N7l2sqSpvRNJBXtNdmKfvj6up1VN"
+        secret: "ndB2N7l2sqSpvRNJBXtNdmxKfvj6up1VN"
     }
 });
 

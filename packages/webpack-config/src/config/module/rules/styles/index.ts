@@ -39,11 +39,12 @@ const miniCssExtractPlugin = (
  */
 const cssLoader = (
     options: Options,
-    modules = true
+    modules = true,
+    sourceMap = true
 ): RuleSetUseItem => {
 
     const baseOptions = {
-        sourceMap: true
+        sourceMap
     };
 
     const developmentLocalIdentName = "/[path][name].[ext]::.[local]";
@@ -87,6 +88,14 @@ const cleanCssLoader = (): RuleSetUseItem => ({
     }
 });
 
+/*
+ * Loader for webpack to process CSS as a string
+ *
+ * https://webpack.js.org/loaders/css-loader/#tostring
+ */
+const toStringLoader = (): RuleSetUseItem => ({
+    loader: "to-string-loader"
+});
 
 /*
  * Loader for webpack to process CSS with PostCSS
@@ -116,32 +125,54 @@ export default function configuration(
     options: Options
 ): Configuration{
 
+    const uses = {
+        file: (options.target === "client" ? [
+            miniCssExtractPlugin(config, options)
+        ] : []).concat([
+            cssLoader(options, false),
+            cleanCssLoader(),
+            postCssLoader(),
+            sassLoader()
+        ]),
+        module: (options.target === "client" ? [
+            miniCssExtractPlugin(config, options)
+        ] : []).concat([
+            cssLoader(options),
+            cleanCssLoader(),
+            postCssLoader(),
+            sassLoader()
+        ]),
+        string: [
+            toStringLoader(),
+            cssLoader(options, false, false),
+            cleanCssLoader(),
+            postCssLoader(),
+            sassLoader()
+        ]
+    };
+
     return merge(config, {
         module: {
             rules: [
+                // .string.scss and .string.css style extensions
+                {
+                    test: /\.string\.s?css$/u,
+                    use: uses.string
+                },
                 // .module.scss and .module.css style extensions
                 {
                     test: /\.module\.s?css$/u,
-                    use: (options.target === "client" ? [
-                        miniCssExtractPlugin(config, options)
-                    ] : []).concat([
-                        cssLoader(options),
-                        cleanCssLoader(),
-                        postCssLoader(),
-                        sassLoader()
-                    ])
+                    use: uses.module
+                },
+                // .module.scss and .module.css style extensions
+                {
+                    test: /\.file\.s?css$/u,
+                    use: uses.module
                 },
                 // .scss and .css style extensions
                 {
-                    test: /^((?!module).)*.s?css$/u,
-                    use: (options.target === "client" ? [
-                        miniCssExtractPlugin(config, options)
-                    ] : []).concat([
-                        cssLoader(options, false),
-                        cleanCssLoader(),
-                        postCssLoader(),
-                        sassLoader()
-                    ])
+                    test: /^((?!(file|string|module)).)*.s?css$/u,
+                    use: uses[options.defaultCssLoader]
                 }
             ]
         }

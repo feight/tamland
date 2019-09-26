@@ -343,6 +343,18 @@ export default {
         "@typescript-eslint/no-type-alias": "off",
 
         /*
+         * Condition expressions must be necessary
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-condition.md
+         */
+        "@typescript-eslint/no-unnecessary-condition": [
+            "error",
+            {
+                ignoreRhs: true
+            }
+        ],
+
+        /*
          * Warns when a namespace qualifier is unnecessary.
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-qualifier.md

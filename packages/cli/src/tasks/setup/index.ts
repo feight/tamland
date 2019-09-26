@@ -1,18 +1,12 @@
 
 
-import { TamlandConfig } from "@tamland/config";
-
 import { brewSetupTask } from "./brew";
 import { gcloudSetupTask } from "./gcloud";
 import { rubySetupTask } from "./ruby";
 import { xcodeSetupTask } from "./xcode";
 
-import { tamlandTask } from "../tamland";
 
-
-export const setupTask = async function(config: TamlandConfig): Promise<void>{
-
-    await tamlandTask(config);
+export const setupTask = async function(): Promise<void>{
 
     await xcodeSetupTask();
 

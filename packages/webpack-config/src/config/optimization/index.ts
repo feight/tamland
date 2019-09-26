@@ -32,6 +32,7 @@ export default function configuration(
                 ] : []
             ),
             nodeEnv: "production",
+            noEmitOnErrors: options.watch,
             occurrenceOrder: true,
             providedExports: true,
             removeAvailableModules: true,

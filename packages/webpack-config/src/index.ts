@@ -11,10 +11,22 @@ import {
 import config from "./config";
 
 
+export type CSSLoader = "file" | "module" | "string";
+
+
+export interface PortConfigurationOptions{
+    bundleAnalyzer: number;
+    devServer: number;
+}
+
+
 export interface ConfigurationOptions{
-    bundleAnalyzerPort?: number;
+    bundleAnalyzer?: boolean;
+    defaultCssLoader?: CSSLoader;
+    multipleTargeting?: boolean;
+    outputPath?: string;
+    ports?: PortConfigurationOptions;
     staticFolder?: string;
-    watch?: boolean;
 }
 
 
@@ -24,7 +36,6 @@ export interface Environment{
     mode?: Mode;
     platform?: Platform;
     target?: Target;
-    watch?: boolean;
 }
 
 
@@ -37,20 +48,101 @@ export interface Optimizations{
 
 
 export interface Options{
-    bundleAnalyzerPort: number;
+    bundleAnalyzer: boolean;
     cwd: string;
+    defaultCssLoader: CSSLoader;
     hostname?: string;
     mode: Mode;
+    multipleTargeting: boolean;
     optimizations: Optimizations;
+    outputPath: string;
     platform: Platform;
+    ports: PortConfigurationOptions;
     staticFolder: string;
     target: Target;
+    targetPath: string;
     watch: boolean;
 }
 
+
 export interface Args{
     mode?: Mode;
+    watch?: boolean;
 }
+
+
+const generateDefaultOptions = function(mode: Args["mode"]): Options{
+
+    return {
+        bundleAnalyzer: true,
+        cwd: process.cwd(),
+        defaultCssLoader: "file",
+        mode: "development",
+        multipleTargeting: true,
+        optimizations: {
+
+            /*
+             * Doesn't work in nodejs on production because of accept encodings
+             * header is stripped
+             */
+            brotli: false,
+
+            /*
+             * Doesn't work in nodejs on production because of accept encodings
+             * header is stripped
+             */
+            gzip: false,
+
+            /*
+             * Can't get this to work quite right
+             */
+            preact: false,
+            webp: mode !== "production"
+        },
+        outputPath: "dist",
+        platform: "web",
+        ports: {
+            bundleAnalyzer: 3001,
+            devServer: 3002
+        },
+        staticFolder: "static",
+        target: "client",
+        targetPath: "",
+        watch: false
+    };
+
+};
+
+const generateOptions = function(webpackOptions: ConfigurationOptions, environment: Environment, args: Args): Options{
+
+    const optionsDefaults = generateDefaultOptions(args.mode);
+
+    const options: Options = Object.assign(optionsDefaults, {
+        bundleAnalyzer: typeof webpackOptions.bundleAnalyzer === "undefined" ? optionsDefaults.bundleAnalyzer : webpackOptions.bundleAnalyzer,
+        cwd: environment.cwd || optionsDefaults.cwd,
+        defaultCssLoader: webpackOptions.defaultCssLoader || optionsDefaults.defaultCssLoader,
+        hostname: environment.hostname,
+        mode: args.mode || optionsDefaults.mode,
+        multipleTargeting: typeof webpackOptions.multipleTargeting === "undefined" ? optionsDefaults.multipleTargeting : webpackOptions.multipleTargeting,
+        outputPath: webpackOptions.outputPath || optionsDefaults.outputPath,
+        platform: environment.platform || optionsDefaults.platform,
+        ports: {
+            ...optionsDefaults.ports,
+            ...webpackOptions.ports
+        },
+        staticFolder: webpackOptions.staticFolder || optionsDefaults.staticFolder,
+        target: environment.target || optionsDefaults.target,
+        watch: args.watch || optionsDefaults.watch
+    });
+
+    options.targetPath = options.multipleTargeting ? `${ options.target }` : optionsDefaults.targetPath;
+
+    // Make sure options.staticFolder doesn't have any outer slashes
+    options.staticFolder = options.staticFolder.replace(/^\/+|\/+$/gu, "");
+
+    return options;
+
+};
 
 
 export default function configure(
@@ -66,51 +158,7 @@ export default function configure(
         args: Args
     ): Configuration => {
 
-        const optionsDefaults: Options = {
-            bundleAnalyzerPort: 3001,
-            cwd: process.cwd(),
-            mode: "development",
-            optimizations: {
-
-                /*
-                 * Doesn't work in nodejs on production because of accept encodings
-                 * header is stripped
-                 */
-                brotli: false,
-
-                /*
-                 * Doesn't work in nodejs on production because of accept encodings
-                 * header is stripped
-                 */
-                gzip: false,
-
-                /*
-                 * Can't get this to work quite right
-                 */
-                preact: false,
-                webp: args.mode !== "production"
-            },
-            platform: "web",
-            staticFolder: "static",
-            target: "client",
-            watch: Boolean(process.env.watch || false)
-        };
-
-        const options: Options = Object.assign(optionsDefaults, {
-            bundleAnalyzerPort: webpackOptions.bundleAnalyzerPort,
-            cwd: environment.cwd || optionsDefaults.cwd,
-            hostname: environment.hostname,
-            mode: args.mode || optionsDefaults.mode,
-            platform: environment.platform || optionsDefaults.platform,
-            staticFolder: webpackOptions.staticFolder || optionsDefaults.staticFolder,
-            target: environment.target || optionsDefaults.target,
-            // Bug in the linter
-            // eslint-disable-next-line security/detect-non-literal-fs-filename
-            watch: Boolean(environment.watch) || optionsDefaults.watch
-        });
-
-        // Make sure options.staticFolder doesn't have any outer slashes
-        options.staticFolder = options.staticFolder.replace(/^\/+|\/+$/gu, "");
+        const options = generateOptions(webpackOptions, environment, args);
 
         /*
          * Output configuration is used by other configurations, so we set it up
@@ -118,7 +166,8 @@ export default function configure(
          */
         const configuration = merge(config.output(webpackConfig, options), webpackConfig);
 
-        return merge(
+        // Deep merge all base configuration with custom configuration
+        const merged = merge(
             config.devServer(configuration, options),
             config.devtool(configuration, options),
             config.entry(configuration, options),
@@ -134,6 +183,18 @@ export default function configure(
             config.watchOptions(),
             configuration
         );
+
+        /*
+         * Override the entry branch of configuration if one was specified in the
+         * custom configuration
+         */
+        if(configuration.entry){
+
+            merged.entry = configuration.entry;
+
+        }
+
+        return merged;
 
     };
 

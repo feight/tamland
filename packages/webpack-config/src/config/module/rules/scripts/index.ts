@@ -1,7 +1,5 @@
 
 
-import path from "path";
-
 import merge from "webpack-merge";
 import { Configuration } from "webpack";
 
@@ -49,11 +47,6 @@ export default function configuration(
                     use: [loader]
                 }
             ]
-        },
-        resolve: {
-            alias: {
-                modernizr$: path.resolve(__dirname, "../../../../modernizr.js")
-            }
         }
     });
 

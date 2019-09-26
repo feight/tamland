@@ -20,14 +20,20 @@ export const client = function(
 ): Configuration{
 
     const output = config.output || {};
-    const folder = output.path ? path.relative(options.cwd, output.path) : "dist";
+    const folder = output.path ? path.relative(options.cwd, output.path) : options.outputPath;
 
     return {
         plugins: [
+            new LoadablePlugin({
+                filename: "loadable-stats.json",
+                writeToDisk: true
+            })
+        ]
+        .concat(options.watch && options.bundleAnalyzer ? [
             new BundleAnalyzerPlugin({
                 analyzerHost: "127.0.0.1",
                 analyzerMode: "server",
-                analyzerPort: options.bundleAnalyzerPort,
+                analyzerPort: options.ports.bundleAnalyzer,
                 defaultSizes: "parsed",
                 generateStatsFile: false,
                 logLevel: "info",
@@ -36,7 +42,24 @@ export const client = function(
                 statsFilename: "stats.json",
                 statsOptions: null
             })
-        ]
+        ] : [])
+        .concat(options.watch ? [
+            new webpack.NoEmitOnErrorsPlugin()
+        ] : [
+            // Don't show progress during the watch, it messes up the other output
+            new webpack.ProgressPlugin({
+                activeModules: false,
+                entries: true,
+                modules: true,
+                modulesCount: 10000
+
+            /*
+             * Needed because the type definitions for this plugin don't match
+             * the documentation
+             */
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            } as any)
+        ])
         .concat(options.optimizations.brotli ? [
             new BrotliPlugin({
                 asset: "[path].br[query]",
@@ -68,14 +91,7 @@ export const client = function(
                 strict: true
             })
         ] : [])
-        .concat(options.watch ? [
-            new webpack.NoEmitOnErrorsPlugin()
-        ] : [])
         .concat([
-            new LoadablePlugin({
-                filename: "loadable-stats.json",
-                writeToDisk: true
-            }),
             new AssetsPlugin({
                 filename: "webpack-assets.json",
                 path: folder

@@ -27,6 +27,14 @@ const config = {
 const rawPackageJSON = String(fs.readFileSync(path.join(process.cwd(), "package.json")));
 
 
+// Returns true if eslint has made any automatic fixes to a file
+const fixed = (file: vinyl): boolean => Boolean(
+    config.fix &&
+    file.eslint &&
+    file.eslint.fixed
+);
+
+
 export interface ESLintFile extends vinyl{
     eslint: {
         fixed: boolean;
@@ -38,13 +46,6 @@ export const lintJSTask = async function(
     paths: string[],
     watching: boolean
 ): Promise<void>{
-
-    // Returns true if eslint has made any automatic fixes to a file
-    const fixed = (file: vinyl): boolean => Boolean(
-        config.fix &&
-        file.eslint &&
-        file.eslint.fixed
-    );
 
     return new Promise((resolve): void => {
 

@@ -53,7 +53,7 @@ const defaults = {
     },
     webpack: {
         devServer: {
-            port: 9000
+            port: 3002
         }
     }
 };
