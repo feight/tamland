@@ -12,13 +12,14 @@ export const renderIcons = function(icons: Icon[]): string{
 
     const getIconPath = function(size: number | [number, number]): string | undefined{
 
-        const [icon] = icons.filter((ico): boolean => ico.size.join("x") === (typeof size === "number" ? `${ size }x${ size }` : `${ size.join("x") }`));
+        const [icon = undefined] = icons.filter(
+            (ico): boolean => ico.size.join("x") === (typeof size === "number" ? `${ size }x${ size }` : `${ size.join("x") }`)
+        );
 
         if(!icon){
 
             misses.push(typeof size === "number" ? `${ size }x${ size }` : `${ size.join("x") }`);
 
-            // eslint-disable-next-line no-undefined
             return undefined;
 
         }

@@ -117,7 +117,7 @@ export const webpackTask = async function(config: TamlandConfig, options: Webpac
                     command: [
                         "webpack-dev-server",
                         `--mode=${ mode }`,
-                        `${ watch ? "--watch" : "" }`,
+                        "--watch",
                         `--env.hostname=${ hostname }`,
                         `--env.platform=${ platform }`,
                         `--env.target=${ target }`

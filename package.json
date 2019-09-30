@@ -2,6 +2,6 @@
   "name": "tamland",
   "version": "0.0.1",
   "dependencies": {
-    "@tamland/eslint": "0.0.35"
+    "@tamland/eslint": "0.0.36"
   }
 }

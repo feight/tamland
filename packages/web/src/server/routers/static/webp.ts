@@ -40,7 +40,7 @@ export const webp = function(
 
         const pathname = new URL(request.url, `${ request.protocol }://${ request.get("host") }`).pathname;
         const extpos = pathname.lastIndexOf(".");
-        const extension = pathname.substr(extpos + 1);
+        const extension = pathname.slice(extpos + 1);
 
         if(
             extensions.includes(extension) &&
@@ -79,8 +79,6 @@ export const webp = function(
 
         }
 
-        // Needed for a consistent return
-        // eslint-disable-next-line no-undefined
         return undefined;
 
     };

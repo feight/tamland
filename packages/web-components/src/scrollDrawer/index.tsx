@@ -39,6 +39,8 @@ export const getScrollTop = function(): number{
 
     if(typeof window !== "undefined"){
 
+        // This is actually necessary for older browsers
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         return window.pageYOffset ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
     }

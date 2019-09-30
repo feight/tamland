@@ -25,7 +25,7 @@ export const exec = function(options: {
             detatch = false,
             filter = [],
             label = "anonymous"
-        } = options || {};
+        } = options;
 
         if(command){
 
@@ -135,7 +135,7 @@ export const spawn = function(options: {
         filter = [],
         detatch = false,
         label = "anonymous"
-    } = options || {};
+    } = options;
 
     return new Promise((resolve, reject): void => {
 

@@ -9,7 +9,7 @@ export const kill = async function(id: string | number): Promise<void>{
         command: [
             "ps -ax",
             "|",
-            `grep '[${ String(id)[0] }]${ String(id).substring(1, String(id).length) }'`,
+            `grep '[${ String(id)[0] }]${ String(id).slice(1, String(id).length) }'`,
             "|",
             "awk '{print $1}'",
             "|",

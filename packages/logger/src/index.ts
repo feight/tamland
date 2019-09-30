@@ -171,7 +171,7 @@ export const logger = {
 
         files.forEach((errorFile): void => {
 
-            if(errorFile.errors && errorFile.errors.length > 0){
+            if(errorFile.errors.length > 0){
 
                 const errorOutput = errorFile.errors.map((error): string => {
 
@@ -221,9 +221,7 @@ export const logger = {
 
             const cursor = getCursorPosition.sync();
 
-            if(cursor){
-                console.log(cursor.col > 1 ? `\n${ blank }` : blank);
-            }
+            console.log(cursor.col > 1 ? `\n${ blank }` : blank);
 
         }
 
@@ -234,7 +232,7 @@ export const logger = {
             const cursor = getCursorPosition.sync();
             const output = inLineFormat(line);
 
-            console.log(cursor && cursor.col > 1 ? `\n${ output }` : output);
+            console.log(cursor.col > 1 ? `\n${ output }` : output);
 
         });
 
@@ -294,7 +292,7 @@ export const logger = {
          * If this you're writing to the first col and your first character is a
          * new line, replace it with a label
          */
-        if(cursor && cursor.col === 1){
+        if(cursor.col === 1){
             output = output.replace(/^\n/gu, `${ lbl } `);
         }
 
@@ -328,7 +326,7 @@ export const logger = {
         // If a new label was writen into the output set the last label
         if(output.includes(lbl)){
             lastLabel = testLabel;
-        }else if(cursor && cursor.col === 1){
+        }else if(cursor.col === 1){
             output = `${ lbl } ${ output }`;
         }
 

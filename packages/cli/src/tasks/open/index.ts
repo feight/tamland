@@ -24,7 +24,7 @@ export const openTask = async function(path: string): Promise<void>{
 
             const test = (retry = 1): void => {
 
-                request(path, (error: Error): void => {
+                request(path, (error): void => {
 
                     if(error){
 

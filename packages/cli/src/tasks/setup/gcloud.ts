@@ -8,9 +8,7 @@ import {
 } from "../../utils/subprocess";
 
 
-const label = "setup";
-
-let versions: {
+interface Version{
     "current_version_string": string;
     "id": string;
     "is_configuration": boolean;
@@ -21,7 +19,11 @@ let versions: {
     "state": {
         "name": string;
     };
-}[] = [];
+}
+
+const label = "setup";
+
+let versions: Version[] = [];
 
 
 export const gcloudSetupTask = async function(component?: string): Promise<void>{
@@ -41,21 +43,27 @@ export const gcloudSetupTask = async function(component?: string): Promise<void>
 
         }
 
-        const [version] = versions.filter((item): boolean => item.id === component);
+        const filtered = versions.filter((item): boolean => item.id === component);
 
-        if(version.latest_version_string === version.current_version_string){
+        if(filtered.length > 0){
 
-            logger.log(`✔ gcloud ${ component }`, {
-                color: "#00ff00",
-                label
-            });
+            const [version] = filtered;
 
-        }else if(version){
+            if(version.latest_version_string === version.current_version_string){
 
-            await spawn({
-                command: "gcloud components update",
-                label
-            });
+                logger.log(`✔ gcloud ${ component }`, {
+                    color: "#00ff00",
+                    label
+                });
+
+            }else{
+
+                await spawn({
+                    command: "gcloud components update",
+                    label
+                });
+
+            }
 
         }else{
 

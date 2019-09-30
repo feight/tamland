@@ -10,7 +10,7 @@ const web = function(): Promise<{
     project: string;
 }>{
 
-    const environments = config.platform.web.environments || [];
+    const environments = config.platform.web.environments;
 
     if(environments.length === 0){
 

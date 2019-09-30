@@ -57,29 +57,19 @@ const render = function(
                     const pageProps = { match };
                     const loadableComponent = loadableImport(id);
 
-                    if(loadableComponent){
-
-                        const Page = loadable(loadableComponent, {
-                            fallback: (
-                                <div>
-                                    { loading ? loading() : "Loading..." }
-                                </div>
-                            ),
-                            ssr: true
-                        });
-
-                        return (
-                            // This is safe enough to we'll take the convenience here
-                            // eslint-disable-next-line react/jsx-props-no-spreading
-                            <Page { ...pageProps } />
-                        );
-
-                    }
+                    const Page = loadable(loadableComponent, {
+                        fallback: (
+                            <div>
+                                { loading ? loading() : "Loading..." }
+                            </div>
+                        ),
+                        ssr: true
+                    });
 
                     return (
-                        <div>
-                            { "blank" }
-                        </div>
+                        // This is safe enough to we'll take the convenience here
+                        // eslint-disable-next-line react/jsx-props-no-spreading
+                        <Page { ...pageProps } />
                     );
 
                 }

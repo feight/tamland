@@ -4,10 +4,8 @@ import * as React from "react";
 import { ApolloProvider } from "@apollo/react-hooks";
 import parseurl from "parseurl";
 import PropTypes from "prop-types";
-import {
-    Helmet,
-    HelmetProvider
-} from "react-helmet-async";
+import { Helmet } from "react-helmet";
+import { HelmetProvider } from "react-helmet-async";
 import {
     Location as HistoryLocation,
     History

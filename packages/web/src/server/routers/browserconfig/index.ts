@@ -26,16 +26,11 @@ export const browserconfigRouter = (config: BrowserconfigConfiguration): express
 
     const getIconPath = function(size: number | [number, number]): string | undefined{
 
-        const [icon] = icons.filter((ico): boolean => ico.size.join("x") === (typeof size === "number" ? `${ size }x${ size }` : `${ size.join("x") }`));
+        const [icon = undefined] = icons.filter(
+            (ico): boolean => ico.size.join("x") === (typeof size === "number" ? `${ size }x${ size }` : `${ size.join("x") }`)
+        );
 
-        if(!icon){
-
-            // eslint-disable-next-line no-undefined
-            return undefined;
-
-        }
-
-        return icon.path;
+        return icon ? icon.path : undefined;
 
     };
 

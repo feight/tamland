@@ -175,7 +175,6 @@ export class Drawer extends Component<DrawerProps, DrawerState>{
                     while(target !== null){
 
                         if(
-                            target.classList &&
                             target.classList.contains("drawer-open")
                         ){
 

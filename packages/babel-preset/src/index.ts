@@ -37,7 +37,10 @@ export default declare((
         targets
     } = options;
 
-    if(typeof modules !== "undefined" && typeof modules !== "boolean" && modules !== "auto"){
+    if(
+        typeof modules !== "undefined" &&
+        typeof modules !== "boolean"
+    ){
         throw new TypeError("@tamland/babel-preset only accepts `true`, `false`, or `\"auto\"` as the value of the \"modules\" option");
     }
 

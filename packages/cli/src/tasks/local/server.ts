@@ -168,14 +168,14 @@ const startNodemonServer = function(script: string, environment: {
 
         nodemon.on("restart", (files: string[]): void => {
 
-            if(files && files.length === 1){
+            if(files.length === 1){
 
                 logger.log(`Restarted ${ files[0] }`, {
                     color: "#d3d3d3",
                     label
                 });
 
-            }else if(files){
+            }else if(files.length > 1){
 
                 files.forEach((file): void => {
 

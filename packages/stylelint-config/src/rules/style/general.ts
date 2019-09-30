@@ -62,7 +62,14 @@ export default {
          *
          * https://stylelint.io/user-guide/rules/no-missing-end-of-source-newline/
          */
-        "no-missing-end-of-source-newline": true
+        "no-missing-end-of-source-newline": true,
+
+        /*
+         * Require or disallow the Unicode Byte Order Mark.
+         *
+         * https://stylelint.io/user-guide/rules/unicode-bom
+         */
+        "unicode-bom": "never"
 
     }
 };

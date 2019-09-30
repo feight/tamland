@@ -14,6 +14,14 @@ import {
 } from "../../utils/subprocess";
 
 
+interface Cache{
+    [id: string]: {
+        package: string;
+        source: string;
+    } | undefined;
+}
+
+
 const scope = "@tamland";
 const label = "tamland";
 
@@ -57,12 +65,7 @@ const getPackageMap = async function(targets: string[]): Promise<[string, string
 };
 
 
-const getCache = async function(): Promise<{
-    [id: string]: {
-        package: string;
-        source: string;
-    };
-}>{
+const getCache = async function(): Promise<Cache>{
 
     const directory = path.join(process.cwd(), "node_modules/.cache");
     const filename = path.join(directory, "local-tamland.json");
@@ -88,12 +91,7 @@ const getCache = async function(): Promise<{
 
 };
 
-const setCache = async function(cache: {
-    [id: string]: {
-        package: string;
-        source: string;
-    };
-}): Promise<void>{
+const setCache = async function(cache: Cache): Promise<void>{
 
     const directory = path.join(process.cwd(), "node_modules/.cache");
     const filename = path.join(directory, "local-tamland.json");

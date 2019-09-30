@@ -285,6 +285,13 @@ export default {
         "unicorn/prefer-starts-ends-with": "error",
 
         /*
+         * Prefer String#slice() over String#substr() and String#substring()
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-string-slice.md
+         */
+        "unicorn/prefer-string-slice": "error",
+
+        /*
          * Prefer textContent over innerText
          *
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-text-content.md

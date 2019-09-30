@@ -1,6 +1,6 @@
 {
   "name": "@tamland/web-components",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A suite of components for @tamland/web",
   "main": "lib",
   "types": "lib",
@@ -37,14 +37,14 @@
   ],
   "dependencies": {
     "@ionaru/romanize": "^1.1.0",
-    "react": "^16.9.0"
+    "react": "^16.10.1"
   },
   "devDependencies": {
-    "@tamland/babel": "0.0.18",
-    "@tamland/eslint": "0.0.33",
-    "@types/jasmine": "^3.4.0",
-    "@types/react-dom": "^16.9.0",
-    "jasmine": "^3.4.0",
+    "@tamland/babel": "0.0.19",
+    "@tamland/eslint": "0.0.37",
+    "@types/jasmine": "^3.4.1",
+    "@types/react-dom": "^16.9.1",
+    "jasmine": "^3.5.0",
     "renamer": "^1.1.3"
   }
 }

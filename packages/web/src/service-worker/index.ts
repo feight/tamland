@@ -34,11 +34,7 @@ export class ServiceWorker{
 
     public start(): void{
 
-        if(this.precache){
-
-            workbox.precaching.precacheAndRoute(this.precache);
-
-        }
+        workbox.precaching.precacheAndRoute(this.precache);
 
         /*
          * Images carry most of the weight for a web page. Use this rule to serve
