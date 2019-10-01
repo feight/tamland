@@ -71,6 +71,12 @@ export class Drawer extends Component<DrawerProps, DrawerState>{
 
     }
 
+    public shouldComponentUpdate(): boolean{
+
+        return true;
+
+    }
+
     public render(): React.ReactNode{
 
         this.updateTouchMoveBlock();

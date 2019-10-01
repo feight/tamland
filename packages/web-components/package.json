@@ -1,6 +1,6 @@
 {
   "name": "@tamland/web-components",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "A suite of components for @tamland/web",
   "main": "lib",
   "types": "lib",
@@ -40,8 +40,8 @@
     "react": "^16.10.1"
   },
   "devDependencies": {
-    "@tamland/babel": "0.0.19",
-    "@tamland/eslint": "0.0.37",
+    "@tamland/babel": "0.0.20",
+    "@tamland/eslint": "0.0.39",
     "@types/jasmine": "^3.4.1",
     "@types/react-dom": "^16.9.1",
     "jasmine": "^3.5.0",

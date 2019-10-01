@@ -19,6 +19,12 @@ export class Toggle extends React.Component<ToggleProps>{
 
     }
 
+    public shouldComponentUpdate(): boolean{
+
+        return true;
+
+    }
+
     public render(): React.ReactNode{
 
         return (

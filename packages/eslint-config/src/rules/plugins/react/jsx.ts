@@ -41,9 +41,11 @@ export default {
         /*
          * Enforce curly braces or disallow unnecessary curly braces in JSX
          *
+         * This conflicts with react/jsx-no-literals. Leaving off for now.
+         *
          * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
          */
-        "react/jsx-curly-brace-presence": "error",
+        "react/jsx-curly-brace-presence": "off",
 
         /*
          * Enforce linebreaks in curly braces in JSX attributes and expressions. (fixable)
@@ -193,6 +195,13 @@ export default {
          * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-undef.md
          */
         "react/jsx-no-undef": "error",
+
+        /*
+         * Disallow unnescessary fragments (fixable)
+         *
+         * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
+         */
+        "react/jsx-no-useless-fragment": "error",
 
         /*
          * Limit to one expression per line in JSX

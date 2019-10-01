@@ -95,7 +95,7 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
                                     /*
                                      * This needs to be an empty space so that if a
                                      * Route doesn't implement a title the title is
-                                     * blanked out
+                                     * blanked out. The curly brace is necessary.
                                      */
                                 }
                                 { " " }

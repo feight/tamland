@@ -38,6 +38,7 @@ export default declare((
     } = options;
 
     if(
+        modules !== "auto" &&
         typeof modules !== "undefined" &&
         typeof modules !== "boolean"
     ){

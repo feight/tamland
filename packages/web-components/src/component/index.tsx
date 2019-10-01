@@ -29,6 +29,18 @@ export class Component<TP extends ComponentProps, TS> extends React.Component<TP
 
     }
 
+    public shouldComponentUpdate(
+        // This method signature is needed when extending from this class
+        /* eslint-disable @typescript-eslint/no-unused-vars */
+        props: TP,
+        state: TS
+        /* eslint-enable @typescript-eslint/no-unused-vars */
+    ): boolean{
+
+        return true;
+
+    }
+
     private getFeatures(): Features{
 
         return {
