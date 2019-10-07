@@ -484,9 +484,11 @@ export default {
         /*
          * Disallow mixed binary operators
          *
+         * Using mixed operators is chilled
+         *
          * https://eslint.org/docs/rules/no-mixed-operators
          */
-        "no-mixed-operators": "error",
+        "no-mixed-operators": "off",
 
         /*
          * Disallow mixed spaces and tabs for indentation

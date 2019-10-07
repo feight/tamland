@@ -37,7 +37,6 @@ const config: Linter.Config = {
         "../rules/plugins/sort-keys-fix",
         "../rules/plugins/unicorn",
         "../rules/plugins/webassembly",
-        "../rules/plugins/you-dont-need-lodash-underscore",
         "../rules/plugins/you-dont-need-momentjs",
         "../rules/best-practices",
         "../rules/errors",

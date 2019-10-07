@@ -8,6 +8,9 @@
 
 
 export default {
+    env: {
+        es6: true
+    },
     rules: {
 
         /*

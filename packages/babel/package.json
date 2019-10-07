@@ -1,6 +1,6 @@
 {
   "name": "@tamland/babel",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "Collection of babel dependencies",
   "browserslist": "node 8",
   "engines": {
@@ -33,6 +33,6 @@
   "dependencies": {
     "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",
-    "@tamland/babel-preset": "^0.0.19"
+    "@tamland/babel-preset": "^0.0.20"
   }
 }
