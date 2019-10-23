@@ -4,6 +4,6 @@
   },
   "extends": "../../shared/tsconfig.json",
   "include": [
-    "src/**/*"
+    "src/**/*", "src/generators/app/templates/src/web/.modernizrrc.js"
   ]
 }

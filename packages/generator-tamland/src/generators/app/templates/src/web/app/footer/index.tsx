@@ -17,7 +17,7 @@ export class Footer extends React.PureComponent<{
             <div className={ style.footer }>
                 <p>
                     <Link to="/">
-                        { "News Team" }
+                        { "<%= name %>" }
                     </Link>
                     { " © " }
                     <Romanize number={ new Date().getFullYear() } />

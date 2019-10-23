@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@ionaru/romanize": "^1.1.0",
-    "@tamland/web": "file:../../node_modules/.cache/tamland-web-0.0.64.tgz",
+    "@tamland/web": "file:../../node_modules/.cache/tamland-web-0.0.65.tgz",
     "@tamland/web-components": "file:../../node_modules/.cache/tamland-web-components-0.0.8.tgz",
     "react": "^16.10.1",
     "type-graphql": "^0.17.5"

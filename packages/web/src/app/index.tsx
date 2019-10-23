@@ -34,16 +34,6 @@ export interface TamlandProps{
 }
 
 
-export interface BodyAttributes{
-    class: string;
-}
-
-
-export interface HtmlAttributes{
-    lang: string;
-}
-
-
 class TamlandApp extends React.PureComponent<TamlandProps>{
 
     public static propTypes = {
@@ -125,7 +115,7 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
 
     }
 
-    private getBodyAttributes(): BodyAttributes{
+    private getBodyAttributes(): JSX.IntrinsicElements["body"]{
 
         // Needed so that webpack won't require this on the server, since it's a client only module
         // eslint-disable-next-line @typescript-eslint/no-require-imports, global-require
@@ -138,12 +128,12 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
         .join(" ");
 
         return {
-            class: classes
+            className: classes
         };
 
     }
 
-    private getHtmlAttributes(): HtmlAttributes{
+    private getHtmlAttributes(): JSX.IntrinsicElements["html"]{
 
         return {
             lang: this.props.config.language

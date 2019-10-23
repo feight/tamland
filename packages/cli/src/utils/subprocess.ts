@@ -72,7 +72,7 @@ export const exec = function(options: {
 
                 const proc = std === "stdout" ? subprocess.stdout : subprocess.stderr;
 
-                if(proc){
+                if(proc !== null){
 
                     proc.pipe(through.obj((string, encoding, done): void => {
 
@@ -97,7 +97,7 @@ export const exec = function(options: {
             piper("stdout");
             piper("stderr");
 
-            if(subprocess.stdout){
+            if(subprocess.stdout !== null){
 
                 subprocess.stdout.on("end", (): void => {
 

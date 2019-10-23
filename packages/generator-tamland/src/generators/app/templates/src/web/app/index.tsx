@@ -22,9 +22,9 @@ export class App extends Application{
             <div className={ style.app }>
                 <Helmet>
                     <title>
-                        { "News Team" }
+                        { "<%= name %>" }
                     </title>
-                    <meta content="Newsteam.io - News tools that scale" name="description" />
+                    <meta content="<%= name %> - <%= description %>" name="description" />
                 </Helmet>
                 <Nav />
                 <div className={ style.page }>

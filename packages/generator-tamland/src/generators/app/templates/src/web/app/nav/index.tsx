@@ -45,6 +45,12 @@ export class Nav extends React.Component<{}, NavState>{
 
     }
 
+    public shouldComponentUpdate(): boolean{
+
+        return true;
+
+    }
+
     public render(): React.ReactNode{
 
         const classes = [

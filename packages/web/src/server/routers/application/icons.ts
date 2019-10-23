@@ -68,9 +68,11 @@ export const renderIcons = function(icons: Icon[]): string{
 
     return [
 
-        // Generic Sizes
+        // Browser tab favicons
         icon16 ? `<link rel="icon" type="image/png" sizes="16x16" href="${ icon16 }">` : "",
         icon32 ? `<link rel="icon" type="image/png" sizes="32x32" href="${ icon32 }">` : "",
+
+        // Generic Sizes
         icon64 ? `<link rel="icon" type="image/png" sizes="64x64" href="${ icon64 }">` : "",
         icon128 ? `<link rel="icon" type="image/png" sizes="128x128" href="${ icon128 }">` : "",
         icon192 ? `<link rel="icon" type="image/png" sizes="192x192" href="${ icon192 }">` : "",

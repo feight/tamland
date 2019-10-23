@@ -41,17 +41,17 @@
   ],
   "dependencies": {
     "@tamland/logger": "0.0.28",
-    "deepmerge": "^4.0.0",
+    "deepmerge": "^4.2.1",
     "rc-config-loader": "^2.0.4"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.20",
-    "@tamland/eslint": "^0.0.39",
+    "@tamland/babel": "^0.0.21",
+    "@tamland/eslint": "^0.0.42",
     "@types/deepmerge": "^2.2.0",
-    "@types/jasmine": "^3.4.1",
-    "@types/node": "^12.7.8",
+    "@types/jasmine": "^3.4.4",
+    "@types/node": "^12.11.5",
     "color-json": "^2.0.0",
     "jasmine": "^3.5.0",
-    "renamer": "^1.1.3"
+    "renamer": "^1.1.4"
   }
 }

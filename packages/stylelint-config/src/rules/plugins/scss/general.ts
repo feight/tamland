@@ -13,16 +13,23 @@ export default {
         /*
          * Disallow dollar variables within a stylesheet.
          *
-         * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules//README.md
+         * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/no-dollar-variables/README.md
          */
         "scss/no-dollar-variables": null,
 
         /*
          * Disallow duplicate dollar variables within a stylesheet.
          *
-         * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules//README.md
+         * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/no-duplicate-dollar-variables/README.md
          */
-        "scss/no-duplicate-dollar-variables": true
+        "scss/no-duplicate-dollar-variables": true,
+
+        /*
+         * Disallow duplicate mixins within a stylesheet.
+         *
+         * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/no-duplicate-mixins/README.md
+         */
+        "scss/no-duplicate-mixins": true
 
     }
 };

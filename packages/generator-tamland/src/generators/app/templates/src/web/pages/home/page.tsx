@@ -1,53 +1,7 @@
 
 
 import React from "react";
-import {
-    gql,
-    Page,
-    useQuery
-} from "@tamland/web";
-
-
-const HelloWorld: React.FunctionComponent = () => {
-
-    const {
-        data,
-        error,
-        loading
-    } = useQuery(gql`
-        {
-            hello
-        }
-    `);
-
-    if(loading){
-
-        return (
-            <p>
-                { "Loading..." }
-            </p>
-        );
-
-    }
-
-    if(error){
-
-        return (
-            <p>
-                { "Error..." }
-            </p>
-        );
-
-    }
-
-    return (
-        <p>
-            { "hello" }
-            { data.hello }
-        </p>
-    );
-
-};
+import { Page } from "@tamland/web";
 
 
 export default class HomePage extends Page{
@@ -58,8 +12,6 @@ export default class HomePage extends Page{
             <div>
 
                 { "home page" }
-
-                <HelloWorld />
 
             </div>
         );

@@ -44,10 +44,9 @@ export const gcloudSetupTask = async function(component?: string): Promise<void>
         }
 
         const filtered = versions.filter((item): boolean => item.id === component);
+        const [version] = filtered;
 
-        if(filtered.length > 0){
-
-            const [version] = filtered;
+        if(filtered.length > 0 && version.state.name !== "Not Installed"){
 
             if(version.latest_version_string === version.current_version_string){
 

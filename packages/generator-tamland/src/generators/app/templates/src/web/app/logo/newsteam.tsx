@@ -21,7 +21,7 @@ export class Logo extends React.PureComponent<{
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <title>
-                    { "News Team" }
+                    { "<%= name %>" }
                 </title>
                 <defs>
                     <style>
