@@ -25,63 +25,63 @@ export interface TamlandAppConfigInterface{
 
 export class TamlandAppConfig{
 
-    public backgroundColor: string;
+    backgroundColor: string;
 
-    public description: string;
+    description: string;
 
-    public favicons: {
+    favicons: {
         path: string;
         size: [number, number];
     }[];
 
-    public icons: {
+    icons: {
         path: string;
         size: [number, number];
     }[];
 
-    public language: string;
+    language: string;
 
-    public name: string;
+    name: string;
 
-    public router: RouterProps;
+    router: RouterProps;
 
-    public shortName: string;
+    shortName: string;
 
-    public themeColor: string;
+    themeColor: string;
 
-    public tileColor: string;
+    tileColor: string;
 
-    public constructor(config: TamlandAppConfigInterface){
+    constructor(config: TamlandAppConfigInterface){
 
-        this.backgroundColor = config.backgroundColor || "#fff";
+        this.backgroundColor = config.backgroundColor ?? "#fff";
 
-        this.description = config.description || "Tamland application description";
+        this.description = config.description ?? "Tamland application description";
 
-        this.favicons = config.favicons || [{
+        this.favicons = config.favicons ?? [{
             path: "/favicon.png",
             // Width height array
             // eslint-disable-next-line no-magic-numbers
             size: [32, 32]
         }];
 
-        this.icons = config.icons || [{
+        this.icons = config.icons ?? [{
             path: "/favicon.png",
             // Width height array
             // eslint-disable-next-line no-magic-numbers
             size: [128, 128]
         }];
 
-        this.language = config.language || "en";
+        this.language = config.language ?? "en";
 
-        this.name = config.name || "Tamland application";
+        this.name = config.name ?? "Tamland application";
 
         this.router = config.router;
 
-        this.shortName = config.shortName || "Tamland app";
+        this.shortName = config.shortName ?? "Tamland app";
 
-        this.themeColor = config.themeColor || "#fff";
+        this.themeColor = config.themeColor ?? "#fff";
 
-        this.tileColor = config.tileColor || "#fff";
+        this.tileColor = config.tileColor ?? "#fff";
 
     }
 

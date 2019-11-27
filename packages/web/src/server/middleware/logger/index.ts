@@ -13,7 +13,7 @@ export const logger = function(app: express.Express): void{
         next: express.NextFunction
     ): void => {
 
-        const url = `${ request.protocol }://${ request.get("host") }${ request.originalUrl }`;
+        const url = `${ request.protocol }://${ request.get("host") ?? "localhost" }${ request.originalUrl }`;
 
         response.on("finish", (): void => {
 

@@ -3,13 +3,13 @@
 import path from "path";
 
 import merge from "deepmerge";
-import rcfile from "rc-config-loader";
+import { rcFile } from "rc-config-loader";
 import { Logger } from "@tamland/logger";
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const cfg: any = rcfile("tamland");
-const user = cfg && cfg.config ? cfg.config : {};
+const cfg: any = rcFile("tamland");
+const user = cfg?.config ? cfg.config : {};
 const base = "src/*/!(node_modules|dist)/**/*";
 
 const defaults = {

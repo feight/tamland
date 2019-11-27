@@ -224,9 +224,11 @@ export default {
         /*
          * Prefer the exponentiation operator over Math.pow() (fixable)
          *
+         * Taken care of by the base prefer-exponentiation-operator rule
+         *
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-exponentiation-operator.md
          */
-        "unicorn/prefer-exponentiation-operator": "error",
+        "unicorn/prefer-exponentiation-operator": "off",
 
         /*
          * Prefer .flatMap(…) over .map(…).flat()

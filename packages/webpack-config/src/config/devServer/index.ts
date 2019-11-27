@@ -14,7 +14,6 @@ import { Options } from "../..";
  * https://webpack.js.org/configuration/devtool/
  */
 export default function configuration(
-    config: Configuration,
     options: Options
 ): Configuration{
 

@@ -16,7 +16,7 @@ import "./index.scss";
 
 export class App extends Application{
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
             <div className={ style.app }>

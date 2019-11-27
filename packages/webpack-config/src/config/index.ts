@@ -1,5 +1,7 @@
 
 
+// This is a property of the webpack config so we're keeping this abbreviated name
+// eslint-disable-next-line unicorn/prevent-abbreviations
 import devServer from "./devServer";
 import devtool from "./devtool";
 import entry from "./entry";

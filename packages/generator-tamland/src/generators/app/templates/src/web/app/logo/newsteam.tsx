@@ -9,11 +9,11 @@ export class Logo extends React.PureComponent<{
     fill: string;
 }>{
 
-    public static defaultProps = {
+    static defaultProps = {
         fill: "#000000"
     };
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
             <svg

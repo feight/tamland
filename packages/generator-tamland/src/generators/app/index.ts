@@ -5,14 +5,14 @@ import Generator from "yeoman-generator";
 
 export default class AppGenerator extends Generator{
 
-    public answers: {
+    answers: {
         description: string;
         folder: string;
         name: string;
         project: string;
     };
 
-    public install(): void{
+    install(): void{
 
         this.npmInstall();
 
@@ -22,7 +22,7 @@ export default class AppGenerator extends Generator{
 
     }
 
-    public async prompting(): Promise<void>{
+    async prompting(): Promise<void>{
 
         this.answers = await this.prompt([
             {
@@ -49,7 +49,7 @@ export default class AppGenerator extends Generator{
 
     }
 
-    public writing(): void{
+    writing(): void{
 
         const project = String(this.answers.project)
         .replace(/\s\s+/gu, " ")

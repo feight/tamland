@@ -6,7 +6,7 @@ import { Page } from "@tamland/web";
 
 export default class HomePage extends Page{
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
             <div>

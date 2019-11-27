@@ -4,7 +4,6 @@ import WorkboxNamespace from "workbox-sw";
 
 import { TamlandServiceWorkerOptionsInterface } from "./options";
 
-
 declare const workbox: typeof WorkboxNamespace;
 
 declare function importScripts(...urls: string[]): void;
@@ -15,24 +14,24 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 
 export class ServiceWorker{
 
-    public workbox: typeof workbox;
+    // Workbox: typeof workbox;
 
-    public precache: (string|{
+    precache: (string|{
         url: string;
         revision: string;
     })[];
 
-    public constructor(options?: TamlandServiceWorkerOptionsInterface){
+    constructor(options?: TamlandServiceWorkerOptionsInterface){
 
         const {
             precache = []
-        } = options || {};
+        } = options ?? {};
 
         this.precache = precache;
 
     }
 
-    public start(): void{
+    start(): void{
 
         workbox.precaching.precacheAndRoute(this.precache);
 

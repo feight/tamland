@@ -18,13 +18,13 @@ import logger from "../logger";
 
 export class Server{
 
-    public readonly port: number;
+    readonly port: number;
 
-    public readonly options: TamlandServerOptions;
+    readonly options: TamlandServerOptions;
 
     private readonly app: express.Express;
 
-    public constructor(serverOptions: TamlandServerOptionsInterface){
+    constructor(serverOptions: TamlandServerOptionsInterface){
 
         const defaultPort = 8080;
 
@@ -35,7 +35,7 @@ export class Server{
 
     }
 
-    public start(): void{
+    start(): void{
 
         const middleware = new TamlandServerMiddleware(this.app, this.options);
         const routers = new TamlandServerRouters(this.app, this.options);

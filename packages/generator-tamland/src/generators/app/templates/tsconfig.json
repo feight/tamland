@@ -13,7 +13,9 @@
       "esnext.asynciterable"
     ],
     "module": "commonjs",
-    "outDir": "./lib",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "resolveJsonModule": true,
     "strict": true,
     "target": "es5"
   },

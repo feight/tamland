@@ -28,7 +28,7 @@ interface NavState{
 
 export class Nav extends React.Component<{}, NavState>{
 
-    public constructor(props: {}){
+    constructor(props: {}){
 
         super(props);
 
@@ -94,6 +94,12 @@ export class Nav extends React.Component<{}, NavState>{
                 </Drawer>
             </div>
         );
+
+    }
+
+    public shouldComponentUpdate(): boolean{
+
+        return true;
 
     }
 

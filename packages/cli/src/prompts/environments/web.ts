@@ -26,7 +26,7 @@ const web = function(): Promise<{
             project: string;
         };
     } => ({
-        name: `${ environment.name } (${ environment.hostname || `${ environment.project }.appspot.com` })`,
+        name: `${ environment.name } (${ environment.hostname ?? `${ environment.project }.appspot.com` })`,
         value: environment
     })));
 

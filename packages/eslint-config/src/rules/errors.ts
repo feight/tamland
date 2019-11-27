@@ -90,6 +90,13 @@ export default {
         "no-dupe-args": "error",
 
         /*
+         * Disallow duplicate conditions in if-else-if chains
+         *
+         * https://eslint.org/docs/rules/no-dupe-else-if
+         */
+        "no-dupe-else-if": "error",
+
+        /*
          * Disallow duplicate keys in object literals
          *
          * https://eslint.org/docs/rules/no-dupe-keys
@@ -168,7 +175,7 @@ export default {
          *
          * https://eslint.org/docs/rules/no-import-assign
          */
-        // "no-import-assign": "error",
+        "no-import-assign": "error",
 
         /*
          * Disallow variable or function declarations in nested blocks
@@ -219,6 +226,13 @@ export default {
          * https://eslint.org/docs/rules/no-regex-spaces
          */
         "no-regex-spaces": "error",
+
+        /*
+         * Disallow returning values from setters
+         *
+         * https://eslint.org/docs/rules/no-setter-return
+         */
+        "no-setter-return": "error",
 
         /*
          * Disallow sparse arrays

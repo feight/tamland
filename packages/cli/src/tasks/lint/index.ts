@@ -13,7 +13,7 @@ export interface LintTaskOptions{
 
 export const lintTask = async function(config: TamlandConfig, options: LintTaskOptions): Promise<void>{
 
-    const watch = options.watch || false;
+    const watch = options.watch ?? false;
 
     await Promise.all([
         lintCSSTask(config.lint.css, watch),

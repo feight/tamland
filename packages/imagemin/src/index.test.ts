@@ -6,9 +6,9 @@ import "jasmine";
 import { imagemin } from ".";
 
 
-describe("imagemin", () => {
+describe("{ imagemin }", () => {
 
-    it("{ imagemin } is defined", () => {
+    it("is defined", () => {
 
         expect(imagemin).toBeDefined();
 

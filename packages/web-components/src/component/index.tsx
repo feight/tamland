@@ -15,13 +15,13 @@ export interface ComponentProps{
 
 export class Component<TP extends ComponentProps, TS> extends React.Component<TP, TS>{
 
-    public readonly classes: {
+    readonly classes: {
         [className: string]: string;
     };
 
-    public readonly features: Features;
+    readonly features: Features;
 
-    public constructor(props: TP){
+    constructor(props: TP){
 
         super(props);
 
@@ -29,12 +29,12 @@ export class Component<TP extends ComponentProps, TS> extends React.Component<TP
 
     }
 
-    public shouldComponentUpdate(
+    shouldComponentUpdate(
         // This method signature is needed when extending from this class
-        /* eslint-disable @typescript-eslint/no-unused-vars */
+        /* eslint-disable @typescript-eslint/no-unused-vars, @typescript-eslint/no-unused-vars-experimental */
         props: TP,
         state: TS
-        /* eslint-enable @typescript-eslint/no-unused-vars */
+        /* eslint-enable @typescript-eslint/no-unused-vars, @typescript-eslint/no-unused-vars-experimental */
     ): boolean{
 
         return true;

@@ -1,0 +1,28 @@
+
+$cols: 7;
+
+div.grid{
+
+    background: red;
+    display: grid;
+    width: 600px;
+    grid-gap: 10px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(3, auto);
+
+
+}
+
+div.item{
+
+    background: green;
+    overflow-x: hidden;
+
+}
+
+div.item:nth-child(1){
+
+    grid-column:1 / 8;
+    grid-row: 0;
+
+}

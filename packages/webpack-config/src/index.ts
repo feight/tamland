@@ -119,20 +119,20 @@ const generateOptions = function(webpackOptions: ConfigurationOptions, environme
 
     const options: Options = Object.assign(optionsDefaults, {
         bundleAnalyzer: typeof webpackOptions.bundleAnalyzer === "undefined" ? optionsDefaults.bundleAnalyzer : webpackOptions.bundleAnalyzer,
-        cwd: environment.cwd || optionsDefaults.cwd,
-        defaultCssLoader: webpackOptions.defaultCssLoader || optionsDefaults.defaultCssLoader,
+        cwd: environment.cwd ?? optionsDefaults.cwd,
+        defaultCssLoader: webpackOptions.defaultCssLoader ?? optionsDefaults.defaultCssLoader,
         hostname: environment.hostname,
-        mode: args.mode || optionsDefaults.mode,
+        mode: args.mode ?? optionsDefaults.mode,
         multipleTargeting: typeof webpackOptions.multipleTargeting === "undefined" ? optionsDefaults.multipleTargeting : webpackOptions.multipleTargeting,
-        outputPath: webpackOptions.outputPath || optionsDefaults.outputPath,
-        platform: environment.platform || optionsDefaults.platform,
+        outputPath: webpackOptions.outputPath ?? optionsDefaults.outputPath,
+        platform: environment.platform ?? optionsDefaults.platform,
         ports: {
             ...optionsDefaults.ports,
             ...webpackOptions.ports
         },
-        staticFolder: webpackOptions.staticFolder || optionsDefaults.staticFolder,
-        target: environment.target || optionsDefaults.target,
-        watch: args.watch || optionsDefaults.watch
+        staticFolder: webpackOptions.staticFolder ?? optionsDefaults.staticFolder,
+        target: environment.target ?? optionsDefaults.target,
+        watch: args.watch ?? optionsDefaults.watch
     });
 
     options.targetPath = options.multipleTargeting ? `${ options.target }` : optionsDefaults.targetPath;
@@ -155,7 +155,7 @@ export default function configure(
 
     return (
         environment: Environment = {},
-        args: Args
+        args: Args = {}
     ): Configuration => {
 
         const options = generateOptions(webpackOptions, environment, args);
@@ -164,22 +164,22 @@ export default function configure(
          * Output configuration is used by other configurations, so we set it up
          * first and pass it in the other configurations.
          */
-        const configuration = merge(config.output(webpackConfig, options), webpackConfig);
+        const configuration = merge(config.output(options), webpackConfig);
 
         // Deep merge all base configuration with custom configuration
         const merged = merge(
-            config.devServer(configuration, options),
-            config.devtool(configuration, options),
-            config.entry(configuration, options),
-            config.externals(configuration, options),
-            config.mode(configuration, options),
-            config.module(configuration, options),
-            config.optimization(configuration, options),
-            config.performance(configuration, options),
-            config.plugins(configuration, options),
-            config.resolve(configuration, options),
+            config.devServer(options),
+            config.devtool(options),
+            config.entry(options),
+            config.externals(options),
+            config.mode(options),
+            config.module(options, configuration),
+            config.optimization(options),
+            config.performance(options),
+            config.plugins(options, configuration),
+            config.resolve(options),
             config.stats(),
-            config.target(configuration, options),
+            config.target(options),
             config.watchOptions(),
             configuration
         );

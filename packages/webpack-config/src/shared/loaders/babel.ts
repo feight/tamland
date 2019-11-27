@@ -1,15 +1,11 @@
 
 
-import {
-    Configuration,
-    NewLoader
-} from "webpack";
+import { NewLoader } from "webpack";
 
 import { Options } from "../..";
 
 
 export default function loader(
-    config: Configuration,
     options: Options
 ): NewLoader{
 

@@ -52,7 +52,7 @@ export const getScrollTop = function(): number{
 
 export class ScrollDrawer extends Component<ScrollDrawerProps, ScrollDrawerState>{
 
-    public static defaultProps = {
+    static defaultProps = {
         force: 60,
         offsetRatio: 0.33,
         tollerance: 50
@@ -62,7 +62,7 @@ export class ScrollDrawer extends Component<ScrollDrawerProps, ScrollDrawerState
         clear: 0
     };
 
-    public constructor(props: ScrollDrawerProps){
+    constructor(props: ScrollDrawerProps){
 
         super(props);
 
@@ -82,7 +82,7 @@ export class ScrollDrawer extends Component<ScrollDrawerProps, ScrollDrawerState
 
     }
 
-    public componentDidMount(): void{
+    componentDidMount(): void{
 
         /*
          * This has to be done from componentDidMount because it can't be done
@@ -109,7 +109,7 @@ export class ScrollDrawer extends Component<ScrollDrawerProps, ScrollDrawerState
 
     }
 
-    public componentWillUpdate(props: ScrollDrawerProps, state: ScrollDrawerState): void{
+    componentWillUpdate(props: ScrollDrawerProps, state: ScrollDrawerState): void{
 
         this.props.onChange({
             hidden: state.hidden,
@@ -119,7 +119,7 @@ export class ScrollDrawer extends Component<ScrollDrawerProps, ScrollDrawerState
 
     }
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         const classes = [
             this.props.classes.scrollDrawer,
@@ -137,10 +137,7 @@ export class ScrollDrawer extends Component<ScrollDrawerProps, ScrollDrawerState
 
     }
 
-    public shouldComponentUpdate(
-        props: ScrollDrawerProps,
-        state: ScrollDrawerState
-    ): boolean{
+    shouldComponentUpdate(props: ScrollDrawerProps, state: ScrollDrawerState): boolean{
 
         if(
             this.state.direction !== state.direction ||

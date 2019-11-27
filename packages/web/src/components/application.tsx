@@ -12,7 +12,7 @@ export interface ApplicationProps{
 
 export class Application extends React.PureComponent<ApplicationProps>{
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
             <div>

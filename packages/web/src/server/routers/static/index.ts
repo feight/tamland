@@ -39,7 +39,7 @@ const getStaticFileMap = function(
     cacheExpiration: string | number
 ): StaticFile[]{
 
-    // Static public url base and source
+    // Static url base and source
     const source = "dist/client";
     const webpackAssets = JSON.parse(fs.readFileSync(path.join(process.cwd(), "dist/client/webpack-assets.json")).toString());
     const getWebpackAsset = (chunkName: string): string => webpackAssets[chunkName].js.replace(`/${ staticFolder }`, source);

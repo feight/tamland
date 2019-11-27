@@ -38,7 +38,7 @@ export const webp = function(
 
         }
 
-        const pathname = new URL(request.url, `${ request.protocol }://${ request.get("host") }`).pathname;
+        const pathname = new URL(request.url, `${ request.protocol }://${ request.get("host") ?? "localhost" }`).pathname;
         const extpos = pathname.lastIndexOf(".");
         const extension = pathname.slice(extpos + 1);
 

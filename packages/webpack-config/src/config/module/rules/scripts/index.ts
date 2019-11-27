@@ -12,7 +12,7 @@ export default function configuration(
     options: Options
 ): Configuration{
 
-    const loader = babelLoader(config, options);
+    const loader = babelLoader(options);
 
     return merge(config, {
         module: {

@@ -12,7 +12,6 @@ import { Options } from "../..";
  * https://webpack.js.org/concepts/mode/
  */
 export default function configuration(
-    config: Configuration,
     options: Options
 ): Configuration{
 

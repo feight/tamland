@@ -24,13 +24,13 @@ export const browserconfigRouter = (config: BrowserconfigConfiguration): express
         tileColor
     } = config;
 
-    const getIconPath = function(size: number | [number, number]): string | undefined{
+    const getIconPath = function(size: number | [number, number]): string{
 
         const [icon = undefined] = icons.filter(
             (ico): boolean => ico.size.join("x") === (typeof size === "number" ? `${ size }x${ size }` : `${ size.join("x") }`)
         );
 
-        return icon ? icon.path : undefined;
+        return icon ? icon.path : "";
 
     };
 

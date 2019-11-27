@@ -37,6 +37,13 @@ export default {
         "react-native/no-raw-text": "off",
 
         /*
+         * No Single Element Style Arrays are allowed
+         *
+         * https://github.com/Intellicode/eslint-plugin-react-native/blob/master/docs/rules/no-single-element-style-arrays.md
+         */
+        "react-native/no-single-element-style-arrays": "off",
+
+        /*
          * Detect StyleSheet rules which are not used in your React components
          *
          * https://github.com/intellicode/eslint-plugin-react-native/blob/HEAD/docs/rules/no-unused-styles.md

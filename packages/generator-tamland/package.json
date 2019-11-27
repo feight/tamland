@@ -1,6 +1,6 @@
 {
   "name": "@tamland/generator-tamland",
-  "version": "0.0.33",
+  "version": "0.0.37",
   "description": "Yeoman generator for the Tamland framework",
   "main": "lib/generators/app",
   "scripts": {
@@ -47,11 +47,11 @@
     "lib"
   ],
   "dependencies": {
-    "yeoman-generator": "^4.1.0"
+    "yeoman-generator": "^4.2.0"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.21",
-    "@tamland/eslint": "^0.0.42",
+    "@tamland/babel": "^0.0.30",
+    "@tamland/eslint": "^0.0.55",
     "@types/yeoman-generator": "^3.1.4",
     "babel-tape-runner": "^3.0.0",
     "tape": "^4.11.0"

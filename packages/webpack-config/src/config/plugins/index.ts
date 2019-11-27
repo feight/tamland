@@ -12,8 +12,8 @@ import { Options } from "../..";
 
 
 export default function configuration(
-    config: webpack.Configuration,
-    options: Options
+    options: Options,
+    config: webpack.Configuration
 ): webpack.Configuration{
 
     const hash =
@@ -49,7 +49,7 @@ export default function configuration(
 
     return merge(
         base,
-        options.target === "client" ? client(config, options) : server()
+        options.target === "client" ? client(options, config) : server()
     );
 
 }

@@ -15,8 +15,8 @@ import { Options } from "../..";
  * https://webpack.js.org/configuration/module/
  */
 export default function configuration(
-    config: Configuration,
-    options: Options
+    options: Options,
+    config: Configuration
 ): Configuration{
 
     return merge(

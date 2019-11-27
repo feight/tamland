@@ -40,13 +40,13 @@ export class Drawer extends Component<DrawerProps, DrawerState>{
 
     private readonly wrapRef: React.RefObject<HTMLDivElement>;
 
-    public constructor(props: DrawerProps){
+    constructor(props: DrawerProps){
 
         super(props);
 
         this.state = {
             horizontal: props.side === "left" || props.side === "right",
-            open: props.open || false,
+            open: props.open ?? false,
             touchCurrentX: 0,
             touchCurrentY: 0,
             touching: false,
@@ -71,13 +71,13 @@ export class Drawer extends Component<DrawerProps, DrawerState>{
 
     }
 
-    public shouldComponentUpdate(): boolean{
+    shouldComponentUpdate(): boolean{
 
         return true;
 
     }
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         this.updateTouchMoveBlock();
 
@@ -105,7 +105,7 @@ export class Drawer extends Component<DrawerProps, DrawerState>{
 
     }
 
-    public componentDidMount(): void{
+    componentDidMount(): void{
 
         const base = this.baseRef.current;
         const close = this.closeRef.current;
@@ -134,7 +134,7 @@ export class Drawer extends Component<DrawerProps, DrawerState>{
 
     }
 
-    public componentWillUnmount(): void{
+    componentWillUnmount(): void{
 
         const base = this.baseRef.current;
         const close = this.closeRef.current;

@@ -29,11 +29,11 @@ export interface TamlandClientOptionsInterface{
 
 export class TamlandClientOptions{
 
-    public App: typeof Application;
+    App: typeof Application;
 
-    public config: TamlandAppConfig;
+    config: TamlandAppConfig;
 
-    public constructor(options: TamlandClientOptionsInterface){
+    constructor(options: TamlandClientOptionsInterface){
 
         this.App = options.App;
         this.config = new TamlandAppConfig(options.config);

@@ -11,7 +11,7 @@ const minimumScrollTime = 100;
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-arguments
 export class ScrollTop extends React.PureComponent<{}>{
 
-    public componentDidMount(): void{
+    componentDidMount(): void{
 
         /*
          * When a user reloads their page after scrolling, we don't want to set
@@ -26,7 +26,7 @@ export class ScrollTop extends React.PureComponent<{}>{
 
     }
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return this.props.children;
 

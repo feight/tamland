@@ -6,9 +6,9 @@ import "jasmine";
 import { Helmet } from ".";
 
 
-describe("exports", () => {
+describe("{ Helmet }", () => {
 
-    it("{ Helmet }", () => {
+    it("is defined", () => {
 
         expect(Helmet).toBeDefined();
 

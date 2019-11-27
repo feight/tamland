@@ -82,7 +82,7 @@ export default {
          *
          * https://eslint.org/docs/rules/default-case
          */
-        // "default-param-last": "error",
+        "default-param-last": "error",
 
         /*
          * Enforce consistent newlines before and after dots
@@ -107,6 +107,13 @@ export default {
          * https://eslint.org/docs/rules/eqeqeq
          */
         eqeqeq: "error",
+
+        /*
+         * Require grouped accessor pairs in object literals and classes
+         *
+         * https://eslint.org/docs/rules/grouped-accessor-pairs
+         */
+        "grouped-accessor-pairs": "error",
 
         /*
          * Require for-in loops to include an if statement
@@ -142,6 +149,13 @@ export default {
          * https://eslint.org/docs/rules/no-case-declarations
          */
         "no-case-declarations": "error",
+
+        /*
+         * Disallow returning value from constructor
+         *
+         * https://eslint.org/docs/rules/no-constructor-return
+         */
+        "no-constructor-return": "error",
 
         /*
          * Disallow division operators explicitly at the beginning of regular expressions
@@ -600,7 +614,7 @@ export default {
          *
          * https://eslint.org/docs/rules/prefer-promise-reject-errors
          */
-        // "prefer-regex-literals": "error",
+        "prefer-regex-literals": "error",
 
         /*
          * Enforce the consistent use of the radix argument when using parseInt()

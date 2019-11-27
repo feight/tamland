@@ -15,11 +15,11 @@ import { Options } from "../..";
 
 
 export const client = function(
-    config: Configuration,
-    options: Options
+    options: Options,
+    config: Configuration
 ): Configuration{
 
-    const output = config.output || {};
+    const output = config.output ?? {};
     const folder = output.path ? path.relative(options.cwd, output.path) : options.outputPath;
 
     return {

@@ -108,7 +108,12 @@ export default {
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
          */
-        "@typescript-eslint/explicit-member-accessibility": "error",
+        "@typescript-eslint/explicit-member-accessibility": [
+            "error",
+            {
+                accessibility: "no-public"
+            }
+        ],
 
         /*
          * Require or disallow spacing between function identifiers and their invocations (func-call-spacing)
@@ -204,6 +209,13 @@ export default {
         "@typescript-eslint/no-array-constructor": "error",
 
         /*
+         * Disallow the delete operator with computed key expressions
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dynamic-delete.md
+         */
+        "@typescript-eslint/no-dynamic-delete": "error",
+
+        /*
          * Disallow Empty Functions
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.md
@@ -225,13 +237,24 @@ export default {
         "@typescript-eslint/no-explicit-any": "error",
 
         /*
-         * Disallow unnecessary parentheses
+         * Disallow extra non-null assertion
          *
-         * This is off for now because it conflicts with react/jsx-wrap-multilines
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-non-null-assertion.md
+         */
+        "@typescript-eslint/no-extra-non-null-assertion": "error",
+
+        /*
+         * Disallow unnecessary parentheses
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-parens.md
          */
-        "@typescript-eslint/no-extra-parens": "off",
+        "@typescript-eslint/no-extra-parens": [
+            "error",
+            "all",
+            {
+                ignoreJSX: "multi-line"
+            }
+        ],
 
         /*
          * Forbids the use of classes as namespaces (no-unnecessary-class from TSLint)
@@ -376,11 +399,44 @@ export default {
         "@typescript-eslint/no-unnecessary-type-assertion": "error",
 
         /*
+         * Disallow untyped public methods
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-untyped-public-signature.md
+         */
+        "@typescript-eslint/no-untyped-public-signature": [
+            "error",
+            {
+                ignoredMethods: [
+                    "constructor"
+                ]
+            }
+        ],
+
+        /*
+         * Disallow unused expressions
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
+         */
+        "@typescript-eslint/no-unused-expressions": "error",
+
+        /*
          * Disallow unused variables (no-unused-variable from TSLint)
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
          */
         "@typescript-eslint/no-unused-vars": "error",
+
+        /*
+         * Disallow unused variables and arguments
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars-experimental.md
+         */
+        "@typescript-eslint/no-unused-vars-experimental": [
+            "error",
+            {
+                ignoreArgsIfArgsAfterAreUsed: true
+            }
+        ],
 
         /*
          * Disallow the use of variables before they are defined
@@ -430,6 +486,20 @@ export default {
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-namespace-keyword.md
          */
         "@typescript-eslint/prefer-namespace-keyword": "error",
+
+        /*
+         * Enforce the usage of the nullish coalescing operator instead of logical chaining
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-nullish-coalescing.md
+         */
+        "@typescript-eslint/prefer-nullish-coalescing": "error",
+
+        /*
+         * Prefer using concise optional chain expressions instead of chained logical ands
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-optional-chain.md
+         */
+        "@typescript-eslint/prefer-optional-chain": "error",
 
         /*
          * Require never-modified private members be marked as readonly
@@ -490,11 +560,46 @@ export default {
         "@typescript-eslint/restrict-plus-operands": "error",
 
         /*
+         * Enforce template literal expressions to be of string type.
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/restrict-template-expressions.md
+         */
+        "@typescript-eslint/restrict-template-expressions": [
+            "error",
+            {
+                allowBoolean: true,
+                allowNullable: false,
+                allowNumber: true
+            }
+        ],
+
+        /*
+         * Require/Disallow returning awaited values in specific contexts
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md
+         */
+        "@typescript-eslint/return-await": "error",
+
+        /*
          * Require or disallow semicolons instead of ASI
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
          */
         "@typescript-eslint/semi": "error",
+
+        /*
+         * Require or disallow a space before function parenthesis
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md
+         */
+        "@typescript-eslint/space-before-function-paren": [
+            "error",
+            {
+                anonymous: "never",
+                asyncArrow: "always",
+                named: "never"
+            }
+        ],
 
         /*
          * Boolean expressions are limited to booleans

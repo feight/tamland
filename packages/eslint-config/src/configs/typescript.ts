@@ -30,6 +30,11 @@ const config: Linter.Config = {
         "no-empty-function": "off",
 
         /*
+         * Overridden by @typescript/no-extra-parens
+         */
+        "no-extra-parens": "off",
+
+        /*
          * Overridden by @typescript-eslint/no-unused-vars because it works with
          * imported interfaces
          */
@@ -51,7 +56,12 @@ const config: Linter.Config = {
         /*
          * Overridden by @typescript-eslint/semi
          */
-        semi: "off"
+        semi: "off",
+
+        /*
+         * @typescript-eslint/space-before-function-paren
+         */
+        "space-before-function-paren": "off"
 
     }
 };

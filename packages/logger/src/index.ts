@@ -2,7 +2,7 @@
 
 import chalk from "chalk";
 import codeframe from "codeframe";
-import getCursorPosition from "get-cursor-position";
+import getCursorPosition from "magicdawn-get-cursor-position";
 import strip from "strip-color";
 import stripAnsi from "strip-ansi";
 import { rjust } from "justify-text";
@@ -23,6 +23,7 @@ const emojis: { [id: string]: string } = {
     kill: "💀",
     lint: "🔎",
     memcached: "🧠",
+    open: "👀",
     optimize: "🌟",
     server: "💻",
     setup: "💿",
@@ -67,7 +68,7 @@ const formatLabel = function(string: string, error = false): string{
 
     const color = label === lastFormattedLabel ? secondColor : firstColor;
 
-    if(label && label.trim()){
+    if(label?.trim()){
         lastFormattedLabel = label;
     }
 
@@ -75,7 +76,7 @@ const formatLabel = function(string: string, error = false): string{
 
 };
 
-const format = function(label: string, message = "", color?: string, error = false): string{
+const format = function(label: string, message = "", color = "", error = false): string{
 
     let formattedMessage = message ? strip(message) : "";
 
@@ -127,12 +128,12 @@ export const logger = {
 
     },
 
-    error(message: string | Error = "", options?: { color?: string | true; label?: string }): void{
+    error(message: string | Error = "", options: { color?: string | true; label?: string } = {}): void{
 
         const {
             color = colors.errorColor,
             label = defaultLabel
-        } = options || {};
+        } = options;
 
 
         let formattedLabel = label;
@@ -183,7 +184,7 @@ export const logger = {
 
                     const errorPointer = `${ errorFile.filePath }:${ error.line }:${ error.column }`;
 
-                    return `${ errorPointer }\n${ chalk.hex(colors.lintErrorMessageColor)(error.message) }\n\n${ errorFrame }\n`;
+                    return `${ errorPointer }\n${ chalk.hex(colors.lintErrorMessageColor)(error.message) }\n\n${ String(errorFrame) }\n`;
 
                 }).join("\n");
 
@@ -199,11 +200,11 @@ export const logger = {
 
     },
 
-    log(message = "", options?: {
+    log(message = "", options: {
         color?: string;
         error?: boolean;
         label?: string;
-    }): void{
+    } = {}): void{
 
         const {
             label = message ? defaultLabel : "",
@@ -211,7 +212,7 @@ export const logger = {
             // eslint-disable-next-line no-undefined
             color = undefined,
             error = false
-        } = options || {};
+        } = options;
 
         const testLabel = `${ label } ${ String(error) }`;
         const formattedMessage = format(label, String(message), color, error);
@@ -253,13 +254,13 @@ export const logger = {
 
     },
 
-    write(message = "", options?: {
+    write(message? : string, options?: {
         error?: boolean;
         label: string;
     }): void{
 
         // Normalize new line characters
-        let output = message
+        let output = (message ?? "")
         .replace(/\r\n/gu, "\n")
         .replace(/\n\r/gu, "\n")
         .replace(/\r/gu, "\n");
@@ -280,7 +281,7 @@ export const logger = {
         const {
             label = defaultLabel,
             error = false
-        } = options || {};
+        } = options ?? {};
 
         let lbl = formatLabel(label);
 

@@ -14,7 +14,7 @@ const UniversalRouter = universalModule.Router;
 
 export class Router extends BaseRouter{
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
             <UniversalRouter

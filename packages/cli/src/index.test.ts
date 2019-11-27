@@ -8,7 +8,7 @@ import { build } from ".";
 
 describe("build", () => {
 
-    it("{ build } is defined", () => {
+    it("is defined", () => {
 
         expect(build).toBeDefined();
 

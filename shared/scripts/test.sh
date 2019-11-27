@@ -8,7 +8,7 @@ bash "$DIR/build.sh" &&
 # Lint the code
 if hash eslint 2>/dev/null; then
     echo 'running eslint'
-    eslint src --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts
+    eslint src --ext .jsx,.js,.tsx,.ts --ignore-pattern *.d.ts --fix
 else
     echo 'eslint is not installed'
 fi

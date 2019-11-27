@@ -7,6 +7,7 @@ import files from "./files";
 import fonts from "./fonts";
 import html from "./html";
 import images from "./images";
+import json from "./json";
 import scripts from "./scripts";
 import styles from "./styles";
 
@@ -30,6 +31,7 @@ export default function configuration(
         fonts(config, options),
         html(config),
         images(config, options),
+        json(config),
         scripts(config, options),
         styles(config, options)
     );

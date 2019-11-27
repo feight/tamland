@@ -37,7 +37,7 @@ export interface PageProps{
 
 export class Page extends React.PureComponent<PageProps>{
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
             <div>

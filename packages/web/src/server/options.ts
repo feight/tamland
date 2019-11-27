@@ -151,11 +151,11 @@ export interface TamlandServerOptionsInterface{
 
 export class TamlandServerOptions{
 
-    public App: typeof Application;
+    App: typeof Application;
 
-    public cacheExpiration: string | number;
+    cacheExpiration: string | number;
 
-    public clientHints?: (
+    clientHints?: (
         "Device-Memory" |
         "Downlink" |
         "DPR" |
@@ -164,29 +164,29 @@ export class TamlandServerOptions{
         "Viewport-Width"
     )[];
 
-    public config: TamlandAppConfig;
+    config: TamlandAppConfig;
 
-    public csp?: IHelmetContentSecurityPolicyConfiguration;
+    csp?: IHelmetContentSecurityPolicyConfiguration;
 
-    public graphql?: GraphqlServerConfiguration;
+    graphql?: GraphqlServerConfiguration;
 
-    public hostname?: string;
+    hostname?: string;
 
-    public jwt: JWTConfiguration;
+    jwt: JWTConfiguration;
 
-    public manifest: ManifestConfiguration;
+    manifest: ManifestConfiguration;
 
-    public staticFiles: StaticFile[];
+    staticFiles: StaticFile[];
 
-    public staticFolder: string;
+    staticFolder: string;
 
-    public xPoweredBy: string;
+    xPoweredBy: string;
 
-    public constructor(options: TamlandServerOptionsInterface){
+    constructor(options: TamlandServerOptionsInterface){
 
         this.App = options.App;
-        this.cacheExpiration = options.cacheExpiration || "1y";
-        this.clientHints = options.clientHints || [
+        this.cacheExpiration = options.cacheExpiration ?? "1y";
+        this.clientHints = options.clientHints ?? [
             "Device-Memory",
             "Downlink",
             "DPR",
@@ -198,7 +198,7 @@ export class TamlandServerOptions{
         this.csp = options.csp;
         this.graphql = options.graphql;
         this.hostname = options.hostname;
-        this.jwt = options.jwt || {};
+        this.jwt = options.jwt ?? {};
         this.manifest = {
             backgroundColor: this.config.backgroundColor,
             description: this.config.description,
@@ -212,11 +212,11 @@ export class TamlandServerOptions{
             shortName: this.config.shortName,
             startUrl: "/",
             themeColor: this.config.themeColor,
-            ...options.manifest || {}
+            ...options.manifest ?? {}
         };
-        this.staticFiles = options.staticFiles || [];
-        this.staticFolder = options.staticFolder || "static";
-        this.xPoweredBy = options.xPoweredBy || "https://www.youtube.com/watch?v=e_DqV1xdf-Y";
+        this.staticFiles = options.staticFiles ?? [];
+        this.staticFolder = options.staticFolder ?? "static";
+        this.xPoweredBy = options.xPoweredBy ?? "https://www.youtube.com/watch?v=e_DqV1xdf-Y";
 
     }
 

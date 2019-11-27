@@ -77,7 +77,7 @@ const getCache = async function(): Promise<Cache>{
 
         try{
 
-            return JSON.parse(raw);
+            return await JSON.parse(raw);
 
         }catch(error){
 
@@ -180,7 +180,7 @@ const installPackage = async function(pack: string, location: string, directory:
         source: sourceCodeHash.hash
     };
 
-    const cacheHash = cache[cacheKey] || {
+    const cacheHash = cache[cacheKey] ?? {
         package: "",
         source: ""
     };
@@ -246,7 +246,7 @@ export const tamlandTask = async function(config: TamlandConfig): Promise<void>{
 
     const tamlandConfig = config.tamland;
 
-    if(tamlandConfig && tamlandConfig.path){
+    if(tamlandConfig?.path){
 
         const packageMap = await getPackageMap(config.targets);
         const tamlandDirectory = path.normalize(path.join(process.cwd(), tamlandConfig.path));

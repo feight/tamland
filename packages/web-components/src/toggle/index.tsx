@@ -11,7 +11,7 @@ interface ToggleProps{
 
 export class Toggle extends React.Component<ToggleProps>{
 
-    public constructor(props: ToggleProps){
+    constructor(props: ToggleProps){
 
         super(props);
 
@@ -19,13 +19,13 @@ export class Toggle extends React.Component<ToggleProps>{
 
     }
 
-    public shouldComponentUpdate(): boolean{
+    shouldComponentUpdate(): boolean{
 
         return true;
 
     }
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
             <div onClick={ this.handleOnClick }>

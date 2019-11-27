@@ -11,7 +11,7 @@ interface RomanizeProps{
 
 export class Romanize extends React.Component<RomanizeProps>{
 
-    public shouldComponentUpdate(props: RomanizeProps): boolean{
+    shouldComponentUpdate(props: RomanizeProps): boolean{
 
         if(this.props.number !== props.number){
 
@@ -23,7 +23,7 @@ export class Romanize extends React.Component<RomanizeProps>{
 
     }
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
             <span>

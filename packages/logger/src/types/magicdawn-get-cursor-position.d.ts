@@ -1,6 +1,6 @@
 
 
-declare module "get-cursor-position" {
+declare module "magicdawn-get-cursor-position" {
 
     export function sync(): {
         col: number;

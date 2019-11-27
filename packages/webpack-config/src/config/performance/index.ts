@@ -6,7 +6,6 @@ import { Options } from "../..";
 
 
 export default function performance(
-    config: Configuration,
     options: Options
 ): Configuration{
 

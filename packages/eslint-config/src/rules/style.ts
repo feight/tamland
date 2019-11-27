@@ -153,6 +153,16 @@ export default {
         "func-style": "error",
 
         /*
+         * Enforce line breaks between arguments of a function call
+         *
+         * https://eslint.org/docs/rules/function-call-argument-newline
+         */
+        "function-call-argument-newline": [
+            "error",
+            "consistent"
+        ],
+
+        /*
          * Enforce consistent line breaks inside function parentheses
          *
          * https://eslint.org/docs/rules/function-paren-newline
@@ -308,7 +318,13 @@ export default {
          *
          * https://eslint.org/docs/rules/lines-between-class-members
          */
-        "lines-between-class-members": "error",
+        "lines-between-class-members": [
+            "error",
+            "always",
+            {
+                exceptAfterSingleLine: true
+            }
+        ],
 
         /*
          * Enforce a maximum depth that blocks can be nested
@@ -697,6 +713,13 @@ export default {
                 ]
             }
         ],
+
+        /*
+         * Disallow the use of Math.pow in favor of the ** operator
+         *
+         * https://eslint.org/docs/rules/prefer-exponentiation-operator
+         */
+        "prefer-exponentiation-operator": "error",
 
         /*
          * Disallow using Object.assign with an object literal as the first

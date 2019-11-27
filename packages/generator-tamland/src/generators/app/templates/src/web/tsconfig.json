@@ -13,12 +13,14 @@
       "esnext.asynciterable"
     ],
     "module": "commonjs",
+    "moduleResolution": "node",
     "outDir": "./dist",
+    "resolveJsonModule": true,
     "strict": true,
     "target": "es5"
   },
   "include": [
-    "**/*.ts",
+    "**/*",
     "webpack.config.js"
   ]
 }

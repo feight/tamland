@@ -32,8 +32,7 @@ export const jwt = function(
                 const headers = request.headers;
 
                 if(
-                    cookies &&
-                    cookies[cookieName]
+                    cookies?.[cookieName]
                 ){
 
                     return cookies[cookieName];
@@ -46,8 +45,7 @@ export const jwt = function(
                     return headers.authorization.split(" ")[1];
 
                 }else if(
-                    query &&
-                    query.token
+                    query?.token
                 ){
 
                     return query.token;

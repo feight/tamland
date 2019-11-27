@@ -28,7 +28,7 @@ interface NavState{
 
 export class Nav extends React.Component<{}, NavState>{
 
-    public constructor(props: {}){
+    constructor(props: {}){
 
         super(props);
 
@@ -45,13 +45,13 @@ export class Nav extends React.Component<{}, NavState>{
 
     }
 
-    public shouldComponentUpdate(): boolean{
+    shouldComponentUpdate(): boolean{
 
         return true;
 
     }
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         const classes = [
             style.nav,

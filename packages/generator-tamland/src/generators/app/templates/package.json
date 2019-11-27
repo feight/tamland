@@ -8,6 +8,7 @@
     "deploy": "tamland deploy",
     "lint": "tamland lint",
     "local": "tamland local",
+    "open": "tamland open",
     "optimize": "tamland optimize",
     "setup": "tamland setup",
     "start": "npm run build && cd src/web && GCLOUD_PROJECT=tamland-example NODE_ENV=production node dist/server/index.js",
@@ -15,6 +16,6 @@
   },
   "version": "1.0.0",
   "devDependencies": {
-    "@tamland/cli": "^0.0.81"
+    "@tamland/cli": "^0.0.88"
   }
 }

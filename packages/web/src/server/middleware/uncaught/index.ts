@@ -1,11 +1,9 @@
 
 
-import { UncaughtConfiguration } from "./types";
-
 import logger from "../../../logger";
 
 
-export const uncaught = function(config: UncaughtConfiguration): void{
+export const uncaught = function(): void{
 
     /*
      * Listen for unhandled promise rejections and log the errors. If this isn't
@@ -13,11 +11,7 @@ export const uncaught = function(config: UncaughtConfiguration): void{
      */
     process.on("unhandledRejection", (reason, promise): void => {
 
-        logger.error(`Unhandled Rejection at: ${ promise }\nreason:\n${ reason }\n`);
-
-        if(config.local){
-            console.error(reason);
-        }
+        logger.error(`unhandled promise rejection at: ${ String(promise) }\nreason:\n${ String(reason) }\n`);
 
     });
 
@@ -27,7 +21,7 @@ export const uncaught = function(config: UncaughtConfiguration): void{
      */
     process.on("uncaughtException", (exception): void => {
 
-        logger.error(`Caught exception: ${ exception }\n`);
+        logger.error(`uncaught exception: ${ String(exception) }\n`);
 
     });
 

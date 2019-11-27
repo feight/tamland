@@ -6,9 +6,9 @@ import "jasmine";
 import { logger } from ".";
 
 
-describe("logger", () => {
+describe("{ logger }", () => {
 
-    it("{ logger } is defined", () => {
+    it("is defined", () => {
 
         expect(logger).toBeDefined();
 

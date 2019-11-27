@@ -12,8 +12,8 @@ import Transport from "winston-transport";
 class LocalTransport extends Transport{
 
     // Extending this function so I can't change the type of info
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    public log(info: any, next: () => void): void{
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-untyped-public-signature
+    log(info: any, next: () => void): void{
 
         setImmediate((): void => {
 

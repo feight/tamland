@@ -20,6 +20,7 @@ import { cleanTask } from "../tasks/clean";
 import { deployTask } from "../tasks/deploy";
 import { lintTask } from "../tasks/lint";
 import { localTask } from "../tasks/local";
+import { openTask } from "../tasks/open";
 import { optimizeTask } from "../tasks/optimize";
 import { setupTask } from "../tasks/setup";
 import { tamlandTask } from "../tasks/tamland";
@@ -64,10 +65,17 @@ program
 program
 .command("deploy")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
-.action(async (options): Promise<void> => deployTask(config, {
-    mode: "production",
-    platform: options.platform || "web"
-}));
+.action(async (options): Promise<void> => {
+
+    await deployTask(config, {
+        mode: "production",
+        platform: options.platform || "web"
+    });
+
+    // Needed because this often hangs
+    process.exit();
+
+});
 
 
 program
@@ -88,6 +96,18 @@ program
     platform: options.platform || "web",
     watch: !options.production
 }));
+
+
+program
+.command("open")
+.action(async (): Promise<void> => {
+
+    await openTask();
+
+    // Needed because this often hangs
+    process.exit();
+
+});
 
 
 program

@@ -39,7 +39,7 @@ export const cleanTask = async function(config: TamlandConfig, options?: CleanTa
 
     const {
         platform = "web"
-    } = options || {};
+    } = options ?? {};
 
     const paths = [
         path.join(config.cwd, `src/${ platform }/dist`)

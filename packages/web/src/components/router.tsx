@@ -58,11 +58,10 @@ const render = function(
                     const loadableComponent = loadableImport(id);
 
                     const Page = loadable(loadableComponent, {
-                        fallback: (
-                            <div>
-                                { loading ? loading() : "Loading..." }
-                            </div>
-                        ),
+                        fallback:
+    <div>
+        { loading ? loading() : "Loading..." }
+    </div>,
                         ssr: true
                     });
 
@@ -86,13 +85,13 @@ const render = function(
 // eslint-disable-next-line react/no-multi-comp
 export class Router extends React.Component<RouterProps>{
 
-    public shouldComponentUpdate(): boolean{
+    shouldComponentUpdate(): boolean{
 
         return true;
 
     }
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
             <Switch>

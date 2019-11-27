@@ -8,7 +8,6 @@ import { Options } from "../..";
 
 
 export default function configuration(
-    config: Configuration,
     options: Options
 ): Configuration{
 

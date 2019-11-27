@@ -20,14 +20,14 @@ export class TamlandServerRouters{
 
     private readonly options: TamlandServerOptions;
 
-    public constructor(app: Express, options: TamlandServerOptions){
+    constructor(app: Express, options: TamlandServerOptions){
 
         this.app = app;
         this.options = options;
 
     }
 
-    public application(): void{
+    application(): void{
 
         const {
             App,
@@ -42,7 +42,7 @@ export class TamlandServerRouters{
 
     }
 
-    public browserconfig(): void{
+    browserconfig(): void{
 
         const { config } = this.options;
         const {
@@ -57,7 +57,7 @@ export class TamlandServerRouters{
 
     }
 
-    public async graphql(): Promise<void>{
+    async graphql(): Promise<void>{
 
         if(this.options.graphql){
 
@@ -73,7 +73,7 @@ export class TamlandServerRouters{
 
     }
 
-    public manifest(): void{
+    manifest(): void{
 
         const { manifest } = this.options;
 
@@ -81,7 +81,7 @@ export class TamlandServerRouters{
 
     }
 
-    public static(): void{
+    static(): void{
 
         const cwd = process.cwd();
 

@@ -26,7 +26,7 @@ export class Client{
 
     private readonly store: Store;
 
-    public constructor(options: TamlandClientOptionsInterface){
+    constructor(options: TamlandClientOptionsInterface){
 
         const history = createHistory();
         const store = createStore(history);
@@ -37,7 +37,7 @@ export class Client{
 
     }
 
-    public start(): void{
+    start(): void{
 
         const App = this.options.App;
 
@@ -53,7 +53,6 @@ export class Client{
                 />
             </Tamland>
         );
-
         loadableReady((): void => {
 
             ReactDOM.render(app, document.querySelector("#app"));

@@ -11,7 +11,7 @@ import {
 
 import { buildTask } from "../../build";
 import { exec } from "../../../utils/subprocess";
-import { openTask } from "../../open";
+import { open } from "../../../utils/open";
 import prompts from "../../../prompts";
 
 
@@ -28,8 +28,8 @@ export const deployWebTask = async function(config: TamlandConfig, options: Depl
     const environment = await prompts.environments.web();
     const version = options.version ? `--version=${ options.version }` : "";
     const project = `--project=${ environment.project }`;
-    const verbosity = `--verbosity=${ options.verbosity || "error" }`;
-    const url = `https://${ environment.hostname || `${ environment.project }.appspot.com` }`;
+    const verbosity = `--verbosity=${ options.verbosity ?? "error" }`;
+    const url = `https://${ environment.hostname ?? `${ environment.project }.appspot.com` }`;
 
     await buildTask(config, {
         hostname: environment.hostname,
@@ -51,7 +51,7 @@ export const deployWebTask = async function(config: TamlandConfig, options: Depl
         label: "deploy"
     });
 
-    await openTask(url);
+    await open(url);
 
     notifier.notify({
         contentImage: config.icon,

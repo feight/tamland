@@ -8,7 +8,7 @@ import config from ".";
 
 describe("config", () => {
 
-    it("{ config } is defined", () => {
+    it("is defined", () => {
 
         expect(config).toBeDefined();
 

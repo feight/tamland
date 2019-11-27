@@ -11,7 +11,7 @@ export class Footer extends React.PureComponent<{
     offset?: boolean;
 }>{
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
             <div className={ style.footer }>

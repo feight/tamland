@@ -34,37 +34,47 @@ export interface TamlandProps{
 }
 
 
+type HtmlProps = JSX.IntrinsicElements["html"] & {
+    [key: string]: string;
+};
+
+
+type BodyProps = JSX.IntrinsicElements["body"] & {
+    [key: string]: string;
+};
+
+
 class TamlandApp extends React.PureComponent<TamlandProps>{
 
-    public static propTypes = {
+    static propTypes = {
         children: PropTypes.oneOfType([
             PropTypes.arrayOf(PropTypes.node),
             PropTypes.node
         ]).isRequired
     };
 
-    public config: TamlandAppConfig;
+    config: TamlandAppConfig;
 
-    public location: HistoryLocation;
+    location: HistoryLocation;
 
-    public constructor(props: TamlandProps){
+    constructor(props: TamlandProps){
 
         super(props);
 
-        const loc = (this.props.request ? parseurl(this.props.request) : window.location) || {};
+        const loc = this.props.request ? parseurl(this.props.request) : window.location;
 
         this.config = new TamlandAppConfig(this.props.config);
 
         this.location = {
-            hash: loc.hash || "",
-            pathname: loc.pathname || "",
-            search: loc.search || "",
+            hash: loc ? loc.hash ?? "" : "",
+            pathname: loc ? loc.pathname ?? "" : "",
+            search: loc ? loc.search ?? "" : "",
             state: {}
         };
 
     }
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
 
@@ -115,7 +125,7 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
 
     }
 
-    private getBodyAttributes(): JSX.IntrinsicElements["body"]{
+    private getBodyAttributes(): BodyProps{
 
         // Needed so that webpack won't require this on the server, since it's a client only module
         // eslint-disable-next-line @typescript-eslint/no-require-imports, global-require
@@ -133,7 +143,7 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
 
     }
 
-    private getHtmlAttributes(): JSX.IntrinsicElements["html"]{
+    private getHtmlAttributes(): HtmlProps{
 
         return {
             lang: this.props.config.language

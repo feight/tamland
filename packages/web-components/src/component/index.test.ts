@@ -6,9 +6,9 @@ import "jasmine";
 import { Component } from ".";
 
 
-describe("exports", () => {
+describe("{ Component }", () => {
 
-    it("{ Component }", () => {
+    it("is defined", () => {
 
         expect(Component).toBeDefined();
 

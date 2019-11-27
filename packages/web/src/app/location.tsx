@@ -20,7 +20,7 @@ export interface LocationProps{
 
 class ShowTheLocation extends React.PureComponent<LocationProps>{
 
-    public componentDidUpdate(previous: LocationProps): void{
+    componentDidUpdate(previous: LocationProps): void{
 
         if(previous.location.pathname !== this.props.location.pathname){
 
@@ -30,7 +30,7 @@ class ShowTheLocation extends React.PureComponent<LocationProps>{
 
     }
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
             <div />

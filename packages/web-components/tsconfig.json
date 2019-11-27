@@ -4,6 +4,7 @@
   },
   "extends": "../../shared/tsconfig.json",
   "include": [
-    "src/**/*"
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ]
 }

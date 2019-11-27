@@ -10,7 +10,7 @@ import { localFirestoreTask } from "./firestore";
 import { localMemcachedTask } from "./memcached";
 import { localServerTask } from "./server";
 
-import { openTask } from "../open";
+import { open } from "../../utils/open";
 import { buildTask } from "../build";
 
 
@@ -26,7 +26,7 @@ export const localTask = async function(config: TamlandConfig, options: LocalTas
     await Promise.all([
         localFirestoreTask(config),
         localMemcachedTask(),
-        openTask(`http://localhost:${ config.nodemon.port }`),
+        open(`http://localhost:${ config.nodemon.port }`),
         localServerTask(config, options),
         buildTask(config, options)
     ]);

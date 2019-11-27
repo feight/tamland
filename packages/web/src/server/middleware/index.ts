@@ -25,20 +25,20 @@ export class TamlandServerMiddleware{
 
     private readonly options: TamlandServerOptions;
 
-    public constructor(app: Express, options: TamlandServerOptions){
+    constructor(app: Express, options: TamlandServerOptions){
 
         this.app = app;
         this.options = options;
 
     }
 
-    public caching(): void{
+    caching(): void{
 
         caching(this.app, { local });
 
     }
 
-    public clientHints(): void{
+    clientHints(): void{
 
         clientHints(this.app, {
             hints: this.options.clientHints
@@ -46,19 +46,19 @@ export class TamlandServerMiddleware{
 
     }
 
-    public compression(): void{
+    compression(): void{
 
         compression(this.app);
 
     }
 
-    public cookie(): void{
+    cookie(): void{
 
         cookie(this.app);
 
     }
 
-    public domain(): void{
+    domain(): void{
 
         domain(this.app, {
             hostname: this.options.hostname,
@@ -67,34 +67,34 @@ export class TamlandServerMiddleware{
 
     }
 
-    public jwt(): void{
+    jwt(): void{
 
         jwtMiddleware(this.app, this.options.jwt);
 
     }
 
-    public logger(): void{
+    logger(): void{
 
         logger(this.app);
 
     }
 
-    public security(): void{
+    security(): void{
 
 
         security(this.app, { xPoweredBy: this.options.xPoweredBy });
 
     }
 
-    public slash(): void{
+    slash(): void{
 
         slash(this.app);
 
     }
 
-    public uncaught(): void{
+    uncaught(): void{
 
-        uncaught({ local });
+        uncaught();
 
     }
 
