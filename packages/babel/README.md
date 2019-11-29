@@ -6,7 +6,7 @@
 [![Dependencies](https://img.shields.io/david/feight/tamland.svg?path=packages%2Fbabel)](https://david-dm.org/feight/tamland?path=packages/babel)
 [![DevDependencies](https://img.shields.io/david/feight/tamland.svg?path=packages%2Fbabel)](https://david-dm.org/feight/tamland?type=dev&path=packages/babel)
 
-This package provides a set of dependencies that can be used to run babel with @tamland/babel-config without having to do the manual peer dependency install step required if you
+This package provides a set of dependencies that can be used to run babel with @tamland/babel-preset without having to do the manual peer dependency install step required if you
 install @tamland/babel-preset directly.
 
 ## Usage

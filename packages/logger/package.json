@@ -1,6 +1,6 @@
 {
   "name": "@tamland/logger",
-  "version": "0.0.40",
+  "version": "0.0.41",
   "description": "Logger for tamland tasks",
   "main": "lib",
   "types": "lib",
@@ -39,6 +39,7 @@
     "lib"
   ],
   "dependencies": {
+    "@tamland/jasmine": "0.0.1",
     "@types/strip-color": "^0.1.0",
     "@types/text-table": "^0.2.1",
     "chalk": "^3.0.0",
@@ -51,11 +52,8 @@
     "text-table": "^0.2.0"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.30",
-    "@tamland/eslint": "^0.0.55",
-    "@types/jasmine": "^3.5.0",
-    "@types/node": "^12.12.14",
-    "jasmine": "^3.5.0",
-    "renamer": "^1.1.4"
+    "@tamland/babel": "^0.0.31",
+    "@tamland/eslint": "^0.0.56",
+    "@types/node": "^12.12.14"
   }
 }

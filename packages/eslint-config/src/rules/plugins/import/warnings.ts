@@ -28,9 +28,11 @@ export default {
         /*
          * Forbid the use of extraneous packages
          *
+         * Taken care of by node/no-extraneous-import because it works better
+         *
          * https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/no-extraneous-dependencies.md
          */
-        "import/no-extraneous-dependencies": "error",
+        "import/no-extraneous-dependencies": "off",
 
         /*
          * Forbid the use of mutable exports with var or let.

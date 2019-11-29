@@ -7,8 +7,8 @@
     "start": "node dist/server/index.js"
   },
   "dependencies": {
-    "@tamland/web": "0.0.69",
-    "@tamland/web-components": "0.0.14",
+    "@tamland/web": "0.0.70",
+    "@tamland/web-components": "0.0.15",
     "react": "^16.12.0"
   }
 }

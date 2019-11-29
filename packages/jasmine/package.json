@@ -1,7 +1,7 @@
 {
-  "name": "@tamland/babel",
-  "version": "0.0.31",
-  "description": "Collection of babel dependencies",
+  "name": "@tamland/jasmine",
+  "version": "0.0.1",
+  "description": "Collection of jasmine dependencies",
   "browserslist": "node 8",
   "engines": {
     "node": ">= 8"
@@ -28,12 +28,11 @@
     "tamland",
     "@tamland"
   ],
-  "homepage": "https://github.com/feight/tamland/tree/master/packages/babel#readme",
+  "homepage": "https://github.com/feight/tamland/tree/master/packages/jasmine#readme",
   "files": [],
   "dependencies": {
-    "@babel/cli": "^7.7.4",
-    "@babel/core": "^7.7.4",
-    "@tamland/babel-preset": "^0.0.28",
-    "renamer": "^1.1.4"
+    "@types/jasmine": "^3.5.0",
+    "jasmine": "^3.5.0",
+    "jasmine-console-reporter": "^3.1.0"
   }
 }

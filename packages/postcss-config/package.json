@@ -1,6 +1,6 @@
 {
   "name": "@tamland/postcss-config",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Shared config for postcss",
   "main": "lib",
   "types": "lib",
@@ -42,6 +42,7 @@
     "lib"
   ],
   "dependencies": {
+    "@tamland/jasmine": "0.0.1",
     "autoprefixer": "^9.7.2",
     "postcss-calc": "^7.0.1",
     "postcss-clean": "^1.1.0",
@@ -67,13 +68,10 @@
     "postcss-reduce-transforms": "^4.0.2"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.30",
-    "@tamland/eslint": "^0.0.55",
+    "@tamland/babel": "^0.0.31",
+    "@tamland/eslint": "^0.0.56",
     "@types/autoprefixer": "^9.6.1",
-    "@types/jasmine": "^3.5.0",
     "@types/node": "^12.12.14",
-    "@types/postcss-calc": "^7.0.0",
-    "jasmine": "^3.5.0",
-    "renamer": "^1.1.4"
+    "@types/postcss-calc": "^7.0.0"
   }
 }

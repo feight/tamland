@@ -15,7 +15,7 @@ fi
 
 # Run the jasmine tests
 if hash jasmine 2>/dev/null; then
-    jasmine --config=jasmine.json
+    jasmine --config=jasmine.json --reporter=jasmine-console-reporter
 else
     echo 'jasmine is not installed'
 fi

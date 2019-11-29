@@ -1,6 +1,6 @@
 {
   "name": "@tamland/eslint",
-  "version": "0.0.55",
+  "version": "0.0.56",
   "description": "Collection of eslint dependencies",
   "browserslist": "node 8",
   "engines": {
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/feight/tamland/tree/master/packages/eslint#readme",
   "files": [],
   "dependencies": {
-    "@tamland/eslint-config": "0.0.61",
+    "@tamland/eslint-config": "0.0.62",
     "@typescript-eslint/eslint-plugin": "2.9.0",
     "@typescript-eslint/parser": "2.9.0",
     "eslint": "^6.7.1",
@@ -53,7 +53,7 @@
     "eslint-plugin-optimize-regex": "^1.1.7",
     "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
     "eslint-plugin-react-native": "^3.8.1",
     "eslint-plugin-react-perf": "^3.2.3",

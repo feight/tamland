@@ -13,5 +13,10 @@ export default {
         "./errors",
         "./style"
     ].map((string: string) => require.resolve(string)),
-    plugins: ["node"]
+    plugins: ["node"],
+    settings: {
+        node: {
+            allowModules: ["jasmine"]
+        }
+    }
 };
