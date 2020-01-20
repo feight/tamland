@@ -25,10 +25,8 @@ export interface RouterProps{
 }
 
 
-const render = function(
-    route: TamlandRoute,
-    loadableImport: RouterProps["import"]
-): React.ReactNode{
+const render = (route: TamlandRoute,
+    loadableImport: RouterProps["import"]): React.ReactNode => {
 
     const {
         exact = true,

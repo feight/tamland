@@ -58,22 +58,6 @@ export default {
         "@typescript-eslint/brace-style": "error",
 
         /*
-         * Enforce camelCase naming convention
-         *
-         * This is off for now because it's handled by the base elsint/camelcase
-         *
-         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/camelcase.md
-         */
-        "@typescript-eslint/camelcase": "off",
-
-        /*
-         * Require PascalCased class and interface names (class-name from TSLint)
-         *
-         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/class-name-casing.md
-         */
-        "@typescript-eslint/class-name-casing": "error",
-
-        /*
          * Enforces consistent usage of type assertions.
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-assertions.md
@@ -82,7 +66,7 @@ export default {
             "error",
             {
                 assertionStyle: "as",
-                objectLiteralTypeAssertions: "never"
+                objectLiteralTypeAssertions: "allow"
             }
         ],
 
@@ -95,6 +79,13 @@ export default {
             "error",
             "interface"
         ],
+
+        /*
+         * Enforce default parameters to be last
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/default-param-last.md
+         */
+        "@typescript-eslint/default-param-last": "error",
 
         /*
          * Require explicit return types on functions and class methods
@@ -123,13 +114,6 @@ export default {
         "@typescript-eslint/func-call-spacing": "error",
 
         /*
-         * Enforces naming of generic type variables
-         *
-         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/generic-type-naming.md
-         */
-        "@typescript-eslint/generic-type-naming": "error",
-
-        /*
          * Enforce consistent indentation (indent from TSLint)
          *
          * This is off because it's handled by the built in eslint indent rule,
@@ -140,28 +124,11 @@ export default {
         "@typescript-eslint/indent": "off",
 
         /*
-         * Require that interface names be prefixed with I (interface-name from TSLint)
-         *
-         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/interface-name-prefix.md
-         */
-        "@typescript-eslint/interface-name-prefix": [
-            "error",
-            "never"
-        ],
-
-        /*
          * Require a specific member delimiter style for interfaces and type literals
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/member-delimiter-style.md
          */
         "@typescript-eslint/member-delimiter-style": "error",
-
-        /*
-         * Enforces naming conventions for class members by visibility.
-         *
-         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/member-naming.md
-         */
-        "@typescript-eslint/member-naming": "error",
 
         /*
          * Require a consistent member declaration order (member-ordering from TSLint)
@@ -198,6 +165,58 @@ export default {
                     "instance-method",
                     "method"
                 ]
+            }
+        ],
+
+        /*
+         * Enforces naming conventions for everything across a codebase
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
+         */
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                format: [
+                    "camelCase"
+                ],
+                selector: "default"
+            },
+            {
+                format: [
+                    "camelCase",
+                    "PascalCase",
+                    "UPPER_CASE"
+                ],
+                selector: "variable"
+            },
+            {
+                format: [
+                    "camelCase",
+                    "PascalCase"
+                ],
+                selector: "property"
+            },
+            {
+                format: [
+                    "camelCase",
+                    "PascalCase"
+                ],
+                leadingUnderscore: "forbid",
+                selector: "parameter"
+            },
+            {
+                format: ["camelCase"],
+                leadingUnderscore: "forbid",
+                modifiers: ["private"],
+                selector: "memberLike"
+            },
+            {
+                format: ["PascalCase"],
+                selector: "typeLike"
+            },
+            {
+                format: ["PascalCase"],
+                selector: "class"
             }
         ],
 
@@ -257,6 +276,13 @@ export default {
         ],
 
         /*
+         * Disallow unnecessary semicolons
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-semi.md
+         */
+        "@typescript-eslint/no-extra-semi": "error",
+
+        /*
          * Forbids the use of classes as namespaces (no-unnecessary-class from TSLint)
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extraneous-class.md
@@ -276,6 +302,13 @@ export default {
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-for-in-array.md
          */
         "@typescript-eslint/no-for-in-array": "error",
+
+        /*
+         * Disallow the use of eval()-like methods
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-implied-eval.md
+         */
+        "@typescript-eslint/no-implied-eval": "error",
 
         /*
          * Disallows explicit type declarations for variables or parameters initialized to a number, string, or boolean. (no-inferrable-types from TSLint)
@@ -355,6 +388,13 @@ export default {
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-this-alias.md
          */
         "@typescript-eslint/no-this-alias": "error",
+
+        /*
+         * Disallow throwing literals as exceptions
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-throw-literal.md
+         */
+        "@typescript-eslint/no-throw-literal": "error",
 
         /*
          * Disallow the use of type aliases (interface-over-type-literal from TSLint)

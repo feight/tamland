@@ -9,6 +9,8 @@ import {
 
 
 interface Version{
+    // This is the gcloud component version format - we don't chose it
+    /* eslint-disable @typescript-eslint/naming-convention */
     "current_version_string": string;
     "id": string;
     "is_configuration": boolean;
@@ -19,6 +21,7 @@ interface Version{
     "state": {
         "name": string;
     };
+    /* eslint-enable @typescript-eslint/naming-convention */
 }
 
 const label = "setup";

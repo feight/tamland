@@ -24,6 +24,13 @@ export default {
         "es/no-dynamic-import": "off",
 
         /*
+         * Disallow the globalThis variable
+         *
+         * https://mysticatea.github.io/eslint-plugin-es/rules/no-global-this.html
+         */
+        "es/no-global-this": "off",
+
+        /*
          * Disallow 'Promise.allSettled' function
          *
          * https://mysticatea.github.io/eslint-plugin-es/rules/no-promise-all-settled.html

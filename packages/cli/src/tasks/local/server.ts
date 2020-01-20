@@ -230,12 +230,15 @@ export const localServerTask = async function(
     await kill(script);
 
     await startNodemonServer(script, {
+        // Nodemon configurtion - we don't chose these property names
+        /* eslint-disable @typescript-eslint/naming-convention */
         FIRESTORE_EMULATOR_HOST: `${ config.firestore.host }:${ config.firestore.port }`,
         local: true,
         mode: options.mode,
         PORT: config.nodemon.port,
         watch: Boolean(options.watch),
         WEBPACK_DEV_SERVER_PORT: config.webpack.devServer.port
+        /* eslint-enable @typescript-eslint/naming-convention */
     });
 
 };

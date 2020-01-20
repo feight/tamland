@@ -71,23 +71,21 @@ const getCache = async function(): Promise<Cache>{
     const filename = path.join(directory, "local-tamland.json");
     const exists = await fs.pathExists(filename);
 
+    let cache: Cache = {};
+
     if(exists){
 
         const raw = await fs.readFile(filename, "utf-8");
 
         try{
 
-            return await JSON.parse(raw);
+            cache = JSON.parse(raw);
 
-        }catch(error){
-
-            return {};
-
-        }
+        }catch(error){}
 
     }
 
-    return {};
+    return cache;
 
 };
 

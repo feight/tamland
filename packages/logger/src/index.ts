@@ -68,7 +68,7 @@ const formatLabel = function(string: string, error = false): string{
 
     const color = label === lastFormattedLabel ? secondColor : firstColor;
 
-    if(label?.trim()){
+    if(label.trim()){
         lastFormattedLabel = label;
     }
 
@@ -159,8 +159,6 @@ export const logger = {
         }
 
         this.log(String(formattedMessage), {
-            // Needed in this case
-            // eslint-disable-next-line no-undefined
             color: color === true ? undefined : color,
             error: true,
             label: formattedLabel
@@ -208,8 +206,6 @@ export const logger = {
 
         const {
             label = message ? defaultLabel : "",
-            // Needed in this case
-            // eslint-disable-next-line no-undefined
             color = undefined,
             error = false
         } = options;

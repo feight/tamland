@@ -19,10 +19,8 @@ const defaults = {
     },
     hooks: {
         build: {
-            /* eslint-disable no-undefined */
             post: undefined,
             pre: undefined
-            /* eslint-enable no-undefined */
         }
     },
     icon: path.join(__dirname, "images/icon.png"),

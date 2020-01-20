@@ -129,11 +129,11 @@ class TamlandApp extends React.PureComponent<TamlandProps>{
 
         // Needed so that webpack won't require this on the server, since it's a client only module
         // eslint-disable-next-line @typescript-eslint/no-require-imports, global-require
-        const Modernizr = typeof window === "undefined" ? {} : require("modernizr");
+        const modernizr = typeof window === "undefined" ? {} : require("modernizr");
 
         const classes = [
             typeof window === "undefined" ? "" : "mounted"
-        ].concat(Object.keys(Modernizr).map((feature: string): string => `feature-detect-${ feature }`))
+        ].concat(Object.keys(modernizr).map((feature: string): string => `feature-detect-${ feature }`))
         .filter(Boolean)
         .join(" ");
 

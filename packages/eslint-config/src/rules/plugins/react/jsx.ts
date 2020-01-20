@@ -183,6 +183,13 @@ export default {
         "react/jsx-no-literals": "error",
 
         /*
+         * Prevent usage of javascript: URLs
+         *
+         * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-script-url.md
+         */
+        "react/jsx-no-script-url": "error",
+
+        /*
          * Prevent usage of unsafe target='_blank'
          *
          * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md

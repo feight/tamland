@@ -84,11 +84,31 @@ export default {
         "react/forbid-prop-types": "error",
 
         /*
+         * Enforce a specific function type for function components
+         *
+         * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
+         */
+        "react/function-component-definition": [
+            "error",
+            {
+                namedComponents: "arrow-function",
+                unnamedComponents: "arrow-function"
+            }
+        ],
+
+        /*
          * Prevent using this.state inside this.setState
          *
          * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-access-state-in-setstate.md
          */
         "react/no-access-state-in-setstate": "error",
+
+        /*
+         * Prevent adjacent inline elements not separated by whitespace
+         *
+         * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-adjacent-inline-elements.md
+         */
+        "react/no-adjacent-inline-elements": "error",
 
         /*
          * Prevent using Array index in key props

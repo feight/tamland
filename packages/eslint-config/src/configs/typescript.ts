@@ -18,6 +18,11 @@ const config: Linter.Config = {
         "brace-style": "off",
 
         /*
+         * Overridden by @typescript-eslint/naming-convention
+         */
+        camelcase: "off",
+
+        /*
          * Typescript needs unitialed declarations when variables have a type
          * that can be undefined
          */
@@ -33,6 +38,17 @@ const config: Linter.Config = {
          * Overridden by @typescript/no-extra-parens
          */
         "no-extra-parens": "off",
+
+        /*
+         * Overridden by @typescript/no-extra-semi
+         */
+        "no-extra-semi": "off",
+
+        /*
+         * Turns out there are a lot of times using undefined is really useful
+         * in typescript.
+         */
+        "no-undefined": "off",
 
         /*
          * Overridden by @typescript-eslint/no-unused-vars because it works with

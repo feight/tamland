@@ -1,6 +1,6 @@
 {
   "name": "@tamland/imagemin",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "Preconfigured imagemin function",
   "main": "lib",
   "scripts": {
@@ -49,8 +49,8 @@
     "imagemin-svgo": "^7.0.0"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.31",
-    "@tamland/eslint": "^0.0.56",
-    "@types/node": "^12.12.14"
+    "@tamland/babel": "^0.0.32",
+    "@tamland/eslint": "^0.0.61",
+    "@types/node": "^13.1.6"
   }
 }

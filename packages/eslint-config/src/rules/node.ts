@@ -12,6 +12,8 @@ export default {
         node: true
     },
     globals: {
+        // These are node globals, we don't choose them.
+        /* eslint-disable @typescript-eslint/naming-convention */
         __dirname: false,
         __filename: false,
         Buffer: false,
@@ -21,6 +23,7 @@ export default {
         Promise: false,
         require: false,
         System: false
+        /* eslint-enable @typescript-eslint/naming-convention */
     },
     rules: {
 

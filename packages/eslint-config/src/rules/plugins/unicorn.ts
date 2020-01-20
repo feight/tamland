@@ -245,6 +245,20 @@ export default {
         "unicorn/prefer-includes": "error",
 
         /*
+         * Prefer modern DOM APIs
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-modern-dom-apis.md
+         */
+        "unicorn/prefer-modern-dom-apis": "error",
+
+        /*
+         * Prefer negative index over .length - index for {String,Array,TypedArray}#slice() and Array#splice()
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-negative-index.md
+         */
+        "unicorn/prefer-negative-index": "error",
+
+        /*
          * Prefer append over appendChild. (fixable)
          *
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-node-append.md
@@ -299,6 +313,13 @@ export default {
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-text-content.md
          */
         "unicorn/prefer-text-content": "error",
+
+        /*
+         * Prefer String#trimStart() / String#trimEnd() over String#trimLeft() / String#trimRight()
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-trim-start-end.md
+         */
+        "unicorn/prefer-trim-start-end": "error",
 
         /*
          * Enforce throwing TypeError in type checking conditions. (fixable)

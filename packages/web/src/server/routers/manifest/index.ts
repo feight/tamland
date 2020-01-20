@@ -38,7 +38,7 @@ export const manifestRouter = (config: ManifestConfiguration): express.Router =>
         response
         .send(JSON.stringify({
             // We don't get to pick the property names of the manifest.json spec
-            /* eslint-disable camelcase */
+            /* eslint-disable @typescript-eslint/naming-convention */
             background_color: config.backgroundColor,
             description: config.description,
             display: config.display,
@@ -49,7 +49,7 @@ export const manifestRouter = (config: ManifestConfiguration): express.Router =>
             short_name: config.shortName,
             start_url: config.startUrl,
             theme_color: config.themeColor
-            /* eslint-enable camelcase */
+            /* eslint-enable @typescript-eslint/naming-convention */
         }))
         .end();
 
