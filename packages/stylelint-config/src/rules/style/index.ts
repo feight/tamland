@@ -25,5 +25,5 @@ export default {
         "./unit",
         "./value-list",
         "./value"
-    ].map((string): string => require.resolve(string))
+    ].map((string: string): string => require.resolve(string))
 };

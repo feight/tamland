@@ -16,5 +16,5 @@ export default {
         "./selector",
         "./string",
         "./unit"
-    ].map((string): string => require.resolve(string))
+    ].map((string: string): string => require.resolve(string))
 };

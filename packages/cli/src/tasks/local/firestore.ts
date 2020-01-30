@@ -18,7 +18,7 @@ export const localFirestoreTask = async function(config: TamlandConfig): Promise
         await kill(port);
 
         await spawn({
-            command: `gcloud beta emulators firestore start --host-port=${ host }:${ port }`,
+            command: `gcloud beta emulators firestore start --host-port=${ host }:${ port } --quiet`,
             filter: /\[firestore\]\s/gu,
             label: "firestore"
         });

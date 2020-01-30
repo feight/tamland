@@ -59,7 +59,7 @@ console.log(`json.poes = ${ json.poes }`);
 
 export default class HomePage extends Page{
 
-    public render(): React.ReactNode{
+    render(): React.ReactNode{
 
         return (
             <div>

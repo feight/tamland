@@ -20,7 +20,7 @@ const label = "server";
 const awaitServerScript = function(config: TamlandConfig): Promise<string>{
 
     const intervalTime = 100;
-    const maxWaitTime = 10000;
+    const maxWaitTime = 300000;
     const serverScript = "dist/server/index.js";
     const awaitFiles = [
         serverScript,
@@ -44,7 +44,7 @@ const awaitServerScript = function(config: TamlandConfig): Promise<string>{
 
                 clearInterval(interval);
 
-                const delay = 100;
+                const delay = 500;
 
                 /*
                  * Sometimes nodemon doesn't pick up the script so we're hacking

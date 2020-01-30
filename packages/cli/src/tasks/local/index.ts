@@ -12,7 +12,7 @@ import { localServerTask } from "./server";
 
 import { open } from "../../utils/open";
 import { buildTask } from "../build";
-
+import { cleanTask } from "../clean";
 
 export interface LocalTaskOptions{
     mode: Mode;
@@ -22,6 +22,8 @@ export interface LocalTaskOptions{
 
 
 export const localTask = async function(config: TamlandConfig, options: LocalTaskOptions): Promise<void>{
+
+    await cleanTask(config, options);
 
     await Promise.all([
         localFirestoreTask(config),

@@ -5,6 +5,7 @@ import stream from "stream";
 import gulpWatch from "gulp-watch";
 import through from "through2";
 import { logger } from "@tamland/logger";
+import vinyl from "vinyl";
 
 
 export const fail = function(label: string, message: string): void{
@@ -21,7 +22,11 @@ export const fail = function(label: string, message: string): void{
 
 export const print = function(label: string, color = "#ffffff"): stream.Transform{
 
-    return through({ objectMode: true }, function blank(file, encoding, done): void{
+    return through({ objectMode: true }, function blank(
+        file: vinyl,
+        encoding: string,
+        done: through.TransformCallback
+    ): void{
 
         if(file.isNull()){
             return done();
@@ -45,7 +50,11 @@ export const print = function(label: string, color = "#ffffff"): stream.Transfor
 
 export const skip = function(): stream.Transform{
 
-    return through({ objectMode: true }, function blank(file, encoding, done): void{
+    return through({ objectMode: true }, function blank(
+        file: vinyl,
+        encoding: string,
+        done: through.TransformCallback
+    ): void{
 
         if(file.isNull()){
             return done();
@@ -100,25 +109,5 @@ export const task = function(
         }
 
     };
-
-};
-
-
-// Temporary
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const touch = function(fixed: (file: any) => boolean): stream.Transform{
-
-    return through.obj((file, encoding: string, done: through.TransformCallback): void => {
-
-        // If the file was fixed, we need to manually touch it so that it updates in our editor
-        if(fixed(file)){
-
-            touch(file.path);
-
-        }
-
-        done(null, file);
-
-    });
 
 };

@@ -14,7 +14,7 @@ export default {
         "./rules/errors",
         "./rules/features",
         "./rules/style"
-    ].map((string): string => require.resolve(string)),
+    ].map((string: string): string => require.resolve(string)),
     ignoreFiles: [
         "**/*.js",
         "**/*.jsx",

@@ -20,5 +20,5 @@ export default {
         "./time",
         "./unit",
         "./value"
-    ].map((string): string => require.resolve(string))
+    ].map((string: string): string => require.resolve(string))
 };

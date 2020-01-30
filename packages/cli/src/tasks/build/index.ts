@@ -7,7 +7,6 @@ import {
     TamlandConfig
 } from "@tamland/config";
 
-import { cleanTask } from "../clean";
 import { webpackTask } from "../webpack";
 
 
@@ -26,7 +25,6 @@ export const buildTask = async function(config: TamlandConfig, options: BuildTas
 
     }
 
-    await cleanTask(config, options);
     await webpackTask(config, options);
 
     if(config.hooks.build.post){

@@ -61,7 +61,7 @@ export const gcloudSetupTask = async function(component?: string): Promise<void>
             }else{
 
                 await spawn({
-                    command: "gcloud components update",
+                    command: "gcloud components update --quiet",
                     label
                 });
 
@@ -70,7 +70,7 @@ export const gcloudSetupTask = async function(component?: string): Promise<void>
         }else{
 
             await spawn({
-                command: `gcloud components install ${ component }`,
+                command: `gcloud components install ${ component } --quiet`,
                 label
             });
 
@@ -105,7 +105,7 @@ export const gcloudSetupTask = async function(component?: string): Promise<void>
 
             // Initialized the Google Cloud SDK
             await spawn({
-                command: "gcloud init",
+                command: "gcloud init --quiet",
                 label
             });
 

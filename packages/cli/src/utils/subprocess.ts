@@ -18,7 +18,7 @@ export const exec = function(options: {
     label?: string;
 }): Promise<string>{
 
-    return new Promise((resolve, reject): void => {
+    return new Promise((resolve: (string: string) => void, reject: (error: Error) => void): void => {
 
         const {
             command = "",
@@ -137,7 +137,7 @@ export const spawn = function(options: {
         label = "anonymous"
     } = options;
 
-    return new Promise((resolve, reject): void => {
+    return new Promise((resolve: (string: string) => void, reject: (error: number | Error) => void): void => {
 
         if(command){
 

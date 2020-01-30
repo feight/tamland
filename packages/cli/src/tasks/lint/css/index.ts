@@ -22,7 +22,7 @@ export const lintCSSTask = function(
 
     const autofixed: string[] = [];
 
-    return new Promise((resolve): void => {
+    return new Promise((resolve: () => void): void => {
 
         gulp.src(paths)
         .pipe(gulpUtils.print("lint"))

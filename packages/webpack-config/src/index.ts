@@ -174,6 +174,7 @@ export default function configure(
             config.externals(options),
             config.mode(options),
             config.module(options, configuration),
+            config.node(options),
             config.optimization(options),
             config.performance(options),
             config.plugins(options, configuration),

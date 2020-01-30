@@ -39,10 +39,16 @@ program.version(packageJSON.version);
 program
 .command("build")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
-.action(async (options): Promise<void> => buildTask(config, {
-    mode: "production",
-    platform: options.platform || "web"
-}));
+.action(async (options): Promise<void> => {
+
+    await cleanTask(config);
+
+    await buildTask(config, {
+        mode: "production",
+        platform: options.platform || "web"
+    });
+
+});
 
 
 program
@@ -66,6 +72,8 @@ program
 .command("deploy")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
 .action(async (options): Promise<void> => {
+
+    await cleanTask(config);
 
     await deployTask(config, {
         mode: "production",

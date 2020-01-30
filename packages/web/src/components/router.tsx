@@ -56,10 +56,11 @@ const render = (route: TamlandRoute,
                     const loadableComponent = loadableImport(id);
 
                     const Page = loadable(loadableComponent, {
-                        fallback:
-    <div>
-        { loading ? loading() : "Loading..." }
-    </div>,
+                        fallback: (
+                            <div>
+                                { loading ? loading() : "Loading..." }
+                            </div>
+                        ),
                         ssr: true
                     });
 
@@ -93,7 +94,7 @@ export class Router extends React.Component<RouterProps>{
 
         return (
             <Switch>
-                { this.props.routes.map((instance): React.ReactNode => render(instance, this.props.import)) }
+                { this.props.routes.map((instance: TamlandRoute): React.ReactNode => render(instance, this.props.import)) }
             </Switch>
         );
 

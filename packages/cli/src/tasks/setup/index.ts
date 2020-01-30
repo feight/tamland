@@ -2,6 +2,7 @@
 
 import { brewSetupTask } from "./brew";
 import { gcloudSetupTask } from "./gcloud";
+import { javaSetupTask } from "./java";
 import { rubySetupTask } from "./ruby";
 import { xcodeSetupTask } from "./xcode";
 
@@ -16,6 +17,7 @@ export const setupTask = async function(): Promise<void>{
     await gcloudSetupTask("cloud-firestore-emulator");
 
     await rubySetupTask();
+    await javaSetupTask();
 
     await brewSetupTask();
     await brewSetupTask("graphicsmagick");

@@ -15,6 +15,10 @@ declare module "nodemon" {
             }
         ): void;
 
+        emit(
+            event: string,
+        ): void;
+
         on(
             event: string,
             callback: () => void

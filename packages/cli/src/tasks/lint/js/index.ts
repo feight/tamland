@@ -47,7 +47,7 @@ export const lintJSTask = async function(
     watching: boolean
 ): Promise<void>{
 
-    return new Promise((resolve): void => {
+    return new Promise((resolve: () => void): void => {
 
         gulp.src(paths)
         .pipe(gulpUtils.print("lint"))
@@ -78,7 +78,6 @@ export const lintJSTask = async function(
             }
         ))
         .pipe(gulpIf((file): boolean => fixed(file), gulp.dest(".")))
-        .pipe(gulpUtils.touch(fixed))
         .pipe(watching ? gulpUtils.skip() : eslint.failAfterError())
         .on("finish", (): void => {
 

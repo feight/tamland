@@ -37,11 +37,11 @@ export default {
         "@typescript-eslint/await-thenable": "error",
 
         /*
-         * Bans “// @ts-ignore” comments from being used (ban-ts-ignore)
+         * Bans // @ts-<directive> comments from being used
          *
-         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/ban-ts-ignore.md
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/ban-ts-comment.md
          */
-        "@typescript-eslint/ban-ts-ignore": "error",
+        "@typescript-eslint/ban-ts-comment": "error",
 
         /*
          * Enforces that types will not to be used (ban-types from TSLint)
@@ -56,6 +56,13 @@ export default {
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md
          */
         "@typescript-eslint/brace-style": "error",
+
+        /*
+         * Enforces consistent spacing before and after commas
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-spacing.md
+         */
+        "@typescript-eslint/comma-spacing": "error",
 
         /*
          * Enforces consistent usage of type assertions.
@@ -105,6 +112,13 @@ export default {
                 accessibility: "no-public"
             }
         ],
+
+        /*
+         * Require explicit return and argument types on exported functions' and classes' public class methods
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-module-boundary-types.md
+         */
+        "@typescript-eslint/explicit-module-boundary-types": "error",
 
         /*
          * Require or disallow spacing between function identifiers and their invocations (func-call-spacing)
@@ -362,6 +376,13 @@ export default {
         "@typescript-eslint/no-namespace": "error",
 
         /*
+         * Disallows using a non-null assertion after an optional chain expression
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-non-null-asserted-optional-chain.md
+         */
+        "@typescript-eslint/no-non-null-asserted-optional-chain": "error",
+
+        /*
          * Disallows non-null assertions using the ! postfix operator (no-non-null-assertion from TSLint)
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-non-null-assertion.md
@@ -439,20 +460,6 @@ export default {
         "@typescript-eslint/no-unnecessary-type-assertion": "error",
 
         /*
-         * Disallow untyped public methods
-         *
-         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-untyped-public-signature.md
-         */
-        "@typescript-eslint/no-untyped-public-signature": [
-            "error",
-            {
-                ignoredMethods: [
-                    "constructor"
-                ]
-            }
-        ],
-
-        /*
          * Disallow unused expressions
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
@@ -498,6 +505,13 @@ export default {
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-var-requires.md
          */
         "@typescript-eslint/no-var-requires": "error",
+
+        /*
+         * Prefer usage of as const over literal type
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-as-const.md
+         */
+        "@typescript-eslint/prefer-as-const": "error",
 
         /*
          * Use for-of loops instead of standard for loops over arrays

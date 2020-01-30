@@ -23,6 +23,11 @@ const config: Linter.Config = {
         camelcase: "off",
 
         /*
+         * Overridden by @typescript-eslint/comma-spacing
+         */
+        "comma-spacing": "off",
+
+        /*
          * Typescript needs unitialed declarations when variables have a type
          * that can be undefined
          */

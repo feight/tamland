@@ -8,6 +8,7 @@ import entry from "./entry";
 import externals from "./externals";
 import mode from "./mode";
 import module from "./module";
+import node from "./node";
 import optimization from "./optimization";
 import output from "./output";
 import performance from "./performance";
@@ -25,6 +26,7 @@ export default {
     externals,
     mode,
     module,
+    node,
     optimization,
     output,
     performance,
