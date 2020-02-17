@@ -26,7 +26,7 @@ import { setupTask } from "../tasks/setup";
 import { tamlandTask } from "../tasks/tamland";
 
 
-// This is dodgy, but the typing of this in globals.d.ts is kinda wierd
+// This is dodgy, but the typing of this in globals.d.ts is kinda weird
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 process.on("unhandledRejection", (error: any): void => logger.error(error));
 

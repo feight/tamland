@@ -1,65 +1,67 @@
 
 
 import React from "react";
-import {
-    gql,
-    Page,
-    useQuery
-} from "@tamland/web";
+import { Page } from "@tamland/web";
+import { settings } from "@newsteam/settings";
 
 import "./page.scss";
 
-import json from "./wtf.json";
-
-
-const HelloWorld: React.FunctionComponent = () => {
-
-    const {
-        data,
-        error,
-        loading
-    } = useQuery(gql`
-        {
-            hello
-        }
-    `);
-
-    if(loading){
-
-        return (
-            <p>
-                { "Loading..." }
-            </p>
-        );
-
-    }
-
-    if(error){
-
-        return (
-            <p>
-                { "Error..." }
-            </p>
-        );
-
-    }
-
-    return (
-        <p>
-            { "hello" }
-            { data.hello }
-        </p>
-    );
-
-};
-
-console.log(HelloWorld);
-console.log(`json.poes = ${ json.poes }`);
+/*
+ *Import json from "./wtf.json";
+ *import {
+ *   gql,
+ *   Page,
+ *   useQuery
+ *} from "@tamland/web";
+ *
+ *const HelloWorld: React.FunctionComponent = () => {
+ *
+ *    const {
+ *        data,
+ *        error,
+ *        loading
+ *    } = useQuery(gql`
+ *        {
+ *            hello
+ *        }
+ *    `);
+ *
+ *    if(loading){
+ *
+ *        return (
+ *            <p>
+ *                { "Loading..." }
+ *            </p>
+ *        );
+ *
+ *    }
+ *
+ *    if(error){
+ *
+ *        return (
+ *            <p>
+ *                { "Error..." }
+ *            </p>
+ *        );
+ *
+ *    }
+ *
+ *    return (
+ *        <p>
+ *            { "hello" }
+ *            { data.hello }
+ *        </p>
+ *    );
+ *
+ *};
+ */
 
 
 export default class HomePage extends Page{
 
     render(): React.ReactNode{
+
+        console.log(["settings", settings]);
 
         return (
             <div>
