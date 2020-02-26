@@ -34,6 +34,11 @@ const config: Linter.Config = {
         "init-declarations": "off",
 
         /*
+         * Overridden by @typescript/no-dupe-class-members
+         */
+        "no-dupe-class-members": "off",
+
+        /*
          * Overridden by @typescript/no-empty-function because it doesn't trigger
          * on valid Typescript specific cases that would otherwise trigger
          */

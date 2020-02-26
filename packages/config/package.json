@@ -1,6 +1,6 @@
 {
   "name": "@tamland/config",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "description": "@tamland project configuration",
   "main": "lib",
   "types": "lib",
@@ -40,16 +40,16 @@
     "lib"
   ],
   "dependencies": {
-    "@tamland/jasmine": "0.0.1",
-    "@tamland/logger": "0.0.43",
+    "@tamland/jasmine": "0.0.3",
+    "@tamland/logger": "0.0.44",
     "deepmerge": "^4.2.2",
     "rc-config-loader": "^3.0.0"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.33",
-    "@tamland/eslint": "^0.0.65",
+    "@tamland/babel": "^0.0.34",
+    "@tamland/eslint": "^0.0.66",
     "@types/deepmerge": "^2.2.0",
-    "@types/node": "^13.5.1",
+    "@types/node": "^13.7.6",
     "color-json": "^2.0.0"
   }
 }

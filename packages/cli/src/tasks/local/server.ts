@@ -38,7 +38,7 @@ const awaitServerScript = function(config: TamlandConfig): Promise<string>{
 
             const existChecks: Promise<boolean>[] = awaitFiles.map((file): Promise<boolean> => fs.pathExists(file));
             const existsArray = await Promise.all(existChecks);
-            const exists = existsArray.filter((item): boolean => item !== true).length === 0;
+            const exists = existsArray.filter((item): boolean => !item).length === 0;
 
             if(exists){
 

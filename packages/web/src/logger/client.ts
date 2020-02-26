@@ -7,7 +7,7 @@ const noop = (): void => {};
 
 export default {
     // This isn't a problem with console methods
-    /* eslint-disable @typescript-eslint/unbound-method, @typescript-eslint/no-unnecessary-condition */
+    /* eslint-disable @typescript-eslint/no-unnecessary-condition */
     debug: console?.debug || noop,
     error: console?.error || noop,
     info: console?.info || noop,
@@ -15,5 +15,5 @@ export default {
     silly: console?.log || noop,
     verbose: console?.log || noop,
     warn: console?.warn || noop
-    /* eslint-enable @typescript-eslint/unbound-method, @typescript-eslint/no-unnecessary-condition */
+    /* eslint-enable @typescript-eslint/no-unnecessary-condition */
 };

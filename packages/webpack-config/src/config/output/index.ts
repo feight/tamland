@@ -14,7 +14,7 @@ export default function configuration(
     const hash =
         options.target === "client" &&
         options.mode === "production" &&
-        options.watch === false;
+        !options.watch;
 
     return {
         output: {

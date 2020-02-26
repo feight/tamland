@@ -25,7 +25,7 @@ const miniCssExtractPlugin = (
     options: {
         hmr:
                 options.mode === "development" &&
-                options.watch === true,
+                options.watch,
         publicPath: config.output ? config.output.publicPath : `/${ options.staticFolder }/`
     }
 });

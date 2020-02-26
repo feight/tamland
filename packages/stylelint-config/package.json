@@ -1,6 +1,6 @@
 {
   "name": "@tamland/stylelint-config",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "Shared config for stylelint",
   "main": "lib",
   "types": "lib",
@@ -43,14 +43,14 @@
     "lib"
   ],
   "dependencies": {
-    "@tamland/jasmine": "0.0.2"
+    "@tamland/jasmine": "0.0.3"
   },
   "devDependencies": {
-    "@tamland/babel": "^0.0.33",
-    "@tamland/eslint": "^0.0.65",
-    "@types/node": "^13.5.1",
-    "stylelint": "^13.0.0",
-    "stylelint-a11y": "^1.2.2",
+    "@tamland/babel": "^0.0.34",
+    "@tamland/eslint": "^0.0.66",
+    "@types/node": "^13.7.6",
+    "stylelint": "^13.2.0",
+    "stylelint-a11y": "^1.2.3",
     "stylelint-declaration-block-no-ignored-properties": "^2.2.0",
     "stylelint-declaration-strict-value": "^1.1.8",
     "stylelint-find-new-rules": "^1.2.0",
@@ -58,19 +58,19 @@
     "stylelint-no-unsupported-browser-features": "^4.0.0",
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.14.2",
-    "stylelint-selector-tag-no-without-class": "^2.0.2",
-    "stylelint-use-nesting": "^1.2.1"
+    "stylelint-selector-tag-no-without-class": "^2.0.3",
+    "stylelint-use-nesting": "^2.0.0"
   },
   "peerDependencies": {
-    "stylelint": "^13.0.0",
-    "stylelint-a11y": "^1.2.2",
+    "stylelint": "^13.2.0",
+    "stylelint-a11y": "^1.2.3",
     "stylelint-declaration-block-no-ignored-properties": "^2.2.0",
     "stylelint-declaration-strict-value": "^1.1.8",
     "stylelint-high-performance-animation": "^1.4.0",
     "stylelint-no-unsupported-browser-features": "^4.0.0",
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.14.2",
-    "stylelint-selector-tag-no-without-class": "^2.0.2",
-    "stylelint-use-nesting": "^1.2.1"
+    "stylelint-selector-tag-no-without-class": "^2.0.3",
+    "stylelint-use-nesting": "^2.0.0"
   }
 }

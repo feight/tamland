@@ -18,7 +18,7 @@ export default function configuration(
 
     const hash =
         options.mode !== "development" ||
-        options.watch !== true;
+        !options.watch;
 
     const define: {
         [key: string]: string;

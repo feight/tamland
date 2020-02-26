@@ -273,18 +273,25 @@ export default {
         "unicorn/prefer-node-remove": "error",
 
         /*
+         * Prefer String#replaceAll() over regex searches with the global flag
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-replace-all.md
+         */
+        "unicorn/prefer-query-selector": "error",
+
+        /*
          * Prefer querySelector over getElementById, querySelectorAll over getElementsByClassName and getElementsByTagName. (partly fixable)
          *
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-query-selector.md
          */
-        "unicorn/prefer-query-selector": "error",
+        "unicorn/prefer-reflect-apply": "error",
 
         /*
          * Prefer Reflect.apply() over Function#apply(). (fixable)
          *
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-reflect-apply.md
          */
-        "unicorn/prefer-reflect-apply": "error",
+        "unicorn/prefer-replace-all": "error",
 
         /*
          * Prefer the spread operator over Array.from(). (fixable)

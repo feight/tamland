@@ -242,6 +242,13 @@ export default {
         "@typescript-eslint/no-array-constructor": "error",
 
         /*
+         * Disallow duplicate class members
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.md
+         */
+        "@typescript-eslint/no-dupe-class-members": "error",
+
+        /*
          * Disallow the delete operator with computed key expressions
          *
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dynamic-delete.md
@@ -425,6 +432,13 @@ export default {
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-type-alias.md
          */
         "@typescript-eslint/no-type-alias": "off",
+
+        /*
+         * Flags unnecessary equality comparisons against boolean literals
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-boolean-literal-compare.md
+         */
+        "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
 
         /*
          * Condition expressions must be necessary
@@ -663,6 +677,13 @@ export default {
          * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/strict-boolean-expressions.md
          */
         "@typescript-eslint/strict-boolean-expressions": "off",
+
+        /*
+         * Exhaustiveness checking in switch with union type
+         *
+         * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/switch-exhaustiveness-check.md
+         */
+        "@typescript-eslint/switch-exhaustiveness-check": "error",
 
         /*
          * Sets preference level for triple slash directives versus ES6-style import declarations.
