@@ -118,8 +118,10 @@ export default {
         "node/no-unsupported-features/es-syntax": [
             "error",
             {
-                ignores: ["modules"],
-                version: ">= 10.15.1"
+                ignores: [
+                    "modules"
+                ],
+                version: ">= 12.16.1"
             }
         ],
 

@@ -1,5 +1,5 @@
 {
-  "extends": "./lib/configs/index.js",
+  "extends": "./lib/index.js",
   "rules": {
     "no-sync": "off"
   }

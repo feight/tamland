@@ -17,6 +17,7 @@ export interface TamlandBabelPresetOptions{
     shebang: boolean;
     reactHotLoader: boolean;
     targets: string | string[] | { [string: string]: string };
+    typescript: boolean;
 }
 
 
@@ -34,7 +35,8 @@ export default declare((
         modules,
         shebang = false,
         reactHotLoader = false,
-        targets
+        targets,
+        typescript = true
     } = options;
 
     if(
@@ -87,24 +89,30 @@ export default declare((
 
     }
 
+    const presets = [];
+
+    if(typescript){
+        presets.push("@babel/preset-typescript")
+    }
+
+    presets.push([
+        "@babel/preset-env",
+        {
+            debug,
+            modules: modules === false ? false : "auto",
+            targets
+        }
+    ]);
+
+    presets.push([
+        "@babel/preset-react",
+        { development }
+    ]);
+
     return {
         comments,
         plugins,
-        presets: [
-            "@babel/preset-typescript",
-            [
-                "@babel/preset-env",
-                {
-                    debug,
-                    modules: modules === false ? false : "auto",
-                    targets
-                }
-            ],
-            [
-                "@babel/preset-react",
-                { development }
-            ]
-        ]
+        presets
     };
 
 });

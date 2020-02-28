@@ -32,7 +32,6 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
     eslint-plugin-jsx-control-statements
     eslint-plugin-lean-imports
     eslint-plugin-more
-    eslint-plugin-no-loops
     eslint-plugin-no-unsanitized
     eslint-plugin-no-useless-assign
     eslint-plugin-node
@@ -73,12 +72,6 @@ Our default export contains all of our ESLint rules, including ECMAScript 6+ and
 
   ```json
     "extends": "@tamland"
-  ```
-
-4. If you don't want to lint typescript, add this to your .eslintrc instead.
-
-  ```json
-    "extends": "@tamland/eslint-config/lib/configs/base"
   ```
 
 ## Maintenance

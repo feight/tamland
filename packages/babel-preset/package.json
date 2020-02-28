@@ -1,6 +1,6 @@
 {
   "name": "@tamland/babel-preset",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "description": "Shared preset for babel",
   "main": "lib",
   "types": "lib",
@@ -46,7 +46,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@babel/plugin-transform-named-capturing-groups-regex": "^7.8.3",
     "@babel/plugin-transform-typescript": "^7.8.3",
-    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-env": "^7.8.6",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@loadable/babel-plugin": "^5.12.0",
@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.4",
+    "@babel/core": "^7.8.6",
     "@tamland/jasmine": "0.0.3",
     "@types/babel__core": "^7.1.6",
     "@types/node": "^13.7.6",
@@ -67,6 +67,6 @@
     "renamer": "^1.1.4"
   },
   "peerDependencies": {
-    "@babel/core": "^7.8.4"
+    "@babel/core": "^7.8.6"
   }
 }
