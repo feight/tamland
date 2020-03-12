@@ -1,6 +1,6 @@
 {
   "name": "@tamland/eslint",
-  "version": "0.0.71",
+  "version": "0.0.73",
   "description": "Collection of eslint dependencies",
   "browserslist": "node 8",
   "engines": {
@@ -31,9 +31,9 @@
   "homepage": "https://github.com/feight/tamland/tree/master/packages/eslint#readme",
   "files": [],
   "dependencies": {
-    "@tamland/eslint-config": "0.0.76",
-    "@typescript-eslint/eslint-plugin": "2.21.0",
-    "@typescript-eslint/parser": "2.21.0",
+    "@tamland/eslint-config": "0.0.78",
+    "@typescript-eslint/eslint-plugin": "2.23.0",
+    "@typescript-eslint/parser": "2.23.0",
     "eslint": "^6.8.0",
     "eslint-plugin-array-func": "^3.1.4",
     "eslint-plugin-async-await": "^0.0.0",
@@ -52,7 +52,7 @@
     "eslint-plugin-optimize-regex": "^1.1.7",
     "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.0",
     "eslint-plugin-react-native": "^3.8.1",
     "eslint-plugin-react-perf": "^3.2.3",
@@ -60,10 +60,10 @@
     "eslint-plugin-react-ssr": "^1.0.3",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-sort-keys-fix": "^1.1.0",
-    "eslint-plugin-unicorn": "^16.1.1",
+    "eslint-plugin-unicorn": "^17.2.0",
     "eslint-plugin-webassembly": "^1.9.0",
-    "eslint-plugin-you-dont-need-lodash-underscore": "^6.9.0",
-    "eslint-plugin-you-dont-need-momentjs": "^1.5.0",
-    "typescript": "^3.8.2"
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.10.0",
+    "eslint-plugin-you-dont-need-momentjs": "^1.6.0",
+    "typescript": "^3.8.3"
   }
 }

@@ -282,6 +282,10 @@ export default {
                     let: {
                         after: true
                     },
+                    of: {
+                        after: true,
+                        before: true
+                    },
                     return: {
                         after: true
                     },

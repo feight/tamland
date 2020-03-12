@@ -3,6 +3,9 @@
 import { Linter } from "eslint";
 
 
+import * as typescript from "./rules/plugins/typescript";
+
+
 const config: Linter.Config = {
     env: {
         browser: true,
@@ -46,6 +49,93 @@ const config: Linter.Config = {
         "./rules/style",
         "./rules/variables"
     ].map((string: string) => require.resolve(string)),
+    overrides: [
+        {
+            files: ["*.js", "*.jsx"],
+            rules: Object.keys(typescript.default.rules).reduce((accumulator, rule) => ({
+                ...accumulator,
+                [rule]: "off"
+            }), {})
+        },
+        {
+            files: ["*.ts", "*.tsx"],
+            rules: {
+
+                /*
+                 * Overridden by @typescript-eslint/brace-style
+                 */
+                "brace-style": "off",
+
+                /*
+                 * Overridden by @typescript-eslint/naming-convention
+                 */
+                camelcase: "off",
+
+                /*
+                 * Typescript needs unitialed declarations when variables have a type
+                 * that can be undefined
+                 */
+                "init-declarations": "off",
+
+                /*
+                 * Overridden by @typescript/no-empty-function because it doesn't trigger
+                 * on valid Typescript specific cases that would otherwise trigger
+                 */
+                "no-empty-function": "off",
+
+                /*
+                 * Overridden by @typescript/no-extra-parens
+                 */
+                "no-extra-parens": "off",
+
+                /*
+                 * Overridden by @typescript/no-extra-semi
+                 */
+                "no-extra-semi": "off",
+
+                /*
+                 * Turns out there are a lot of times using undefined is really useful
+                 * in typescript.
+                 */
+                "no-undefined": "off",
+
+                /*
+                 * Overridden by @typescript-eslint/no-unused-vars because it works with
+                 * imported interfaces
+                 */
+                "no-unused-vars": "off",
+
+                /*
+                 * Overridden by @typescript-eslint/no-use-before-define
+                 */
+                "no-use-before-define": "off",
+
+                /*
+                 * Overridden by @typescript-eslint/quotes to prevent errors while linting
+                 * typescript code.
+                 */
+                quotes: "off",
+
+                /*
+                 * The @typescript-eslint/require-await rule extends the require-await rule
+                 * from ESLint core, and allows for cases where the additional typing information
+                 * can prevent false positives that would otherwise trigger the rule.
+                 */
+                "require-await": "off",
+
+                /*
+                 * Overridden by @typescript-eslint/semi
+                 */
+                semi: "off",
+
+                /*
+                 * @typescript-eslint/space-before-function-paren
+                 */
+                "space-before-function-paren": "off"
+
+            }
+        }
+    ],
     parser: "@typescript-eslint/parser",
     parserOptions: {
         ecmaVersion: 2020,

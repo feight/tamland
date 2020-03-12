@@ -4,12 +4,10 @@ declare module "postcss-discard-comments" {
 
     import { Plugin } from "postcss";
 
-    interface PluginOptions{}
+    interface Options {}
 
-    export default class PostCssPlugin extends Plugin{
+    const plugin: Plugin<Options>;
 
-        constructor(options: PluginOptions);
-
-    }
+    export default plugin;
 
 }

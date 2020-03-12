@@ -14,8 +14,6 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 
 export class ServiceWorker{
 
-    // Workbox: typeof workbox;
-
     precache: (string|{
         url: string;
         revision: string;

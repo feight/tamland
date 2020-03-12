@@ -236,6 +236,13 @@ const rules = {
     "@typescript-eslint/no-array-constructor": "error",
 
     /*
+     * Requires that .toString() is only called on objects which provide useful information when stringified (no-base-to-string)
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-base-to-string.md
+     */
+    "@typescript-eslint/no-base-to-string": "error",
+
+    /*
      * Disallow duplicate class members
      *
      * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-dupe-class-members.md
@@ -468,6 +475,27 @@ const rules = {
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
 
     /*
+     * Disallows calling an any type value
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unsafe-call.md
+     */
+    "@typescript-eslint/no-unsafe-call": "error",
+
+    /*
+     * Disallows member access on any typed variables
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unsafe-member-access.md
+     */
+    "@typescript-eslint/no-unsafe-member-access": "error",
+
+    /*
+     * Disallows returning any from a function
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unsafe-return.md
+     */
+    "@typescript-eslint/no-unsafe-return": "error",
+
+    /*
      * Disallow unused expressions
      *
      * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-expressions.md
@@ -569,6 +597,13 @@ const rules = {
      * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-readonly.md
      */
     "@typescript-eslint/prefer-readonly": "error",
+
+    /*
+     * Requires that function parameters are typed as readonly to prevent accidental mutation of inputs
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-readonly-parameter-types.md
+     */
+    "@typescript-eslint/prefer-readonly-parameter-types": "error",
 
     /*
      * Enforce to use RegExp#exec over String#match
@@ -732,14 +767,5 @@ const rules = {
 
 
 export default {
-    overrides: [
-        {
-            files: ["*.js", "*.jsx"],
-            rules: Object.keys(rules).reduce((accumulator, rule) => ({
-                ...accumulator,
-                [rule]: "off"
-            }), {})
-        }
-    ],
     rules
 };

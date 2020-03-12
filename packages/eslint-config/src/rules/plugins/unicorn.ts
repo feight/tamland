@@ -12,6 +12,13 @@ export default {
     rules: {
 
         /*
+         * Enforce the use of regex shorthands to improve readability. (fixable)
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/better-regex.md
+         */
+        "unicorn/better-regex": "error",
+
+        /*
          * Enforce a specific parameter name in catch clauses.
          *
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/catch-error-name.md
@@ -374,6 +381,17 @@ export default {
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/regex-shorthand.md
          */
         "unicorn/regex-shorthand": "error",
+
+        /*
+         * Enforce certain things about the contents of strings. For example, you
+         * can enforce using ’ instead of ' to avoid escaping. Or you could block
+         * some words. The possibilities are endless.
+         *
+         * Not using this for now because I can't think of a good use case.
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/string-content.md
+         */
+        "unicorn/string-content": "off",
 
         /*
          * Require new when throwing an error. (fixable)
