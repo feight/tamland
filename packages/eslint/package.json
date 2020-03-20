@@ -1,6 +1,6 @@
 {
   "name": "@tamland/eslint",
-  "version": "0.0.73",
+  "version": "0.0.74",
   "description": "Collection of eslint dependencies",
   "browserslist": "node 8",
   "engines": {
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/feight/tamland/tree/master/packages/eslint#readme",
   "files": [],
   "dependencies": {
-    "@tamland/eslint-config": "0.0.78",
+    "@tamland/eslint-config": "0.0.79",
     "@typescript-eslint/eslint-plugin": "2.23.0",
     "@typescript-eslint/parser": "2.23.0",
     "eslint": "^6.8.0",

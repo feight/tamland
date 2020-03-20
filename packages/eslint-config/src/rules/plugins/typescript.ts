@@ -601,9 +601,11 @@ const rules = {
     /*
      * Requires that function parameters are typed as readonly to prevent accidental mutation of inputs
      *
+     * Appears like there are bugs in the rule and it's covered by no-param-reassign.
+     *
      * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-readonly-parameter-types.md
      */
-    "@typescript-eslint/prefer-readonly-parameter-types": "error",
+    "@typescript-eslint/prefer-readonly-parameter-types": "off",
 
     /*
      * Enforce to use RegExp#exec over String#match
