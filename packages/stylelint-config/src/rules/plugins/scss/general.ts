@@ -29,7 +29,14 @@ export default {
          *
          * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/no-duplicate-mixins/README.md
          */
-        "scss/no-duplicate-mixins": true
+        "scss/no-duplicate-mixins": true,
+
+        /*
+         * Disallows the use of global function names, as these global functions are now located inside built-in Sass modules.
+         *
+         * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/no-global-function-names/README.md
+         */
+        "scss/no-global-function-names": true
 
     }
 };

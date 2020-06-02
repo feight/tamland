@@ -162,13 +162,29 @@ export default {
         "unicorn/no-new-buffer": "error",
 
         /*
+         * Disallow the use of the null literal, to encourage using undefined instead.
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-null.md
+         */
+        "unicorn/no-null": "error",
+
+        /*
          * Disallow process.exit().
          *
-         * Turned off for now because 'no-process-exit' takes care of it
+         * Handled by 'node/no-process-exit'
          *
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-process-exit.md
          */
         "unicorn/no-process-exit": "off",
+
+        /*
+         * Disallow Array#reduce() and Array#reduceRight()
+         *
+         * Off because we like reduce
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-reduce.md
+         */
+        "unicorn/no-reduce": "off",
 
         /*
          * Disallow unreadable array destructuring.
@@ -192,6 +208,15 @@ export default {
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-unused-properties.md
          */
         "unicorn/no-unused-properties": "error",
+
+        /*
+         * Disallow useless undefined
+         *
+         * This conflicts with @typescript-eslint/init-declarations
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-useless-undefined.md
+         */
+        "unicorn/no-useless-undefined": "off",
 
         /*
          * Disallow number literals with zero fractions or dangling dots
@@ -227,15 +252,6 @@ export default {
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-event-key.md
          */
         "unicorn/prefer-event-key": "error",
-
-        /*
-         * Prefer the exponentiation operator over Math.pow() (fixable)
-         *
-         * Taken care of by the base prefer-exponentiation-operator rule
-         *
-         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-exponentiation-operator.md
-         */
-        "unicorn/prefer-exponentiation-operator": "off",
 
         /*
          * Prefer .flatMap(…) over .map(…).flat()
@@ -280,6 +296,20 @@ export default {
         "unicorn/prefer-node-remove": "error",
 
         /*
+         * Prefer Number static properties over global ones.
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-number-properties.md
+         */
+        "unicorn/prefer-number-properties": "error",
+
+        /*
+         * Prefer omitting the catch binding parameter
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-optional-catch-binding.md
+         */
+        "unicorn/prefer-optional-catch-binding": "error",
+
+        /*
          * Prefer String#replaceAll() over regex searches with the global flag
          *
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-replace-all.md
@@ -299,6 +329,15 @@ export default {
          * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-reflect-apply.md
          */
         "unicorn/prefer-replace-all": "error",
+
+        /*
+         * Prefer Set#has() over Array#includes() when checking for existence or non-existenc (fixable)
+         *
+         * It's a bit heavy handed to use this right now.
+         *
+         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/prefer-set-has.md
+         */
+        "unicorn/prefer-set-has": "off",
 
         /*
          * Prefer the spread operator over Array.from(). (fixable)
@@ -374,13 +413,6 @@ export default {
                 }
             }
         ],
-
-        /*
-         * Enforce the use of regex shorthands to improve readability. (fixable)
-         *
-         * https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/regex-shorthand.md
-         */
-        "unicorn/regex-shorthand": "error",
 
         /*
          * Enforce certain things about the contents of strings. For example, you

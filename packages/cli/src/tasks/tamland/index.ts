@@ -1,5 +1,14 @@
 
 
+/*
+
+    eslint
+
+    @typescript-eslint/no-unsafe-assignment: "off",
+    @typescript-eslint/no-unsafe-member-access: "off",
+
+*/
+
 import path from "path";
 
 import fs from "fs-extra";
@@ -79,7 +88,7 @@ const getCache = async function(): Promise<Cache>{
 
         try{
 
-            cache = JSON.parse(raw);
+            cache = JSON.parse(raw) as Cache;
 
         }catch(error){}
 

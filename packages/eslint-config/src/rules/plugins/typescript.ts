@@ -1,5 +1,7 @@
 
 
+import { noMagicNumbersConfig } from "../../settings";
+
 /*
  * Lint rules for the TypeScript language.
  *
@@ -52,6 +54,13 @@ const rules = {
     "@typescript-eslint/brace-style": "error",
 
     /*
+     * Ensures that literals on classes are exposed in a consistent style
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/class-literal-property-style.md
+     */
+    "@typescript-eslint/class-literal-property-style": "error",
+
+    /*
      * Enforces consistent spacing before and after commas
      *
      * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-spacing.md
@@ -87,6 +96,13 @@ const rules = {
      * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/default-param-last.md
      */
     "@typescript-eslint/default-param-last": "error",
+
+    /*
+     * Enforce dot notation whenever possible
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/dot-notation.md
+     */
+    "@typescript-eslint/dot-notation": "error",
 
     /*
      * Require explicit return types on functions and class methods
@@ -132,6 +148,88 @@ const rules = {
     "@typescript-eslint/indent": "off",
 
     /*
+     * Require or disallow initialization in variable declarations
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/init-declarations.md
+     */
+    "@typescript-eslint/init-declarations": [
+        "error",
+        "always"
+    ],
+
+    /*
+     * Enforce consistent spacing before and after keywords
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/keyword-spacing.md
+     */
+    "@typescript-eslint/keyword-spacing": [
+        "error",
+        {
+            after: false,
+            before: false,
+            overrides: {
+                as: {
+                    after: true,
+                    before: true
+                },
+                case: {
+                    after: true
+                },
+                class: {
+                    after: true
+                },
+                const: {
+                    after: true
+                },
+                default: {
+                    after: true,
+                    before: true
+                },
+                export: {
+                    after: true
+                },
+                extends: {
+                    after: true,
+                    before: true
+                },
+                from: {
+                    after: true,
+                    before: true
+                },
+                import: {
+                    after: true
+                },
+                let: {
+                    after: true
+                },
+                of: {
+                    after: true,
+                    before: true
+                },
+                return: {
+                    after: true
+                },
+                this: {
+                    before: true
+                }
+            }
+        }
+    ],
+
+    /*
+     * Require or disallow an empty line between class members
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/lines-between-class-members.md
+     */
+    "@typescript-eslint/lines-between-class-members": [
+        "error",
+        "always",
+        {
+            exceptAfterSingleLine: true
+        }
+    ],
+
+    /*
      * Require a specific member delimiter style for interfaces and type literals
      *
      * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/member-delimiter-style.md
@@ -175,6 +273,13 @@ const rules = {
             ]
         }
     ],
+
+    /*
+     * Enforces using a particular method signature syntax.
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/method-signature-style.md
+     */
+    "@typescript-eslint/method-signature-style": "error",
 
     /*
      * Enforces naming conventions for everything across a codebase
@@ -342,24 +447,28 @@ const rules = {
     "@typescript-eslint/no-inferrable-types": "error",
 
     /*
-     * Disallow Magic Numbers
+     * Disallow this keywords outside of classes or class-like objects
      *
-     * This is off for now because the base no-magic-numbers handles this just fine
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-invalid-this.md
+     */
+    "@typescript-eslint/no-invalid-this": "error",
+
+    /*
+     * Disallows usage of void type outside of return types or generic type arguments.
+     * If void is used as return type, it shouldn’t be a part of intersection/union type.
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-invalid-void-type.md
+     */
+    "@typescript-eslint/no-invalid-void-type": "error",
+
+    /*
+     * Disallow Magic Numbers
      *
      * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.md
      */
     "@typescript-eslint/no-magic-numbers": [
-        "off",
-        {
-            detectObjects: false,
-            ignore: [
-                -1,
-                0,
-                1,
-                2
-            ],
-            ignoreArrayIndexes: true
-        }
+        "error",
+        noMagicNumbersConfig
     ],
 
     /*
@@ -449,7 +558,7 @@ const rules = {
     "@typescript-eslint/no-unnecessary-condition": [
         "error",
         {
-            ignoreRhs: true
+            allowConstantLoopConditions: true
         }
     ],
 
@@ -473,6 +582,13 @@ const rules = {
      * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-type-assertion.md
      */
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
+
+    /*
+     * Disallows assigning any to variables and properties
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unsafe-assignment.md
+     */
+    "@typescript-eslint/no-unsafe-assignment": "error",
 
     /*
      * Disallows calling an any type value
@@ -608,6 +724,13 @@ const rules = {
     "@typescript-eslint/prefer-readonly-parameter-types": "off",
 
     /*
+     * Prefer using type parameter when calling Array#reduce instead of casting
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-reduce-type-parameter.md
+     */
+    "@typescript-eslint/prefer-reduce-type-parameter": "error",
+
+    /*
      * Enforce to use RegExp#exec over String#match
      *
      * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-regexp-exec.md
@@ -620,6 +743,13 @@ const rules = {
      * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md
      */
     "@typescript-eslint/prefer-string-starts-ends-with": "error",
+
+    /*
+     * Recommends using // @ts-expect-error over // @ts-ignore
+     *
+     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/prefer-ts-expect-error.md
+     */
+    "@typescript-eslint/prefer-ts-expect-error": "error",
 
     /*
      * Functions that return promises must be async

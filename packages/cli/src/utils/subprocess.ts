@@ -4,10 +4,11 @@ import childProcess from "child_process";
 
 import through from "through2";
 import { logger } from "@tamland/logger";
+import type nodePTY from "node-pty";
 
 // Doesn't work without require and it's safe to do it here since it's just a test
-// eslint-disable-next-line import/no-commonjs, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
-const pty = require("node-pty");
+// eslint-disable-next-line import/no-commonjs, @typescript-eslint/no-require-imports, global-require
+const pty = require("node-pty") as typeof nodePTY;
 
 
 // eslint-disable-next-line max-lines-per-function
@@ -74,7 +75,7 @@ export const exec = function(options: {
 
                 if(proc !== null){
 
-                    proc.pipe(through.obj((string, encoding, done): void => {
+                    proc.pipe(through.obj((string: string, encoding, done): void => {
 
                         let formattedString = string;
 
@@ -122,7 +123,7 @@ export const exec = function(options: {
 export const spawn = function(options: {
     cwd?: string;
     command: string;
-    environment?: string;
+    environment?: { [key: string]: string };
     filter?: string | RegExp | (string | RegExp)[];
     detatch?: boolean;
     label?: string;
@@ -131,7 +132,7 @@ export const spawn = function(options: {
     const {
         cwd = process.cwd(),
         command = "",
-        environment = process.env,
+        environment = process.env as { [key: string]: string },
         filter = [],
         detatch = false,
         label = "anonymous"
@@ -162,10 +163,6 @@ export const spawn = function(options: {
                 env: environment
             });
 
-            if(!detatch){
-                process.stdin.pipe(term);
-            }
-
             const response: string[] = [];
 
             term.on("data", (data: string): void => {
@@ -186,7 +183,7 @@ export const spawn = function(options: {
 
             term.on("exit", (code: number): void => {
 
-                term.destroy();
+                term.kill();
 
                 if(!detatch){
                     process.stdin.end();

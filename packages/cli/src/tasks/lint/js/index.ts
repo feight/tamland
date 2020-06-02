@@ -28,7 +28,7 @@ const rawPackageJSON = String(fs.readFileSync(path.join(process.cwd(), "package.
 
 
 // Returns true if eslint has made any automatic fixes to a file
-const fixed = (file: vinyl): boolean => Boolean(
+const fixed = (file: ESLintFile): boolean => Boolean(
     config.fix &&
     file.eslint &&
     file.eslint.fixed
@@ -37,6 +37,7 @@ const fixed = (file: vinyl): boolean => Boolean(
 
 export interface ESLintFile extends vinyl{
     eslint: {
+        errorCount: number;
         fixed: boolean;
     };
 }
@@ -53,9 +54,10 @@ export const lintJSTask = async function(
         .pipe(gulpUtils.print("lint"))
         .pipe(watching ? eslint(config) : cache(eslint(config), {
             // Cache key based on the file contents, eslint + plugin versions and eslint options
-            key: (file): string => file.contents ? `${ file.contents.toString("utf8") }${ rawPackageJSON }` : "",
-            success: (file): boolean => file.eslint.errorCount === 0,
-            value: (file): { eslint: ESLintFile["eslint"] } => ({ eslint: file.eslint })
+            // eslint-disable-next-line @typescript-eslint/no-base-to-string
+            key: (file: vinyl): string => file.contents ? `${ file.contents.toString("utf8") }${ rawPackageJSON }` : "",
+            success: (file: ESLintFile): boolean => file.eslint.errorCount === 0,
+            value: (file: ESLintFile): { eslint: ESLintFile["eslint"] } => ({ eslint: file.eslint })
         }))
         .pipe(eslint.format(
             (errorFiles): void => {
@@ -77,7 +79,7 @@ export const lintJSTask = async function(
 
             }
         ))
-        .pipe(gulpIf((file): boolean => fixed(file), gulp.dest(".")))
+        .pipe(gulpIf((file): boolean => fixed(file as ESLintFile), gulp.dest(".")))
         .pipe(watching ? gulpUtils.skip() : eslint.failAfterError())
         .on("finish", (): void => {
 

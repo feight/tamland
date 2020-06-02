@@ -58,7 +58,7 @@ export class Component<TP extends ComponentProps, TS> extends React.Component<TP
                             return supports;
 
                         }
-                    });
+                    }) as AddEventListenerOptions;
 
                     window.addEventListener("testPassive", (): boolean => true, options);
                     window.removeEventListener("testPassive", (): boolean => true, options);

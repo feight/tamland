@@ -51,7 +51,21 @@ export default {
          *
          * https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unused-enable.html
          */
-        "eslint-comments/no-unused-enable": "error"
+        "eslint-comments/no-unused-enable": "error",
+
+        /*
+         * This rule warns directive comments without description.
+         *
+         * https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/require-description.html
+         */
+        "eslint-comments/require-description": [
+            "error",
+            {
+                ignore: [
+                    "eslint-enable"
+                ]
+            }
+        ]
 
     }
 };

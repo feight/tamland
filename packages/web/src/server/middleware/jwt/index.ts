@@ -1,9 +1,6 @@
 
 
-import {
-    Express,
-    Request
-} from "express";
+import express from "express";
 import expressJWT from "express-jwt";
 
 import { JWTConfiguration } from "./types";
@@ -12,7 +9,7 @@ import logger from "../../../logger";
 
 
 export const jwt = function(
-    app: Express,
+    app: express.Express,
     config: JWTConfiguration
 ): void{
 
@@ -25,7 +22,9 @@ export const jwt = function(
 
         app.use(expressJWT({
             credentialsRequired: false,
-            getToken: (request: Request): string|null => {
+            getToken: (request: express.Request): string|null => {
+
+                /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return */
 
                 const query = request.query;
                 const cookies = request.cookies;
@@ -51,6 +50,8 @@ export const jwt = function(
                     return query.token;
 
                 }
+
+                /* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return */
 
                 return null;
 

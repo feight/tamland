@@ -1,6 +1,6 @@
 {
   "name": "@tamland/jasmine",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Collection of jasmine dependencies",
   "browserslist": "node 8",
   "engines": {
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/feight/tamland/tree/master/packages/jasmine#readme",
   "files": [],
   "dependencies": {
-    "@types/jasmine": "^3.5.7",
+    "@types/jasmine": "^3.5.10",
     "jasmine": "^3.5.0",
     "jasmine-console-reporter": "^3.1.0"
   }

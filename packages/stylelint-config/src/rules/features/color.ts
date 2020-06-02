@@ -11,6 +11,13 @@ export default {
     rules: {
 
         /*
+         * Specify modern or legacy notation for applicable color-functions.
+         *
+         * https://stylelint.io/user-guide/rules/color-function-notation/
+         */
+        "color-function-notation": "modern",
+
+        /*
          * Require (where possible) or disallow named colors.
          *
          * https://stylelint.io/user-guide/rules/color-named/

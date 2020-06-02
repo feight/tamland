@@ -13,8 +13,10 @@ const atRules = [
     "keyframes",
     "media",
     "mixin",
+    "nest",
     "page",
     "return",
+    "use",
     "while"
 ];
 

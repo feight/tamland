@@ -45,7 +45,7 @@ export class ServiceWorker{
                 plugins: [
                     new workbox.expiration.Plugin({
                         // 30 Days
-                        // eslint-disable-next-line no-magic-numbers
+                        // eslint-disable-next-line @typescript-eslint/no-magic-numbers
                         maxAgeSeconds: 30 * 24 * 60 * 60,
                         maxEntries: 60
                     })

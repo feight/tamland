@@ -23,7 +23,7 @@ export const open = async function(path: string): Promise<void>{
 
             const test = (retry = 1): void => {
 
-                request(path, (error): void => {
+                request(path, (error?: Error): void => {
 
                     if(error){
 

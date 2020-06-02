@@ -34,13 +34,13 @@ export const browserconfigRouter = (config: BrowserconfigConfiguration): express
 
     };
 
-    /* eslint-disable no-magic-numbers, more/no-numeric-endings-for-variables */
+    /* eslint-disable @typescript-eslint/no-magic-numbers, more/no-numeric-endings-for-variables */
     const icon128 = getIconPath(128);
     const icon144 = getIconPath(144);
     const icon270 = getIconPath(270);
     const icon558 = getIconPath(558);
     const icon558x270 = getIconPath([558, 270]);
-    /* eslint-enable no-magic-numbers, more/no-numeric-endings-for-variables */
+    /* eslint-enable @typescript-eslint/no-magic-numbers, more/no-numeric-endings-for-variables */
 
     router.get("/browserconfig.xml", (request, response): void => {
 

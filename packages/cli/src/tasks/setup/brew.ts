@@ -31,7 +31,14 @@ export const brewSetupTask = async function(formula?: string): Promise<void>{
             detatch: true
         });
 
-        const [latest] = JSON.parse(rawJSON);
+        const [latest] = JSON.parse(rawJSON) as {
+            /* eslint-disable @typescript-eslint/naming-convention */
+            linked_keg: string;
+            versions: {
+                stable: string;
+            };
+            /* eslint-enable @typescript-eslint/naming-convention */
+        }[];
         const updated = latest.linked_keg === latest.versions.stable;
 
         if(exists && updated){

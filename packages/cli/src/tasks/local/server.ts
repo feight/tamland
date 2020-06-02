@@ -80,11 +80,14 @@ const awaitServerScript = function(config: TamlandConfig): Promise<string>{
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const output = (color: string): (data: any) => void => (data: any): void => {
 
-    const string = data.toString();
+    const string = String(data);
 
     try{
 
-        const log = JSON.parse(string);
+        const log = JSON.parse(string) as {
+            message?: string;
+            level: "info" | "warn" | "error";
+        };
 
         if(log.message){
 

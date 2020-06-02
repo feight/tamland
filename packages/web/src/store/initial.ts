@@ -3,7 +3,7 @@
 import logger from "../logger";
 
 
-let initialStateCache: object | undefined;
+let initialStateCache: object | undefined = undefined;
 
 
 export const getInitialState = function(serializationId: string): object{
@@ -26,6 +26,8 @@ export const getInitialState = function(serializationId: string): object{
 
             try{
 
+                // Yeah this isn't safe... i guess we're living on the edge
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 initialState = JSON.parse(element.innerHTML);
 
             }catch(error){

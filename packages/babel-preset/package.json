@@ -1,6 +1,6 @@
 {
   "name": "@tamland/babel-preset",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "Shared preset for babel",
   "main": "lib",
   "types": "lib",
@@ -43,30 +43,30 @@
     "@babel/helper-plugin-utils": "^7.8.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-decorators": "^7.8.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
     "@babel/plugin-transform-named-capturing-groups-regex": "^7.8.3",
-    "@babel/plugin-transform-typescript": "^7.8.3",
-    "@babel/preset-env": "^7.8.6",
-    "@babel/preset-react": "^7.8.3",
-    "@babel/preset-typescript": "^7.8.3",
+    "@babel/plugin-transform-typescript": "^7.9.4",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
     "@loadable/babel-plugin": "^5.12.0",
     "babel-plugin-add-module-exports": "^1.0.2",
-    "babel-plugin-jsx-control-statements": "^4.0.0",
+    "babel-plugin-jsx-control-statements": "^4.1.0",
     "babel-plugin-shebang": "^1.0.0",
-    "babel-plugin-transform-typescript-metadata": "^0.2.2",
-    "react-hot-loader": "^4.12.19",
-    "typescript": "^3.8.2"
+    "babel-plugin-transform-typescript-metadata": "^0.3.0",
+    "react-hot-loader": "^4.12.20",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.6",
-    "@tamland/jasmine": "0.0.3",
-    "@types/babel__core": "^7.1.6",
-    "@types/node": "^13.7.6",
+    "@babel/core": "^7.9.0",
+    "@tamland/jasmine": "0.0.4",
+    "@types/babel__core": "^7.1.7",
+    "@types/node": "^13.13.2",
     "jasmine": "^3.5.0",
-    "renamer": "^1.1.4"
+    "renamer": "^2.0.0"
   },
   "peerDependencies": {
-    "@babel/core": "^7.8.6"
+    "@babel/core": "^7.9.0"
   }
 }

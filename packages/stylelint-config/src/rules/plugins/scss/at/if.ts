@@ -22,7 +22,7 @@ export default {
          *
          * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules//README.md
          */
-        "scss/at-if-closing-brace-space-after": "always-intermediate",
+        "scss/at-if-closing-brace-space-after": "never-intermediate",
 
         /*
          * Check for equality to null is unnecessarily explicit since null is falsey in Sass.

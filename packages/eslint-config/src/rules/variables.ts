@@ -13,7 +13,6 @@ import confusingBrowserGlobals from "confusing-browser-globals";
 export default {
     rules: {
 
-
         /*
          * Require or disallow initialization in variable declarations
          *

@@ -83,6 +83,27 @@ export default {
         ],
 
         /*
+         * Disallow new operators with calls to require
+         *
+         * https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-new-require.md
+         */
+        "node/no-new-require": "error",
+
+        /*
+         * Disallow string concatenation with __dirname and __filename
+         *
+         * https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-path-concat.md
+         */
+        "node/no-path-concat": "error",
+
+        /*
+         * Disallow the use of process.exit()
+         *
+         * https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-process-exit.md
+         */
+        "node/no-process-exit": "error",
+
+        /*
          * Disallow 'bin' files which are ignored by npm
          *
          * https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-unpublished-bin.md
@@ -119,9 +140,10 @@ export default {
             "error",
             {
                 ignores: [
+                    "dynamicImport",
                     "modules"
                 ],
-                version: ">= 12.16.1"
+                version: ">= 12.17.0"
             }
         ],
 

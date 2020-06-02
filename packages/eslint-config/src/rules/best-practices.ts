@@ -7,7 +7,10 @@
  */
 
 
-import { maximumCyclomaticComplexity } from "../settings";
+import {
+    maximumCyclomaticComplexity,
+    noMagicNumbersConfig
+} from "../settings";
 
 
 export default {
@@ -25,7 +28,12 @@ export default {
          *
          * https://eslint.org/docs/rules/array-callback-return
          */
-        "array-callback-return": "error",
+        "array-callback-return": [
+            "error",
+            {
+                allowImplicit: true
+            }
+        ],
 
         /*
          * Enforce the use of variables within the scope they are defined
@@ -76,6 +84,13 @@ export default {
          * https://eslint.org/docs/rules/default-case
          */
         "default-case": "error",
+
+        /*
+         * Enforce default clauses in switch statements to be last
+         *
+         * https://eslint.org/docs/rules/default-case-last
+         */
+        "default-case-last": "error",
 
         /*
          * Enforce default parameters to be last
@@ -304,16 +319,7 @@ export default {
          */
         "no-magic-numbers": [
             "error",
-            {
-                detectObjects: false,
-                ignore: [
-                    -1,
-                    0,
-                    1,
-                    2
-                ],
-                ignoreArrayIndexes: true
-            }
+            noMagicNumbersConfig
         ],
 
         /*

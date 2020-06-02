@@ -46,12 +46,41 @@ export default {
          *
          * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules//README.md
          */
+        "scss/dollar-variable-empty-line-after": [
+            "always",
+            {
+                except: [
+                    "before-dollar-variable"
+                ]
+            }
+        ],
+
+        /*
+         * Require a single empty line or disallow empty lines before $-variable declarations (Autofixable).
+         *
+         * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules//README.md
+         */
         "scss/dollar-variable-empty-line-before": [
             "always",
             {
                 except: [
                     "after-comment",
                     "after-dollar-variable"
+                ]
+            }
+        ],
+
+        /*
+         * Require $-variable declarations to be placed first in a block (root or a rule).
+         *
+         * https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/dollar-variable-first-in-block/README.md
+         */
+        "scss/dollar-variable-first-in-block": [
+            true,
+            {
+                ignore: [
+                    "comments",
+                    "imports"
                 ]
             }
         ],

@@ -18,6 +18,7 @@ const web = function(): Promise<{
 
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return prompt("Web Environment", environments.map((environment): {
         name: string;
         value: {

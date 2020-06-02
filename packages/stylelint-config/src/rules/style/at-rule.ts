@@ -19,7 +19,8 @@ export default {
             "always",
             {
                 except: ["blockless-after-same-name-blockless"],
-                ignore: ["after-comment"]
+                ignore: ["after-comment"],
+                ignoreAtRules: ["else"]
             }
         ],
 

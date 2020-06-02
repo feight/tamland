@@ -11,7 +11,13 @@ import { Request } from "express";
 import { errorHandler } from "./error-handler";
 
 
-export const client = (request: Request): ApolloClient<{}> => {
+export const client = (request?: Request): ApolloClient<{}> => {
+
+    if(!request){
+
+        throw new Error("Server Apollo Client requires the current request");
+
+    }
 
     const cache = new InMemoryCache();
 

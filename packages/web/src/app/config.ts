@@ -60,14 +60,14 @@ export class TamlandAppConfig{
         this.favicons = config.favicons ?? [{
             path: "/favicon.png",
             // Width height array
-            // eslint-disable-next-line no-magic-numbers
+            // eslint-disable-next-line @typescript-eslint/no-magic-numbers
             size: [32, 32]
         }];
 
         this.icons = config.icons ?? [{
             path: "/favicon.png",
             // Width height array
-            // eslint-disable-next-line no-magic-numbers
+            // eslint-disable-next-line @typescript-eslint/no-magic-numbers
             size: [128, 128]
         }];
 

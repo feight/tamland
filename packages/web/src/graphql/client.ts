@@ -25,6 +25,8 @@ const getInitialState = function(): any{
 
         try{
 
+            // No real way to make this safe
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             initialState = JSON.parse(element.innerHTML);
 
         }catch(error){

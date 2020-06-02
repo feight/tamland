@@ -7,8 +7,7 @@ import { rcFile } from "rc-config-loader";
 import { Logger } from "@tamland/logger";
 
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const cfg: any = rcFile("tamland");
+const cfg = rcFile("tamland");
 const user = cfg?.config ? cfg.config : {};
 const base = "src/*/!(node_modules|dist)/**/*";
 

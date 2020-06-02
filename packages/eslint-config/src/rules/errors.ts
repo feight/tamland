@@ -199,6 +199,13 @@ export default {
         "no-irregular-whitespace": "error",
 
         /*
+         * Disallow Number Literals That Lose Precision
+         *
+         * https://eslint.org/docs/rules/no-loss-of-precision
+         */
+        "no-loss-of-precision": "error",
+
+        /*
          * Disallow characters which are made with multiple code points in
          * character class syntax
          *
@@ -275,6 +282,13 @@ export default {
          * https://eslint.org/docs/rules/no-unsafe-negation
          */
         "no-unsafe-negation": "error",
+
+        /*
+         * Disallow useless backreferences in regular expressions
+         *
+         * https://eslint.org/docs/rules/no-useless-backreference
+         */
+        "no-useless-backreference": "error",
 
         /*
          * Disallow assignments that can lead to race conditions due to usage of await or yield

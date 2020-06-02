@@ -93,11 +93,26 @@ export default {
         "no-new-symbol": "error",
 
         /*
+         * This rule disallows specified names from being used as exported names.
+         *
+         * By default, this rule doesn't disallow any names. Only the names you specify in the configuration will be disallowed.
+         *
+         * Off for now because I haven't thought of any names that should be restricted
+         *
+         * https://eslint.org/docs/rules/no-restricted-exports
+         */
+        "no-restricted-exports": "off",
+
+        /*
          * Disallow specified modules when loaded by import
+         *
+         * By default, this rule doesn't disallow any names. Only the names you specify in the configuration will be disallowed.
+         *
+         * Off for now because I haven't thought of any names that should be restricted
          *
          * https://eslint.org/docs/rules/no-restricted-imports
          */
-        "no-restricted-imports": "error",
+        "no-restricted-imports": "off",
 
         /*
          * Disallow this/super before calling super() in constructors

@@ -2,8 +2,7 @@
 
 export const func = async function(){
 
-    // Needed for the webpack dynamic import to work correctly
-    // eslint-disable-next-line no-inline-comments
+    // eslint-disable-next-line no-inline-comments -- Needed for the webpack dynamic import to work correctly
     const test = await import(/* webpackChunkName: "test.js" */ "./test-import");
 
     console.log(test);

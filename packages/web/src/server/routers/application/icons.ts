@@ -28,7 +28,7 @@ export const renderIcons = function(icons: Icon[]): string{
 
     };
 
-    /* eslint-disable no-magic-numbers, more/no-numeric-endings-for-variables */
+    /* eslint-disable @typescript-eslint/no-magic-numbers, more/no-numeric-endings-for-variables */
     const icon16 = getIconPath(16);
     const icon32 = getIconPath(32);
     const icon57 = getIconPath(57);
@@ -48,7 +48,7 @@ export const renderIcons = function(icons: Icon[]): string{
     const icon270 = getIconPath(270);
     const icon558 = getIconPath(558);
     const icon558x270 = getIconPath([558, 270]);
-    /* eslint-enable no-magic-numbers, more/no-numeric-endings-for-variables */
+    /* eslint-enable @typescript-eslint/no-magic-numbers, more/no-numeric-endings-for-variables */
 
     if(misses.length > 0){
 

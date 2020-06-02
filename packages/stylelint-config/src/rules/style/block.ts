@@ -22,7 +22,12 @@ export default {
          *
          * https://stylelint.io/user-guide/rules/block-closing-brace-newline-after/
          */
-        "block-closing-brace-newline-after": "always",
+        "block-closing-brace-newline-after": [
+            "always",
+            {
+                ignoreAtRules: ["if"]
+            }
+        ],
 
         /*
          * Require a newline or disallow whitespace before the closing brace of blocks (Autofixable).

@@ -2,6 +2,7 @@
 
 export default {
     extends: [
+        "./alpha",
         "./at-rule",
         "./color",
         "./comment",
@@ -11,6 +12,7 @@ export default {
         "./declaration",
         "./function",
         "./general",
+        "./hue",
         "./keyframes",
         "./media-feature",
         "./number",

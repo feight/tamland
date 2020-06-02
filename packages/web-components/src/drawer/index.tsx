@@ -176,8 +176,6 @@ export class Drawer extends Component<DrawerProps, DrawerState>{
 
                 if(target){
 
-                    // Makes sense to use a while loop here.
-                    // eslint-disable-next-line no-loops/no-loops
                     while(target !== null){
 
                         if(
@@ -199,7 +197,6 @@ export class Drawer extends Component<DrawerProps, DrawerState>{
                     }
 
                 }
-
 
             };
 

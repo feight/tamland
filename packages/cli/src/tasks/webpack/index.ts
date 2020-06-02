@@ -1,4 +1,13 @@
 
+/*
+
+    eslint
+
+    @typescript-eslint/no-unsafe-assignment: "off",
+    @typescript-eslint/no-unsafe-member-access: "off",
+    @typescript-eslint/no-unsafe-call: "off",
+
+*/
 
 import path from "path";
 
@@ -87,7 +96,7 @@ export const webpackTask = async function(config: TamlandConfig, options: Webpac
     process.chdir(path.join(config.cwd, `src/${ platform }`));
 
     // We'll allow this for now
-    // eslint-disable-next-line no-async-promise-executor, @typescript-eslint/no-misused-promises, unicorn/consistent-function-scoping
+    // eslint-disable-next-line no-async-promise-executor, @typescript-eslint/no-misused-promises
     const webpackPromise = (target: Target): () => Promise<void> => (): Promise<void> => new Promise(async (resolve): Promise<void> => {
 
         const label = "webpack";

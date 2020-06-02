@@ -106,6 +106,8 @@ export const applicationRouter = (routerConfig: AppRouterConfiguration): express
         const chunkExtractor = createChunkExtractor([
             "index"
         ]);
+
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const reduxState = store.getState();
         const apolloClient = createApolloClient(request);
 

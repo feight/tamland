@@ -12,6 +12,7 @@ import "regenerator-runtime/runtime";
 
 import program from "commander";
 import { logger } from "@tamland/logger";
+import { Platform } from "@tamland/config/lib";
 
 import packageJSON from "../../package.json";
 import { config } from "../config";
@@ -39,13 +40,15 @@ program.version(packageJSON.version);
 program
 .command("build")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
-.action(async (options): Promise<void> => {
+.action(async (options: {
+    platform?: Platform;
+}): Promise<void> => {
 
     await cleanTask(config);
 
     await buildTask(config, {
         mode: "production",
-        platform: options.platform || "web"
+        platform: options.platform ?? "web"
     });
 
 });
@@ -71,13 +74,15 @@ program
 program
 .command("deploy")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
-.action(async (options): Promise<void> => {
+.action(async (options: {
+    platform?: Platform;
+}): Promise<void> => {
 
     await cleanTask(config);
 
     await deployTask(config, {
         mode: "production",
-        platform: options.platform || "web"
+        platform: options.platform ?? "web"
     });
 
     // Needed because this often hangs
@@ -90,8 +95,10 @@ program
 .command("lint")
 .option("-w, --watch", "Watch the lint")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
-.action(async (options): Promise<void> => lintTask(config, {
-    watch: options.watch || false
+.action(async (options: {
+    watch?: boolean;
+}): Promise<void> => lintTask(config, {
+    watch: options.watch ?? false
 }));
 
 
@@ -99,9 +106,12 @@ program
 .command("local")
 .option("-p, --platform [platform]", "device platform (defaults to 'web')")
 .option("--production", "run the local server as close to production as possible (defaults to false)")
-.action(async (options): Promise<void> => localTask(config, {
+.action(async (options: {
+    platform?: Platform;
+    production?: boolean;
+}): Promise<void> => localTask(config, {
     mode: options.production ? "production" : "development",
-    platform: options.platform || "web",
+    platform: options.platform ?? "web",
     watch: !options.production
 }));
 

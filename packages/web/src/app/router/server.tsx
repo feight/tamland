@@ -6,7 +6,7 @@ import { StaticRouter } from "react-router-dom";
 import { BaseRouter } from "./base";
 
 
-export class Router extends BaseRouter{
+export default class ServerRouter extends BaseRouter{
 
     render(): React.ReactNode{
 

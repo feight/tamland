@@ -53,7 +53,7 @@ export const lintCSSTask = function(
             const original = fs.readFileSync(p).toString();
             // Accessing a property of a Vinyl file, don't have a choice
             // eslint-disable-next-line no-underscore-dangle
-            const processed = file._contents.toString();
+            const processed = (file._contents as string).toString();
 
             const fixed = original !== processed;
 

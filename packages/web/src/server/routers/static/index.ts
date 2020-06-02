@@ -31,6 +31,13 @@ export interface StaticRouter{
 }
 
 
+interface WebpackAssets{
+    [ id: string ]: {
+        js: string;
+    };
+}
+
+
 const getStaticFileMap = function(
     staticFiles: StaticFile[],
     staticFolder: string,
@@ -41,7 +48,7 @@ const getStaticFileMap = function(
 
     // Static url base and source
     const source = "dist/client";
-    const webpackAssets = JSON.parse(fs.readFileSync(path.join(process.cwd(), "dist/client/webpack-assets.json")).toString());
+    const webpackAssets = JSON.parse(fs.readFileSync(path.join(process.cwd(), "dist/client/webpack-assets.json")).toString()) as WebpackAssets;
     const getWebpackAsset = (chunkName: string): string => webpackAssets[chunkName].js.replace(`/${ staticFolder }`, source);
 
     const customStaticFiles: StaticFile[] = staticFiles.map((file): StaticFile => ({
